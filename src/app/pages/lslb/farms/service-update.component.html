@@ -1,0 +1,170 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" *ngIf="serviceParams">
+	<div class="row">
+		<div class="col-sm-6 col-12">
+			<div class="form-group">
+				<label for="vhost">Virtual Host</label>
+				<input type="text" class="form-control" id="vhost" name="vhost" formControlName="vhost">
+			</div>
+		</div>
+		<div class="col-sm-6 col-12">
+			<div class="form-group">
+				<label for="urlp">URL Pattern</label>
+				<input type="text" class="form-control" id="urlp" name="urlp" formControlName="urlp">
+			</div>
+		</div>		
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-12">
+			<div class="form-group">
+				<label for="leastresp">Least Response</label>
+				<ui-switch name="leastresp" id="leastresp" size="small" formControlName="leastresp"></ui-switch>
+			</div>
+		</div>
+		<div class="col-sm-6 col-12">
+			<div class="form-group">
+				<label for="httpsb">HTTPS Backends</label>
+				<ui-switch name="httpsb" id="httpsb" size="small" formControlName="httpsb"></ui-switch>
+			</div>
+		</div>		
+	</div>
+	<div class="div-redirect">
+		<br/>
+		<p><b>Redirect</b></p>
+		<hr/>
+		<div class="row">
+			<div class="col-sm-6 col-12">
+				<div class="form-group">
+					<label for="redirect_check">Redirect</label>
+					<ui-switch name="redirect_check" id="redirect_check" size="small" [(ngModel)]="redirect_check" [ngModelOptions]="{standalone: true}" (change)="change($event, 'redirect_check')"></ui-switch>
+				</div>
+			</div>				
+		</div>
+		<div *ngIf="redirect_check == true">
+			<div class="row">
+				<div class="col-sm-6 col-12">
+					<div class="form-group">
+						<label for="redirect">Redirect URL</label>
+						<input type="text" class="form-control" id="redirect" name="redirect" formControlName="redirect">
+						<div *ngIf="sF.redirect.errors" class="invalid-feedback">
+							<div *ngIf="sF.redirect.errors.required">Redirect is required</div>
+		                    <div *ngIf="sF.redirect.errors.pattern">Redirect should be a URL (http(s)://...)</div>
+		              	</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-12">
+					<div class="form-group">
+						<label for="redirecttype">Redirect Type</label>
+						<ng-select [items]="redirectTypes"
+					           formControlName="redirecttype"
+					           id="redirecttype"
+					           name="redirecttype"
+					           bindLabel="label"
+					           bindValue="value">
+					  	</ng-select>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div class="div-persistence">
+		<br/>
+		<p><b>Persistence</b></p>
+		<hr/>
+		<div class="row">
+			<div class="col-sm-6 col-12">
+				<div class="form-group">
+					<label for="persistence">Persistence</label>
+					<ng-select [items]="persistenceTypes"
+					           formControlName="persistence"
+					           id="persistence"
+					           name="persistence"
+					           bindLabel="label"
+					           bindValue="value"
+					           (change)="change($event.value, 'persistence')">
+					</ng-select>
+				</div>
+			</div>
+		</div>
+		<div class="div-persistence-enabled" *ngIf="sF.persistence.value != ''">
+			<div class="row">
+				<div class="col-sm-6 col-12">
+					<div class="form-group">	
+						<label for="ttl">Persistence session time to live</label>
+						<div class="input-group">
+				          <input type="number" class="form-control" name="ttl" id="ttl" formControlName="ttl"/>
+				          <span class="input-group-addon">Seconds</span>
+				        </div>
+				        <div *ngIf="sF.ttl?.errors" class="invalid-feedback">
+				        	<div *ngIf="sF.ttl.errors.required">Persistence TTL is required</div>
+		                    <div *ngIf="sF.ttl.errors.min">Persistence TTl to be greater than 0</div>
+		              	</div>
+				    </div>
+				</div>
+				<div class="col-sm-6 col-12" *ngIf="sF.persistence.value == 'URL' || sF.persistence.value == 'COOKIE' || sF.persistence.value == 'HEADER'">
+					<div class="form-group">	
+						<label for="sessionid">Persistence session identifier</label>
+			          	<input type="text" class="form-control" name="sessionid" id="sessionid" formControlName="sessionid"/>
+			          	<div *ngIf="sF.sessionid?.errors" class="invalid-feedback">
+		                    <div *ngIf="sF.sessionid.errors.required">Session ID is required</div>
+		              	</div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="div-farmguardian">
+		<br/>
+		<p><b>Farmguardian</b></p>
+		<hr/>
+		<div class="row">
+			<div class="col-sm-6 col-12">
+				<div class="form-group">
+					<label for="Farm guardian">Health Checks for backend</label>
+					<ng-select [items]="farmguardians"
+					           [(ngModel)]="farmguardian"
+					           [ngModelOptions]="{standalone: true}"
+					           id="farmguardian"
+					           name="farmguardian"
+					           bindValue="name"
+				           	   (change)="changeFarmGuardian()"					           
+					           [searchFn]="service.searchFarmguardian"
+					           placeholder="Disabled">
+					           <ng-template ng-label-tmp let-item="item">
+							        <div *ngIf="item.name == ''">Disabled</div>
+					            	<div *ngIf="item.name != ''"> 
+					            		<b>{{item.name}}</b>:
+					            		<small>{{item.description}}</small>
+					            	</div>
+							   </ng-template>
+							   <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+					            	<div *ngIf="item.name == ''">Disabled</div>
+						            <div *ngIf="item.name != ''" [ngOptionHighlight]="search"> {{item.name}} <br />
+						            	<small>{{item.description}}</small>
+					            	</div>
+					        	</ng-template>	
+					</ng-select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="div-backends" *ngIf="!redirect_check && serviceValues.redirect == ''">
+		<br/>
+		<p><b>Backends</b></p>
+		<hr/>
+
+    	<zevenet-table-editable *ngIf="serviceParams?.backends" [data]="serviceParams.backends" [cols]="columns" [actions]="actionsList" keySort="id" object="backend" (action)="onAction($event)" (create)="createBackend($event)" (edit)="editBackend($event)"></zevenet-table-editable>		        
+	</div>
+	<div class="row">
+		<button class="btn btn-success mt-5 ml-4" [disabled]="serviceForm.invalid || denySubmit">Submit</button>
+	</div>	
+</form>

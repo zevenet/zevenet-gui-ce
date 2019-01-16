@@ -1,0 +1,105 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+    System Graphs
+  </nb-card-header>
+  <nb-card-body>
+    	<div class="row">
+	  		<div class="col-12">
+	  			<div class="form-group">
+	  				<label for="systemValue">Show graphs</label>
+					<ng-select #type [items]="systemList"
+						   (change)="getGraphSystem()"
+						   placeholder="Select Graph"
+				           [(ngModel)]="systemValue"
+				           appendTo="nb-card"
+				           id="systemValue"
+				           name="systemValue">
+				           <ng-template ng-label-tmp let-item="item">
+						    	<span>
+						    		{{item | replaceRoot}}
+						    	</span>
+						    </ng-template>
+				           <ng-template ng-option-tmp let-item="item">
+						    	<span>
+						    		{{item | replaceRoot}}
+						    	</span>
+				        	</ng-template>
+				  </ng-select>
+	  			</div>
+	  		</div>  		
+	  	</div>
+	  	<div class="graph" *ngFor="let graph of graphsSystem"  [nbSpinner]="loadingSystem">
+	  		<h5>{{graph.frequency.charAt(0).toUpperCase() + graph.frequency.slice(1)}} Graph</h5>
+	  		<img [src]="sanitizer.bypassSecurityTrustUrl(graph.graph | filterGraphs)">
+	  	</div>
+	</nb-card-body>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+    Interfaces Graphs
+  </nb-card-header>
+  <nb-card-body>
+    	<div class="row">
+	  		<div class="col-12">
+	  			<div class="form-group">
+	  				<label for="interfaceValue">Show graphs</label>
+					<ng-select #type [items]="interfaceList | filterGraphsInterfaces"
+						   (change)="getGraphInterfaces()"
+						   placeholder="Select Graph"
+				           [(ngModel)]="interfaceValue"
+				           appendTo="nb-card"
+				           id="interfaceValue"
+				           name="interfaceValue"
+				           bindLabel="name"
+				           bindValue="name">
+				  </ng-select>
+	  			</div>
+	  		</div>  		
+	  	</div>
+	  	<div class="graph" *ngFor="let graph of graphsInterfaces"  [nbSpinner]="loadingInterfaces">
+	  		<h5>{{graph.frequency.charAt(0).toUpperCase() + graph.frequency.slice(1)}} Graph</h5>
+	  		<img [src]="sanitizer.bypassSecurityTrustUrl(graph.graph | filterGraphs)">
+	  	</div>
+	</nb-card-body>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+   	Farms Graphs
+  </nb-card-header>
+  <nb-card-body>
+    	<div class="row">
+	  		<div class="col-12">
+	  			<div class="form-group">
+	  				<label for="farmValue">Show graphs</label>
+					<ng-select #type [items]="farmList | filterFarmStats"
+						   (change)="getGraphFarms()"
+						   placeholder="Select Graph"
+				           [(ngModel)]="farmValue"
+				           appendTo="nb-card"
+				           id="farmValue"
+				           name="farmValue"
+				           bindLabel="farmname"
+				           bindValue="farmname">
+				  </ng-select>
+	  			</div>
+	  		</div>  		
+	  	</div>
+	  	<div class="graph" *ngFor="let graph of graphsFarms" [nbSpinner]="loadingFarms">
+	  		<h5>{{graph.frequency.charAt(0).toUpperCase() + graph.frequency.slice(1)}} Graph</h5>
+	  		<img [src]="sanitizer.bypassSecurityTrustUrl(graph.graph | filterGraphs)">
+	  	</div>
+  </nb-card-body>
+</nb-card>
+
+
+    

@@ -1,0 +1,33 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+    Upload SSL Certificate
+  </nb-card-header>
+
+  <nb-card-body>
+  	<form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" class="mr-4 ml-4">
+		<div class="row">
+			<div class="col-sm-10 col-10">
+				<div class="form-group">
+					<label class="custom-file-label" for="file">
+						{{names.length > 0 ? names.length > 1 ? names.length + ' Selected files' : names[0] : 'Choose one or more files' }}
+					</label>
+			  		<input type="file" class="custom-file-input" name="file" id="file" multiple (change)="onFileSelected($event)" accept=".pem,.csr">
+			  	</div>
+			 </div>
+		</div>
+		<div class="row">
+			<button type="submit" [disabled]="!formGroup.dirty" class="btn btn-success mt-2">Upload</button>
+		</div>
+	</form>
+  </nb-card-body>
+</nb-card>

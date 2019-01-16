@@ -1,0 +1,28 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+    IPv4 Gateway
+  </nb-card-header>
+
+  <nb-card-body>
+     <zevenet-table *ngIf="gateway.ipv4" [data]="[gateway.ipv4]" [cols]="columns" [actions]="actionsList" [createButton]="false" [editConfig]="{icon: 'fa-cog', title: 'Configure'}" keySort="version" object="IPv4 gateway" (action)="onAction($event)"></zevenet-table>
+  </nb-card-body>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+    IPv6 Gateway
+  </nb-card-header>
+
+  <nb-card-body>
+     <zevenet-table *ngIf="gateway.ipv6" [data]="[gateway.ipv6]" [cols]="columns" [actions]="actionsList" [createButton]="false" keySort="version" [editConfig]="{icon: 'fa-cog', title: 'Configure'}" object="IPv6 gateway"></zevenet-table>
+  </nb-card-body>
+</nb-card>

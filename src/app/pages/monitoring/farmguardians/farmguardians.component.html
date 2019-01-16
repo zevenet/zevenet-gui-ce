@@ -1,0 +1,19 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+    Farmguardians
+  </nb-card-header>
+
+  <nb-card-body>
+    <zevenet-table *ngIf="rules" [data]="rules" [cols]="columns" [actions]="actionsList" object="farmguardian" (action)="onAction($event)"></zevenet-table>    
+  </nb-card-body>
+</nb-card>

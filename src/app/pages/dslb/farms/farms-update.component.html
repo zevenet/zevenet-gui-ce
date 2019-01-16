@@ -1,0 +1,94 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card class="position-relative">
+	<nb-card-header>
+		Global Settings
+	</nb-card-header>
+	<nb-card-body class="global">
+		<form [formGroup]="globalForm" (ngSubmit)="onSubmit('globalForm')" *ngIf="globalForm">
+			<div class="row form">
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="newfarmname">Name</label>
+			      <input type="text" class="form-control" id="newfarmname" placeholder="Name" formControlName="newfarmname" [readonly]="readonly">
+			      <span class="help-block">                    
+	                <small class="form-text" *ngIf="readonly">Only editable when the farm is down.</small>
+	              </span>
+	              <div *ngIf="gF.newfarmname.errors" class="invalid-feedback">
+	                    <div *ngIf="gF.newfarmname.errors.required">Name is required</div>
+	              </div>
+			    </div>
+			  </div>
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="vip">Virtual IP</label>
+			      <ng-select [items]="interfaces | filterInterfacesFarm"
+					           bindLabel="ip"
+					           bindValue="ip"
+					           groupBy="type"
+					           [loading]="false"
+					           [searchFn]="service.searchInterface"
+					           appendTo="nb-card"
+					           formControlName="vip"
+					           id="listener"
+					           name="listener">
+					           <ng-template ng-label-tmp let-item="item">
+							        {{item.ip}} <small><b>{{item.name}}</b></small>
+							    </ng-template>
+					           <ng-template ng-optgroup-tmp let-item="item">
+							        {{item.type | uppercase}}								       
+							   </ng-template>			
+							    <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+					            	<div  [ngOptionHighlight]="search"> {{item.ip}} <br />
+					            	<small><b>{{item.name}}</b></small></div>
+					        	</ng-template>			        
+					</ng-select>
+					<div *ngIf="gF.vip.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.vip.errors?.required">Virtual IP is required</div>
+	            	</div>
+			    </div>
+			</div>
+		  </div>
+		  <button class="btn btn-success mt-2" [disabled]="globalForm?.invalid || denySubmit">Submit</button>
+		</form>
+	</nb-card-body>
+</nb-card>
+<nb-card class="position-relative">
+	<nb-card-header>
+		Services Settings
+	</nb-card-header>
+	<nb-card-body class="services">
+		<form [formGroup]="globalForm" (ngSubmit)="onSubmit('globalForm')" *ngIf="globalForm">
+			<div class="row">
+				<div class="col-sm-6 col-12">
+					<div class="form-group">
+						<label for="algorithm">Load balancer Algorithm</label>
+						<ng-select [items]="algorithms"
+						           formControlName="algorithm"
+						           id="algorithm"
+						           name="algorithm"
+						           bindLabel="label"
+						           bindValue="value"
+						           appendTo="nb-card">
+						</ng-select>
+					</div>
+				</div>
+			</div>
+			<div class="div-backends">
+				<br/>
+				<p><b>Backends</b></p>
+				<hr/>
+			    <zevenet-table-editable *ngIf="backends" [data]="backends" [cols]="columns" [actions]="actionsList" keySort="id" object="backend" (action)="onAction($event)" [interfaces]="interfaces" (create)="createBackend($event)" (edit)="editBackend($event)"></zevenet-table-editable>
+			</div>
+			<button class="btn btn-success mt-5" [disabled]="gF.algorithm.value == farmValues.algorithm">Submit</button>
+		</form>
+  </nb-card-body>
+</nb-card> 

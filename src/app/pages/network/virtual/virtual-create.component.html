@@ -1,0 +1,79 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+    Create Virtual interface
+  </nb-card-header>
+
+  <nb-card-body>
+  	<form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" class="mr-4 ml-4">  	
+	  	<div class="row">
+	  		<div class="col-12">
+	  			<div class="form-group">
+	  				<label for="parent">Parent Interface</label>
+	  				<ng-select *ngIf="interfaces"
+	  						   [items]="interfaces | filterVirtualCreate"
+					           bindLabel="name"
+					           bindValue="name"
+					           groupBy="type"
+					           appendTo="nb-card"
+					           [(ngModel)]="parent" 
+					           [ngModelOptions]="{standalone: true}"
+					           id="parent"
+					           name="parent"
+					           placeholder="Select a parent interface">
+					           <ng-template ng-label-tmp let-item="item">
+							        {{item.name}} <small><b>{{item.ip}}</b></small>
+							    </ng-template>
+							    <ng-template ng-optgroup-tmp let-item="item">
+							        {{item.type | uppercase}}								       
+							   </ng-template>	
+							    <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+					            	<div  [ngOptionHighlight]="search"> <b>{{item.name}}</b> <br />
+					            	<small>{{item.ip}}</small></div>
+					        	</ng-template>			        
+					</ng-select>
+	  			</div>
+	  		</div>
+	  	</div>
+		<div class="div-create" *ngIf="parent">	  	
+		  	<div class="row">
+		  		<div class="col-12">
+				    <div class="form-group">
+				      <label for="name">Virtual interface name</label>
+				 	  <div class="input-group">
+				 	  	  <span class="input-group-addon">{{parent}}:</span>
+				          <input type="text" class="form-control" name="name" id="name" formControlName="name"/>		          
+				       </div>
+				       <div *ngIf="gF.name.dirty && gF.name.errors" class="invalid-feedback">
+	                    <div *ngIf="gF.name.errors.required">Name is required</div>
+	              	  </div>
+				    </div>
+				</div>
+		  	</div>
+			<div class="row">
+		  		<div class="col-12">
+		  			<div class="form-group">
+		  				<label for="ip">Address (IPv4 / IPv6)</label>
+		  				<input type="text" class="form-control" name="ip" id="ip" formControlName="ip"/>
+		  			</div>
+		  		</div>
+	  		</div>
+		</div>
+	    <div class="row">
+	    	<div class="col-sm-12 col-12">
+		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2">Create</button>
+		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../">Cancel</button>
+		    </div>
+	    </div> 
+	</form>
+  </nb-card-body>
+</nb-card>

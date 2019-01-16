@@ -1,0 +1,120 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<p-table #tt [columns]="cols" [value]="_data" [responsive]="true" rowHover="true">
+    <ng-template pTemplate="caption">
+        <div *ngIf="createButton || object == 'log line'" class="d-flex mb-4 justify-content-start">
+            <button *ngIf="createButton" type="button" class="btn btn-success create" [routerLink]="['../' + titleCreate | lowercase]">{{titleCreate}} {{object}}</button>
+            <button *ngIf="object == 'certificate'" type="button" class="btn btn-default ml-2 create" [routerLink]="['../csr']">Generate CSR</button>
+            <button *ngIf="object == 'backup'" type="button" class="btn btn-default ml-2 create" [routerLink]="['../upload']">Upload Backup</button>
+            <div class="col-5 pl-0" *ngIf="object == 'log line'">
+                <div class="row">
+                    <div class="col-10">
+                        <label *ngIf="object == 'log line'" for="lines" class="d-flex justify-content-start">Number of lines</label>
+                        <div class="form-group mb-0">
+                            <input type="number" class="form-control" name="lines" id="lines" [(ngModel)]="linesLog"/>
+                        </div>
+                    </div>
+                    <div class="col-2 pt-4">
+                        <button type="button" (click)="getLog()" class="btn btn-success">Apply</button>
+                    </div>
+                </div>
+            </div>                    
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [ngStyle]="{width: col.width}" [ngClass]="{'text-center':col.field == 'status'}">                
+                {{col.header}}                             
+            </th>
+            <th *ngIf="actions.length > 0" style="width: 10%;">
+                Actions
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-param let-columns="columns" let-i="rowIndex">
+        <tr [pSelectableRow]="param">
+            <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                <span class="ui-column-title">{{col.header}}</span>
+                <div class="text-center" *ngSwitchCase="'status'">
+                    <i *ngIf="param[col.field] == 'needed restart'" class="fa fa-circle restart" title="Needed restart"></i>
+                    <i *ngIf="param[col.field] && param[col.field] != 'needed restart'" class="fa fa-circle {{param[col.field]}}" title="{{param[col.field].charAt(0).toUpperCase() + param[col.field].slice(1)}}"></i>                    
+                </div> 
+                <ng-container *ngSwitchCase="'interface'">
+                    <span>{{param[col.field]}}</span>
+                </ng-container> 
+                <ng-container *ngSwitchCase="'interface_virtual'">
+                    <span>{{param[col.field]}}</span>
+                </ng-container>  
+                <ng-container *ngSwitchCase="'farm'">
+                    <span>{{param.split("_")[0]}}</span>
+                </ng-container> 
+                <ng-container *ngSwitchCase="'service'">
+                    <span>{{param.split("_")[1]}}</span>
+                </ng-container>                 
+                <ng-container *ngSwitchCase="'id'">
+                    <span *ngIf="object == 'log line'">{{i}}</span>
+                    <span *ngIf="object != 'log line'">{{param[col.field]}}</span>    
+                </ng-container>            
+                <span *ngSwitchDefault>{{param[col.field]}}</span>
+            </td>
+            <td *ngIf="_data.length > 0">
+                    <div class="action" *ngIf="editButton">
+                        <ng-container *ngIf="(object == 'farmguardian' && param.template == 'false') || object !== 'farmguardian'">
+                            <a href="#" [routerLink]="['../' + editConfig.title | lowercase, param[keySort]]"><i class="fa {{editConfig.icon}}" title="{{editConfig.title}}"></i></a>
+                        </ng-container>
+                        <ng-container *ngIf="object == 'farmguardian' && param.template == 'true'">
+                            <a href="#" [routerLink]="['../' + editConfig.title | lowercase, param[keySort]]"><i class="fa fa-eye" title="{{editConfig.title}}"></i></a>
+                        </ng-container>                        
+                    </div>                
+                <ng-template ngFor let-action [ngForOf]="actions">
+                    <ng-container *ngIf="object == 'farm'">
+                        <div *ngIf="(action.action == 'start' && param.status == 'down') || (action.action == 'stop' && param.status != 'down') || (action.action != 'start' && action.action != 'stop')" class="action">
+                            <a href="#" (click)="onAction($event, action.action, param)"><i class="fa {{action.icon}}" title="{{action.action.charAt(0).toUpperCase() + action.action.slice(1)}}"></i></a>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="object == 'certificate'">
+                        <div class="action" *ngIf="(action.action == 'delete' && ((param.file && param.file != 'zencert.pem') || !param.file)) || (action.action != 'delete')">
+                            <a href="#" (click)="onAction($event, action.action, param)"><i class="fa {{action.icon}}" title="{{action.action.charAt(0).toUpperCase() + action.action.slice(1)}}"></i></a>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="object == 'NIC' || object == 'VLAN' || object == 'virtual interface'">
+                        <div class="action" *ngIf="(action.action == 'up' && param.status == 'down') || (action.action == 'down' && param.status == 'up') || (action.action != 'up' && action.action != 'down')">
+                            <a href="#" (click)="onAction($event, action.action, param)"><i class="fa {{action.icon}}" title="{{action.action.charAt(0).toUpperCase() + action.action.slice(1)}}"></i></a>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="object == 'IPv4 gateway' || object == 'IPv6 gateway'">
+                        <div class="action" *ngIf="(action.action == 'unset' && param.address != null)">
+                            <a href="#" (click)="onAction($event, action.action, param)"><i class="fa {{action.icon}}" title="{{action.action.charAt(0).toUpperCase() + action.action.slice(1)}}"></i></a>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="object == 'backup' || object == 'log'">
+                        <div class="action">
+                            <a href="#" (click)="onAction($event, action.action, param)"><i class="fa {{action.icon}}" title="{{action.action.charAt(0).toUpperCase() + action.action.slice(1)}}"></i></a>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="object == 'farmguardian'">
+                        <div *ngIf="param.template == 'false'" class="action">
+                            <a href="#" (click)="onAction($event, action.action, param)"><i class="fa {{action.icon}}" title="{{action.action.charAt(0).toUpperCase() + action.action.slice(1)}}"></i></a>
+                        </div>
+                    </ng-container>
+                </ng-template>               
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns="columns">
+        <tr>
+            <td [attr.colspan]="actions.length > 0 ? cols.length + 1 : cols.length">
+                No {{object}}s found
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

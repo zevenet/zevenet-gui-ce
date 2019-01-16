@@ -1,0 +1,57 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<p-table #tt [columns]="cols" [value]="data" [dataKey]="keySort" [responsive]="true" rowHover="true">   
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th style="width: 3em"></th>
+            <th *ngFor="let col of columns" [ngStyle]="{width: col.width}" [ngClass]="{'text-center':col.field == 'status'}">                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-param let-expanded="expanded"  let-columns="columns">
+        <tr>
+             <td>
+                <a href="#" [pRowToggler]="param" (click)="toggle(param.farmname)">
+                    <i [ngClass]="expanded ? 'fa fa-chevron-down' : 'fa fa-chevron-right'"></i>
+                </a>
+            </td>
+            <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                <span class="ui-column-title">{{col.header}}</span>
+                <div class="text-center" *ngSwitchCase="'status'">
+                    <i *ngIf="param[col.field] == 'needed restart'" class="fa fa-circle restart" title="Needed restart"></i>
+                    <i *ngIf="param[col.field] && param[col.field] != 'needed restart'" class="fa fa-circle {{param[col.field]}}" title="{{param[col.field].charAt(0).toUpperCase() + param[col.field].slice(1)}}"></i>
+                </div>              
+                <span *ngSwitchDefault>{{param[col.field]}}</span>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData>
+        <tr style="background: #eeeeee;">
+            <td [attr.colspan]="cols.length + 1" class="p-4">
+                <nb-card class="p-4" *ngIf="expanded[rowData.farmname]">
+                    <h5 class="mb-0">Backends</h5>
+                    <zevenet-table-editable [data]="expanded[rowData.farmname].backends" [cols]="rowData.profile == 'https' ? subcolumns.backend.http : subcolumns.backend[rowData.profile]" [createButton]="false" [editButton]="false" object="backend"></zevenet-table-editable>
+                </nb-card>
+                <nb-card class="p-4" *ngIf="rowData.profile != 'l4xnat' && expanded[rowData.farmname]">
+                    <h5 class="mb-0">Sessions</h5>
+                    <zevenet-table-editable [data]="expanded[rowData.farmname].sessions" [cols]="rowData.profile == 'https' ? subcolumns.session.http : subcolumns.session[rowData.profile]" [createButton]="false" [editButton]="false" object="session"></zevenet-table-editable>
+                </nb-card>              
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+            <td [attr.colspan]="cols.length + 1">
+                No farms found
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

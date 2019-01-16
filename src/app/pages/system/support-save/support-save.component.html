@@ -1,0 +1,25 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+	Support Save
+  </nb-card-header>	
+  <nb-card-body>
+    <div>
+    	<button *ngIf="!genereting" type="button"  class="btn btn-success btn-sm" (click)="getSupportSave()" label="Generate support save">Generate Support Save</button>
+    	<button *ngIf="genereting" type="button"  class="btn btn-success btn-sm" disabled="" label="Generating support save"><i class="fa fa-spinner fa-spin"></i> {{textButton}}</button>    	
+    	<span class="help-block">                    
+	    	<small class="form-text">When this action is executed a file with system information will be downloaded. </small>
+	    	<small class="form-text">This action may take several seconds, you can continue browsing the GUI.</small>
+	    </span>
+    </div>
+  </nb-card-body>
+</nb-card>

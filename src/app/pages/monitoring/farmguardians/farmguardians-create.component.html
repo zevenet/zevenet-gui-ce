@@ -1,0 +1,61 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+    Create Farmguardian
+  </nb-card-header>
+
+  <nb-card-body>
+  	<form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" class="mr-4 ml-4">  	
+	  	<div class="row">
+	  		<div class="col-12">
+	  			<div class="form-group">
+	  				<label for="name">Name</label>
+	  				<input type="text" class="form-control" name="name" id="name" formControlName="name"/>
+	  				<div *ngIf="gF.name.dirty && gF.name.errors" class="invalid-feedback">
+                        <div *ngIf="gF.name.errors.required">Name is required</div>
+                    </div>
+	  			</div>
+	  		</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-12">
+          		<div class="form-group">							          		
+	          		<label for="copy">Copy rule</label><br/>
+	          		<ui-switch name="copy" id="copy" size="small" [(ngModel)]="copy" [ngModelOptions]="{standalone: true}" (change)="toggleCopy($event)"></ui-switch>
+	          	</div>
+          	</div>	
+	  	</div>
+	  	<div class="row" *ngIf="copy">
+	  		<div class="col-12">
+	  			<div class="form-group">
+	  				<label for="ruleCopy">Rule to copy</label>
+  						<ng-select [items]="ruleList"
+  						   bindLabel="name"
+						   bindValue="name"
+  						   placeholder="Select the farmguardian to copy"  						   
+				           id="parent"
+				           name="parent"
+				           appendTo="nb-card"
+				           formControlName="parent">
+				  		</ng-select>
+	  			</div>
+	  		</div>
+	  	</div> 	 	
+	    <div class="row">
+	    	<div class="col-sm-12 col-12">
+		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2">Create</button>
+		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../">Cancel</button>
+		    </div>
+	    </div> 
+	</form>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,69 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+    Create DSLB Farm
+  </nb-card-header>
+
+  <nb-card-body>
+  	<form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" class="mr-4 ml-4">  	
+	  	<div class="row">
+	  		<div class="col-12">
+	  			<div class="form-group">
+	  				<label for="farmname">Name</label>
+	  				<input type="text" class="form-control" name="farmname" id="farmname" formControlName="farmname"/>
+	  				<div *ngIf="gF.farmname.dirty && gF.farmname.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.farmname.errors.required">Name is required</div>
+	                	<div *ngIf="gF.farmname.errors.pattern">Name is not valid, it only is possible alphanumeric characters and dash (-).</div>
+	            	</div>
+	  			</div>
+	  		</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-12">
+	  			<div class="form-group">
+	  				<label for="vip">Virtual IP</label>
+  						<ng-select [items]="interfaces | filterInterfacesFarm"
+						           bindLabel="ip"
+						           bindValue="ip"
+						           groupBy="type"
+						           [loading]="false"
+						           [searchFn]="service.searchInterface"
+						           appendTo="nb-card"
+						           formControlName="vip"
+						           id="vip"
+						           name="vip">
+						           <ng-template ng-label-tmp let-item="item">
+								        {{item.ip}} <small><b>{{item.name}}</b></small>
+								    </ng-template>
+						           <ng-template ng-optgroup-tmp let-item="item">
+								        {{item.type | uppercase}}								       
+								   </ng-template>			
+								    <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+						            	<div  [ngOptionHighlight]="search"> {{item.ip}} <br />
+						            	<small><b>{{item.name}}</b></small></div>
+						        	</ng-template>			        
+						</ng-select>
+						<div *ngIf="gF.vip.dirty && gF.vip.errors" class="invalid-feedback">
+		                	<div *ngIf="gF.vip.errors?.required">Virtual IP is required</div>
+		            	</div>
+	  			</div>
+	  		</div>
+	  	</div>		 	
+	    <div class="row">
+	    	<div class="col-sm-12 col-12">
+		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2">Create</button>
+		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../">Cancel</button>
+		    </div>
+	    </div> 
+	</form>
+  </nb-card-body>
+</nb-card>

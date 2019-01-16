@@ -1,0 +1,158 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+	<nb-card-header>
+		DNS Service
+	</nb-card-header>
+	<nb-card-body>
+	  	<form *ngIf="formDns" [formGroup]="formDns" (ngSubmit)="onSubmit('formDns', 'dns')" class="mr-4 ml-4"> 
+		  	<div class="row">
+		  		<div class="col-sm-6 col-12">
+		  			<div class="form-group">
+		  				<label for="primary">Primary server</label>
+		  				<input type="text" class="form-control" name="primary" id="primary" formControlName="primary"/>
+		  				<span class="help-block">              
+			  				<small class="form-text">
+			                  Default is 8.8.8.8
+			                </small>
+			            </span>
+			            <div *ngIf="fDns.primary?.errors" class="invalid-feedback">
+		                	<div *ngIf="fDns.primary.errors.required">Primary server is required</div>
+		            	</div>		            
+		  			</div>
+		  		</div>  
+		  		<div class="col-sm-6 col-12">
+		  			<div class="form-group">
+		  				<label for="secondary">Secondary Server</label>
+		  				<input type="text" class="form-control" name="secondary" id="secondary" formControlName="secondary"/>
+		  				<span class="help-block">              
+			  				<small class="form-text">
+			                  Optional.
+			                </small>
+			            </span>        
+		  			</div>
+		  		</div>  				  						  		 		
+		  	</div>
+		    <div class="row">
+		    	<div class="col-sm-12 col-12">
+			        <button type="submit" [disabled]="formDns.invalid || dnsDenySubmit" class="btn btn-success mr-1 mt-2">Update</button>
+			    </div>
+		    </div> 
+		</form>
+	</nb-card-body>
+</nb-card>
+<nb-card>
+	<nb-card-header>
+		NTP Service
+	</nb-card-header>
+	<nb-card-body>
+	  	<form *ngIf="formNtp" [formGroup]="formNtp" (ngSubmit)="onSubmit('formNtp', 'ntp')" class="mr-4 ml-4"> 
+		  	<div class="row">
+		  		<div class="col-sm-6 col-12">
+		  			<div class="form-group">
+		  				<label for="server">NTP server</label>
+		  				<input type="text" class="form-control" name="server" id="server" formControlName="server"/>
+		  				<span class="help-block">              
+			  				<small class="form-text">
+			                  Default is pool.ntp.org
+			                </small>
+			            </span>
+			            <div *ngIf="fNtp.server?.errors" class="invalid-feedback">
+		                	<div *ngIf="fNtp.server.errors.required">NTP Server is required</div>
+		            	</div>		            
+		  			</div>
+		  		</div>				  						  		 		
+		  	</div>
+		    <div class="row">
+		    	<div class="col-sm-12 col-12">
+			        <button type="submit" [disabled]="formNtp.invalid || ntpDenySubmit" class="btn btn-success mr-1 mt-2">Update</button>
+			    </div>
+		    </div> 
+		</form>
+	</nb-card-body>
+</nb-card>
+<nb-card>
+	<nb-card-header>
+		SNMP Service
+	</nb-card-header>
+	<nb-card-body>
+	  	<form *ngIf="formSnmp" [formGroup]="formSnmp" (ngSubmit)="onSubmit('formSnmp', 'snmp')" class="mr-4 ml-4"> 
+		  	<div class="row">
+			  	<div class="col-sm-6 col-12">
+	          		<div class="form-group">
+		          		<label for="status">Enable SNMP</label><br/>
+		          		<ui-switch name="status" id="status" size="small" formControlName="status"></ui-switch>
+		          	</div>
+	          	</div>	
+		  	</div> 	
+		  	<div class="row" *ngIf="fSnmp.status.value">
+		  		<div class="col-sm-6 col-12">
+		  			<div class="form-group">
+		  				<label for="ip">Physical interface where is running SNMP service</label>
+		  				<ng-select [items]="interfaces | filterNoVirtual"
+						           formControlName="ip"
+						           id="ip"
+						           name="ip"
+						           bindLabel="ip"
+						           bindValue="ip">
+					           		<ng-template ng-label-tmp let-item="item">
+									        <span *ngIf="ip != '*'">{{item.ip}} </span><small><b>{{item.name}}</b></small>
+								    </ng-template>
+									<ng-template *ngIf="ip != '*'" ng-option-tmp let-item="item" let-search="searchTerm">
+									        <div  [ngOptionHighlight]="search">{{item.ip}} <small><b>{{item.name}}</b></small></div>
+								    </ng-template>								    
+						</ng-select>
+			            <div *ngIf="fSnmp.ip?.errors" class="invalid-feedback">
+		                	<div *ngIf="fSnmp.ip.errors.required">Interface is required</div>
+		            	</div>
+		  			</div>
+		  		</div>
+		  		<div class="col-sm-6 col-12">
+		  			<div class="form-group">
+		  				<label for="port">SNMP Port where is running SNMP service</label>
+		  				<input type="number" class="form-control" name="port" id="port" formControlName="port"/>
+		  				<span class="help-block">              
+			  				<small class="form-text">
+			                  Default is 161.
+			                </small>
+			            </span>
+			            <div *ngIf="fSnmp.port?.errors" class="invalid-feedback">
+		                	<div *ngIf="fSnmp.port.errors.required">Port is required</div>
+		            	</div>		            
+		  			</div>
+		  		</div>
+		  		<div class="col-sm-6 col-12">
+		  			<div class="form-group">
+		  				<label for="community">Community name</label>
+		  				<input type="text" class="form-control" name="community" id="community" formControlName="community"/>
+			            <div *ngIf="fSnmp.community?.errors" class="invalid-feedback">
+		                	<div *ngIf="fSnmp.community.errors.required">Community name is required</div>
+		            	</div>		            
+		  			</div>
+		  		</div>  
+		  		<div class="col-sm-6 col-12">
+		  			<div class="form-group">
+		  				<label for="scope">IP or subnet with access (IP/bit)</label>
+		  				<input type="text" class="form-control" name="scope" id="scope" formControlName="scope"/>
+			            <div *ngIf="fSnmp.scope?.errors" class="invalid-feedback">
+		                	<div *ngIf="fSnmp.scope.errors.required">Ip/subnet is required</div>
+		            	</div>		            
+		  			</div>
+		  		</div>  				  						  		 		
+		  	</div>
+		    <div class="row">
+		    	<div class="col-sm-12 col-12">
+			        <button type="submit" [disabled]="formSnmp.invalid || snmpDenySubmit" class="btn btn-success mr-1 mt-2">Update</button>
+			    </div>
+		    </div> 
+		</form>
+	</nb-card-body>
+</nb-card>

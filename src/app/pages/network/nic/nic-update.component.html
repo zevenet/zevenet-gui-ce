@@ -1,0 +1,62 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+	<nb-card-body>
+		<div class="d-flex justify-content-between">
+			<h2>Global Settings</h2>
+		</div>
+		<form [formGroup]="form" (ngSubmit)="onSubmit('form')" *ngIf="form">
+			<div class="row form">
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="name">Name</label>
+			      <input type="text" class="form-control" id="name" [(ngModel)]="interface.name" [ngModelOptions]="{standalone: true}" readonly>
+			    </div>
+			  </div>
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="mac">MAC</label>
+			      <input type="text" class="form-control" id="mac" [(ngModel)]="interface.mac" [ngModelOptions]="{standalone: true}" readonly />
+			    </div>
+			  </div>		  
+			</div>	
+			<div class="row form">
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="ip">IP Address (IPv4 / IPv6)</label>
+			      <input type="text" class="form-control" id="ip" formControlName="ip">
+			      <div *ngIf="f.ip.errors" class="invalid-feedback">
+                    <div *ngIf="f.ip.errors.required">IP Address is required</div>
+              	  </div>
+			    </div>
+			  </div>
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="netmask">Netmask</label>
+			      <input type="text" class="form-control" id="netmask" formControlName="netmask" />
+			      <div *ngIf="f.netmask.errors" class="invalid-feedback">
+                    <div *ngIf="f.netmask.errors.required">Netmask is required</div>
+              	  </div>
+			    </div>
+			  </div>		  
+			</div>	
+			<div class="row form">
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="gateway">Gateway</label>
+			      <input type="text" class="form-control" id="gateway" formControlName="gateway">
+			    </div>
+			  </div>		  
+			</div>	
+			<button class="btn btn-success mt-4" [disabled]="form.invalid || denySubmit">Submit</button>
+		</form>
+	</nb-card-body>
+</nb-card>

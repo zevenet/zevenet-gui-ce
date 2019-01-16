@@ -1,0 +1,84 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+	<nb-card-header>
+		Global Settings
+	</nb-card-header>
+	<nb-card-body>
+		<form [formGroup]="form" (ngSubmit)="onSubmit('form')" *ngIf="form">
+			<div class="row form">
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="name">Name</label>
+			      <input type="text" class="form-control" id="name" formControlName="name" placeholder="Name">
+	              <div *ngIf="f.name.errors" class="invalid-feedback">
+	                    <div *ngIf="f.name.errors.required">Name is required</div>
+	              </div>
+			    </div>
+			  </div>
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="description">Description</label>
+			      <textarea class="form-control" id="description" formControlName="description"></textarea>
+			    </div>
+			  </div>
+			 </div>
+			<div class="row">
+				<div class="col-sm-6 col-12">
+				    <div class="form-group">
+				      <label for="command">Command</label>
+				      <input type="text" class="form-control" name="command" id="command" formControlName="command"/>
+				      <div *ngIf="f.command.errors" class="invalid-feedback">
+	                    <div *ngIf="f.command.errors.required">Command is required</div>
+	              	  </div>
+				    </div>
+				</div>
+				<div class="col-sm-6 col-12">
+				    <div class="form-group">
+				      <label for="interval">Interval</label>
+				 	  <div class="input-group">
+				          <input type="number" class="form-control" name="interval" id="interval" formControlName="interval"/>
+				          <span class="input-group-addon">seconds</span>
+				       </div>
+				    </div>
+				</div>
+			</div>	
+			<div class="row">		  
+			  <div class="col-sm-6 col-12">
+          		<div class="form-group">							          		
+	          		<label for="cut_conns">Cut connections</label><br/>
+	          		<ui-switch name="cut_conns" id="cut_conns" size="small" formControlName="cut_conns"></ui-switch>
+	          	</div>
+          	  </div>
+			  <div class="col-sm-6 col-12">
+          		<div class="form-group">							          		
+	          		<label for="log">Log</label><br/>
+	          		<ui-switch name="log" id="log" size="small" formControlName="log"></ui-switch>
+	          	</div>
+          	  </div>
+			</div>
+
+			<button class="btn btn-success mt-4" [disabled]="rule.template || (form.invalid || denySubmit)">Submit</button>
+		</form>
+	</nb-card-body>
+</nb-card>
+<nb-card>
+	<nb-card-header>
+		Farms Settings
+	</nb-card-header>
+	<nb-card-body>
+    	<div class="row">    		
+    		<div class="col-sm-12" *ngIf="rule">
+    			<zevenet-table [data]="rule.farms" [cols]="columns" [actions]="actionsList" keySort="" object="farm" (action)="onAction($event)" [editButton]="false" [createButton]="false"></zevenet-table>
+			</div>
+    	</div>
+    </nb-card-body>
+</nb-card>

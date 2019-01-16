@@ -1,0 +1,448 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card class="position-relative">
+	<nb-card-header>
+		Global Settings
+	</nb-card-header>
+	<nb-card-body class="global">
+		<form [formGroup]="globalForm" (ngSubmit)="onSubmit('globalForm')" *ngIf="globalForm">
+			<div class="row form">
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="newfarmname">Name</label>
+			      <input type="text" class="form-control" id="newfarmname" placeholder="Name" formControlName="newfarmname" [readonly]="readonly">
+			      <span class="help-block">                    
+	                <small class="form-text" *ngIf="readonly">Only editable when the farm is down.</small>
+	              </span>
+	              <div *ngIf="gF.newfarmname.errors" class="invalid-feedback">
+	                    <div *ngIf="gF.newfarmname.errors.required">Name is required</div>
+	                    <div *ngIf="gF.newfarmname.errors.pattern">Name is not valid, it only is possible alphanumeric characters and dash (-).</div>
+	              </div>
+			    </div>
+			  </div>
+			  <div class="col-sm-6 col-12">
+			  	<div class="row">
+				  	<div class="col-sm-9 div-vip">
+					    <div class="form-group">
+					      <label for="vip">Virtual IP and Port</label>
+					      <ng-select [items]="interfaces | filterInterfacesFarm"
+							           bindLabel="ip"
+							           bindValue="ip"
+							           groupBy="type"
+							           [loading]="false"
+							           [searchFn]="service.searchInterface"
+							           appendTo="nb-card"
+							           formControlName="vip"
+							           id="listener"
+							           name="listener">
+							           <ng-template ng-label-tmp let-item="item">
+									        {{item.ip}} <small><b>{{item.name}}</b></small>
+									    </ng-template>
+							           <ng-template ng-optgroup-tmp let-item="item">
+									        {{item.type | uppercase}}								       
+									   </ng-template>			
+									    <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+							            	<div  [ngOptionHighlight]="search"> {{item.ip}} <br />
+							            	<small><b>{{item.name}}</b></small></div>
+							        	</ng-template>			        
+							</ng-select>
+							<div *ngIf="gF.vip.errors || gF.vport.errors" class="invalid-feedback">
+			                	<div *ngIf="gF.vip.errors?.required">Virtual IP is required</div>
+			                	<div *ngIf="gF.vport.errors?.required">Virtual Port is required</div>
+			                	<div *ngIf="gF.vport.errors?.pattern">Virtual Port not is valid, it is posible to define a single port, several ports or ranges of ports (Ex: 80 or 80,81 or 80:90)</div>
+			            	</div>
+					    </div>
+					</div>
+					<div class="col-sm-3 div-vport">
+						<div class="form-group">
+					      	<label for="vport">&nbsp;&nbsp;</label>						
+							<input *ngIf="farm.listener != 'l4xnat'" type="number" class="form-control" id="vport" name="vport" placeholder="Port" formControlName="vport">
+							<input *ngIf="farm.listener == 'l4xnat'" type="text" class="form-control" id="vport" name="vport" placeholder="Port" formControlName="vport" [readonly]="gF.protocol.value == 'all'">
+						</div>
+					</div>
+				</div>
+			  </div>
+			</div>
+			<div class="row" *ngIf="farm.listener != 'l4xnat'">
+			  <div class="col-sm-6 col-12">
+			    <div class="form-group">
+			      <label for="listener">Listener</label>
+			      <ng-select [items]="profilesHttp"
+				           formControlName="listener"
+				           id="listener"
+				           name="listener">
+				           <ng-template ng-label-tmp let-item="item">
+						    	{{item | uppercase}}
+						    </ng-template>
+				           <ng-template ng-option-tmp let-item="item">
+				           		{{item | uppercase}}
+				        	</ng-template>
+				  </ng-select>
+				  <div *ngIf="gF.listener.errors" class="invalid-feedback">
+	                <div *ngIf="gF.listener.errors.required">Listener is required</div>
+	              </div>
+			    </div>
+			  </div>
+			</div>
+			<div *ngIf="gF.listener?.value == 'https'">
+			  <br>
+	          <p><b>HTTPS Parameters</b></p>
+	          <hr/>
+	          <div class="row d-flex justify-content-between">
+	          	<div class="col-sm-2 col-6">
+	          		<div class="form-group">						
+		          		<label for="disable_sslv2">Disable SSLv2</label><br/>
+		          		<ui-switch name="disable_sslv2" id="disable_sslv2" size="small" formControlName="disable_sslv2"></ui-switch>
+		          	</div>
+	          	</div>
+	          	<div class="col-sm-2 col-6">
+	          		<div class="form-group">							          		
+		          		<label for="disable_sslv2">Disable SSLv3</label><br/>
+		          		<ui-switch name="disable_sslv3" id="disable_sslv3" size="small" formControlName="disable_sslv3"></ui-switch>
+		          	</div>
+	          	</div>	
+	          	<div class="col-sm-2 col-6">
+	          		<div class="form-group">							          		
+		          		<label for="disable_tlsv1">Disable TLSv1</label><br/>
+		          		<ui-switch name="disable_tlsv1" id="disable_tlsv1" size="small" formControlName="disable_tlsv1"></ui-switch>
+		          	</div>
+	          	</div>	   	
+	          	<div class="col-sm-2 col-6">
+	          		<div class="form-group">							          		
+		          		<label for="disable_tlsv1_1">Disable TLSv1.1</label><br/>
+		          		<ui-switch name="disable_tlsv1_1" id="disable_tlsv1_1" size="small" formControlName="disable_tlsv1_1"></ui-switch>
+		          	</div>
+	          	</div>	
+	          	<div class="col-sm-2 col-6">
+	          		<div class="form-group">							          		
+		          		<label for="disable_tlsv1_2">Disable TLSv1.2</label><br/>
+		          		<ui-switch name="disable_tlsv1_2" id="disable_tlsv1_2" size="small" formControlName="disable_tlsv1_2"></ui-switch>
+		          	</div>
+	          	</div>		          		          	          	          	
+	          </div>
+	          <div class="row">
+	          	<div class="col-sm-6 col-12">
+		          	<div class="form-group">
+				      	<label for="ciphers">Ciphers</label>
+				      	<ng-select [items]="ciphersHttp"
+					           formControlName="ciphers"
+					           id="ciphers"
+					           name="ciphers"
+					           bindLabel="description"
+					           bindValue="ciphers">
+					  	</ng-select>
+					  	<div *ngIf="gF.ciphers.errors" class="invalid-feedback">
+		                	<div *ngIf="gF.ciphers.errors.required">Ciphers is required</div>
+		              	</div>
+			    	</div>
+	          	</div>
+	          	<div class="col-sm-6 col-12" *ngIf="gF.ciphers.value == 'customsecurity'">
+					<div class="form-group">
+				      	<label for="cipherc">Custom ciphers</label>						
+						<input type="text" class="form-control" id="cipherc" placeholder="Custom ciphers" formControlName="cipherc">
+						<div *ngIf="gF.cipherc.errors" class="invalid-feedback">
+		                	<div *ngIf="gF.cipherc.errors.required">Custom ciphers is required</div>
+		              	</div>
+					</div>
+	          	</div>
+	          </div>
+	          <div class="row">
+				  <div class="col-sm-6 col-12">
+				  	<div class="form-group">
+				      	<label for="cipherc">Certificate Enabled</label>						
+				      	<ng-select [items]="certificatesHttp | filterCertsFarm"
+					           formControlName="certificate"
+					           id="certificate"
+					           name="certificate"
+					           bindLabel="file"
+					           bindValue="file">
+					  	</ng-select>
+					</div>			  				   
+				  </div>
+			  </div>
+			  <br/>	  
+			</div>
+			<div *ngIf="farm?.listener == 'l4xnat'">
+				<br>
+		        <p><b> Advanced settings</b></p>
+		        <hr>        
+				<div class="row">
+					<div class="col-sm-6 col-12">
+			          	<div class="form-group">						
+							<label for="protocol">Protocol type</label>
+							<ng-select [items]="protocolsL4"
+						           formControlName="protocol"
+						           id="protocol"
+						           name="protocol"
+						           appendTo="nb-card">
+						           <ng-template ng-label-tmp let-item="item">
+									    {{item | replaceUnderscore | uppercase}}
+								    </ng-template>
+								    <ng-template ng-option-tmp let-item="item">
+						            	{{item | replaceUnderscore | uppercase}}
+						        	</ng-template>
+						  	</ng-select>
+						  	<div *ngIf="gF.protocol.errors" class="invalid-feedback">
+			                	<div *ngIf="gF.protocol.errors.required">Protocol type is required</div>
+			              	</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-12">
+			          	<div class="form-group">						
+							<label for="nattype">NAT type</label>
+							<ng-select [items]="nattypesL4"
+						           formControlName="nattype"
+						           id="nattype"
+						           name="nattype"
+						           appendTo="nb-card">
+						           <ng-template ng-label-tmp let-item="item">
+									    {{item | replaceUnderscore | uppercase}}
+								    </ng-template>
+								    <ng-template ng-option-tmp let-item="item">
+						            	{{item | replaceUnderscore | uppercase}}
+						        	</ng-template>
+						  	</ng-select>
+						  	<div *ngIf="gF.nattype.errors" class="invalid-feedback">
+			                	<div *ngIf="gF.nattype.errors.required">NAT type is required</div>
+			              	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="farm?.listener != 'l4xnat'">
+				<br>
+		        <p><b> Advanced settings</b></p>
+		        <hr>	        
+				<div class="row">
+					<div class="col-sm-6 col-12">
+			          	<div class="form-group">						
+							<label for="rewritelocation">Rewrite location headers</label>
+							<ng-select [items]="locationsHttp"
+						           formControlName="rewritelocation"
+						           id="rewritelocation"
+						           name="rewritelocation"
+						           bindLabel="label"
+						           bindValue="value">
+						  	</ng-select>
+						  	<div *ngIf="gF.rewritelocation.errors" class="invalid-feedback">
+			                    <div *ngIf="gF.rewritelocation.errors.required">Rewrite location is required</div>
+			              	</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-12">
+			          	<div class="form-group">												
+							<label for="httpverb">HTTP verbs accepted</label>
+							<ng-select [items]="verbsHttp"
+						           formControlName="httpverb"
+						           id="httpverb"
+						           name="httpverb"
+						           bindLabel="label"
+						           bindValue="value">
+						  	</ng-select>
+						  	<div *ngIf="gF.httpverb.errors" class="invalid-feedback">
+			                    <div *ngIf="gF.httpverb.errors.required">HTTP verbs is required</div>
+			              	</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-12">
+						<div class="form-group">	
+							<label for="contimeout">Backend connection timeout</label>
+							<div class="input-group">
+					          <input type="number" class="form-control" placeholder="Backend connection timeout" name="contimeout" id="contimeout" formControlName="contimeout"/>
+					          <span class="input-group-addon">Seconds</span>
+					        </div>
+					        <div *ngIf="gF.contimeout.errors" class="invalid-feedback">
+			                    <div *ngIf="gF.contimeout.errors.required">Backend connection timeout is required</div>
+			                    <div *ngIf="gF.contimeout.errors.min">Backend connection has to be greater than 0</div>			                    
+			              	</div>
+					    </div>
+					</div>
+					<div class="col-sm-6 col-12">
+						<div class="form-group">
+							<label for="restimeout">Backend response timeout</label>
+							<div class="input-group">
+					          <input type="number" class="form-control" placeholder="Backend response timeout" name="restimeout" id="restimeout" formControlName="restimeout"/>
+					          <span class="input-group-addon">Seconds</span>				    
+					        </div>
+					        <div *ngIf="gF.restimeout.errors" class="invalid-feedback">
+			                    <div *ngIf="gF.restimeout.errors.required">Backend response timeout is required</div>
+			                    <div *ngIf="gF.restimeout.errors.min">Backend response has to be greater than 0</div>	
+			              	</div>
+					    </div>
+					</div>					
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-12">
+						<div class="form-group">	
+							<label for="resurrectime">Frequency to check resurrected backends</label>
+							<div class="input-group">
+					          <input type="number" class="form-control" placeholder="Frequency to check resurrected backends" name="resurrectime" id="resurrectime" formControlName="resurrectime"/>
+					          <span class="input-group-addon">Seconds</span>		    
+					        </div>
+					        <div *ngIf="gF.resurrectime.errors" class="invalid-feedback">
+			                    <div *ngIf="gF.resurrectime.errors.required">Frequency to check is required</div>
+			                    <div *ngIf="gF.resurrectime.errors.min">Frequency to check has to be greater than 0</div>	
+			              	</div>
+					    </div>
+					</div>
+					<div class="col-sm-6 col-12">
+						<div class="form-group">
+							<label for="reqtimeout">Client request timeout</label>
+							<div class="input-group">
+					          <input type="number" class="form-control" placeholder="Client request timeout" name="reqtimeout" id="reqtimeout" formControlName="reqtimeout"/>
+					          <span class="input-group-addon">Seconds</span>				       
+					        </div>
+					        <div *ngIf="gF.reqtimeout.errors" class="invalid-feedback">
+			                    <div *ngIf="gF.reqtimeout.errors.required">Client request timeout is required</div>
+			                    <div *ngIf="gF.reqtimeout.errors.min">Client request timeout has to be greater than 0</div>
+			              	</div>
+					    </div>
+					</div>					
+				</div>
+				<div class="row">				
+					<div class="col-sm-6 col-12">
+						<div class="form-group">
+							<label for="error414">Message Error 414</label>
+							<textarea rows="3" placeholder="Error 414" class="form-control" name="error414" id="error414" formControlName="error414"></textarea>
+						</div>
+					</div>
+					<div class="col-sm-6 col-12">
+						<div class="form-group">
+							<label for="error500">Message Error 500</label>
+							<textarea rows="3" placeholder="Error 500" class="form-control" name="error500" id="error500" formControlName="error500"></textarea>
+						</div>
+					</div>					
+				</div>
+				<div class="row">				
+					<div class="col-sm-6 col-12">
+						<div class="form-group">
+							<label for="error501">Message Error 501</label>
+							<textarea rows="3" placeholder="Error 501" class="form-control" name="error501" id="error501" formControlName="error501"></textarea>
+						</div>
+					</div>
+					<div class="col-sm-6 col-12">
+						<div class="form-group">
+							<label for="error503">Message Error 503</label>
+							<textarea rows="3" placeholder="Error 503" class="form-control" name="error503" id="error503" formControlName="error503"></textarea>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<button class="btn btn-success mt-2" [disabled]="globalForm.invalid || denySubmit">Submit</button>
+		</form>
+  </nb-card-body>
+</nb-card>
+<nb-card>
+	<nb-card-header>
+		Services Settings
+	</nb-card-header>
+	<nb-card-body class="services" *ngIf="farm?.listener != 'l4xnat'">
+		<div class="d-flex justify-content-between">
+			<button type="button" class="btn btn-success create mb-4" (click)="displayDialog = true; nameService = ''">New Service</button>
+    	</div>
+    	<nb-card *ngFor="let service of services; let i = index" id="{{service.id}}">
+  			<nb-card-header>
+  				<div class="d-flex justify-content-between">
+		 			<span>{{service.id}}</span>
+		 			<span class="pull-right"><a href="#"><i (click)="deleteService($event, service.id, i)" class="fa fa-trash" title="Delete"></i></a></span>
+		 		</div>
+  			</nb-card-header>
+			<nb-card-body>
+				<zevenet-lslb-farms-service [nameFarm]="name" [nameService]="service.id" [profile]="farm.listener" [farmguardians]="farmguardians" (onCreate)="createService(service)" (restart)="isNecessaryRestart($event)"></zevenet-lslb-farms-service>
+			</nb-card-body>
+    	</nb-card>
+	</nb-card-body>
+	<nb-card-body class="services" *ngIf="farm?.listener == 'l4xnat'">
+		<form [formGroup]="globalForm" (ngSubmit)="onSubmit('globalForm')">
+			<div class="row">
+				<div class="col-sm-6 col-12">
+					<div class="form-group">
+						<label for="algorithm">Load balancer Algorithm</label>
+						<ng-select [items]="algorithms"
+						           formControlName="algorithm"
+						           id="algorithm"
+						           name="algorithm"
+						           bindLabel="label"
+						           bindValue="value"
+						           appendTo="nb-card">
+						</ng-select>
+						<div *ngIf="gF.algorithm.errors" class="invalid-feedback">
+		                    <div *ngIf="gF.algorithm.errors.required">Algorithm is required</div>
+		              	</div>
+					</div>
+				</div>
+			</div>
+			<div class="div-farmguardian">
+				<br/>
+				<p><b>Farmguardian</b></p>
+				<hr/>
+				<div class="row">
+					<div class="col-sm-6 col-12">
+						<div class="form-group">
+							<label for="Farm guardian">Health Checks for backend</label>
+							<ng-select [items]="farmguardians"
+							           [(ngModel)]="farmguardian"
+							           [ngModelOptions]="{standalone: true}"
+							           id="farmguardian"
+							           name="farmguardian"
+				           			   [searchFn]="service.searchFarmguardian"
+				           			   (change)="changeFarmGuardian()"
+							           bindValue="name"
+							           placeholder="Disabled"
+							           appendTo="nb-card">
+							           <ng-template ng-label-tmp let-item="item">
+							           	<div *ngIf="item.name == ''">Disabled</div>
+						            	<div *ngIf="item.name != ''"> 
+						            		<b>{{item.name}}</b>:
+						            		<small>{{item.description}}</small>
+						            	</div>
+									   </ng-template>
+									   <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+									   	<div *ngIf="item.name == ''">
+									   		Disabled
+									   	</div>
+						            	<div *ngIf="item.name != ''" [ngOptionHighlight]="search"> {{item.name}} <br />
+						            	<small>{{item.description}}</small></div>
+							        </ng-template>	
+							</ng-select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="div-backends">
+				<br/>
+				<p><b>Backends</b></p>
+				<hr/>
+				<zevenet-table-editable *ngIf="backends" [data]="backends" [cols]="columns" [actions]="actionsList" keySort="id" object="backend" (action)="onAction($event)" (create)="createBackend($event)" (edit)="editBackend($event)"></zevenet-table-editable>		    
+			</div>
+			<button class="btn btn-success mt-5" [disabled]="gF.algorithm.value == farmValues.algorithm || gF.algorithm.invalid">Submit</button>
+		</form>
+	</nb-card-body>
+</nb-card>
+<p-dialog header="Create Service" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="300">
+    <div>
+		<div class="row">
+			<div class="col-12">
+				<div class="form-group">
+					<label for="newService-name">Name</label>
+					<input type="text" class="form-control" name="newService-name" id="newService-name" [(ngModel)]="nameService" [ngModelOptions]="{standalone: true}"/>
+				</div>
+			</div>
+		</div>
+	</div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button"  class="btn btn-success btn-sm" (click)="createService()" [disabled]="!nameService" label="Save">Save</button>
+        </div>
+    </p-footer>
+</p-dialog>

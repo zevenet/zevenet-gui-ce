@@ -1,0 +1,107 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<p-table #tt [columns]="cols" [value]="_data" [dataKey]="keySort" [responsive]="true" rowHover="true">
+    <ng-template pTemplate="caption">
+      <div class="d-flex justify-content-start mb-3">
+        <button *ngIf="createButton" type="button" class="btn btn-success create" (click)="showDialogToAdd()" >Add {{object}}</button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [ngStyle]="{width: col.width}" [ngClass]="{'text-center':col.field == 'status'}"> 
+                {{col.header}}
+            </th>
+            <th style="width: 10%;" *ngIf="editButton || actions.length > 0">
+                Actions
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns" [ngSwitch]="col.field" [pEditableColumn]="rowData" [pEditableColumnField]="col.field" [pEditableColumnDisabled]="true">
+                <span class="ui-column-title">{{col.header}}</span>
+                <div class="text-center" *ngSwitchCase="'status'">
+                    <i class="fa fa-circle {{rowData[col.field]}}" title="{{rowData[col.field].charAt(0).toUpperCase() + rowData[col.field].slice(1)}}"></i>
+                </div>
+                <div *ngSwitchDefault>{{rowData[col.field]}}</div>
+            </td>
+            <td *ngIf="_data.length > 0">
+                <div class="action" *ngIf="editButton">
+                    <i class="fa fa-pen" title="Edit" (click)="editRow(rowData)"></i>
+                </div>                
+                <ng-template ngFor let-action [ngForOf]="actions">
+                    <ng-container >
+                        <div *ngIf="(action.action == 'up' && rowData.status == 'maintenance') || (action.action == 'maintenance' && rowData.status != 'maintenance') || (action.action == 'delete' && (!action.disabled || action.disabled != rowData.id)) || (action.action != 'up' && action.action != 'maintenance' && action.action != 'delete')" class="action">
+                            <a *ngIf="action.action != 'maintenance'" href="#" (click)="onAction($event, action.action, rowData)"><i class="fa {{action.icon}}" title="{{action.action.charAt(0).toUpperCase() + action.action.slice(1)}}"></i></a>
+                            <div  *ngIf="action.action == 'maintenance'" class="dropdown maintenance-action" ngbDropdown>
+                              <span ngbDropdownToggle class="fa fa-stop"></span>
+                              <ul class="left-0 dropdown-menu" ngbDropdownMenu>
+                                <li class="dropdown-item" (click)="onAction($event, 'maintenance cut', rowData)">Cut mode</li>
+                                <li class="dropdown-item" (click)="onAction($event, 'maintenance drain', rowData)">Drain mode</li>            
+                              </ul>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-template>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+            <td [attr.colspan]="actions?.length > 0 ? cols?.length + 1 : cols?.length">
+                No {{obejct}} found
+            </td>
+        </tr>
+    </ng-template>    
+</p-table>
+
+<p-dialog header="{{new ? 'Add' : 'Edit'}} {{object}}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="300" [resizable]="false">
+    <div *ngIf="newItem">
+        <ng-template ngFor let-col [ngForOf]="cols">
+            <div class="row" *ngIf="col.field != 'id' || !new">
+                <div class="col-10 offset-sm-1" [ngSwitch]="true">
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label" for="{{col.field}}">{{col.header}}</label>
+                        <div class="col-8">
+                            <input *ngSwitchCase="col.field == 'port' || col.field == 'weight' || col.field == 'priority' || col.field == 'timeout' || col.field == 'ttl'" type="number" class="form-control form-control-sm" id="{{col.field}}" [(ngModel)]="newItem[col.field]" (change)="onChange($event)" />
+
+                            <input *ngSwitchCase="col.field == 'ip'" type="text" class="form-control form-control-sm" id="{{col.field}}" [(ngModel)]="newItem[col.field]" (change)="onChange($event)"/>
+
+                            <ng-select 
+                               *ngSwitchCase="col.field == 'interface'"
+                               [items]="interfaces | filterBackendDSLB"
+                               [clearable]="false"
+                               [(ngModel)]="newItem[col.field]"
+                               id="{{col.field}}"
+                               class="p-0"
+                               appendTo="body"
+                               bindLabel="name"
+                               bindValue="name"     
+                               placeholder="Select a interface"
+                               (change)="onChange($event)"
+                               >
+                                <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                                    <span><b>{{item.name}}</b></span><br/>{{item.ip}}
+                                </ng-template>
+                            </ng-select>
+                            <input  *ngSwitchDefault type="text" class="form-control form-control-sm" id="{{col.field}}" [(ngModel)]="newItem[col.field]" [disabled]="col.field == 'id' && ((new && !col.addable) || (!new && !col.editable))" (change)="onChange($event)"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button"  class="btn btn-success btn-sm" (click)="save()" [disabled]="!changed" label="Save">Save</button>
+        </div>
+    </p-footer>
+</p-dialog>

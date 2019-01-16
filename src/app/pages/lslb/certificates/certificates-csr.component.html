@@ -1,0 +1,148 @@
+<!--
+  * @license
+  * Zevenet Software License
+  * This file is part of the Zevenet Load Balancer software.
+  *
+  * Copyright (C) 2019-today ZEVENET SL, Sevilla (Spain)
+  * Licensed under the terms of the GNU Affero General Public License.
+  * See License.txt in the project root for license information.
+-->
+
+<nb-card>
+  <nb-card-header>
+    Generate CSR
+  </nb-card-header>
+
+  <nb-card-body>
+  	<form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" class="mr-4 ml-4">  	
+	  	<div class="row">
+	  		<div class="col-sm-6 col-12">
+	  			<div class="form-group">
+	  				<label for="name">Name</label>
+	  				<input type="text" class="form-control" name="name" id="name" formControlName="name"/>
+	  				<span class="help-block">                    
+		  				<small class="form-text">
+		                  Descriptive text, this name will be used to identify this certificate.
+		                </small>
+		            </span>
+		            <div *ngIf="gF.name.dirty && gF.name.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.name.errors.required">Name is required</div>
+	            	</div>
+	  			</div>
+	  		</div>
+	  		<div class="col-sm-6 col-12">
+	  			<div class="form-group">
+	  				<label for="locality">Locality</label>
+	  				<input type="text" class="form-control" name="locality" id="locality" formControlName="locality"/>
+	  				<span class="help-block">                    
+		  				<small class="form-text">
+		                  City where your organization is located.
+		                </small>
+		            </span>
+		            <div *ngIf="gF.locality.dirty && gF.locality.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.locality.errors.required">Locality is required</div>
+	            	</div>		            
+	  			</div>
+	  		</div>  		
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-6 col-12">
+	  			<div class="form-group">
+	  				<label for="country">Country</label>
+	  				<input type="text" class="form-control" name="country" id="country" formControlName="country"/>
+	  				<span class="help-block">                    
+		  				<small class="form-text">
+		                  Country (two characters) where your organization is located.
+		                </small>
+		            </span>
+		            <div *ngIf="gF.country.dirty && gF.country.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.country.errors.required">Country is required</div>
+	                	<div *ngIf="gF.country.errors.maxlength || gF.country.errors.minlength">Country can only has two characters.</div>	                	
+	            	</div>		            
+	  			</div>
+	  		</div>
+	  		<div class="col-sm-6 col-12">
+	  			<div class="form-group">
+	  				<label for="state">State/Province</label>
+	  				<input type="text" class="form-control" name="state" id="state" formControlName="state"/>
+	  				<span class="help-block">                    
+		  				<small class="form-text">
+		                  State or province where your organization is located.
+		                </small>
+		            </span>
+		            <div *ngIf="gF.state.dirty && gF.state.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.state.errors.required">State is required</div>
+	            	</div>		            
+	  			</div>
+	  		</div>  		
+	  	</div>  	
+	  	<div class="row">
+	  		<div class="col-sm-6 col-12">
+	  			<div class="form-group">
+	  				<label for="fqdn">Common Name</label>
+	  				<input type="text" class="form-control" name="fqdn" id="fqdn" formControlName="fqdn"/>
+	  				<span class="help-block">                    
+		  				<small class="form-text">
+		                  FQDN of the server. Example: domain.com, mail.domain.com, or *.domain.com.
+		                </small>
+		            </span>
+		            <div *ngIf="gF.fqdn.dirty && gF.fqdn.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.fqdn.errors.required">Common name is required</div>
+	            	</div>		            
+	  			</div>
+	  		</div>
+	  		<div class="col-sm-6 col-12">
+	  			<div class="form-group">
+	  				<label for="organization">Organization</label>
+	  				<input type="text" class="form-control" name="organization" id="organization" formControlName="organization"/>
+	  				<span class="help-block">                    
+		  				<small class="form-text">
+		                  The full legal name of your organization/company (ex.: Zevenet Co.)
+		                </small>
+		            </span>
+		            <div *ngIf="gF.organization.dirty && gF.organization.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.organization.errors.required">Organization is required</div>
+	            	</div>		            
+	  			</div>
+	  		</div>  		
+	  	</div>  	
+	  	<div class="row">
+	  		<div class="col-sm-6 col-12">
+	  			<div class="form-group">
+	  				<label for="division">Division</label>
+	  				<input type="text" class="form-control" name="division" id="division" formControlName="division"/>
+	  				<span class="help-block">                    
+		  				<small class="form-text">
+		                  Your department; such as 'IT','Web', 'Office', etc.
+		                </small>
+		            </span>
+		            <div *ngIf="gF.division.dirty && gF.division.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.division.errors.required">Division is required</div>
+	            	</div>		            
+	  			</div>
+	  		</div>
+	  		<div class="col-sm-6 col-12">
+	  			<div class="form-group">
+	  				<label for="mail">E-mail Address</label>
+	  				<input type="email" class="form-control" name="mail" id="mail" formControlName="mail"/>
+	  				<span class="help-block">                    
+		  				<small class="form-text">
+		                  Your email address
+		                </small>
+		            </span>
+		            <div *ngIf="gF.mail.dirty && gF.mail.errors" class="invalid-feedback">
+	                	<div *ngIf="gF.mail.errors.required">E-mail address is required</div>
+	                	<div *ngIf="gF.mail.errors.email">E-mail has to be a valid email</div>	                	
+	            	</div>		            
+	  			</div>
+	  		</div>  		
+	  	</div>   	
+	    <div class="row">
+	    	<div class="col-sm-12 col-12">
+		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2">Generate</button>
+		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../">Cancel</button>
+		    </div>
+	    </div> 
+	</form>
+  </nb-card-body>
+</nb-card>
