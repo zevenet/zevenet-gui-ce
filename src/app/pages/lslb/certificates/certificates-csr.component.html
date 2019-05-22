@@ -10,7 +10,7 @@
 
 <nb-card>
   <nb-card-header>
-    Generate CSR
+    <div translate>LSLB.ssl_certificates.generate_csr</div>
   </nb-card-header>
 
   <nb-card-body>
@@ -18,29 +18,29 @@
 	  	<div class="row">
 	  		<div class="col-sm-6 col-12">
 	  			<div class="form-group">
-	  				<label for="name">Name</label>
+	  				<label for="name" translate>FORMS.name</label>
 	  				<input type="text" class="form-control" name="name" id="name" formControlName="name"/>
 	  				<span class="help-block">                    
-		  				<small class="form-text">
-		                  Descriptive text, this name will be used to identify this certificate.
+		  				<small class="form-text" translate>
+		                  FORMS.help_form.help_name
 		                </small>
 		            </span>
 		            <div *ngIf="gF.name.dirty && gF.name.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.name.errors.required">Name is required</div>
+	                	<div *ngIf="gF.name.errors.required">{{'FORMS.name' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	            	</div>
 	  			</div>
 	  		</div>
 	  		<div class="col-sm-6 col-12">
 	  			<div class="form-group">
-	  				<label for="locality">Locality</label>
+	  				<label for="locality" translate>FORMS.locality</label>
 	  				<input type="text" class="form-control" name="locality" id="locality" formControlName="locality"/>
 	  				<span class="help-block">                    
-		  				<small class="form-text">
-		                  City where your organization is located.
+		  				<small class="form-text" translate>
+											FORMS.help_form.help_locality
 		                </small>
 		            </span>
 		            <div *ngIf="gF.locality.dirty && gF.locality.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.locality.errors.required">Locality is required</div>
+	                	<div *ngIf="gF.locality.errors.required">{{'FORMS.locality' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	            	</div>		            
 	  			</div>
 	  		</div>  		
@@ -48,30 +48,30 @@
 	  	<div class="row">
 	  		<div class="col-sm-6 col-12">
 	  			<div class="form-group">
-	  				<label for="country">Country</label>
+	  				<label for="country" translate>FORMS.country</label>
 	  				<input type="text" class="form-control" name="country" id="country" formControlName="country"/>
 	  				<span class="help-block">                    
-		  				<small class="form-text">
-		                  Country (two characters) where your organization is located.
+		  				<small class="form-text" translate>
+											FORMS.help_form.help_country
 		                </small>
 		            </span>
 		            <div *ngIf="gF.country.dirty && gF.country.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.country.errors.required">Country is required</div>
-	                	<div *ngIf="gF.country.errors.maxlength || gF.country.errors.minlength">Country can only has two characters.</div>	                	
+	                	<div *ngIf="gF.country.errors.required">{{'FORMS.country' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+	                	<div *ngIf="gF.country.errors.maxlength || gF.country.errors.minlength">{{'FORMS.country' | translate}} {{'SYSTEM_MESSAGES.only_two_characters' | translate}}</div>	                	
 	            	</div>		            
 	  			</div>
 	  		</div>
 	  		<div class="col-sm-6 col-12">
 	  			<div class="form-group">
-	  				<label for="state">State/Province</label>
+	  				<label for="state" translate>FORMS.state_province</label>
 	  				<input type="text" class="form-control" name="state" id="state" formControlName="state"/>
 	  				<span class="help-block">                    
-		  				<small class="form-text">
-		                  State or province where your organization is located.
+		  				<small class="form-text" translate>
+											FORMS.help_form.help_state_province
 		                </small>
 		            </span>
 		            <div *ngIf="gF.state.dirty && gF.state.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.state.errors.required">State is required</div>
+	                	<div *ngIf="gF.state.errors.required">{{'FORMS.state_province' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	            	</div>		            
 	  			</div>
 	  		</div>  		
@@ -79,29 +79,29 @@
 	  	<div class="row">
 	  		<div class="col-sm-6 col-12">
 	  			<div class="form-group">
-	  				<label for="fqdn">Common Name</label>
+	  				<label for="fqdn" translate>FORMS.common_name</label>
 	  				<input type="text" class="form-control" name="fqdn" id="fqdn" formControlName="fqdn"/>
 	  				<span class="help-block">                    
-		  				<small class="form-text">
-		                  FQDN of the server. Example: domain.com, mail.domain.com, or *.domain.com.
+		  				<small class="form-text" translate>
+											FORMS.help_form.help_common_name
 		                </small>
 		            </span>
 		            <div *ngIf="gF.fqdn.dirty && gF.fqdn.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.fqdn.errors.required">Common name is required</div>
+	                	<div *ngIf="gF.fqdn.errors.required">{{'FORMS.common_name' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	            	</div>		            
 	  			</div>
 	  		</div>
 	  		<div class="col-sm-6 col-12">
 	  			<div class="form-group">
-	  				<label for="organization">Organization</label>
+	  				<label for="organization" translate>FORMS.organization</label>
 	  				<input type="text" class="form-control" name="organization" id="organization" formControlName="organization"/>
 	  				<span class="help-block">                    
-		  				<small class="form-text">
-		                  The full legal name of your organization/company (ex.: Zevenet Co.)
+		  				<small class="form-text" translate>
+											FORMS.help_form.help_organization
 		                </small>
 		            </span>
 		            <div *ngIf="gF.organization.dirty && gF.organization.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.organization.errors.required">Organization is required</div>
+	                	<div *ngIf="gF.organization.errors.required">{{'FORMS.organization' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	            	</div>		            
 	  			</div>
 	  		</div>  		
@@ -109,38 +109,38 @@
 	  	<div class="row">
 	  		<div class="col-sm-6 col-12">
 	  			<div class="form-group">
-	  				<label for="division">Division</label>
+	  				<label for="division" translate>FORMS.division</label>
 	  				<input type="text" class="form-control" name="division" id="division" formControlName="division"/>
 	  				<span class="help-block">                    
-		  				<small class="form-text">
-		                  Your department; such as 'IT','Web', 'Office', etc.
+		  				<small class="form-text" translate>
+											FORMS.help_form.help_division
 		                </small>
 		            </span>
 		            <div *ngIf="gF.division.dirty && gF.division.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.division.errors.required">Division is required</div>
+	                	<div *ngIf="gF.division.errors.required">{{'FORMS.division' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	            	</div>		            
 	  			</div>
 	  		</div>
 	  		<div class="col-sm-6 col-12">
 	  			<div class="form-group">
-	  				<label for="mail">E-mail Address</label>
+	  				<label for="mail" translate>FORMS.email_address</label>
 	  				<input type="email" class="form-control" name="mail" id="mail" formControlName="mail"/>
 	  				<span class="help-block">                    
-		  				<small class="form-text">
-		                  Your email address
+		  				<small class="form-text" translate>
+											FORMS.help_form.help_email_address
 		                </small>
 		            </span>
 		            <div *ngIf="gF.mail.dirty && gF.mail.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.mail.errors.required">E-mail address is required</div>
-	                	<div *ngIf="gF.mail.errors.email">E-mail has to be a valid email</div>	                	
+	                	<div *ngIf="gF.mail.errors.required">{{'FORMS.email_address' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+	                	<div *ngIf="gF.mail.errors.email">{{'FORMS.email_address' | translate}} {{'SYSTEM_MESSAGES.valid_email' | translate}}</div>	                	
 	            	</div>		            
 	  			</div>
 	  		</div>  		
 	  	</div>   	
 	    <div class="row">
 	    	<div class="col-sm-12 col-12">
-		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2">Generate</button>
-		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../">Cancel</button>
+		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2" translate>BUTTONS.generate</button>
+		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../" translate>BUTTONS.cancel</button>
 		    </div>
 	    </div> 
 	</form>

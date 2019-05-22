@@ -10,11 +10,17 @@
 
 import { Component } from '@angular/core';
 import { ZevenetAuthService } from '../../auth/zevenet-auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'zevenet-footer-ce',
   template: `
     <hr/>
+    <nb-select class="selectedlang" placeholder="Select Showcase" [(selected)]="selectedLang"
+    (selectedChange)="changeLang()">
+      <nb-option value="en">English</nb-option>
+      <nb-option value="es">Español</nb-option>
+    </nb-select>
     <div class="footer pt-3">
       <span *ngIf="zevenetAuthService?.hostname" class="pl-3"><i class="fa fa-desktop footer">
         </i> {{zevenetAuthService.hostname}}
@@ -28,12 +34,19 @@ import { ZevenetAuthService } from '../../auth/zevenet-auth.service';
 })
 export class ZevenetFooterCeComponent {
 
-  constructor(public zevenetAuthService: ZevenetAuthService) {
+  selectedLang: string = 'en';
+
+
+  constructor(public zevenetAuthService: ZevenetAuthService, public translate: TranslateService) {
 
   }
 
   removeHost(): void {
     localStorage.removeItem('hostname');
+  }
+
+  changeLang() {
+    this.translate.use(this.selectedLang);
   }
 
 }

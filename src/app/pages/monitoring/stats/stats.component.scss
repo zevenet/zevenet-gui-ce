@@ -21,6 +21,47 @@
 
   nb-card-body {
     padding: 0;
+    border: none !important;
+  }
+
+  nb-card {
+    border: none !important;
+  }
+
+  .chartsFarms {
+    width: 100% !important;
+    height: 400px !important;
+  }
+
+  /deep/ [_nghost-c13] ul[_ngcontent-c13] {
+    background: rgb(221, 221, 221) !important;
+    margin-bottom: 10px !important;
+  }
+
+  /deep/
+    [_nghost-c13]
+    ul[_ngcontent-c13]
+    li[_ngcontent-c13]
+    a[_ngcontent-c13]
+    i[_ngcontent-c13] + span[_ngcontent-c13] {
+    color: rgb(0, 0, 0) !important;
+  }
+
+  /deep/ [_nghost-c13] ul[_ngcontent-c13] li.active[_ngcontent-c13] a[_ngcontent-c13]::before {
+    background: rgba(33, 181, 114, 0.58) !important;
+  }
+
+  .rowFarmsStats {
+    width: 100% !important;
+  }
+
+  .item-tabset {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    padding-top: 30px;
+    padding-right: 30px;
   }
 
   .dropdown {
@@ -40,16 +81,10 @@
     position: relative;
     color: nb-theme(color-fg);
     padding: nb-theme(card-padding);
-    border-bottom:
-      nb-theme(list-item-border-width)
-      nb-theme(card-header-border-type)
-      nb-theme(separator);
+    border-bottom: nb-theme(list-item-border-width) nb-theme(card-header-border-type) nb-theme(separator);
 
     &:first-child {
-      border-top:
-        nb-theme(list-item-border-width)
-        nb-theme(card-header-border-type)
-        nb-theme(separator);
+      border-top: nb-theme(list-item-border-width) nb-theme(card-header-border-type) nb-theme(separator);
     }
 
     &:hover {
@@ -137,7 +172,8 @@
     }
 
     .delta {
-      &.down, &.up {
+      &.down,
+      &.up {
         color: nb-theme(color-fg-heading);
       }
     }

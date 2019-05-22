@@ -20,7 +20,7 @@
                 {{col.header}}
             </th>
             <th style="width: 10%;" *ngIf="editButton || actions.length > 0">
-                Actions
+                <div translate>TABLES.actions</div>
             </th>
         </tr>
     </ng-template>
@@ -101,7 +101,7 @@
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button"  class="btn btn-success btn-sm" (click)="save()" [disabled]="!changed" label="Save">Save</button>
+            <button type="button"  class="btn btn-success btn-sm" (click)="save()" [disabled]="!changed" label="Save" translate>BUTTONS.save</button>
         </div>
     </p-footer>
 </p-dialog>

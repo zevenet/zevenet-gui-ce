@@ -10,23 +10,23 @@
 
 <nb-card>
 	<nb-card-header>
-		Global Settings
+		<div translate>FORMS.global_settings</div>
 	</nb-card-header>
 	<nb-card-body>
 		<form [formGroup]="form" (ngSubmit)="onSubmit('form')" *ngIf="form">
 			<div class="row form">
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="name">Name</label>
+			      <label for="name" translate>FORMS.name</label>
 			      <input type="text" class="form-control" id="name" formControlName="name" placeholder="Name">
 	              <div *ngIf="f.name.errors" class="invalid-feedback">
-	                    <div *ngIf="f.name.errors.required">Name is required</div>
+	                    <div *ngIf="f.name.errors.required">{{'FORMS.name' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	              </div>
 			    </div>
 			  </div>
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="description">Description</label>
+			      <label for="description" translate>FORMS.description</label>
 			      <textarea class="form-control" id="description" formControlName="description"></textarea>
 			    </div>
 			  </div>
@@ -34,19 +34,19 @@
 			<div class="row">
 				<div class="col-sm-6 col-12">
 				    <div class="form-group">
-				      <label for="command">Command</label>
+				      <label for="command" translate>TABLES.command</label>
 				      <input type="text" class="form-control" name="command" id="command" formControlName="command"/>
 				      <div *ngIf="f.command.errors" class="invalid-feedback">
-	                    <div *ngIf="f.command.errors.required">Command is required</div>
+	                    <div *ngIf="f.command.errors.required">{{'TABLES.command' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	              	  </div>
 				    </div>
 				</div>
 				<div class="col-sm-6 col-12">
 				    <div class="form-group">
-				      <label for="interval">Interval</label>
+				      <label for="interval" translate>FORMS.interval</label>
 				 	  <div class="input-group">
 				          <input type="number" class="form-control" name="interval" id="interval" formControlName="interval"/>
-				          <span class="input-group-addon">seconds</span>
+				          <span class="input-group-addon" translate>FORMS.seconds</span>
 				       </div>
 				    </div>
 				</div>
@@ -54,25 +54,25 @@
 			<div class="row">		  
 			  <div class="col-sm-6 col-12">
           		<div class="form-group">							          		
-	          		<label for="cut_conns">Cut connections</label><br/>
+	          		<label for="cut_conns" translate>FORMS.cut_connections</label><br/>
 	          		<ui-switch name="cut_conns" id="cut_conns" size="small" formControlName="cut_conns"></ui-switch>
 	          	</div>
           	  </div>
 			  <div class="col-sm-6 col-12">
           		<div class="form-group">							          		
-	          		<label for="log">Log</label><br/>
+	          		<label for="log" translate>FORMS.log</label><br/>
 	          		<ui-switch name="log" id="log" size="small" formControlName="log"></ui-switch>
 	          	</div>
           	  </div>
 			</div>
 
-			<button class="btn btn-success mt-4" [disabled]="rule.template || (form.invalid || denySubmit)">Submit</button>
+			<button class="btn btn-success mt-4" [disabled]="rule.template || (form.invalid || denySubmit)" translate>BUTTONS.submit</button>
 		</form>
 	</nb-card-body>
 </nb-card>
 <nb-card>
 	<nb-card-header>
-		Farms Settings
+		<div translate>MONITORING.farmsguardian.farms_settings</div>
 	</nb-card-header>
 	<nb-card-body>
     	<div class="row">    		

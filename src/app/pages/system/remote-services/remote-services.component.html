@@ -10,32 +10,32 @@
 
 <nb-card>
 	<nb-card-header>
-		DNS Service
+			<div translate>SYSTEM.remote_services.dns_service</div>
 	</nb-card-header>
 	<nb-card-body>
 	  	<form *ngIf="formDns" [formGroup]="formDns" (ngSubmit)="onSubmit('formDns', 'dns')" class="mr-4 ml-4"> 
 		  	<div class="row">
 		  		<div class="col-sm-6 col-12">
 		  			<div class="form-group">
-		  				<label for="primary">Primary server</label>
+		  				<label for="primary" translate>SYSTEM.remote_services.primary_server</label>
 		  				<input type="text" class="form-control" name="primary" id="primary" formControlName="primary"/>
 		  				<span class="help-block">              
 			  				<small class="form-text">
-			                  Default is 8.8.8.8
+										<div translate>SYSTEM.remote_services.default_dns</div>
 			                </small>
 			            </span>
 			            <div *ngIf="fDns.primary?.errors" class="invalid-feedback">
-		                	<div *ngIf="fDns.primary.errors.required">Primary server is required</div>
+		                	<div *ngIf="fDns.primary.errors.required">{{'SYSTEM.remote_services.primary_server' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		            	</div>		            
 		  			</div>
 		  		</div>  
 		  		<div class="col-sm-6 col-12">
 		  			<div class="form-group">
-		  				<label for="secondary">Secondary Server</label>
+		  				<label for="secondary" translate>SYSTEM.remote_services.secondary_server</label>
 		  				<input type="text" class="form-control" name="secondary" id="secondary" formControlName="secondary"/>
 		  				<span class="help-block">              
 			  				<small class="form-text">
-			                  Optional.
+										<div translate>SYSTEM.remote_services.optional</div>
 			                </small>
 			            </span>        
 		  			</div>
@@ -43,7 +43,7 @@
 		  	</div>
 		    <div class="row">
 		    	<div class="col-sm-12 col-12">
-			        <button type="submit" [disabled]="formDns.invalid || dnsDenySubmit" class="btn btn-success mr-1 mt-2">Update</button>
+			        <button type="submit" [disabled]="formDns.invalid || dnsDenySubmit" class="btn btn-success mr-1 mt-2" translate>BUTTONS.update</button>
 			    </div>
 		    </div> 
 		</form>
@@ -51,29 +51,29 @@
 </nb-card>
 <nb-card>
 	<nb-card-header>
-		NTP Service
+			<div translate>SYSTEM.remote_services.npt_service</div>
 	</nb-card-header>
 	<nb-card-body>
 	  	<form *ngIf="formNtp" [formGroup]="formNtp" (ngSubmit)="onSubmit('formNtp', 'ntp')" class="mr-4 ml-4"> 
 		  	<div class="row">
 		  		<div class="col-sm-6 col-12">
 		  			<div class="form-group">
-		  				<label for="server">NTP server</label>
+		  				<label for="server" translate>SYSTEM.remote_services.npt_server</label>
 		  				<input type="text" class="form-control" name="server" id="server" formControlName="server"/>
 		  				<span class="help-block">              
 			  				<small class="form-text">
-			                  Default is pool.ntp.org
+										<div translate>SYSTEM.remote_services.default_npt</div>
 			                </small>
 			            </span>
 			            <div *ngIf="fNtp.server?.errors" class="invalid-feedback">
-		                	<div *ngIf="fNtp.server.errors.required">NTP Server is required</div>
+		                	<div *ngIf="fNtp.server.errors.required">{{'SYSTEM.remote_services.npt_server' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		            	</div>		            
 		  			</div>
 		  		</div>				  						  		 		
 		  	</div>
 		    <div class="row">
 		    	<div class="col-sm-12 col-12">
-			        <button type="submit" [disabled]="formNtp.invalid || ntpDenySubmit" class="btn btn-success mr-1 mt-2">Update</button>
+			        <button type="submit" [disabled]="formNtp.invalid || ntpDenySubmit" class="btn btn-success mr-1 mt-2" translate>BUTTONS.update</button>
 			    </div>
 		    </div> 
 		</form>
@@ -81,14 +81,14 @@
 </nb-card>
 <nb-card>
 	<nb-card-header>
-		SNMP Service
+			<div translate>SYSTEM.remote_services.snmp_service</div>
 	</nb-card-header>
 	<nb-card-body>
 	  	<form *ngIf="formSnmp" [formGroup]="formSnmp" (ngSubmit)="onSubmit('formSnmp', 'snmp')" class="mr-4 ml-4"> 
 		  	<div class="row">
 			  	<div class="col-sm-6 col-12">
 	          		<div class="form-group">
-		          		<label for="status">Enable SNMP</label><br/>
+		          		<label for="status" translate>SYSTEM.remote_services.enable_snmp</label><br/>
 		          		<ui-switch name="status" id="status" size="small" formControlName="status"></ui-switch>
 		          	</div>
 	          	</div>	
@@ -96,7 +96,7 @@
 		  	<div class="row" *ngIf="fSnmp.status.value">
 		  		<div class="col-sm-6 col-12">
 		  			<div class="form-group">
-		  				<label for="ip">Physical interface where is running SNMP service</label>
+		  				<label for="ip" translate>SYSTEM.remote_services.physical_interface_running</label>
 		  				<ng-select [items]="interfaces | filterNoVirtual"
 						           formControlName="ip"
 						           id="ip"
@@ -111,46 +111,46 @@
 								    </ng-template>								    
 						</ng-select>
 			            <div *ngIf="fSnmp.ip?.errors" class="invalid-feedback">
-		                	<div *ngIf="fSnmp.ip.errors.required">Interface is required</div>
+		                	<div *ngIf="fSnmp.ip.errors.required">{{'TABLES.interface' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		            	</div>
 		  			</div>
 		  		</div>
 		  		<div class="col-sm-6 col-12">
 		  			<div class="form-group">
-		  				<label for="port">SNMP Port where is running SNMP service</label>
+		  				<label for="port" translate>SYSTEM.remote_services.snmp_por_running</label>
 		  				<input type="number" class="form-control" name="port" id="port" formControlName="port"/>
 		  				<span class="help-block">              
 			  				<small class="form-text">
-			                  Default is 161.
+										<div translate>SYSTEM.remote_services.snmp_por_default</div>
 			                </small>
 			            </span>
 			            <div *ngIf="fSnmp.port?.errors" class="invalid-feedback">
-		                	<div *ngIf="fSnmp.port.errors.required">Port is required</div>
+		                	<div *ngIf="fSnmp.port.errors.required">{{'TABLES.port' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		            	</div>		            
 		  			</div>
 		  		</div>
 		  		<div class="col-sm-6 col-12">
 		  			<div class="form-group">
-		  				<label for="community">Community name</label>
+		  				<label for="community" translate>SYSTEM.remote_services.conmunity_name</label>
 		  				<input type="text" class="form-control" name="community" id="community" formControlName="community"/>
 			            <div *ngIf="fSnmp.community?.errors" class="invalid-feedback">
-		                	<div *ngIf="fSnmp.community.errors.required">Community name is required</div>
+		                	<div *ngIf="fSnmp.community.errors.required">{{'TABLES.port' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		            	</div>		            
 		  			</div>
 		  		</div>  
 		  		<div class="col-sm-6 col-12">
 		  			<div class="form-group">
-		  				<label for="scope">IP or subnet with access (IP/bit)</label>
+		  				<label for="scope" translate>SYSTEM.remote_services.ip_subnet</label>
 		  				<input type="text" class="form-control" name="scope" id="scope" formControlName="scope"/>
 			            <div *ngIf="fSnmp.scope?.errors" class="invalid-feedback">
-		                	<div *ngIf="fSnmp.scope.errors.required">Ip/subnet is required</div>
+		                	<div *ngIf="fSnmp.scope.errors.required">{{'SYSTEM.remote_services.ip_subnet' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		            	</div>		            
 		  			</div>
 		  		</div>  				  						  		 		
 		  	</div>
 		    <div class="row">
 		    	<div class="col-sm-12 col-12">
-			        <button type="submit" [disabled]="formSnmp.invalid || snmpDenySubmit" class="btn btn-success mr-1 mt-2">Update</button>
+			        <button type="submit" [disabled]="formSnmp.invalid || snmpDenySubmit" class="btn btn-success mr-1 mt-2" translate>BUTTONS.update</button>
 			    </div>
 		    </div> 
 		</form>

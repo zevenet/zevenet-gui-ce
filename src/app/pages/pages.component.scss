@@ -8,99 +8,108 @@
   * See License.txt in the project root for license information.
 **/
 
-
 *:focus {
-    box-shadow: none !important;
-    color: inherit !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+.selectedlang button, .selectedlang button nb-option {
+  background: transparent !important;
+  color: black !important;
 }
 i.fa-trash {
-	font-size: 18px !important;
+  font-size: 18px !important;
 }
 nb-card-body {
-	padding-top: 0;
+  padding-top: 0;
 }
 nb-card-header {
-	font-size: 1.5rem !important;
+  font-size: 1.5rem !important;
 }
 .restart {
-	color: #f4e032;
+  color: #f4e032;
 }
-.up, i.enabled {
-	color: #28a745;
+.up,
+i.enabled {
+  color: #28a745;
 }
 .critical {
-	color: #595959;
+  color: #595959;
 }
 .problem {
-	color: #2163b5;
+  color: #2163b5;
 }
-.down, i.disabled {
-	color: red;
+.down,
+i.disabled {
+  color: red;
 }
 .maintenance {
-	color: #ffb181;
+  color: #ffb181;
 }
 button.create {
-	font-size: 13px !important;
+  font-size: 13px !important;
   padding: 5px 10px !important;
   font-family: Roboto !important;
   width: auto !important;
-
 }
 .btn.btn-default + .dropdown-menu {
-	background: #ddd;
+  background: #ddd;
   border: 1px solid #ccc;
   color: #595959;
   width: auto;
 }
-.btn-default.dropdown-toggle, .btn-default.dropdown-toggle:hover {
-	color: black;
+.btn-default.dropdown-toggle,
+.btn-default.dropdown-toggle:hover {
+  color: black;
 }
-.nb-theme-corporate .input-group-addon, .nb-theme-corporate .form-control {
-	padding: 0.375rem 0.75rem;
+.nb-theme-corporate .input-group-addon,
+.nb-theme-corporate .form-control {
+  padding: 0.375rem 0.75rem;
 }
 .div-vip {
-	padding-right: 0;
+  padding-right: 0;
 }
 .div-vport {
-	padding-left: 0;
+  padding-left: 0;
 }
-.ng-valid[required], .ng-valid.required {
+.ng-valid[required],
+.ng-valid.required {
   border-left: 5px solid #42a948; /* green */
 }
 .ng-invalid:not(form):not(div) {
   border-left: 5px solid #a94442 !important; /* red */
 }
 .btn-group-toggle {
-	max-height: 35px;
+  max-height: 35px;
 
-	label[ngbbuttonlabel] {
-		padding: 8px 0;
-    	font-size: 13px;
-	}
+  label[ngbbuttonlabel] {
+    padding: 8px 0;
+    font-size: 13px;
+  }
 }
 span.input-group-addon {
-    border-right: 2px solid #dadfe6 !important;
-    font-size: 12px !important;
-    padding: 10px !important;
+  border-right: 2px solid #dadfe6 !important;
+  font-size: 12px !important;
+  padding: 10px !important;
 }
 ngb-accordion > .card.ng-star-inserted {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 
   a {
     text-decoration: none;
   }
 }
 ui-switch {
-	display: table;
+  display: table;
 }
 
 .toast-message button.btn.btn-sm {
-    padding: 5px 10px;
-    margin: 10px 5px 0 0;
+  padding: 5px 10px;
+  margin: 10px 5px 0 0;
 }
-input:read-only, input:disabled, textarea:disabled {
-    background: rgb(248, 247, 247) !important;
+input:read-only,
+input:disabled,
+textarea:disabled {
+  background: rgb(248, 247, 247) !important;
 }
 
 .graph {
@@ -109,7 +118,6 @@ input:read-only, input:disabled, textarea:disabled {
     margin: 30px 20px 40px;
   }
 }
-
 
 /* Table */
 
@@ -123,9 +131,7 @@ div.action {
   padding-left: 0 !important;
 }
 .ui-table {
-
   .ui-table-tbody {
-
     > tr > td {
       border: none !important;
     }
@@ -135,7 +141,7 @@ div.action {
     }
 
     tr.ui-state-highlight {
-        background-color: #ccc;
+      background-color: #ccc;
     }
   }
 
@@ -145,20 +151,23 @@ div.action {
     border-top: 2px solid #d9d9d9 !important;
   }
 
-  .ui-table-thead > tr > th, .ui-table .ui-table-tfoot > tr > td {
+  .ui-table-thead > tr > th,
+  .ui-table .ui-table-tfoot > tr > td {
     background-color: transparent;
     border-color: #d9d9d9;
     border: none !important;
     border-bottom: 2px solid #d9d9d9 !important;
   }
 
-  .ui-chkbox-box.ui-state-active, .ui-radiobutton-box.ui-state-active {
-      border: 1px solid #21b573;
-      background: white;
-      color: #21b573;
+  .ui-chkbox-box.ui-state-active,
+  .ui-radiobutton-box.ui-state-active {
+    border: 1px solid #21b573;
+    background: white;
+    color: #21b573;
   }
 
-  .ui-table-caption, .ui-table-summary {
+  .ui-table-caption,
+  .ui-table-summary {
     text-align: left;
     font-weight: normal;
   }
@@ -172,7 +181,7 @@ div.action {
   display: block;
 }
 .div-vip .invalid-feedback {
-    width: 130%;
+  width: 130%;
 }
 .maintenance-action {
   display: inline;
@@ -234,7 +243,10 @@ nb-logout div {
   }
 }
 
-a, a:hover, a:visited, a:actived {
+a,
+a:hover,
+a:visited,
+a:actived {
   color: #21b573;
 }
 .btn-success {
@@ -247,12 +259,12 @@ zevenet-monitoring-stats nb-card.medium-card {
   height: auto !important;
 }
 i.menu-icon.fa {
-    font-size: 24px !important;
-    padding: 5px 15px 5px 0;
+  font-size: 24px !important;
+  padding: 5px 15px 5px 0;
 }
 #zevenet-logo {
-    padding: 20px 0 30px;
-    width: 100%;
+  padding: 20px 0 30px;
+  width: 100%;
 }
 .footer {
   line-height: 25px;
@@ -268,7 +280,9 @@ i.menu-icon.fa {
   a {
     color: #21b573;
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       color: rgba(33, 181, 114, 0.58) !important;
     }
   }
@@ -294,27 +308,34 @@ i.menu-icon.fa {
       border: 2px solid #999 !important;
     }
   }
-  .dropdown.show .dropdown-menu.show, .dropup.show .dropdown-menu.show {
+  .dropdown.show .dropdown-menu.show,
+  .dropup.show .dropdown-menu.show {
     left: 0 !important;
   }
-  nb-sidebar .main-container, nb-menu, nb-menu .menu-item > .menu-items, nb-menu .menu-item > .menu-items > .menu-item {
+  nb-sidebar .main-container,
+  nb-menu,
+  nb-menu .menu-item > .menu-items,
+  nb-menu .menu-item > .menu-items > .menu-item {
     background: #ddd;
 
     a {
       border: 0.125rem solid #ddd;
     }
-    .menu-icon, .chevron {
+    .menu-icon,
+    .chevron {
       color: black;
     }
   }
   nb-menu .menu-item {
-    a:hover, a:active, a:focus {
+    a:hover,
+    a:active,
+    a:focus {
       color: black !important;
       background: transparent !important;
     }
     a.active {
       background-color: #cacaca !important;
-      border-color: #cacaca !important;;
+      border-color: #cacaca !important;
     }
   }
   .layout {
@@ -328,7 +349,7 @@ i.menu-icon.fa {
   height: auto !important;
 }
 input:focus {
-    border-color: #21b573 !important;
+  border-color: #21b573 !important;
 }
 nb-card {
   position: relative;
@@ -340,7 +361,8 @@ nb-card-header {
 nb-card-body {
   background: #fafafa;
 }
-nb-auth nb-card-header, nb-auth nb-card-body {
+nb-auth nb-card-header,
+nb-auth nb-card-body {
   background: inherit;
 }
 
@@ -360,21 +382,23 @@ nb-auth nb-layout-column > nb-card {
   background-color: #21b573 !important;
 }
 .action {
-  > a, > i, > .maintenance-action span {
+  > a,
+  > i,
+  > .maintenance-action span {
     color: #21b573;
 
     &:hover {
       color: rgba(33, 181, 114, 0.58) !important;
     }
   }
-
 }
 span.pi.pi-times::before {
-    content: '\f00d';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    font-size: 14px;
+  content: '\f00d';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 14px;
 }
-zevenet-table td, zevenet-table-editable td {
+zevenet-table td,
+zevenet-table-editable td {
   word-break: break-all;
 }

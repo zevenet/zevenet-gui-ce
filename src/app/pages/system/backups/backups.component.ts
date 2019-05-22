@@ -22,8 +22,8 @@ export class BackupsComponent implements  OnInit {
   actionResp: any;
 
   columns: Array<any> = [
-    {field: 'name', header: 'Name', width: '50%'},
-    {field: 'date', header: 'Date', width: '40%'},
+    {field: 'name', header: '', width: '50%'},
+    {field: 'date', header: '', width: '40%'},
   ];
 
   actionsList: Array<any> = [
@@ -32,12 +32,30 @@ export class BackupsComponent implements  OnInit {
     {action: 'delete', icon: 'fa-trash'},
   ];
 
-  constructor(private service: ZevenetService) { }
+  constructor(private service: ZevenetService) {
+   }
+
 
   ngOnInit() {
     this.getBackups();
+    this.getLangTranslated('TABLES', this.columns);
   }
 
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
   getBackups(): void {
     this.service.getList('system/backup')
       .subscribe((data) => {
@@ -47,18 +65,14 @@ export class BackupsComponent implements  OnInit {
 
   onAction(event) {
     if (event.action === 'delete') {
-      if (window.confirm('Are you sure you want to delete the backup ' + event.data.name + '?')) {
+      if (this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_confirm_deleted', 'window', event.data.name)) {
         this.service.delete('system/backup', event.data.name)
         .subscribe(
           (data) => { this.actionResp  =  data; },
           (error) => { },
           () => {
             this.backups.splice(this.backups.findIndex(i => i.name === event.data.name), 1);
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backup <strong>' + event.data.name + '</strong> has been deleted successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_deleted', 'toast', event.data.name);
           });
       }
     } else if (event.action === 'apply') {
@@ -68,11 +82,7 @@ export class BackupsComponent implements  OnInit {
           (data) => { this.actionResp  =  data; },
           (error) => { },
           () => {
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backup <strong>' + event.data.name + '</strong> has been applied successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_applied', 'toast', event.data.name);
           });
     } else {
       this.service.download('system/backup', event.data.name)
@@ -81,11 +91,7 @@ export class BackupsComponent implements  OnInit {
           (error) => { },
           () => {
             this.service.downloadFile(this.actionResp, event.data.name, 'application/tar+gzip');
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backup <strong>' + event.data.name + '</strong> has been downloaded successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_downloaded', 'toast', event.data.name);
           });
     }
   }

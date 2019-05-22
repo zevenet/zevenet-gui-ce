@@ -18,6 +18,7 @@ import { Component } from '@angular/core';
 import { ToasterConfig } from 'angular2-toaster';
 import 'style-loader!angular2-toaster/toaster.css';
 
+
 @Component({
   selector: 'zevenet-console-central',
   template: `<router-outlet></router-outlet>
@@ -25,6 +26,7 @@ import 'style-loader!angular2-toaster/toaster.css';
   `,
 })
 export class AppComponent {
+
 
   config: ToasterConfig = new ToasterConfig({
     positionClass: 'toast-bottom-right',
@@ -35,7 +37,5 @@ export class AppComponent {
     animation: 'fade',
     limit: 10,
   });
-
-  constructor() { }
 
 }

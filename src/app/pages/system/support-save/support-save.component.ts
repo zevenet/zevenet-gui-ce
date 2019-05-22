@@ -28,7 +28,16 @@ export class SupportSaveComponent implements  OnInit {
   ngOnInit() {
   }
 
-  getSupportSave(): void {
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }  getSupportSave(): void {
     this.genereting = true;
     this.service.getObject('system', 'supportsave')
       .subscribe(
@@ -44,11 +53,7 @@ export class SupportSaveComponent implements  OnInit {
           setTimeout(() => {
             this.genereting = false;
             this.textButton = 'Generating...';
-            this.service.showToast(
-              'success',
-               '',
-               'The <strong> Support Save </strong> has been downloaded successfully.',
-            );
+            this.showMessageTranslated('SYSTEM_MESSAGES.system.support_save_downloaded', 'toast');
           }, 8000);
         });
   }

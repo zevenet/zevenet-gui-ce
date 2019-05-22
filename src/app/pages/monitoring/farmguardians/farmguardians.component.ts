@@ -11,6 +11,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ZevenetService } from '../../../@core/zevenet/services/zevenet.service';
 
+
 @Component({
   selector: 'zevenet-monitoring-farmguardians',
   templateUrl: './farmguardians.component.html',
@@ -22,10 +23,10 @@ export class FarmguardiansComponent implements OnInit {
   actionResp: any;
 
   columns: Array<any> = [
-    {field: 'name', header: 'Name', width: '20%'},
-    {field: 'description', header: 'Description', width: '25%'},
-    {field: 'command', header: 'Command', width: '20%'},
-    {field: 'farms', header: 'Farms', width: '25%'},
+    {field: 'name', header: '', width: '20%'},
+    {field: 'description', header: '', width: '25%'},
+    {field: 'command', header: '', width: '20%'},
+    {field: 'farms', header: '', width: '25%'},
   ];
 
   actionsList: Array<any> = [
@@ -36,9 +37,24 @@ export class FarmguardiansComponent implements OnInit {
 
   ngOnInit() {
     this.getRules();
+    this.getLangTranslated('TABLES', this.columns);
   }
 
-  getRules(): void {
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, {param: param, param2: param2})
+    .then(data =>  {
+      if (func === 'toast') {
+        this.service.showToast('success', '', data);
+      } else if (func === 'window') {
+        return window.confirm(data);
+      }
+    });
+  }  getRules(): void {
     this.service.getList('monitoring/fg')
       .subscribe((data) => {
         this.rules  =  data.params;
@@ -47,18 +63,14 @@ export class FarmguardiansComponent implements OnInit {
 
   onAction(event) {
     if (event.action === 'delete') {
-      if (window.confirm('Are you sure you want to delete the ' + event.data.name + ' farmguardian?')) {
+      if (this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_confirm_delete', 'window', event.data.name)) {
         this.service.delete('monitoring/fg', event.data.name)
         .subscribe(
           (data) => { this.actionResp  =  data; },
           (error) => { event.confirm.reject(); },
           () => {
             this.rules.splice(this.rules.findIndex(i => i.name === event.data.name), 1);
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + event.data.name + '</strong> farmguardian has been deleted successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_delete', 'toast', event.data.name);
           });
       }
     }

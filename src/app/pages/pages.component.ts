@@ -11,6 +11,8 @@
 import { Component } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 import { MENU_ITEMS } from './pages-menu';
+import {TranslateService} from '@ngx-translate/core';
+import {LangChangeEvent} from '@ngx-translate/core';
 
 @Component({
   selector: 'zevenet-pages',
@@ -23,10 +25,42 @@ import { MENU_ITEMS } from './pages-menu';
   styleUrls: ['./pages.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
+
+
 export class PagesComponent {
 
-  constructor() {
+  value: any;
+  menu: any = MENU_ITEMS;
+  sorted: any = ['dashboard', 'lslb', 'lslb_farms', 'ssl', 'dslb', 'dslb_farms',
+  'monitoring', 'graphs', 'farm_stats', 'farmguardians', 'network',
+  'nic', 'vlan', 'virtual_interfaces', 'gateway', 'system', 'remote_services',
+  'backups', 'user', 'logs', 'license', 'support_save'];
+
+  constructor(public translate: TranslateService) {
+    translate.setDefaultLang('en');
+    this.refreshLang();
+
+    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.refreshLang();
+    });
   }
 
-  menu = MENU_ITEMS;
+  refreshLang(): void {
+    this.translate.get('PAGES-MENU').subscribe((valor) => {
+      this.value = valor;
+      let ind = 0;
+      this.menu.forEach((element, index) => {
+        element.title = this.value[this.sorted[ind]].title;
+        if (element.children) {
+          element.children.forEach((child, childindex) => {
+            ind++;
+            child.title = this.value[this.sorted[ind]].title;
+          });
+        }
+        ind++;
+      });
+    });
+  }
 }
+
+

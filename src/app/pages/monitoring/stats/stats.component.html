@@ -9,10 +9,42 @@
 -->
 
 <nb-card>
-	<nb-card-header>
-    	Farms Stats
-    </nb-card-header>
-    <nb-card-body class="p-4">
-	  	<zevenet-table-expand *ngIf="farms" [data]="farms?.farms | filterFarmStats" [cols]="columns" keySort="farmname" [expanded]="expanded" (toggleColumn)="toggleColumn($event)" [subcolumns]="subcolumns"></zevenet-table-expand>
-	</nb-card-body>
+  <nb-card-body class="p-4">
+    <nb-tabset (changeTab)="tabChange($event.tabTitle)">
+      <nb-tab tabTitle="{{'MONITORING.farm_stats' | translate}}" tabIcon="nb-gear" responsive>
+        <nb-card *ngIf="showExpanded">
+          <zevenet-table-expand *ngIf="farms" [data]="farms?.farms | filterFarmStats" [cols]="columns"
+            keySort="farmname" [expanded]="expanded" (toggleColumn)="addToggleColumn($event)" [subcolumns]="subcolumns">
+          </zevenet-table-expand>
+        </nb-card>
+      </nb-tab>
+      <nb-tab tabTitle="{{'MONITORING.farm_graphs' | translate}}" tabIcon="nb-info" responsive>
+        <div class="row rowFarmsStats">
+          <div class="col-lg-6">
+            <ng-select *ngIf="farms" [items]="farms.farms" bindLabel="farmname" bindValue="farmname"
+              [(ngModel)]="selectedFarm">
+            </ng-select>
+          </div>
+          <div class="col-lg-6">
+            <button type="button" class="btn btn-success btn-sm" (click)="startCharts()"
+              translate>{{'BUTTONS.start' | translate}}</button>
+            <button type="button" class="btn btn-success btn-sm" (click)="clearCharts()"
+              translate>{{'BUTTONS.clear' | translate}}</button>
+          </div>
+        </div>
+        <div class="row" *ngIf="showCanvas">
+          <div class="col-lg-12">
+            <canvas *ngIf="showCanvas" class="chartsFarms" id="chart0" ngChartjs></canvas>
+          </div>
+          <div class="col-lg-6" *ngFor="let chart of [].constructor(canvasCounter); let i = index">
+            <canvas *ngIf="showCanvas" class="chartsFarms" id="chart{{i+1}}" ngChartjs></canvas>
+          </div>
+        </div>
+      </nb-tab>
+    </nb-tabset>
+    <div class="input-group item-tabset">
+      <input type="number" class="form-control" [(ngModel)]="refreshTimer" min="1" />
+      <span class="input-group-addon">{{'FORMS.seconds' | translate}}</span>
+    </div>
+  </nb-card-body>
 </nb-card>

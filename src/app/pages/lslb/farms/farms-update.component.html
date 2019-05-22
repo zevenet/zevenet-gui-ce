@@ -10,21 +10,21 @@
 
 <nb-card class="position-relative">
 	<nb-card-header>
-		Global Settings
+		<div translate>FORMS.global_settings</div>
 	</nb-card-header>
 	<nb-card-body class="global">
 		<form [formGroup]="globalForm" (ngSubmit)="onSubmit('globalForm')" *ngIf="globalForm">
 			<div class="row form">
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="newfarmname">Name</label>
+			      <label for="newfarmname" translate>FORMS.name</label>
 			      <input type="text" class="form-control" id="newfarmname" placeholder="Name" formControlName="newfarmname" [readonly]="readonly">
 			      <span class="help-block">                    
-	                <small class="form-text" *ngIf="readonly">Only editable when the farm is down.</small>
+	                <small class="form-text" *ngIf="readonly" translate>FORMS.help_form.help_alert_name</small>
 	              </span>
 	              <div *ngIf="gF.newfarmname.errors" class="invalid-feedback">
-	                    <div *ngIf="gF.newfarmname.errors.required">Name is required</div>
-	                    <div *ngIf="gF.newfarmname.errors.pattern">Name is not valid, it only is possible alphanumeric characters and dash (-).</div>
+	                    <div *ngIf="gF.newfarmname.errors.required">{{'FORMS.name' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+	                    <div *ngIf="gF.newfarmname.errors.pattern">{{'FORMS.name' | translate}} {{'SYSTEM_MESSAGES.name_not_valid' | translate}}</div>
 	              </div>
 			    </div>
 			  </div>
@@ -32,7 +32,7 @@
 			  	<div class="row">
 				  	<div class="col-sm-9 div-vip">
 					    <div class="form-group">
-					      <label for="vip">Virtual IP and Port</label>
+					      <label for="vip" translate>FORMS.virtual_ip_and_port</label>
 					      <ng-select [items]="interfaces | filterInterfacesFarm"
 							           bindLabel="ip"
 							           bindValue="ip"
@@ -55,9 +55,9 @@
 							        	</ng-template>			        
 							</ng-select>
 							<div *ngIf="gF.vip.errors || gF.vport.errors" class="invalid-feedback">
-			                	<div *ngIf="gF.vip.errors?.required">Virtual IP is required</div>
-			                	<div *ngIf="gF.vport.errors?.required">Virtual Port is required</div>
-			                	<div *ngIf="gF.vport.errors?.pattern">Virtual Port not is valid, it is posible to define a single port, several ports or ranges of ports (Ex: 80 or 80,81 or 80:90)</div>
+			                	<div *ngIf="gF.vip.errors?.required">{{'TABLES.vip' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+			                	<div *ngIf="gF.vport.errors?.required">{{'FORMS.vport' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+			                	<div *ngIf="gF.vport.errors?.pattern">{{'FORMS.vport' | translate}} {{'SYSTEM_MESSAGES.port_not_valid' | translate}}</div>
 			            	</div>
 					    </div>
 					</div>
@@ -74,7 +74,7 @@
 			<div class="row" *ngIf="farm.listener != 'l4xnat'">
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="listener">Listener</label>
+			      <label for="listener" translate>LSLB.farms.http.global_setting.listener</label>
 			      <ng-select [items]="profilesHttp"
 				           formControlName="listener"
 				           id="listener"
@@ -87,43 +87,43 @@
 				        	</ng-template>
 				  </ng-select>
 				  <div *ngIf="gF.listener.errors" class="invalid-feedback">
-	                <div *ngIf="gF.listener.errors.required">Listener is required</div>
+	                <div *ngIf="gF.listener.errors.required" >{{'LSLB.farms.http.global_setting.listener' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	              </div>
 			    </div>
 			  </div>
 			</div>
 			<div *ngIf="gF.listener?.value == 'https'">
 			  <br>
-	          <p><b>HTTPS Parameters</b></p>
+	          <p><b translate>LSLB.farms.http.global_setting.https.title</b></p>
 	          <hr/>
 	          <div class="row d-flex justify-content-between">
 	          	<div class="col-sm-2 col-6">
 	          		<div class="form-group">						
-		          		<label for="disable_sslv2">Disable SSLv2</label><br/>
+		          		<label for="disable_sslv2" translate>LSLB.farms.http.global_setting.https.disable_sslv2</label><br/>
 		          		<ui-switch name="disable_sslv2" id="disable_sslv2" size="small" formControlName="disable_sslv2"></ui-switch>
 		          	</div>
 	          	</div>
 	          	<div class="col-sm-2 col-6">
 	          		<div class="form-group">							          		
-		          		<label for="disable_sslv2">Disable SSLv3</label><br/>
+		          		<label for="disable_sslv2" translate>LSLB.farms.http.global_setting.https.disable_sslv2</label><br/>
 		          		<ui-switch name="disable_sslv3" id="disable_sslv3" size="small" formControlName="disable_sslv3"></ui-switch>
 		          	</div>
 	          	</div>	
 	          	<div class="col-sm-2 col-6">
 	          		<div class="form-group">							          		
-		          		<label for="disable_tlsv1">Disable TLSv1</label><br/>
+		          		<label for="disable_tlsv1" translate>LSLB.farms.http.global_setting.https.disable_tslv1</label><br/>
 		          		<ui-switch name="disable_tlsv1" id="disable_tlsv1" size="small" formControlName="disable_tlsv1"></ui-switch>
 		          	</div>
 	          	</div>	   	
 	          	<div class="col-sm-2 col-6">
 	          		<div class="form-group">							          		
-		          		<label for="disable_tlsv1_1">Disable TLSv1.1</label><br/>
+		          		<label for="disable_tlsv1_1" translate>LSLB.farms.http.global_setting.https.disable_tslv1_1</label><br/>
 		          		<ui-switch name="disable_tlsv1_1" id="disable_tlsv1_1" size="small" formControlName="disable_tlsv1_1"></ui-switch>
 		          	</div>
 	          	</div>	
 	          	<div class="col-sm-2 col-6">
 	          		<div class="form-group">							          		
-		          		<label for="disable_tlsv1_2">Disable TLSv1.2</label><br/>
+		          		<label for="disable_tlsv1_2" translate>LSLB.farms.http.global_setting.https.disable_tslv1_2</label><br/>
 		          		<ui-switch name="disable_tlsv1_2" id="disable_tlsv1_2" size="small" formControlName="disable_tlsv1_2"></ui-switch>
 		          	</div>
 	          	</div>		          		          	          	          	
@@ -131,7 +131,7 @@
 	          <div class="row">
 	          	<div class="col-sm-6 col-12">
 		          	<div class="form-group">
-				      	<label for="ciphers">Ciphers</label>
+				      	<label for="ciphers" translate>LSLB.farms.http.global_setting.https.ciphers</label>
 				      	<ng-select [items]="ciphersHttp"
 					           formControlName="ciphers"
 					           id="ciphers"
@@ -140,16 +140,16 @@
 					           bindValue="ciphers">
 					  	</ng-select>
 					  	<div *ngIf="gF.ciphers.errors" class="invalid-feedback">
-		                	<div *ngIf="gF.ciphers.errors.required">Ciphers is required</div>
+		                	<div *ngIf="gF.ciphers.errors.required">{{'LSLB.farms.http.global_setting.https.ciphers' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		              	</div>
 			    	</div>
 	          	</div>
 	          	<div class="col-sm-6 col-12" *ngIf="gF.ciphers.value == 'customsecurity'">
 					<div class="form-group">
-				      	<label for="cipherc">Custom ciphers</label>						
+				      	<label for="cipherc" translate>LSLB.farms.http.global_setting.https.custom_ciphers</label>						
 						<input type="text" class="form-control" id="cipherc" placeholder="Custom ciphers" formControlName="cipherc">
 						<div *ngIf="gF.cipherc.errors" class="invalid-feedback">
-		                	<div *ngIf="gF.cipherc.errors.required">Custom ciphers is required</div>
+		                	<div *ngIf="gF.cipherc.errors.required">{{'LSLB.farms.http.global_setting.https.ciphers' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		              	</div>
 					</div>
 	          	</div>
@@ -157,7 +157,7 @@
 	          <div class="row">
 				  <div class="col-sm-6 col-12">
 				  	<div class="form-group">
-				      	<label for="cipherc">Certificate Enabled</label>						
+				      	<label for="cipherc" translate>LSLB.farms.http.global_setting.https.certificate_enabled</label>						
 				      	<ng-select [items]="certificatesHttp | filterCertsFarm"
 					           formControlName="certificate"
 					           id="certificate"
@@ -172,12 +172,12 @@
 			</div>
 			<div *ngIf="farm?.listener == 'l4xnat'">
 				<br>
-		        <p><b> Advanced settings</b></p>
+		        <p><b translate>LSLB.farms.http.global_setting.advanced_settings.title</b></p>
 		        <hr>        
 				<div class="row">
 					<div class="col-sm-6 col-12">
 			          	<div class="form-group">						
-							<label for="protocol">Protocol type</label>
+							<label for="protocol" translate>LSLB.farms.l4xnat.global_setting.protocol_type</label>
 							<ng-select [items]="protocolsL4"
 						           formControlName="protocol"
 						           id="protocol"
@@ -191,13 +191,13 @@
 						        	</ng-template>
 						  	</ng-select>
 						  	<div *ngIf="gF.protocol.errors" class="invalid-feedback">
-			                	<div *ngIf="gF.protocol.errors.required">Protocol type is required</div>
+			                	<div *ngIf="gF.protocol.errors.required">{{'LSLB.farms.l4xnat.global_setting.protocol_type' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 			              	</div>
 						</div>
 					</div>
 					<div class="col-sm-6 col-12">
 			          	<div class="form-group">						
-							<label for="nattype">NAT type</label>
+							<label for="nattype" translate>LSLB.farms.l4xnat.global_setting.nat_type</label>
 							<ng-select [items]="nattypesL4"
 						           formControlName="nattype"
 						           id="nattype"
@@ -211,7 +211,7 @@
 						        	</ng-template>
 						  	</ng-select>
 						  	<div *ngIf="gF.nattype.errors" class="invalid-feedback">
-			                	<div *ngIf="gF.nattype.errors.required">NAT type is required</div>
+			                	<div *ngIf="gF.nattype.errors.required">{{'LSLB.farms.l4xnat.global_setting.nat_type' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 			              	</div>
 						</div>
 					</div>
@@ -219,12 +219,12 @@
 			</div>
 			<div *ngIf="farm?.listener != 'l4xnat'">
 				<br>
-		        <p><b> Advanced settings</b></p>
+		        <p><b translate>LSLB.farms.http.global_setting.advanced_settings.title</b></p>
 		        <hr>	        
 				<div class="row">
 					<div class="col-sm-6 col-12">
 			          	<div class="form-group">						
-							<label for="rewritelocation">Rewrite location headers</label>
+							<label for="rewritelocation" translate>LSLB.farms.http.global_setting.advanced_settings.rewrite_location_headers</label>
 							<ng-select [items]="locationsHttp"
 						           formControlName="rewritelocation"
 						           id="rewritelocation"
@@ -233,13 +233,13 @@
 						           bindValue="value">
 						  	</ng-select>
 						  	<div *ngIf="gF.rewritelocation.errors" class="invalid-feedback">
-			                    <div *ngIf="gF.rewritelocation.errors.required">Rewrite location is required</div>
+			                    <div *ngIf="gF.rewritelocation.errors.required">{{'LSLB.farms.http.global_setting.advanced_settings.rewrite_location_headers' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 			              	</div>
 						</div>
 					</div>
 					<div class="col-sm-6 col-12">
 			          	<div class="form-group">												
-							<label for="httpverb">HTTP verbs accepted</label>
+							<label for="httpverb" translate>LSLB.farms.http.global_setting.advanced_settings.http_verbs_accepted</label>
 							<ng-select [items]="verbsHttp"
 						           formControlName="httpverb"
 						           id="httpverb"
@@ -248,7 +248,7 @@
 						           bindValue="value">
 						  	</ng-select>
 						  	<div *ngIf="gF.httpverb.errors" class="invalid-feedback">
-			                    <div *ngIf="gF.httpverb.errors.required">HTTP verbs is required</div>
+			                    <div *ngIf="gF.httpverb.errors.required">{{'LSLB.farms.http.global_setting.advanced_settings.http_verbs_accepted' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 			              	</div>
 						</div>
 					</div>
@@ -256,27 +256,27 @@
 				<div class="row">
 					<div class="col-sm-6 col-12">
 						<div class="form-group">	
-							<label for="contimeout">Backend connection timeout</label>
+							<label for="contimeout" translate>LSLB.farms.http.global_setting.advanced_settings.backend_connection_timeout</label>
 							<div class="input-group">
 					          <input type="number" class="form-control" placeholder="Backend connection timeout" name="contimeout" id="contimeout" formControlName="contimeout"/>
 					          <span class="input-group-addon">Seconds</span>
 					        </div>
 					        <div *ngIf="gF.contimeout.errors" class="invalid-feedback">
-			                    <div *ngIf="gF.contimeout.errors.required">Backend connection timeout is required</div>
-			                    <div *ngIf="gF.contimeout.errors.min">Backend connection has to be greater than 0</div>			                    
+			                    <div *ngIf="gF.contimeout.errors.required">{{'LSLB.farms.http.global_setting.advanced_settings.backend_connection_timeout' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+			                    <div *ngIf="gF.contimeout.errors.min">{{'LSLB.farms.http.global_setting.advanced_settings.backend_connection_timeout' | translate}} {{'SYSTEM_MESSAGES.greater_than_0' | translate}}</div>			                    
 			              	</div>
 					    </div>
 					</div>
 					<div class="col-sm-6 col-12">
 						<div class="form-group">
-							<label for="restimeout">Backend response timeout</label>
+							<label for="restimeout" translate>LSLB.farms.http.global_setting.advanced_settings.backend_response_timeout</label>
 							<div class="input-group">
 					          <input type="number" class="form-control" placeholder="Backend response timeout" name="restimeout" id="restimeout" formControlName="restimeout"/>
 					          <span class="input-group-addon">Seconds</span>				    
 					        </div>
 					        <div *ngIf="gF.restimeout.errors" class="invalid-feedback">
-			                    <div *ngIf="gF.restimeout.errors.required">Backend response timeout is required</div>
-			                    <div *ngIf="gF.restimeout.errors.min">Backend response has to be greater than 0</div>	
+			                    <div *ngIf="gF.restimeout.errors.required">{{'LSLB.farms.http.global_setting.advanced_settings.backend_response_timeout' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+			                    <div *ngIf="gF.restimeout.errors.min">{{'LSLB.farms.http.global_setting.advanced_settings.backend_response_timeout' | translate}} {{'SYSTEM_MESSAGES.greater_than_0' | translate}}</div>	
 			              	</div>
 					    </div>
 					</div>					
@@ -284,27 +284,27 @@
 				<div class="row">
 					<div class="col-sm-6 col-12">
 						<div class="form-group">	
-							<label for="resurrectime">Frequency to check resurrected backends</label>
+							<label for="resurrectime" translate>LSLB.farms.http.global_setting.advanced_settings.frequency_to_check_resurrected_backends</label>
 							<div class="input-group">
 					          <input type="number" class="form-control" placeholder="Frequency to check resurrected backends" name="resurrectime" id="resurrectime" formControlName="resurrectime"/>
 					          <span class="input-group-addon">Seconds</span>		    
 					        </div>
 					        <div *ngIf="gF.resurrectime.errors" class="invalid-feedback">
-			                    <div *ngIf="gF.resurrectime.errors.required">Frequency to check is required</div>
-			                    <div *ngIf="gF.resurrectime.errors.min">Frequency to check has to be greater than 0</div>	
+			                    <div *ngIf="gF.resurrectime.errors.required">{{'LSLB.farms.http.global_setting.advanced_settings.frequency_to_check_resurrected_backends' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+			                    <div *ngIf="gF.resurrectime.errors.min">{{'LSLB.farms.http.global_setting.advanced_settings.frequency_to_check_resurrected_backends' | translate}} {{'SYSTEM_MESSAGES.greater_than_0' | translate}}</div>	
 			              	</div>
 					    </div>
 					</div>
 					<div class="col-sm-6 col-12">
 						<div class="form-group">
-							<label for="reqtimeout">Client request timeout</label>
+							<label for="reqtimeout" translate>LSLB.farms.http.global_setting.advanced_settings.client_request_timeout</label>
 							<div class="input-group">
 					          <input type="number" class="form-control" placeholder="Client request timeout" name="reqtimeout" id="reqtimeout" formControlName="reqtimeout"/>
 					          <span class="input-group-addon">Seconds</span>				       
 					        </div>
 					        <div *ngIf="gF.reqtimeout.errors" class="invalid-feedback">
-			                    <div *ngIf="gF.reqtimeout.errors.required">Client request timeout is required</div>
-			                    <div *ngIf="gF.reqtimeout.errors.min">Client request timeout has to be greater than 0</div>
+			                    <div *ngIf="gF.reqtimeout.errors.required">{{'LSLB.farms.http.global_setting.advanced_settings.client_request_timeout' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+			                    <div *ngIf="gF.reqtimeout.errors.min">{{'LSLB.farms.http.global_setting.advanced_settings.client_request_timeout' | translate}} {{'SYSTEM_MESSAGES.greater_than_0' | translate}}</div>
 			              	</div>
 					    </div>
 					</div>					
@@ -312,13 +312,13 @@
 				<div class="row">				
 					<div class="col-sm-6 col-12">
 						<div class="form-group">
-							<label for="error414">Message Error 414</label>
+							<label for="error414" translate>LSLB.farms.http.global_setting.advanced_settings.message_error_414</label>
 							<textarea rows="3" placeholder="Error 414" class="form-control" name="error414" id="error414" formControlName="error414"></textarea>
 						</div>
 					</div>
 					<div class="col-sm-6 col-12">
 						<div class="form-group">
-							<label for="error500">Message Error 500</label>
+							<label for="error500" translate>LSLB.farms.http.global_setting.advanced_settings.message_error_500</label>
 							<textarea rows="3" placeholder="Error 500" class="form-control" name="error500" id="error500" formControlName="error500"></textarea>
 						</div>
 					</div>					
@@ -326,29 +326,29 @@
 				<div class="row">				
 					<div class="col-sm-6 col-12">
 						<div class="form-group">
-							<label for="error501">Message Error 501</label>
+							<label for="error501" translate>LSLB.farms.http.global_setting.advanced_settings.message_error_501</label>
 							<textarea rows="3" placeholder="Error 501" class="form-control" name="error501" id="error501" formControlName="error501"></textarea>
 						</div>
 					</div>
 					<div class="col-sm-6 col-12">
 						<div class="form-group">
-							<label for="error503">Message Error 503</label>
+							<label for="error503" translate>LSLB.farms.http.global_setting.advanced_settings.message_error_503</label>
 							<textarea rows="3" placeholder="Error 503" class="form-control" name="error503" id="error503" formControlName="error503"></textarea>
 						</div>
 					</div>					
 				</div>
 			</div>
-			<button class="btn btn-success mt-2" [disabled]="globalForm.invalid || denySubmit">Submit</button>
+			<button class="btn btn-success mt-2" [disabled]="globalForm.invalid || denySubmit"translate>BUTTONS.submit</button>
 		</form>
   </nb-card-body>
 </nb-card>
 <nb-card>
 	<nb-card-header>
-		Services Settings
+		<div translate>FORMS.services_settings</div>
 	</nb-card-header>
 	<nb-card-body class="services" *ngIf="farm?.listener != 'l4xnat'">
 		<div class="d-flex justify-content-between">
-			<button type="button" class="btn btn-success create mb-4" (click)="displayDialog = true; nameService = ''">New Service</button>
+			<button type="button" class="btn btn-success create mb-4" (click)="displayDialog = true; nameService = ''" translate>BUTTONS.new_service</button>
     	</div>
     	<nb-card *ngFor="let service of services; let i = index" id="{{service.id}}">
   			<nb-card-header>
@@ -367,7 +367,7 @@
 			<div class="row">
 				<div class="col-sm-6 col-12">
 					<div class="form-group">
-						<label for="algorithm">Load balancer Algorithm</label>
+						<label for="algorithm" translate>LSLB.farms.http.service_settings.load_balancer_algorithm</label>
 						<ng-select [items]="algorithms"
 						           formControlName="algorithm"
 						           id="algorithm"
@@ -377,19 +377,19 @@
 						           appendTo="nb-card">
 						</ng-select>
 						<div *ngIf="gF.algorithm.errors" class="invalid-feedback">
-		                    <div *ngIf="gF.algorithm.errors.required">Algorithm is required</div>
+		                    <div *ngIf="gF.algorithm.errors.required">{{'LSLB.farms.http.service_settings.load_balancer_algorithm' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		              	</div>
 					</div>
 				</div>
 			</div>
 			<div class="div-farmguardian">
 				<br/>
-				<p><b>Farmguardian</b></p>
+				<p><b translate>FORMS.farmguardian</b></p>
 				<hr/>
 				<div class="row">
 					<div class="col-sm-6 col-12">
 						<div class="form-group">
-							<label for="Farm guardian">Health Checks for backend</label>
+							<label for="Farm guardian" translate>FORMS.health_checks_for_backend</label>
 							<ng-select [items]="farmguardians"
 							           [(ngModel)]="farmguardian"
 							           [ngModelOptions]="{standalone: true}"
@@ -421,7 +421,7 @@
 			</div>
 			<div class="div-backends">
 				<br/>
-				<p><b>Backends</b></p>
+				<p><b translate>FORMS.backend</b></p>
 				<hr/>
 				<zevenet-table-editable *ngIf="backends" [data]="backends" [cols]="columns" [actions]="actionsList" keySort="id" object="backend" (action)="onAction($event)" (create)="createBackend($event)" (edit)="editBackend($event)"></zevenet-table-editable>		    
 			</div>
@@ -434,7 +434,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="form-group">
-					<label for="newService-name">Name</label>
+					<label for="newService-name" translate>FORMS.name</label>
 					<input type="text" class="form-control" name="newService-name" id="newService-name" [(ngModel)]="nameService" [ngModelOptions]="{standalone: true}"/>
 				</div>
 			</div>
@@ -442,7 +442,7 @@
 	</div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button"  class="btn btn-success btn-sm" (click)="createService()" [disabled]="!nameService" label="Save">Save</button>
+            <button type="button"  class="btn btn-success btn-sm" (click)="createService()" [disabled]="!nameService" label="Save" translate>BUTTONS.save</button>
         </div>
     </p-footer>
 </p-dialog>

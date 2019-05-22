@@ -41,7 +41,16 @@ export class UserComponent implements  OnInit {
     this.getUser();
   }
 
-  createForm() {
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }  createForm() {
     const zapi_key = this.user.zapi_permissions ? '************' : '';
     this.formUser = new FormGroup(this.fb.group({
       zapi_permissions: [this.user.zapi_permissions],
@@ -107,7 +116,7 @@ export class UserComponent implements  OnInit {
               this.formUser.controls.confirmPass.setValue('');
             }
             this.userValues = this.formUser.value;
-            this.service.showToast('success', '', 'The user has been updated successfully.');
+            this.showMessageTranslated('SYSTEM_MESSAGES.system.user_updated', 'toast');
           });
     }
   }

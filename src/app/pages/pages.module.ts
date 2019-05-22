@@ -19,6 +19,7 @@ import { ToBooleanPipe } from './pipes/to-boolean.pipe';
 import { ZevenetService } from '../@core/zevenet/services/zevenet.service';
 import { NotFoundComponent } from '../@core/zevenet/components/not-found/not-found.component';
 import { ZevenetLayoutComponent } from '../@theme/layout/zevenet.layout';
+import {TranslateService} from '@ngx-translate/core';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -40,6 +41,7 @@ const PAGES_COMPONENTS = [
   providers: [
     ToBooleanPipe,
     ZevenetService,
+    TranslateService,
   ],
 })
 export class PagesModule {

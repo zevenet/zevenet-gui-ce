@@ -18,11 +18,14 @@ import { FilterFarmStats } from '../pipes/filter-farm-stats.pipe';
 import { FilterReplaceRoot } from '../pipes/filter-replace-root.pipe';
 import { NbSpinnerModule } from '@nebular/theme';
 import { FilterGraphsInterfaces } from '../pipes/filter-graphs-interfaces.pipe';
+import { NgChartjsModule } from 'ng-chartjs';
+
 @NgModule({
   imports: [
     ThemeModule,
     MonitoringRoutingModule,
     UiSwitchModule,
+    NgChartjsModule,
     ZevenetModule,
     NbSpinnerModule,
   ],

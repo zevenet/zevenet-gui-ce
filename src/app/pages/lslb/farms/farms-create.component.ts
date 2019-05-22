@@ -39,6 +39,17 @@ export class FarmsCreateComponent implements OnInit {
 		});
 	}
 
+	showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
+
 	ngOnInit(): void {
 		this.getInterfaces();
 	}
@@ -59,11 +70,7 @@ export class FarmsCreateComponent implements OnInit {
     		(data) => { this.resAction = data; },
     		(error) => { },
     		() => {
-    			this.service.showToast(
-						'success',
-						 '',
-						 'The farm <strong>' + this.formGroup.controls.farmname.value + '</strong> has been created successfully.',
-					);
+					this.showMessageTranslated('SYSTEM_MESSAGES.farm.created', 'toast', this.formGroup.controls.farmname.value);
     			this.router.navigate(['../'], {relativeTo: this.route});
 	   		});
 	}

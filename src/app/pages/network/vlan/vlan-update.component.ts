@@ -72,7 +72,16 @@ export class VlanUpdateComponent implements  OnInit {
     this.toastForce.data.name = this.name;
   }
 
-  isNecessaryForce(object) {
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }  isNecessaryForce(object) {
     if (object.hasOwnProperty('force')) {
       if (object.force === 'true') {
         this.toastForce.data.message = object.message;
@@ -164,11 +173,7 @@ export class VlanUpdateComponent implements  OnInit {
             }, this);
             this.interfaceValues = this.form.value;
             this.denySubmit = false;
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + this.name + '</strong> VLAN has been updated successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.network.vlan_update', 'toast', this.name);
           });
     }
   }

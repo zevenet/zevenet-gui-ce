@@ -35,6 +35,17 @@ export class CertificatesUploadComponent {
 		});
 	}
 
+	showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
+
 	onSubmit(): void {
 		for (let i = 0; i < this.formGroup.controls.file.value.length; i++) {
 			const name = this.names[i];
@@ -75,11 +86,7 @@ export class CertificatesUploadComponent {
 	}
 
 	successUpload(name): void {
-		this.service.showToast(
-			'success',
-			 '',
-			 'The certificate <strong>' + name + '</strong> has been uploaded successfully.',
-		);
+		this.showMessageTranslated('SYSTEM_MESSAGES.certificate.uploaded', 'toast', name);
 	}
 
 }

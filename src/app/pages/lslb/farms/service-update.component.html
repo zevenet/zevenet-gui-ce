@@ -12,13 +12,13 @@
 	<div class="row">
 		<div class="col-sm-6 col-12">
 			<div class="form-group">
-				<label for="vhost">Virtual Host</label>
+				<label for="vhost" translate>LSLB.farms.http.service_settings.virtual_host</label>
 				<input type="text" class="form-control" id="vhost" name="vhost" formControlName="vhost">
 			</div>
 		</div>
 		<div class="col-sm-6 col-12">
 			<div class="form-group">
-				<label for="urlp">URL Pattern</label>
+				<label for="urlp" translate>LSLB.farms.http.service_settings.url_pattern</label>
 				<input type="text" class="form-control" id="urlp" name="urlp" formControlName="urlp">
 			</div>
 		</div>		
@@ -26,25 +26,25 @@
 	<div class="row">
 		<div class="col-sm-6 col-12">
 			<div class="form-group">
-				<label for="leastresp">Least Response</label>
+				<label for="leastresp" translate>LSLB.farms.http.service_settings.least_response</label>
 				<ui-switch name="leastresp" id="leastresp" size="small" formControlName="leastresp"></ui-switch>
 			</div>
 		</div>
 		<div class="col-sm-6 col-12">
 			<div class="form-group">
-				<label for="httpsb">HTTPS Backends</label>
+				<label for="httpsb" translate>LSLB.farms.http.service_settings.https_backends</label>
 				<ui-switch name="httpsb" id="httpsb" size="small" formControlName="httpsb"></ui-switch>
 			</div>
 		</div>		
 	</div>
 	<div class="div-redirect">
 		<br/>
-		<p><b>Redirect</b></p>
+		<p><b translate>LSLB.farms.http.service_settings.redirect.title</b></p>
 		<hr/>
 		<div class="row">
 			<div class="col-sm-6 col-12">
 				<div class="form-group">
-					<label for="redirect_check">Redirect</label>
+					<label for="redirect_check" translate>LSLB.farms.http.service_settings.redirect.title</label>
 					<ui-switch name="redirect_check" id="redirect_check" size="small" [(ngModel)]="redirect_check" [ngModelOptions]="{standalone: true}" (change)="change($event, 'redirect_check')"></ui-switch>
 				</div>
 			</div>				
@@ -53,17 +53,17 @@
 			<div class="row">
 				<div class="col-sm-6 col-12">
 					<div class="form-group">
-						<label for="redirect">Redirect URL</label>
+						<label for="redirect" translate>LSLB.farms.http.service_settings.redirect.url</label>
 						<input type="text" class="form-control" id="redirect" name="redirect" formControlName="redirect">
 						<div *ngIf="sF.redirect.errors" class="invalid-feedback">
-							<div *ngIf="sF.redirect.errors.required">Redirect is required</div>
+							<div *ngIf="sF.redirect.errors.required">{{'LSLB.farms.http.service_settings.redirect.title' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		                    <div *ngIf="sF.redirect.errors.pattern">Redirect should be a URL (http(s)://...)</div>
 		              	</div>
 					</div>
 				</div>
 				<div class="col-sm-6 col-12">
 					<div class="form-group">
-						<label for="redirecttype">Redirect Type</label>
+						<label for="redirecttype" translate>LSLB.farms.http.service_settings.redirect.type</label>
 						<ng-select [items]="redirectTypes"
 					           formControlName="redirecttype"
 					           id="redirecttype"
@@ -78,12 +78,12 @@
 	</div>
 	<div class="div-persistence">
 		<br/>
-		<p><b>Persistence</b></p>
+		<p><b translate>LSLB.farms.http.service_settings.persistence.title</b></p>
 		<hr/>
 		<div class="row">
 			<div class="col-sm-6 col-12">
 				<div class="form-group">
-					<label for="persistence">Persistence</label>
+					<label for="persistence" translate>LSLB.farms.http.service_settings.persistence.title</label>
 					<ng-select [items]="persistenceTypes"
 					           formControlName="persistence"
 					           id="persistence"
@@ -99,23 +99,23 @@
 			<div class="row">
 				<div class="col-sm-6 col-12">
 					<div class="form-group">	
-						<label for="ttl">Persistence session time to live</label>
+						<label for="ttl" translate>LSLB.farms.http.service_settings.persistence_session_to_live_time</label>
 						<div class="input-group">
 				          <input type="number" class="form-control" name="ttl" id="ttl" formControlName="ttl"/>
 				          <span class="input-group-addon">Seconds</span>
 				        </div>
 				        <div *ngIf="sF.ttl?.errors" class="invalid-feedback">
-				        	<div *ngIf="sF.ttl.errors.required">Persistence TTL is required</div>
-		                    <div *ngIf="sF.ttl.errors.min">Persistence TTl to be greater than 0</div>
+				        	<div *ngIf="sF.ttl.errors.required">{{'LSLB.farms.http.service_settings.persistence_session_to_live_time' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+		                    <div *ngIf="sF.ttl.errors.min">{{'LSLB.farms.http.service_settings.persistence_session_to_live_time' | translate}} {{'SYSTEM_MESSAGES.greater_than_0' | translate}}</div>
 		              	</div>
 				    </div>
 				</div>
 				<div class="col-sm-6 col-12" *ngIf="sF.persistence.value == 'URL' || sF.persistence.value == 'COOKIE' || sF.persistence.value == 'HEADER'">
 					<div class="form-group">	
-						<label for="sessionid">Persistence session identifier</label>
+						<label for="sessionid" translate>LSLB.farms.http.service_settings.persistence_session_identifier</label>
 			          	<input type="text" class="form-control" name="sessionid" id="sessionid" formControlName="sessionid"/>
 			          	<div *ngIf="sF.sessionid?.errors" class="invalid-feedback">
-		                    <div *ngIf="sF.sessionid.errors.required">Session ID is required</div>
+		                    <div *ngIf="sF.sessionid.errors.required">{{'LSLB.farms.http.service_settings.persistence_session_identifier' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		              	</div>
 				    </div>
 				</div>
@@ -124,12 +124,12 @@
 	</div>
 	<div class="div-farmguardian">
 		<br/>
-		<p><b>Farmguardian</b></p>
+		<p><b translate>FORMS.farmguardian</b></p>
 		<hr/>
 		<div class="row">
 			<div class="col-sm-6 col-12">
 				<div class="form-group">
-					<label for="Farm guardian">Health Checks for backend</label>
+					<label for="Farm guardian" translate>FORMS.health_checks_for_backend</label>
 					<ng-select [items]="farmguardians"
 					           [(ngModel)]="farmguardian"
 					           [ngModelOptions]="{standalone: true}"
@@ -159,12 +159,12 @@
 	</div>
 	<div class="div-backends" *ngIf="!redirect_check && serviceValues.redirect == ''">
 		<br/>
-		<p><b>Backends</b></p>
+		<p><b translate>FORMS.backend</b></p>
 		<hr/>
 
     	<zevenet-table-editable *ngIf="serviceParams?.backends" [data]="serviceParams.backends" [cols]="columns" [actions]="actionsList" keySort="id" object="backend" (action)="onAction($event)" (create)="createBackend($event)" (edit)="editBackend($event)"></zevenet-table-editable>		        
 	</div>
 	<div class="row">
-		<button class="btn btn-success mt-5 ml-4" [disabled]="serviceForm.invalid || denySubmit">Submit</button>
+		<button class="btn btn-success mt-5 ml-4" [disabled]="serviceForm.invalid || denySubmit" translate>BUTTONS.submit</button>
 	</div>	
 </form>
