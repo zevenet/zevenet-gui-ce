@@ -18,7 +18,7 @@ import isEqual from 'lodash/isEqual';
   selector: 'zevenet-lslb-farms-service',
   templateUrl: './service-update.component.html',
 })
-export class ServiceUpdateComponent implements  OnInit {
+export class ServiceUpdateComponent implements OnInit {
 
   @Input() nameFarm: string;
 
@@ -40,18 +40,18 @@ export class ServiceUpdateComponent implements  OnInit {
 
   redirect_check: boolean = false;
 
-  redirectTypes: Array<any> = [ {label: 'Default', value: 'default'}, {label: 'Append', value: 'append'} ];
+  redirectTypes: Array<any> = [{ label: 'Default', value: 'default' }, { label: 'Append', value: 'append' }];
 
   farmguardian: any;
 
   persistenceTypes: Array<any> = [
-    {label: 'No persistence', value: ''},
-    {label: 'IP: Client address', value: 'IP'},
-    {label: 'BASIC: Basic authentication', value: 'BASIC'},
-    {label: 'URL: A request parameter', value: 'URL'},
-    {label: 'PARM: An URI parameter', value: 'PARM'},
-    {label: 'COOKIE: A certain cookie', value: 'COOKIE'},
-    {label: 'HEADER: A certain request header', value: 'HEADER'},
+    { label: '', value: '' },
+    { label: '', value: 'IP' },
+    { label: '', value: 'BASIC' },
+    { label: '', value: 'URL' },
+    { label: '', value: 'PARM' },
+    { label: '', value: 'COOKIE' },
+    { label: '', value: 'HEADER' },
   ];
 
   serviceValues: any;
@@ -59,24 +59,45 @@ export class ServiceUpdateComponent implements  OnInit {
   denySubmit: boolean = true;
 
   columns: Array<any> = [
-    {field: 'id', header: 'ID', width: '5%', editable: false},
-    {field: 'ip', header: 'IP', width: '20%', editable: true},
-    {field: 'port', header: 'Port', width: '18%', editable: true},
-    {field: 'timeout', header: 'Timeout', width: '10%', editable: true},
-    {field: 'weight', header: 'Weight', width: '10%', editable: true},
+    { field: 'id', header: '', width: '5%', editable: false },
+    { field: 'ip', header: '', width: '20%', editable: true },
+    { field: 'port', header: '', width: '18%', editable: true },
+    { field: 'timeout', header: '', width: '10%', editable: true },
+    { field: 'weight', header: '', width: '10%', editable: true },
   ];
 
   actionsList: Array<any> = [
-    {action: 'maintenance', icon: 'fa-stop'},
-    {action: 'up', icon: 'fa-play'},
-    {action: 'delete', icon: 'fa-trash'},
+    { action: 'maintenance', icon: 'fa-stop' },
+    { action: 'up', icon: 'fa-play' },
+    { action: 'delete', icon: 'fa-trash' },
   ];
 
   constructor(private service: ZevenetService, private fb: FormBuilder, private pipe: ToBooleanPipe) { }
 
   ngOnInit() {
     this.getService(this.nameService);
+    this.getLangTranslated('TABLES', this.columns);
+    this.getLangTranslated('LSLB.farms.http.service_settings.persistence', this.persistenceTypes);
   }
+
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => {
+        columns = langTranslated;
+      });
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
+
 
   createForm() {
     this.serviceForm = new FormGroup(this.fb.group({
@@ -87,7 +108,7 @@ export class ServiceUpdateComponent implements  OnInit {
       vhost: [this.serviceParams.vhost],
       redirect: [this.serviceParams.redirect],
       redirecttype: [this.serviceParams.redirecttype],
-    }).controls, {updateOn: 'blur'});
+    }).controls, { updateOn: 'blur' });
     this.farmguardian = this.serviceParams.farmguardian;
 
     this.serviceValues = this.serviceForm.value;
@@ -100,14 +121,14 @@ export class ServiceUpdateComponent implements  OnInit {
     this.service.getService(this.nameFarm, this.nameService)
       .subscribe(
         (data) => {
-          this.serviceParams  =  this.pipe.transform(data.params);
+          this.serviceParams = this.pipe.transform(data.params);
         },
-        (error) => {},
+        (error) => { },
         () => {
           if (this.serviceParams.redirect !== '') {
             this.redirect_check = true;
           }
-          if ( !refresh ) {
+          if (!refresh) {
             this.createForm();
             Object.keys(this.serviceParams).forEach((param) => {
               if (param === 'persistence' && this.serviceParams[param] !== '') {
@@ -129,22 +150,18 @@ export class ServiceUpdateComponent implements  OnInit {
         'farms/' + this.nameFarm + '/services/' + this.nameService + '/fg',
         this.serviceParams.farmguardian,
       )
-      .subscribe(
-        (data) => {
-          this.resAction = data;
-        },
-        (error) => { },
-        () => {
-          if (!this.farmguardian) {
-            this.service.showToast(
-              'success',
-               '',
-               'The farmguardian has been disabled sucessfully.',
-            );
-          }
-          this.serviceParams.farmguardian = '';
-          this.addFarmGuardian();
-        });
+        .subscribe(
+          (data) => {
+            this.resAction = data;
+          },
+          (error) => { },
+          () => {
+            if (!this.farmguardian) {
+              this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_disabled', 'toast');
+            }
+            this.serviceParams.farmguardian = '';
+            this.addFarmGuardian();
+          });
     } else {
       this.addFarmGuardian();
     }
@@ -152,21 +169,17 @@ export class ServiceUpdateComponent implements  OnInit {
 
   addFarmGuardian(): void {
     if (this.farmguardian) {
-      const param = {name: this.farmguardian};
+      const param = { name: this.farmguardian };
       this.service.post('farms/' + this.nameFarm + '/services/' + this.nameService + '/fg', param)
-      .subscribe(
-        (data) => {
-          this.resAction = data;
-        },
-        (error) => { },
-        () => {
-          this.serviceParams.farmguardian = this.farmguardian;
-          this.service.showToast(
-            'success',
-             '',
-             'The farmguardian has been changed to ' + param.name + ' successfully.',
-          );
-        });
+        .subscribe(
+          (data) => {
+            this.resAction = data;
+          },
+          (error) => { },
+          () => {
+            this.serviceParams.farmguardian = this.farmguardian;
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_changed', 'toast', param.name);
+          });
     }
   }
 
@@ -205,21 +218,16 @@ export class ServiceUpdateComponent implements  OnInit {
           },
           (error) => { this.denySubmit = false; },
           () => {
-            Object.keys(this.resParams).forEach(function(param) {
+            Object.keys(this.resParams).forEach(function (param) {
               if (this.serviceForm.controls.hasOwnProperty(param)) {
-                this.serviceForm.controls[param].setValue(this.resParams[param], {emitEvent: false});
+                this.serviceForm.controls[param].setValue(this.resParams[param], { emitEvent: false });
                 if (param === 'redirect' && this.resParams[param] !== '') {
                   this.serviceParams.backends = [];
                 }
               }
             }, this);
             this.serviceValues = this.serviceForm.value;
-
-            this.service.showToast(
-							'success',
-							 '',
-							 'The service <strong>' + this.nameService + '</strong> has been updated successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.service_update', 'toast', this.nameService);
             this.restart.emit(this.resAction);
           });
     }
@@ -227,42 +235,34 @@ export class ServiceUpdateComponent implements  OnInit {
 
   onAction(event) {
     if (event.action === 'delete') {
-      if (window.confirm('Are you sure you want to delete the backend ' + event.data.id + '?')) {
+      if (this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_confirm_delete', 'window', event.data.id)) {
         this.service.deleteBackend(this.nameFarm, event.data.id, this.nameService)
-        .subscribe(
-          (data) => { this.resAction  =  data; },
-          (error) => { },
-          () => {
-            this.serviceParams.backends.splice(this.serviceParams.backends.findIndex(i => i.id === event.data.id), 1);
-            this.serviceParams.backends.forEach((bck, index) => {
-              if (bck.id > event.data.id) {
-                this.serviceParams.backends[index].id -= 1;
-              }
+          .subscribe(
+            (data) => { this.resAction = data; },
+            (error) => { },
+            () => {
+              this.serviceParams.backends.splice(this.serviceParams.backends.findIndex(i => i.id === event.data.id), 1);
+              this.serviceParams.backends.forEach((bck, index) => {
+                if (bck.id > event.data.id) {
+                  this.serviceParams.backends[index].id -= 1;
+                }
+              });
+              this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_deleted', 'toast', event.data.id);
+              this.restart.emit(this.resAction);
             });
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backend <strong>' + event.data.id + '</strong> has been deleted successfully.',
-						);
-            this.restart.emit(this.resAction);
-          });
       }
     } else {
       const action = event.action.split(' ');
       this.service.actionBackend(this.nameFarm, event.data.id, action[0], action[1], this.nameService)
         .subscribe(
-          (data) => { this.resAction  =  data; },
-          (error) => {},
+          (data) => { this.resAction = data; },
+          (error) => { },
           () => {
             const object = event.data;
             object.status = this.resAction.params.action;
             this.serviceParams.backends[this.serviceParams.backends.findIndex(i => i.id === event.data.id)] = object;
             const actionMsg = event.action === 'maintenance' ? 'put in maintenance' : event.action + 'ed';
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backend <strong>' + event.data.id + '</strong> has been ' + actionMsg + ' successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_maintenance', 'toast', event.data.id, actionMsg);
           });
     }
   }
@@ -271,8 +271,8 @@ export class ServiceUpdateComponent implements  OnInit {
   createBackend(backend): void {
     this.service.post('/farms/' + this.nameFarm + '/services/' + this.nameService + '/backends', backend)
       .subscribe(
-        (data) => { this.resAction  =  data; },
-        (error) => {  },
+        (data) => { this.resAction = data; },
+        (error) => { },
         () => {
           const items = [...this.serviceParams.backends];
           backend.id = this.serviceParams.backends.length;
@@ -289,17 +289,17 @@ export class ServiceUpdateComponent implements  OnInit {
       backend.id,
       backend.object,
     ).subscribe(
-        (data) => { this.resAction  =  data; },
-        (error) => {  },
-        () => {
-          const items = [...this.serviceParams.backends];
-          Object.keys(backend.object).forEach((key) => {
-            items[backend.index][key] = backend.object[key];
-          });
-          this.serviceParams.backends = items;
-          this.service.showToast('success', '', 'The backend has been created successfully.');
-          this.restart.emit(this.resAction);
+      (data) => { this.resAction = data; },
+      (error) => { },
+      () => {
+        const items = [...this.serviceParams.backends];
+        Object.keys(backend.object).forEach((key) => {
+          items[backend.index][key] = backend.object[key];
         });
+        this.serviceParams.backends = items;
+        this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_created', 'toast');
+        this.restart.emit(this.resAction);
+      });
   }
 
   change(value, param, inital = false) {
@@ -308,12 +308,12 @@ export class ServiceUpdateComponent implements  OnInit {
         if (value) {
           this.serviceForm.controls.redirect.setValidators(
             [Validators.required, Validators.pattern('^http[s]?\\:\\/\\/.+')],
-           );
-          this.serviceForm.controls.redirect.setValue(this.serviceValues.redirect, {emitEvent: false});
+          );
+          this.serviceForm.controls.redirect.setValue(this.serviceValues.redirect, { emitEvent: false });
           this.serviceForm.controls.redirecttype.setValue(this.serviceValues.redirecttype);
         } else {
           this.serviceForm.controls.redirect.setValidators([]);
-          this.serviceForm.controls.redirect.setValue('', {emitEvent: false});
+          this.serviceForm.controls.redirect.setValue('', { emitEvent: false });
           this.serviceForm.controls.redirect.markAsDirty();
           this.serviceForm.controls.redirecttype.setValue('');
           this.serviceForm.controls.redirecttype.markAsDirty();
@@ -327,7 +327,7 @@ export class ServiceUpdateComponent implements  OnInit {
           }
           this.serviceForm.addControl(
             'ttl',
-            new FormControl(this.serviceParams.ttl,  [Validators.required, Validators.min(1)]),
+            new FormControl(this.serviceParams.ttl, [Validators.required, Validators.min(1)]),
           );
           if (value === 'URL' || value === 'COOKIE' || value === 'HEADER') {
             if (inital) {
@@ -335,7 +335,7 @@ export class ServiceUpdateComponent implements  OnInit {
             }
             this.serviceForm.addControl(
               'sessionid',
-              new FormControl(this.serviceParams.sessionid,  [Validators.required]),
+              new FormControl(this.serviceParams.sessionid, [Validators.required]),
             );
           } else {
             if (this.serviceForm.controls.sessionid) {

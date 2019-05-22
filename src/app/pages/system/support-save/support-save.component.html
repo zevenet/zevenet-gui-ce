@@ -10,15 +10,15 @@
 
 <nb-card>
   <nb-card-header>
-	Support Save
+	  <div translate>SYSTEM.support_save.title</div>
   </nb-card-header>	
   <nb-card-body>
     <div>
-    	<button *ngIf="!genereting" type="button"  class="btn btn-success btn-sm" (click)="getSupportSave()" label="Generate support save">Generate Support Save</button>
+    	<button *ngIf="!genereting" type="button"  class="btn btn-success btn-sm" (click)="getSupportSave()" label="Generate support save" translate>BUTTONS.generate_support_save</button>
     	<button *ngIf="genereting" type="button"  class="btn btn-success btn-sm" disabled="" label="Generating support save"><i class="fa fa-spinner fa-spin"></i> {{textButton}}</button>    	
     	<span class="help-block">                    
-	    	<small class="form-text">When this action is executed a file with system information will be downloaded. </small>
-	    	<small class="form-text">This action may take several seconds, you can continue browsing the GUI.</small>
+	    	<small class="form-text" translate>SYSTEM.support_save.downloaded</small>
+	    	<small class="form-text" translate>SYSTEM.support_save.gui</small>
 	    </span>
     </div>
   </nb-card-body>

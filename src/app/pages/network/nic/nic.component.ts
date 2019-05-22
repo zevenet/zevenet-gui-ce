@@ -22,12 +22,12 @@ export class NicComponent implements OnInit {
   actionResp: any;
 
   columns: Array<any> = [
-    {field: 'name', header: 'Name', width: '20%'},
-    {field: 'ip', header: 'Address', width: '15%'},
-    {field: 'mac', header: 'MAC', width: '15%'},
-    {field: 'netmask', header: 'Netmask', width: '15%'},
-    {field: 'gateway', header: 'Gateway', width: '15%'},
-    {field: 'status', header: 'Status', width: '10%'},
+    {field: 'name', header: '', width: '20%'},
+    {field: 'ip', header: '', width: '15%'},
+    {field: 'mac', header: '', width: '15%'},
+    {field: 'netmask', header: '', width: '15%'},
+    {field: 'gateway', header: '', width: '15%'},
+    {field: 'status', header: '', width: '10%'},
   ];
 
   actionsList: Array<any> = [
@@ -40,9 +40,24 @@ export class NicComponent implements OnInit {
 
   ngOnInit() {
     this.getInterfaces();
+    this.getLangTranslated('TABLES', this.columns);
   }
 
-  getInterfaces(): void {
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }  getInterfaces(): void {
     this.service.getList('interfaces/nic')
       .subscribe((data) => {
         this.interfaces  =  data.interfaces;
@@ -64,6 +79,7 @@ export class NicComponent implements OnInit {
                 }
               });
               this.interfaces[this.interfaces.findIndex(i => i.name === event.data.name)] = object;
+              this.showMessageTranslated('SYSTEM_MESSAGES.network.nic_unconfigured', 'toast', event.data.name);
               this.service.showToast(
   							'success',
   							 '',
@@ -81,11 +97,7 @@ export class NicComponent implements OnInit {
             const object = event.data;
             object.status = this.actionResp.params.action;
             this.interfaces[this.interfaces.findIndex(i => i.name === event.data.name)] = object;
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + event.data.name + '</strong> NIC is ' + event.action,
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.network.nic_is', 'toast', event.data.name, event.action);
           });
     }
   }

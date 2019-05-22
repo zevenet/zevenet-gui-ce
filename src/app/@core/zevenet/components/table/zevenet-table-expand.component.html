@@ -37,11 +37,11 @@
         <tr style="background: #eeeeee;">
             <td [attr.colspan]="cols.length + 1" class="p-4">
                 <nb-card class="p-4" *ngIf="expanded[rowData.farmname]">
-                    <h5 class="mb-0">Backends</h5>
+                    <h5 class="mb-0" translate>FORMS.backend</h5>
                     <zevenet-table-editable [data]="expanded[rowData.farmname].backends" [cols]="rowData.profile == 'https' ? subcolumns.backend.http : subcolumns.backend[rowData.profile]" [createButton]="false" [editButton]="false" object="backend"></zevenet-table-editable>
                 </nb-card>
                 <nb-card class="p-4" *ngIf="rowData.profile != 'l4xnat' && expanded[rowData.farmname]">
-                    <h5 class="mb-0">Sessions</h5>
+                    <h5 class="mb-0" translate>TABLES.sessions</h5>
                     <zevenet-table-editable [data]="expanded[rowData.farmname].sessions" [cols]="rowData.profile == 'https' ? subcolumns.session.http : subcolumns.session[rowData.profile]" [createButton]="false" [editButton]="false" object="session"></zevenet-table-editable>
                 </nb-card>              
             </td>
@@ -50,7 +50,7 @@
     <ng-template pTemplate="emptymessage" let-columns>
         <tr>
             <td [attr.colspan]="cols.length + 1">
-                No farms found
+                <div translate>ZEVENET.no_farms_found</div>
             </td>
         </tr>
     </ng-template>

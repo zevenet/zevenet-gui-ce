@@ -23,6 +23,7 @@ import { FilterBackendDSLB } from '../../pages/pipes/filter-backend-dslb.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbCardModule } from '@nebular/theme';
 import { ZevenetAuthService } from './auth/zevenet-auth.service';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { ZevenetAuthService } from './auth/zevenet-auth.service';
   	NgSelectModule,
   	NgbModule,
     NbCardModule,
+    TranslateModule,
   ],
   declarations: [
   	ZevenetTableComponent,
@@ -47,7 +49,8 @@ import { ZevenetAuthService } from './auth/zevenet-auth.service';
   	ZevenetTableComponent,
   	ZevenetTableEditableComponent,
     ZevenetTableExpandComponent,
-  	FilterBackendDSLB,
+    FilterBackendDSLB,
+    TranslateModule,
   ],
   providers: [
     ZevenetAuthService,

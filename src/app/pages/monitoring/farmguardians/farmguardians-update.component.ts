@@ -44,8 +44,8 @@ export class FarmguardiansUpdateComponent implements  OnInit {
   farmList: Array<any>;
 
   columns: Array<any> = [
-    {field: 'farm', header: 'Farm', width: '45%'},
-    {field: 'service', header: 'Service', width: '45%'},
+    {field: 'farm', header: '', width: '45%'},
+    {field: 'service', header: '', width: '45%'},
   ];
 
   actionsList: Array<any> = [
@@ -85,9 +85,24 @@ export class FarmguardiansUpdateComponent implements  OnInit {
     this.name = this.route.snapshot.paramMap.get('name');
     this.getRule(this.name);
     this.toastForce.data.name = this.name;
+    this.getLangTranslated('TABLES', this.columns);
   }
 
-  isNecessaryForce(object) {
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }  isNecessaryForce(object) {
     if (object.hasOwnProperty('force')) {
       if (object.force === 'true') {
         this.toastForce.data.message = object.message;
@@ -181,12 +196,7 @@ export class FarmguardiansUpdateComponent implements  OnInit {
               }
             }, this);
             this.ruleValues = this.form.value;
-
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + this.name + '</strong> farmguardian has been updated successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_update', 'toast', this.name);
           });
     }
   }
@@ -198,7 +208,7 @@ export class FarmguardiansUpdateComponent implements  OnInit {
   onAction(event): void {
     const data = event.data.split('_');
     const text = data[1] ? ' with service ' + data[1] : ' ';
-    if (window.confirm('Are you sure you want to delete the farm ' + data[0] + text + ' of the farmguardian?')) {
+    if (this.showMessageTranslated('SYSTEM_MESSAGES.farm.delete_farm_of_farmguardian', 'window', data[0], text)) {
       const url = data[1] ? 'farms/' + data[0] + '/services/' + data[1] + '/fg' : 'farms/' + data[0] + '/fg';
       this.service.delete(url, this.name)
       .subscribe(
@@ -207,11 +217,7 @@ export class FarmguardiansUpdateComponent implements  OnInit {
         () => {
           this.rule.farms.splice(this.rule.farms.findIndex(i => i === event.data));
           const message = data[1] ? 'with service ' + data[1] : '';
-          this.service.showToast(
-						'success',
-						 '',
-						 'The farm <strong>' + data[0] + '</strong> ' + message + ' has been deleted successfully.',
-					);
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.delete_farm_service', 'toast', data[0], message);
         });
     }
   }

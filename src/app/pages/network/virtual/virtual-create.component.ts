@@ -14,8 +14,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ZevenetService } from '../../../@core/zevenet/services/zevenet.service';
 
 @Component({
-  selector: 'zevenet-network-virtual-create',
-  templateUrl: './virtual-create.component.html',
+	selector: 'zevenet-network-virtual-create',
+	templateUrl: './virtual-create.component.html',
 })
 export class VirtualCreateComponent implements OnInit {
 	resAction: any;
@@ -34,8 +34,8 @@ export class VirtualCreateComponent implements OnInit {
 		private route: ActivatedRoute,
 	) {
 		this.formGroup = this.fb.group({
-		    name: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
-		    ip: ['', Validators.required],
+			name: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+			ip: ['', Validators.required],
 		});
 	}
 
@@ -43,29 +43,36 @@ export class VirtualCreateComponent implements OnInit {
 		this.getInterfaces();
 	}
 
+	showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+		this.service.interpolateLang(textlang, { param: param, param2: param2 })
+			.then(data => {
+				if (func === 'toast') {
+					this.service.showToast('success', '', data);
+				} else if (func === 'window') {
+					window.confirm(data);
+				}
+			});
+	}
+
 	getInterfaces(): void {
 		this.service.getList('interfaces')
-	      .subscribe((data) => {
-	        this.interfaces  =  data.interfaces;
-	    });
+			.subscribe((data) => {
+				this.interfaces = data.interfaces;
+			});
 	}
 
 	onSubmit(): void {
 		const submit = this.formGroup.getRawValue();
 		submit.name = this.parent + ':' + this.gF.name.value;
-	  	this.service.post('interfaces/virtual', submit)
-	  		.subscribe(
-	  		(data) => { this.resAction = data; },
-	  		(error) => { },
-	  		() => {
-	  			this.service.showToast(
-					'success',
-					 '',
-					 'The <strong>' + this.formGroup.controls.name.value
-					 + '</strong> Virtual interface has been created successfully.',
-				);
-	  			this.router.navigate(['../'], {relativeTo: this.route});
-	  		});
+		this.service.post('interfaces/virtual', submit)
+			.subscribe(
+				(data) => { this.resAction = data; },
+				(error) => { },
+				() => {
+					this.showMessageTranslated('SYSTEM_MESSAGES.network.virtual_interface_created',
+						'toast', this.formGroup.controls.name.value);
+					this.router.navigate(['../'], { relativeTo: this.route });
+				});
 	}
 
 	get gF() { return this.formGroup.controls; }

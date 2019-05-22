@@ -56,7 +56,16 @@ export class RemoteServicesComponent implements  OnInit {
     this.getService('snmp');
   }
 
-  getInterfaces(): void {
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }  getInterfaces(): void {
     this.service.getList('interfaces')
       .subscribe(
         (data) => {
@@ -159,11 +168,7 @@ export class RemoteServicesComponent implements  OnInit {
           (error) => { this[type + 'DenySubmit'] = false; },
           () => {
             this[type + 'Values'] = this[form].value;
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + type.toUpperCase() + '</strong> service has been updated successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.system.service_updated', 'toast', type.toUpperCase());
           });
     }
   }

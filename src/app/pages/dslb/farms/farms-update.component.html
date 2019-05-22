@@ -10,26 +10,26 @@
 
 <nb-card class="position-relative">
 	<nb-card-header>
-		Global Settings
+		<div translate>FORMS.global_settings</div>
 	</nb-card-header>
 	<nb-card-body class="global">
 		<form [formGroup]="globalForm" (ngSubmit)="onSubmit('globalForm')" *ngIf="globalForm">
 			<div class="row form">
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="newfarmname">Name</label>
+			      <label for="newfarmname" translate>FORMS.name</label>
 			      <input type="text" class="form-control" id="newfarmname" placeholder="Name" formControlName="newfarmname" [readonly]="readonly">
 			      <span class="help-block">                    
-	                <small class="form-text" *ngIf="readonly">Only editable when the farm is down.</small>
+	                <small class="form-text" *ngIf="readonly" translate>FORMS.help_form.help_alert_name</small>
 	              </span>
 	              <div *ngIf="gF.newfarmname.errors" class="invalid-feedback">
-	                    <div *ngIf="gF.newfarmname.errors.required">Name is required</div>
+	                    <div *ngIf="gF.newfarmname.errors.required">{{'FORMS.name' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	              </div>
 			    </div>
 			  </div>
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="vip">Virtual IP</label>
+			      <label for="vip" translate>TABLES.vip</label>
 			      <ng-select [items]="interfaces | filterInterfacesFarm"
 					           bindLabel="ip"
 					           bindValue="ip"
@@ -52,25 +52,25 @@
 					        	</ng-template>			        
 					</ng-select>
 					<div *ngIf="gF.vip.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.vip.errors?.required">Virtual IP is required</div>
+	                	<div *ngIf="gF.vip.errors?.required">{{'TABLES.vip' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	            	</div>
 			    </div>
 			</div>
 		  </div>
-		  <button class="btn btn-success mt-2" [disabled]="globalForm?.invalid || denySubmit">Submit</button>
+		  <button class="btn btn-success mt-2" [disabled]="globalForm?.invalid || denySubmit" translate>BUTTONS.submit</button>
 		</form>
 	</nb-card-body>
 </nb-card>
 <nb-card class="position-relative">
 	<nb-card-header>
-		Services Settings
+		<div translate>FORMS.services_settings</div>
 	</nb-card-header>
 	<nb-card-body class="services">
 		<form [formGroup]="globalForm" (ngSubmit)="onSubmit('globalForm')" *ngIf="globalForm">
 			<div class="row">
 				<div class="col-sm-6 col-12">
 					<div class="form-group">
-						<label for="algorithm">Load balancer Algorithm</label>
+						<label for="algorithm" translate>FORMS.load_balancer_algorithm</label>
 						<ng-select [items]="algorithms"
 						           formControlName="algorithm"
 						           id="algorithm"
@@ -84,7 +84,7 @@
 			</div>
 			<div class="div-backends">
 				<br/>
-				<p><b>Backends</b></p>
+				<p><b translate>FORMS.backend</b></p>
 				<hr/>
 			    <zevenet-table-editable *ngIf="backends" [data]="backends" [cols]="columns" [actions]="actionsList" keySort="id" object="backend" (action)="onAction($event)" [interfaces]="interfaces" (create)="createBackend($event)" (edit)="editBackend($event)"></zevenet-table-editable>
 			</div>

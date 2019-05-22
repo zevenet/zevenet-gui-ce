@@ -19,6 +19,7 @@ import { MmcBreadcrumbsModule } from 'mmc-breadcrumbs';
 import { ZevenetFooterCeComponent } from '../@core/zevenet/components/footer/zevenet-footer-ce.component';
 import { RouterModule } from '@angular/router';
 
+
 import {
   NbCardModule,
   NbLayoutModule,
@@ -29,6 +30,9 @@ import {
   NbPopoverModule,
   NbContextMenuModule,
   NbProgressBarModule,
+  NbSelectModule,
+  NbTabsetModule,
+
 } from '@nebular/theme';
 
 import { CORPORATE_THEME } from './styles/theme.corporate';
@@ -40,6 +44,7 @@ const BASE_MODULES = [CommonModule,
                       NgSelectModule,
                       TableModule,
                       DialogModule,
+                      NbTabsetModule,
                       MmcBreadcrumbsModule,
                       RouterModule];
 
@@ -53,6 +58,7 @@ const NB_MODULES = [
   NbContextMenuModule,
   NgbModule,
   NbProgressBarModule,
+  NbSelectModule,
 ];
 
 const COMPONENTS = [

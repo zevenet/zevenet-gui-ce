@@ -18,7 +18,7 @@ import isEqual from 'lodash/isEqual';
   selector: 'zevenet-network-gateway-update',
   templateUrl: './gateway-configure.component.html',
 })
-export class GatewayConfigureComponent implements  OnInit {
+export class GatewayConfigureComponent implements OnInit {
 
   name: string;
 
@@ -50,11 +50,22 @@ export class GatewayConfigureComponent implements  OnInit {
     this.getInterface(this.name);
   }
 
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
+
   createForm() {
     this.form = new FormGroup(this.fb.group({
       address: [this.interface.address, Validators.required],
       interface: [this.interface.interface, Validators.required],
-    }).controls, {updateOn: 'blur'});
+    }).controls, { updateOn: 'blur' });
 
     this.interfaceValues = this.form.value;
     this.form.valueChanges.subscribe((val) => {
@@ -67,14 +78,14 @@ export class GatewayConfigureComponent implements  OnInit {
     this.service.getObject('interfaces/gateway', this.name)
       .subscribe(
         (data) => {
-          this.interface  =  data.params;
+          this.interface = data.params;
         },
-        (error) => {},
+        (error) => { },
         () => {
-          if ( !refresh ) {
+          if (!refresh) {
             this.createForm();
             this.service.getList('interfaces')
-              .subscribe((data) => { this.interfaces  =  data.interfaces; });
+              .subscribe((data) => { this.interfaces = data.interfaces; });
           }
         });
   }
@@ -123,11 +134,7 @@ export class GatewayConfigureComponent implements  OnInit {
             this.interfaceValues = this.form.value;
             this.interface.interface = this.interfaceValues.interface;
             this.interface.address = this.interfaceValues.address;
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + this.name.toUpperCase() + '</strong> Gateway has been updated successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.network.gateway_update', 'toast', this.name.toUpperCase());
             this.denySubmit = false;
           });
     }
@@ -135,11 +142,11 @@ export class GatewayConfigureComponent implements  OnInit {
 
   unsetInterface(event): void {
     event.preventDefault();
-    if (window.confirm('Are you sure you want to unset the current gateway?')) {
+    if (this.showMessageTranslated('SYSTEM_MESSAGES.network.gateway_confirm_unset', 'window')) {
       this.unsetting = true;
       this.service.delete('interfaces/gateway', this.name)
         .subscribe(
-          (data) => { this.actionResp  =  data; },
+          (data) => { this.actionResp = data; },
           (error) => { this.unsetting = false; },
           () => {
             Object.keys(this.interfaceValues).forEach((param) => {
@@ -148,11 +155,8 @@ export class GatewayConfigureComponent implements  OnInit {
               this.interface[param] = null;
             }, this);
             this.unsetting = false;
-            this.service.showToast(
-  						'success',
-  						 '',
-  						 'The <strong>' + this.name.toUpperCase() + '</strong> Gateway has been unconfigured successfully.',
-  					);
+            this.showMessageTranslated('SYSTEM_MESSAGES.network.gateway_unconfigured',
+              'toast', this.name.toUpperCase());
           });
     }
   }

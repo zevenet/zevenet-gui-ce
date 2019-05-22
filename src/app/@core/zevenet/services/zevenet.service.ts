@@ -1,31 +1,92 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs';
 import { AlertService } from './zevenet-alert.service';
 import { timeout } from 'rxjs/operators';
+import { isArray, isObject } from 'util';
+import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent } from '@ngx-translate/core';
+
+
 
 @Injectable({
-providedIn:  'root',
+  providedIn: 'root',
 })
 
 export class ZevenetService {
 
-  API_URL  =  '';
-
+  API_URL = '';
+  langTranslated: Observable<any>;
   host: string;
   hostname: string;
 
   constructor(private httpClient: HttpClient,
     private alertService: AlertService,
+    public translate: TranslateService,
   ) {
     this.locationHost();
+  }
+
+  /* Translate Language */
+  interpolateLang(selectJson: any, param: any): any {
+    return new Promise((resolve, reject) => {
+      this.translate.get(selectJson, param).subscribe((translated_text) => {
+        resolve(translated_text);
+      });
+    });
+  }
+
+  refreshLang(selectJson: string, textLang: any): Observable<any> {
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      return this.translateLang(selectJson, textLang);
+    });
+    return this.translateLang(selectJson, textLang);
+  }
+
+  translateLang(selectJson: string, textLang: any): Observable<any> {
+    if (isArray(textLang)) {
+      this.translate.get(selectJson).subscribe((translated_text) => {
+        textLang.forEach(element => {
+          const header = element.hasOwnProperty('header') ? 'header' : 'label';
+          const lab = element.hasOwnProperty('value') ? 'value' : 'field';
+          element[header] = translated_text[element[lab]];
+        });
+      });
+    } else if (isObject(textLang)) {
+      if (textLang.hasOwnProperty('backend') && textLang.hasOwnProperty('session')) {
+        this.translate.get(selectJson).subscribe((translated_text) => {
+          Object.keys(textLang.backend).forEach(element => {
+            textLang.backend[element].forEach(child => {
+              child.header = translated_text[child.field];
+            });
+          });
+          Object.keys(textLang.session).forEach(element => {
+            textLang.session[element].forEach(child => {
+              child.header = translated_text[child.field];
+              if (child.field === 'id') {
+                child.header = translated_text['backend_id'];
+              } else if (child.field === 'session') {
+                child.header = translated_text['session_id'];
+              } else {
+                child.header = translated_text[child.field];
+              }
+            });
+          });
+        });
+      }
+    }
+    this.langTranslated = new Observable((observer) => {
+      observer.next(textLang);
+      observer.complete();
+    });
+    return this.langTranslated;
   }
 
   /* Locations */
 
   locationHost(): void {
-    this.host = location.host;
+    this.host = '192.168.0.15:444';
     this.updateApiUrl();
   }
 
@@ -47,7 +108,7 @@ export class ZevenetService {
     let type = 'json';
     if (object === 'html' || object === 'supportsave')
       type = 'text';
-    const params = {responseType: type as 'text'};
+    const params = { responseType: type as 'text' };
     if (object === 'supportsave')
       params['observe'] = 'response';
     return this.httpClient.get(`${this.API_URL}/${path}/${object}`, params);
@@ -58,7 +119,7 @@ export class ZevenetService {
   }
 
   download(type: string, name: string): Observable<any> {
-    return this.httpClient.get(`${this.API_URL}/${type}/${name}`, {responseType: 'text'});
+    return this.httpClient.get(`${this.API_URL}/${type}/${name}`, { responseType: 'text' });
   }
 
   upload(object: string, name: string, file: any): Observable<any> {
@@ -89,12 +150,12 @@ export class ZevenetService {
   }
 
   applyCert(nameFarm: string, cert: string): Observable<any> {
-    const param = {file: cert};
+    const param = { file: cert };
     return this.httpClient.post(`${this.API_URL}/farms/${nameFarm}/certificates`, param);
   }
 
   actionFarm(nameFarm: string, actionType: string): Observable<any> {
-    const param = {action: actionType};
+    const param = { action: actionType };
     return this.httpClient.put(`${this.API_URL}/farms/${nameFarm}/actions`, param);
   }
 
@@ -102,7 +163,7 @@ export class ZevenetService {
     return this.httpClient.get(`${this.API_URL}/farms/${nameFarm}/services/${nameService}`);
   }
 
-  deleteBackend(nameFarm: string,  backend: any, nameService?: string): Observable<any> {
+  deleteBackend(nameFarm: string, backend: any, nameService?: string): Observable<any> {
     let url = `backends/${backend}`;
     if (nameService) {
       url = `services/${nameService}/backends/${backend}`;
@@ -116,7 +177,7 @@ export class ZevenetService {
     if (nameService) {
       url = `services/${nameService}/backends/${backend}/maintenance`;
     }
-    const param = {action: action};
+    const param = { action: action };
     if (action === 'maintenance') param['mode'] = mode;
     return this.httpClient.put(`${this.API_URL}/farms/${nameFarm}/${url}`, param);
   }
@@ -132,7 +193,7 @@ export class ZevenetService {
   getStats(object?: string): Observable<any> {
     let path = 'stats';
     if (object)
-       path += '/' + object;
+      path += '/' + object;
     return this.httpClient.get(`${this.API_URL}/${path}`);
   }
 
@@ -200,7 +261,7 @@ export class ZevenetService {
   /* Download file */
 
   downloadFile(data, nameFile, type): void {
-    const blob = new Blob([data], {type: type});
+    const blob = new Blob([data], { type: type });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.setAttribute('style', 'display: none');

@@ -10,7 +10,7 @@
 
 <nb-card>
   <nb-card-header>
-    Create VLAN interface
+    <div translate>NETWORK.vlan.create_vlan</div>
   </nb-card-header>
 
   <nb-card-body>
@@ -18,7 +18,7 @@
 	  	<div class="row">
 	  		<div class="col-12">
 	  			<div class="form-group">
-	  				<label for="parent">Parent Interface</label>
+	  				<label for="parent" translate>FORMS.parent_interface</label>
 	  				<ng-select *ngIf="interfaces"
 	  						   [items]="interfaces | filterVlanCreate"
 					           bindLabel="name"
@@ -48,13 +48,13 @@
 		  	<div class="row">
 		  		<div class="col-12">
 				    <div class="form-group">
-				      <label for="name">VLAN name</label>
+				      <label for="name" translate>FORMS.vlan_name</label>
 				 	  <div class="input-group">
 				 	  	  <span class="input-group-addon">{{parent}}.</span>
 				          <input type="number" class="form-control" name="name" id="name" formControlName="name" (keydown)="filterInput($event)"/>
 				      </div>
 				      <div *ngIf="gF.name.dirty && gF.name.errors" class="invalid-feedback">
-	                    <div *ngIf="gF.name.errors.required">Name is required</div>
+	                    <div *ngIf="gF.name.errors.required">{{'NETWORK.vlan.create_vlan.vlan_name' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	              	  </div>
 				    </div>
 				</div>
@@ -62,10 +62,10 @@
 			<div class="row">
 		  		<div class="col-12">
 		  			<div class="form-group">
-		  				<label for="ip">Address (IPv4 / IPv6)</label>
+		  				<label for="ip" translate>TABLES.ipv4_ipv6</label>
 		  				<input type="text" class="form-control" name="ip" id="ip" formControlName="ip"/>
 		  				<div *ngIf="gF.ip.dirty && gF.ip.errors" class="invalid-feedback">
-	                    	<div *ngIf="gF.ip.errors.required">IP Address is required</div>
+	                    	<div *ngIf="gF.ip.errors.required">{{'TABLES.ipv4_ipv6' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	              	    </div>
 		  			</div>
 		  		</div>
@@ -73,10 +73,10 @@
 			<div class="row">
 		  		<div class="col-12">
 		  			<div class="form-group">
-		  				<label for="netmask">Netmask</label>
+		  				<label for="netmask" translate>TABLES.netmask</label>
 		  				<input type="text" class="form-control" name="netmask" id="netmask" formControlName="netmask"/>
 		  				<div *ngIf="gF.netmask.dirty && gF.netmask.errors" class="invalid-feedback">
-		                    <div *ngIf="gF.netmask.errors.required">Netmask is required</div>
+		                    <div *ngIf="gF.netmask.errors.required">{{'TABLES.netmask' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		              	</div>
 		  			</div>
 		  		</div>
@@ -84,7 +84,7 @@
 			<div class="row">
 		  		<div class="col-12">
 		  			<div class="form-group">
-		  				<label for="gateway">Gateway</label>
+		  				<label for="gateway" translate>TABLES.gateway</label>
 		  				<input type="text" class="form-control" name="gateway" id="gateway" formControlName="gateway"/>
 		  			</div>
 		  		</div>
@@ -92,8 +92,8 @@
 		</div>
 	    <div class="row">
 	    	<div class="col-sm-12 col-12">
-		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2">Create</button>
-		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../">Cancel</button>
+		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2" translate>BUTTONS.create</button>
+		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../" translate>BUTTONS.cancel</button>
 		    </div>
 	    </div> 
 	</form>

@@ -22,12 +22,12 @@ export class CertificatesComponent implements  OnInit {
   actionResp: any;
 
   columns: Array<any> = [
-    {field: 'CN', header: 'Common Name', width: '20%'},
-    {field: 'type', header: 'Type', width: '10%'},
-    {field: 'file', header: 'File', width: '20%'},
-    {field: 'issuer', header: 'Issuer', width: '15%'},
-    {field: 'creation', header: 'Create on', width: '12%'},
-    {field: 'expiration', header: 'Expire on', width: '13%'},
+    {field: 'CN', header: '', width: '20%'},
+    {field: 'type', header: '', width: '10%'},
+    {field: 'file', header: '', width: '20%'},
+    {field: 'issuer', header: '', width: '15%'},
+    {field: 'creation', header: '', width: '12%'},
+    {field: 'expiration', header: '', width: '13%'},
   ];
 
   actionsList: Array<any> = [
@@ -39,6 +39,23 @@ export class CertificatesComponent implements  OnInit {
 
   ngOnInit() {
     this.getCertificates();
+    this.getLangTranslated('TABLES', this.columns);
+  }
+
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
   }
 
   public getCertificates(): void {
@@ -57,11 +74,7 @@ export class CertificatesComponent implements  OnInit {
           (error) => { },
           () => {
             this.certificates.splice(this.certificates.findIndex(i => i.file === event.data.file), 1);
-            this.service.showToast(
-							'success',
-							 '',
-							 'The certificate <strong>' + event.data.file + '</strong> has been deleted successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.certificate.deleted', 'toast', event.data.file);
           });
       }
     } else {
@@ -71,11 +84,7 @@ export class CertificatesComponent implements  OnInit {
         (error) => { },
         () => {
           this.service.downloadFile(this.actionResp, event.data.file, 'application/x-pem-file');
-          this.service.showToast(
-						'success',
-						 '',
-						 'The certificate <strong>' + event.data.file + '</strong> has been downloaded successfully.',
-					);
+          this.showMessageTranslated('SYSTEM_MESSAGES.certificate.downloaded', 'toast', event.data.file);
         });
     }
   }

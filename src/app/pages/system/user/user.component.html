@@ -10,7 +10,7 @@
 
 <nb-card>
   <nb-card-header>
-    Settings User
+			<div translate>SYSTEM.user.settings_user</div>
   </nb-card-header>
 
   <nb-card-body>		
@@ -18,13 +18,13 @@
 		<div class="row form">
 		  <div class="col-sm-6 col-12">
 		    <div class="form-group">
-		      <label for="user">User</label>
+		      <label for="user" translate>SYSTEM.user.user</label>
 		      <input type="text" class="form-control" id="user" [(ngModel)]="user.user" [ngModelOptions]="{standalone: true}" readonly>
 		    </div>
 		  </div>
 		  <div class="col-sm-5 offset-sm-1 col-12">
       		<div class="form-group">
-          		<label for="zapi_permissions">ZAPI Permissions</label><br/>
+          		<label for="zapi_permissions" translate>SYSTEM.user.zapi_permissions</label><br/>
           		<ui-switch name="zapi_permissions" id="zapi_permissions" size="small" formControlName="zapi_permissions"></ui-switch>
           	</div>
       	  </div>		  		  
@@ -32,7 +32,7 @@
 		<div class="row form" *ngIf="formUser.controls.zapi_permissions.value">
 		  <div class="col-sm-6 col-12">
 		    <div class="form-group">
-		      <label for="zapikey">ZAPI Key</label>
+		      <label for="zapikey" translate>SYSTEM.user.zapi_key</label>
 		      <input type="text" class="form-control" id="zapikey" formControlName="zapikey">
 		    </div>
 		  </div>					
@@ -40,17 +40,17 @@
 		<div class="row">
 			<div class="col-sm-12 col-12">
           		<a  *ngIf="!changePass" href="#" id="changePass" (click)="enableChangePass($event)">Change password</a>
-          		<p *ngIf="changePass"><b>Change Password</b></p>
+          		<p *ngIf="changePass"><b translate>SYSTEM.user.change_password</b></p>
           		<hr *ngIf="changePass"/>
           	</div>
       	</div>
 		<div class="row form" *ngIf="changePass">
 		  <div class="col-sm-6 col-12">
 		    <div class="form-group">
-		      <label for="password">Current password</label>
+		      <label for="password" translate>SYSTEM.user.current_password</label>
 		      <input type="password" class="form-control" id="password" formControlName="password">
 		      <div *ngIf="gF.password.dirty && gF.password.errors" class="invalid-feedback">
-                <div *ngIf="gF.password.errors.required">Current password is required</div>
+                <div *ngIf="gF.password.errors.required">{{'SYSTEM.user.current_password' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
           	  </div>
 		    </div>
 		  </div>
@@ -58,26 +58,26 @@
 		<div class="row form" *ngIf="changePass">
 		  <div class="col-sm-6 col-12">
 		    <div class="form-group">
-		      <label for="newpassword">New password</label>
+		      <label for="newpassword" translate>SYSTEM.user.new_password</label>
 		      <input type="password" class="form-control" id="newpassword" formControlName="newpassword">
 		      <div *ngIf="gF.newpassword.dirty && gF.newpassword.errors" class="invalid-feedback">
-                <div *ngIf="gF.newpassword.errors.required">New password is required</div>
+                <div *ngIf="gF.newpassword.errors.required">{{'SYSTEM.user.new_password' | translate}} {{'SYSTEM_MESSAGES.not_match' | translate}}</div>
           	  </div>		      
 		    </div>
 		  </div>
 		  <div class="col-sm-6 col-12">
 		    <div class="form-group">
-		      <label for="confirmPass">Repeat new password</label>
+		      <label for="confirmPass" translate>SYSTEM.user.repeat_new_password</label>
 		      <input type="password" class="form-control" id="confirmPass" formControlName="confirmPass">
 			  <div *ngIf="gF.confirmPass.dirty && gF.confirmPass.errors" class="invalid-feedback">
-                <div *ngIf="gF.confirmPass.errors.required">Repeat the new password is required</div>
-                <div *ngIf="gF.confirmPass.errors.notSame">New password doest not match</div>                
+                <div *ngIf="gF.confirmPass.errors.required">{{'SYSTEM.user.repeat_new_password' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+                <div *ngIf="gF.confirmPass.errors.notSame">{{'SYSTEM.user.repeat_new_password' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>                
           	  </div>		      
 		    </div>
 		  </div>		  
 		</div>					
-		<button class="btn btn-success mt-4" [disabled]="formUser.invalid || denySubmit">Update</button>
-		<button class="btn btn-default mt-4 ml-2" (click)="generateKey()">Generate Random Key</button>		
+		<button class="btn btn-success mt-4" [disabled]="formUser.invalid || denySubmit" translate>BUTTONS.update</button>
+		<button class="btn btn-default mt-4 ml-2" (click)="generateKey()" translate>BUTTONS.generate_key_random</button>		
 	</form>
    </nb-card-body>
 </nb-card>

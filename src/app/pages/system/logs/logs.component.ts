@@ -22,21 +22,38 @@ export class LogsComponent implements  OnInit {
   actionResp: any;
 
   columns: Array<any> = [
-    {field: 'file', header: 'File', width: '50%'},
-    {field: 'date', header: 'Date', width: '40%'},
+    {field: 'file', header: '', width: '50%'},
+    {field: 'date', header: '', width: '40%'},
   ];
 
   actionsList: Array<any> = [
     {action: 'download', icon: 'fa-download'},
   ];
 
-  constructor(private service: ZevenetService) { }
+  constructor(private service: ZevenetService) {
+  }
+
 
   ngOnInit() {
     this.getLogs();
+    this.getLangTranslated('TABLES', this.columns);
   }
 
-  getLogs(): void {
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }  getLogs(): void {
     this.service.getList('system/logs')
       .subscribe((data) => {
         this.logs  =  data.params;
@@ -51,11 +68,7 @@ export class LogsComponent implements  OnInit {
         () => {
           const type = event.data.file.includes('.gz') ? 'application/gzip' : 'text/plain';
           this.service.downloadFile(this.actionResp, event.data.file, type);
-          this.service.showToast(
-						'success',
-						 '',
-						 'The log <strong>' + event.data.file + '</strong> has been downloaded successfully.',
-					);
+          this.showMessageTranslated('SYSTEM_MESSAGES.system.log_downloaded', 'toast', event.data.file);
         });
   }
 

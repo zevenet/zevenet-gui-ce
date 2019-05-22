@@ -21,7 +21,7 @@ import isEqualWith from 'lodash/isEqualWith';
   selector: 'zevenet-lslb-farms-update',
   templateUrl: './farms-update.component.html',
 })
-export class FarmsUpdateComponent implements  OnInit, OnDestroy {
+export class FarmsUpdateComponent implements OnInit, OnDestroy {
 
   name: string;
 
@@ -46,17 +46,17 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
   profilesHttp: Array<string> = ['http', 'https'];
 
   locationsHttp: Array<any> = [
-    {value: 'disabled', label: 'Disabled'},
-    {value: 'enabled', label: 'Enabled'},
-    {value: 'enabled-backends', label: 'Enabled amd compare backends'},
+    { value: 'disabled', label: 'Disabled' },
+    { value: 'enabled', label: 'Enabled' },
+    { value: 'enabled-backends', label: 'Enabled amd compare backends' },
   ];
 
   verbsHttp: Array<any> = [
-    {value: 'standardHTTP', label: 'Standar HTTP request'},
-    {value: 'extendedHTTP', label: '+ extended HTTP request<'},
-    {value: 'standardWebDAV', label: '+ standard WebDAV verbs'},
-    {value: 'MSextWebDAV', label: '+ MS extensions WebDAV verbs'},
-    {value: 'MSRPCext', label: '+ MS RPC extensions verbs'},
+    { value: 'standardHTTP', label: 'Standar HTTP request' },
+    { value: 'extendedHTTP', label: '+ extended HTTP request<' },
+    { value: 'standardWebDAV', label: '+ standard WebDAV verbs' },
+    { value: 'MSextWebDAV', label: '+ MS extensions WebDAV verbs' },
+    { value: 'MSRPCext', label: '+ MS RPC extensions verbs' },
   ];
 
   protocolsL4: Array<string> = [
@@ -66,11 +66,11 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
   nattypesL4: Array<string> = ['nat', 'dnat', 'dsr'];
 
   algorithms: Array<any> = [
-    {label: 'Weight: connection linear dispatching by weight', value: 'weight'},
-    {label: 'Source Hash: Hash per Source IP and Source Port', value: 'hash_srcip_srcport'},
-    {label: 'Simple Source Hash: Hash per Source IP only', value: 'hash_srcip'},
-    {label: 'Symmetric Hash: Round trip hash per IP and Port', value: 'symhash'},
-    {label: 'Round Robin: Sequential backend selection', value: 'roundrobin'},
+    { label: 'Weight: connection linear dispatching by weight', value: 'weight' },
+    { label: 'Source Hash: Hash per Source IP and Source Port', value: 'hash_srcip_srcport' },
+    { label: 'Simple Source Hash: Hash per Source IP only', value: 'hash_srcip' },
+    { label: 'Symmetric Hash: Round trip hash per IP and Port', value: 'symhash' },
+    { label: 'Round Robin: Sequential backend selection', value: 'roundrobin' },
   ];
 
   farmguardians: Array<any>;
@@ -98,16 +98,16 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
   };
 
   columns: Array<any> = [
-    {field: 'id', header: 'ID', width: '5%', editable: false},
-    {field: 'ip', header: 'IP', width: '25%', editable: true},
-    {field: 'priority', header: 'Priority', width: '16%', editable: true},
-    {field: 'weight', header: 'Weight', width: '16%', editable: true},
+    { field: 'id', header: 'ID', width: '5%', editable: false },
+    { field: 'ip', header: 'IP', width: '25%', editable: true },
+    { field: 'priority', header: 'Priority', width: '16%', editable: true },
+    { field: 'weight', header: 'Weight', width: '16%', editable: true },
   ];
 
   actionsList: Array<any> = [
-    {action: 'maintenance', icon: 'fa-stop'},
-    {action: 'up', icon: 'fa-play'},
-    {action: 'delete', icon: 'fa-trash'},
+    { action: 'maintenance', icon: 'fa-stop' },
+    { action: 'up', icon: 'fa-play' },
+    { action: 'delete', icon: 'fa-trash' },
   ];
 
   constructor(private service: ZevenetService,
@@ -115,6 +115,17 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
     private fb: FormBuilder,
     private pipe: ToBooleanPipe,
   ) { }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
@@ -156,7 +167,7 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
         error500: [this.farm.error500],
         error501: [this.farm.error501],
         error503: [this.farm.error503],
-      }).controls, {updateOn: 'blur'});
+      }).controls, { updateOn: 'blur' });
       this.globalForm.get('listener').valueChanges.subscribe((val) => {
         this.changeListener(val);
       });
@@ -169,7 +180,7 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
         algorithm: [this.farm.algorithm, Validators.required],
         nattype: [this.farm.nattype, Validators.required],
         protocol: [this.farm.protocol, Validators.required],
-      }).controls, {updateOn: 'blur'});
+      }).controls, { updateOn: 'blur' });
     }
     this.farmguardian = this.farm.farmguardian;
     this.farmValues = this.globalForm.value;
@@ -185,7 +196,7 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
   }
 
   changeListener(value): void {
-    const param = {listener: value};
+    const param = { listener: value };
     this.service.update('farms', this.name, param)
       .subscribe(
         (data) => {
@@ -196,25 +207,21 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
         () => {
           if (value === 'https' && this.ciphersHttp.length === 0) {
             this.service.getList('ciphers')
-              .subscribe((data) => { this.ciphersHttp  =  data.params; });
+              .subscribe((data) => { this.ciphersHttp = data.params; });
 
             this.service.getList('certificates')
               .subscribe(
-                (data) => { this.certificatesHttp  =  data.params; });
+                (data) => { this.certificatesHttp = data.params; });
           }
           Object.keys(this.resParams).forEach((key) => {
             if (key === 'certlist') {
-              this.globalForm.controls.certificate.setValue(this.resParams[key][0].file, {emitEvent: false});
+              this.globalForm.controls.certificate.setValue(this.resParams[key][0].file, { emitEvent: false });
             } else {
-              this.globalForm.controls[key].setValue(this.resParams[key], {emitEvent: false});
+              this.globalForm.controls[key].setValue(this.resParams[key], { emitEvent: false });
             }
           }, this);
           this.valdiatorsByProfile(value);
-          this.service.showToast(
-						'success',
-						 '',
-						 'The profile has been changed to ' + value + ' successfully.',
-					);
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.profile_changed', 'toast', value);
           this.isNecessaryRestart(this.resAction);
         });
   }
@@ -222,22 +229,18 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
   changeFarmGuardian(): void {
     if (this.farm.farmguardian) {
       this.service.delete('farms/' + this.name + '/fg', this.farm.farmguardian)
-      .subscribe(
-        (data) => {
-          this.resAction = data;
-        },
-        (error) => { },
-        () => {
-          if (!this.farmguardian) {
-            this.service.showToast(
-              'success',
-               '',
-               'The farmguardian has been disabled sucessfully.',
-            );
-          }
-          this.farm.farmguardian = '';
-          this.addFarmGuardian();
-        });
+        .subscribe(
+          (data) => {
+            this.resAction = data;
+          },
+          (error) => { },
+          () => {
+            if (!this.farmguardian) {
+              this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_disabled', 'toast');
+            }
+            this.farm.farmguardian = '';
+            this.addFarmGuardian();
+          });
     } else {
       this.addFarmGuardian();
     }
@@ -245,21 +248,17 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
 
   addFarmGuardian(): void {
     if (this.farmguardian) {
-      const param = {name: this.farmguardian};
+      const param = { name: this.farmguardian };
       this.service.post('farms/' + this.name + '/fg', param)
-      .subscribe(
-        (data) => {
-          this.resAction = data;
-        },
-        (error) => { },
-        () => {
-          this.farm.farmguardian = this.farmguardian;
-          this.service.showToast(
-            'success',
-             '',
-             'The farmguardian has been changed to ' + param.name + ' successfully.',
-          );
-        });
+        .subscribe(
+          (data) => {
+            this.resAction = data;
+          },
+          (error) => { },
+          () => {
+            this.farm.farmguardian = this.farmguardian;
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_changed', 'toast', param.name);
+          });
     }
   }
 
@@ -282,12 +281,12 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
       .subscribe(
         (data) => {
           this.services = data.services;
-          this.farm  =  this.pipe.transform(data.params);
+          this.farm = this.pipe.transform(data.params);
           this.backends = data.backends;
         },
-        (error) => {},
+        (error) => { },
         () => {
-          if ( !refresh ) {
+          if (!refresh) {
             this.createForm(this.farm.listener);
 
             if (this.farm.status !== 'down') {
@@ -296,27 +295,27 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
             if (this.farm.listener === 'https') {
 
               this.service.getList('ciphers')
-              .subscribe((data) => { this.ciphersHttp  =  data.params; });
+                .subscribe((data) => { this.ciphersHttp = data.params; });
 
               this.service.getList('certificates')
-              .subscribe((data) => { this.certificatesHttp  =  data.params; });
+                .subscribe((data) => { this.certificatesHttp = data.params; });
               this.valdiatorsByProfile('https');
             }
 
             if (this.farm.listener === 'l4xnat' || this.services.length > 0) {
               this.service.getList('monitoring/fg')
-              .subscribe((data) => {
-                this.farmguardians  =  data.params;
-                this.farmguardians.unshift({name: ''});
-              });
+                .subscribe((data) => {
+                  this.farmguardians = data.params;
+                  this.farmguardians.unshift({ name: '' });
+                });
             }
             this.isNecessaryRestart(this.farm);
           }
         });
-    if ( !refresh ) {
+    if (!refresh) {
       this.service.getList('interfaces')
         .subscribe((data) => {
-          this.interfaces  =  data.interfaces;
+          this.interfaces = data.interfaces;
         });
     }
   }
@@ -350,22 +349,22 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
       if (submit['certificate']) {
         const cert = submit['certificate'];
         this.service.applyCert(this.name, cert)
-        .subscribe((data) => {
-          this.resAction = data;
-          this.farmValues.certificate = cert;
-        },
-        (error) => {
-          this.denySubmit = false;
-        },
-        () => {
-          if (Object.keys(submit).length === 0) {
-            this.service.showToast('success', '', 'The farm has been updated successfully.');
-            this.isNecessaryRestart(this.resAction);
-          }
-        });
+          .subscribe((data) => {
+            this.resAction = data;
+            this.farmValues.certificate = cert;
+          },
+            (error) => {
+              this.denySubmit = false;
+            },
+            () => {
+              if (Object.keys(submit).length === 0) {
+                this.showMessageTranslated('SYSTEM_MESSAGES.farm.updated', 'toast');
+                this.isNecessaryRestart(this.resAction);
+              }
+            });
       }
       if (submit['certificate'])
-          delete submit['certificate'];
+        delete submit['certificate'];
       if (Object.keys(submit).length > 0) {
         this.denySubmit = true;
         this.service.update('farms', this.name, submit)
@@ -378,20 +377,20 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
               this.denySubmit = false;
             },
             () => {
-              Object.keys(this.resParams).forEach(function(param) {
+              Object.keys(this.resParams).forEach(function (param) {
                 if (param === 'certlist') {
-                  this.globalForm.controls.certificate.setValue(this.resParams[param][0].file, {emitEvent: false});
+                  this.globalForm.controls.certificate.setValue(this.resParams[param][0].file, { emitEvent: false });
                 } else {
                   if (param === 'newfarmname') {
                     this.name = this.resParams.newfarmname;
                     window.history.pushState({}, '', `/pages/lslb/farms/edit/${this.name}`);
                   }
-                  this.globalForm.controls[param].setValue(this.resParams[param], {emitEvent: false});
+                  this.globalForm.controls[param].setValue(this.resParams[param], { emitEvent: false });
                 }
               }, this);
               this.farmValues = this.globalForm.value;
 
-              this.service.showToast('success', '', 'The farm has been updated successfully.');
+              this.showMessageTranslated('SYSTEM_MESSAGES.farm.updated', 'toast');
               this.isNecessaryRestart(this.resAction);
             });
       }
@@ -401,91 +400,79 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
   createBackend(backend): void {
     this.service.post('/farms/' + this.name + '/backends', backend)
       .subscribe(
-        (data) => { this.resAction  =  data; },
-        (error) => {  },
+        (data) => { this.resAction = data; },
+        (error) => { },
         () => {
           const items = [...this.backends];
           backend = this.resAction.params;
           items.push(backend);
           this.backends = items;
-          this.service.showToast('success', '', 'The backend has been created successfully.');
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_created', 'toast');
         });
   }
 
   editBackend(backend: any): void {
     this.service.update('/farms/' + this.name + '/backends', backend.id, backend.object)
       .subscribe(
-        (data) => { this.resAction  =  data; },
-        (error) => {  },
+        (data) => { this.resAction = data; },
+        (error) => { },
         () => {
           const items = [...this.backends];
           Object.keys(backend.object).forEach((key) => {
             items[backend.index][key] = backend.object[key];
           });
           this.backends = items;
-          this.service.showToast('success', '', 'The backend has been created successfully.');
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_created', 'toast');
         });
   }
   /* BACKENDS L4 */
 
   onAction(event) {
     if (event.action === 'delete') {
-      if (window.confirm('Are you sure you want to delete the backend ' + event.data.id + '?')) {
+      if (this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_confirm_delete', 'window', event.data.id)) {
         this.service.deleteBackend(this.name, event.data.id)
-        .subscribe(
-          (data) => { this.resAction  =  data; },
-          (error) => { },
-          () => {
-            this.backends.splice(this.backends.findIndex(i => i.id === event.data.id), 1);
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backend <strong>' + event.data.id + '</strong> has been deleted successfully.',
-						);
-          });
+          .subscribe(
+            (data) => { this.resAction = data; },
+            (error) => { },
+            () => {
+              this.backends.splice(this.backends.findIndex(i => i.id === event.data.id), 1);
+              this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_deleted', 'toast', event.data.id);
+            });
       }
     } else {
       const action = event.action.split(' ');
       this.service.actionBackend(this.name, event.data.id, action[0], action[1])
         .subscribe(
-          (data) => { this.resAction  =  data; },
-          (error) => {},
+          (data) => { this.resAction = data; },
+          (error) => { },
           () => {
             const object = event.data;
             object.status = this.resAction.params.action;
             this.backends[this.backends.findIndex(i => i.id === event.data.id)] = object;
-            const actionMsg = event.action === 'maintenance' ? 'put in maintenance' : event.action + 'ed';
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backend <strong>' + event.data.id + '</strong> has been ' + actionMsg + ' successfully.',
-						);
+            const actionMsg = event.action === 'maintenparamance' ? 'put in maintenance' : event.action + 'ed';
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_maintenance', 'toast', event.data.id, actionMsg);
           });
     }
   }
 
   createService(): void {
-    const param = {id: this.nameService};
+    const param = { id: this.nameService };
     this.service.post('farms/' + this.name + '/services', param)
       .subscribe(
         (data) => { this.resAction = data; },
-        (error) => {},
+        (error) => { },
         () => {
           this.nameService = '';
           this.displayDialog = false;
           if (!this.farmguardians) {
             this.service.getList('monitoring/fg')
               .subscribe((data) => {
-                this.farmguardians  =  data.params;
-                this.farmguardians.unshift({name: ''});
+                this.farmguardians = data.params;
+                this.farmguardians.unshift({ name: '' });
               });
           }
           this.services.push(param);
-          this.service.showToast(
-						'success',
-						 '',
-						 'The service <strong>' + param.id + '</strong> has been created successfully.',
-					);
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.service_created', 'toast', param.id);
           this.isNecessaryRestart(this.resAction);
         });
   }
@@ -494,16 +481,12 @@ export class FarmsUpdateComponent implements  OnInit, OnDestroy {
     event.stopPropagation();
     if (window.confirm('Are you sure you want to delete the service ' + name + '?')) {
       this.service.delete('farms/' + this.name + '/services', name)
-      .subscribe(
+        .subscribe(
           (data) => { this.resAction = data; },
-          (error) => {},
+          (error) => { },
           () => {
             this.services.splice(index, 1);
-            this.service.showToast(
-							'success',
-							 '',
-							 'The service <strong>' + name + '</strong> has been deleted successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.service_deleted', 'toast', name);
             this.isNecessaryRestart(this.resAction);
           });
     }

@@ -22,7 +22,7 @@ export const NB_CORE_PROVIDERS = [
     strategies: [
       NbPasswordAuthStrategy.setup({
         name: 'email',
-        baseEndpoint: '/zapi/v4.0/zapi.cgi',
+        baseEndpoint: 'https://192.168.0.15:444/zapi/v4.0/zapi.cgi',
         login: {
           endpoint: '/session',
           method: 'post',

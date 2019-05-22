@@ -31,22 +31,28 @@ export class DashboardComponent implements OnInit {
   farms: any;
 
   columns: Array<any> = [
-    {field: 'farmname', header: 'Name', width: '50%'},
-    {field: 'profile', header: 'Profile', width: '30%'},
-    {field: 'status', header: 'Status', width: '20%'},
+    {field: 'farmname', header: '', width: '50%'},
+    {field: 'profile', header: '', width: '30%'},
+    {field: 'status', header: '', width: '20%'},
   ];
 
   colorScheme = {
     domain: ['#21b573', '#999999'],
   };
 
-  constructor(private service: ZevenetService) { }
+  constructor(private service: ZevenetService) {}
 
   ngOnInit(): void {
     this.getStats();
     this.getInfo();
     this.getInterfaces();
     this.getFarms();
+    this.getLangTranslated('TABLES', this.columns);
+  }
+
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
   }
 
   getNews(): void {

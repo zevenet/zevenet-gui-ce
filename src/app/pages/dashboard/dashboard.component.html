@@ -12,7 +12,7 @@
   <div class="col-3">
     <nb-card *ngIf="news">
       <nb-card-header>
-        Professional Products
+        <span translate >DASHBOARD.professional_products.title</span>
       </nb-card-header>
       <nb-card-body [innerHTML]="news[0] | safeHtml">
       </nb-card-body>
@@ -21,7 +21,7 @@
   <div class="col-3">
     <nb-card *ngIf="news">
       <nb-card-header>
-        Professional Services
+        <span translate>DASHBOARD.professional_services.title</span>
       </nb-card-header>
       <nb-card-body [innerHTML]="news[1] | safeHtml">
       </nb-card-body>
@@ -30,7 +30,7 @@
   <div class="col-3">  
     <nb-card *ngIf="news">
       <nb-card-header>
-        News
+        <span translate>DASHBOARD.news.title</span>
       </nb-card-header>
       <nb-card-body [innerHTML]="news[2] | safeHtml" class="d-flex flex-column">
       </nb-card-body>
@@ -39,7 +39,7 @@
   <div class="col-3">  
     <nb-card *ngIf="news">
       <nb-card-header>
-        Resources
+        <span translate >DASHBOARD.resources.title</span>
       </nb-card-header>
       <nb-card-body [innerHTML]="news[3] | safeHtml">
       </nb-card-body>
@@ -50,27 +50,27 @@
   <div class="col-4">    
     <nb-card>
       <nb-card-header>
-        System Stats
+        <span translate >DASHBOARD.system_stats.title</span>
       </nb-card-header>
       <nb-card-body>
         <div class="pb-4">
           <div class="d-flex justify-content-between">
-            <span>CPU</span>
+            <span translate >DASHBOARD.system_stats.cpu</span>
             <span>{{stats.cpu.usage}} / 100 %</span>
           </div>
             <ngb-progressbar type="success" [value]="stats.cpu.usage" [max]="100"></ngb-progressbar>
         </div>
         <div class="pb-4">
           <div class="d-flex justify-content-between">
-            <span>Memory</span>
+            <span translate >DASHBOARD.system_stats.memory</span>
             <span>{{stats.memory.MemUsed}} / {{stats.memory.MemTotal}} Mb</span>
           </div>
           <ngb-progressbar type="success" [value]="stats.memory.MemUsed" [max]="stats.memory.MemTotal"></ngb-progressbar>
         </div>
         <div class="pb-4">
           <div class="d-flex justify-content-between">
-            <span>Load</span>
-            <span>{{stats.load.Last_1}} / {{stats.cpu.cores}} Cores</span>
+            <span translate >DASHBOARD.system_stats.load</span>
+            <span>{{stats.load.Last_1}} / {{stats.cpu.cores}} {{'DASHBOARD.system_stats.cores' | translate}}</span>
           </div>
           <ngb-progressbar type="success" [value]="stats.load.Last_1" [max]="stats.cpu.cores"></ngb-progressbar>
         </div> 
@@ -80,15 +80,15 @@
   <div class="col-4">        
     <nb-card>
       <nb-card-header>
-        System Information
+        <span translate >DASHBOARD.system_information.title</span>
       </nb-card-header>
       <nb-card-body *ngIf="info">
         <ul class="line-height-30">
-          <li>Zevenet Version: <strong>{{info.zevenet_version}}</strong></li>
-          <li>Appliance Version: <strong>{{info.appliance_version}}</strong></li>
-          <li>Kernel Version: <strong>{{info.kernel_version}}</strong></li>
-          <li>Hostname: <strong>{{info.hostname}}</strong></li>
-          <li>System Date: <strong>{{info.system_date}}</strong></li>
+          <li>{{'DASHBOARD.system_information.zevenet_version' | translate}}: <strong>{{info.zevenet_version}}</strong></li>
+          <li>{{'DASHBOARD.system_information.appliance_version' | translate}}: <strong>{{info.appliance_version}}</strong></li>
+          <li>{{'DASHBOARD.system_information.kernel_version' | translate}}: <strong>{{info.kernel_version}}</strong></li>
+          <li>{{'DASHBOARD.system_information.hostname' | translate}}: <strong>{{info.hostname}}</strong></li>
+          <li>{{'DASHBOARD.system_information.system_date' | translate}}: <strong>{{info.system_date}}</strong></li>
         </ul>
       </nb-card-body>
     </nb-card>
@@ -96,7 +96,7 @@
   <div class="col-4">    
     <nb-card>
       <nb-card-header>
-        NIC Interfaces
+        <span translate >DASHBOARD.nic_interfaces.title</span>
       </nb-card-header>
       <nb-card-body *ngIf="info">
         <ngx-charts-bar-vertical-2d [results]="interfaces" [xAxis]="true" [yAxis]="true" [showYAxisLabel]="true" yAxisLabel="Megabytes (MB)" [view]="['450', '180']" [showGridLines]="false" [scheme]="colorScheme" ></ngx-charts-bar-vertical-2d>
@@ -106,7 +106,7 @@
 </div>
 <nb-card class="h-auto">
   <nb-card-header>
-    Farm List
+    <span translate >DASHBOARD.farm_list.title</span>
   </nb-card-header>
 
   <nb-card-body *ngIf="farms">
