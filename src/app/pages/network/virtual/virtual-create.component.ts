@@ -43,6 +43,17 @@ export class VirtualCreateComponent implements OnInit {
 		this.getInterfaces();
 	}
 
+	showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    this.service.interpolateLang(textlang, {param: param, param2: param2})
+    .then(data =>  {
+      if (func === 'toast') {
+        this.service.showToast('success', '', data);
+      } else if (func === 'window') {
+        window.confirm(data);
+      }
+    });
+  }
+
 	getInterfaces(): void {
 		this.service.getList('interfaces')
 	      .subscribe((data) => {
@@ -58,11 +69,10 @@ export class VirtualCreateComponent implements OnInit {
 	  		(data) => { this.resAction = data; },
 	  		(error) => { },
 	  		() => {
-	  			this.service.showToast(
-					'success',
-					 '',
-					 'The <strong>' + this.formGroup.controls.name.value
-					 + '</strong> Virtual interface has been created successfully.',
+				this.showMessageTranslated(
+					'SYSTEM_MESSAGES.network.virtual_interface_created',
+					'toast',
+					this.formGroup.controls.name.value,
 				);
 	  			this.router.navigate(['../'], {relativeTo: this.route});
 	  		});

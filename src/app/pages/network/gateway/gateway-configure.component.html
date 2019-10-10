@@ -11,19 +11,19 @@
 <nb-card>
 	<nb-card-body>
 		<div class="d-flex justify-content-between mb-3">
-			<h2>{{name | uppercase}} Gateway Settings</h2>
+			<h2>{{name | uppercase}} {{'NETWORK.gateway.gateway_settings' | translate}}</h2>
 		</div>
 		<form [formGroup]="form" (ngSubmit)="onSubmit('form')" *ngIf="form">
 			<div class="row form">
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="address">Address ({{name | uppercase}})</label>
+			      <label for="address">{{'FORMS.address' | translate}} ({{name | uppercase}})</label>
 			      <input type="text" class="form-control" id="address" formControlName="address">
 			    </div>
 			  </div>
 			  <div class="col-sm-5 col-12">
 			    <div class="form-group">
-			      <label for="interface">Interface</label>
+			      <label for="interface" translate>TABLES.interface</label>
 			      <ng-select *ngIf="interfaces"
 	  						   [items]="interfaces | filterGateway"
 					           bindLabel="name"
@@ -48,7 +48,7 @@
 	          	<i *ngIf="unsetting" class="fa fa-spinner fa-spin mt-4"></i>
 			  </div>
 			</div>	
-			<button class="btn btn-success mt-4" [disabled]="form.invalid || denySubmit">Submit</button>
+			<button class="btn btn-success mt-4" [disabled]="form.invalid || denySubmit" translate>BUTTONS.submit</button>
 		</form>
 
 	</nb-card-body>

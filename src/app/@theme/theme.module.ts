@@ -29,6 +29,8 @@ import {
   NbPopoverModule,
   NbContextMenuModule,
   NbProgressBarModule,
+  NbSelectModule,
+
 } from '@nebular/theme';
 
 import { CORPORATE_THEME } from './styles/theme.corporate';
@@ -53,6 +55,7 @@ const NB_MODULES = [
   NbContextMenuModule,
   NgbModule,
   NbProgressBarModule,
+  NbSelectModule,
 ];
 
 const COMPONENTS = [

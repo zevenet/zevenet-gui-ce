@@ -10,7 +10,7 @@
 
 <nb-card>
 	<nb-card-header>
-    	Farms Stats
+    	<div translate>MONITORING.farm_stats</div>
     </nb-card-header>
     <nb-card-body class="p-4">
 	  	<zevenet-table-expand *ngIf="farms" [data]="farms?.farms | filterFarmStats" [cols]="columns" keySort="farmname" [expanded]="expanded" (toggleColumn)="toggleColumn($event)" [subcolumns]="subcolumns"></zevenet-table-expand>

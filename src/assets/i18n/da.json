@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "Hovedmenu"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "Gårde"
+        },
+        "ssl_certificates": {
+            "title": "SSL-certifikater"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "Overvågning"
+        },
+        "graphs": {
+            "title": "Grafer"
+        },
+        "farm_stats": {
+            "title": "Gårdstatistik"
+        },
+        "farmguardians": {
+            "title": "Farmguardians"
+        },
+        "network": {
+            "title": "Netværk"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "Virtuelle grænseflader"
+        },
+        "gateway": {
+            "title": "Gateway"
+        },
+        "system": {
+            "title": "System"
+        },
+        "remote_services": {
+            "title": "Fjernbetjeninger"
+        },
+        "backups": {
+            "title": "Sikkerhedskopier"
+        },
+        "user": {
+            "title": "Bruger"
+        },
+        "logs": {
+            "title": "Logs"
+        },
+        "license": {
+            "title": "Licens"
+        },
+        "support_save": {
+            "title": "Support Gem"
+        },
+        "create": {
+            "title": "Opret"
+        },
+        "edit": {
+            "title": "Redigere"
+        },
+        "configure": {
+            "title": "Sæt"
+        },
+        "upload": {
+            "title": "Upload"
+        },
+        "view": {
+            "title": "Specifikation"
+        },
+        "generate_csr": {
+            "title": "Generer CSR"
+        }
+    },
+    "OBJECTS": {
+        "farm": "gård",
+        "certificate": "certifikat",
+        "farmguardian": "farmguardian",
+        "VLAN": "VLAN",
+        "virtual interface": "virtuel grænseflade",
+        "backup": "backup",
+        "backend": "backend",
+        "session": "Session"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "Professionelle Produkter"
+        },
+        "professional_services": {
+            "title": "Professionelle tjenester"
+        },
+        "news": {
+            "title": "Nyheder"
+        },
+        "resources": {
+            "title": "Ressourcer"
+        },
+        "system_stats": {
+            "title": "System Stats",
+            "cpu": "CPU",
+            "memory": "Hukommelse",
+            "load": "Load",
+            "cores": "kerner"
+        },
+        "system_information": {
+            "title": "System Information",
+            "zevenet_version": "Zevenet Version",
+            "appliance_version": "Appliance Version",
+            "kernel_version": "Kernel Version",
+            "hostname": "hostname",
+            "system_date": "System Dato"
+        },
+        "nic_interfaces": {
+            "title": "NIC-grænseflader",
+            "megabytes": "Megabytes (MB)"
+        },
+        "farm_list": {
+            "title": "Farm List",
+            "farmname": "Navn",
+            "profile": "profiler",
+            "status": "Status"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "LSLB Farm List",
+                "create_farm": "Opret LSLB Farm"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "Lytter",
+                    "advanced_settings": {
+                        "title": "Avancerede indstillinger",
+                        "rewrite_location_headers": "Omskriv overskriftsoverskrifter",
+                        "http_verbs_accepted": "HTTP verbs accepteret",
+                        "backend_connection_timeout": "Backend forbindelses timeout",
+                        "backend_response_timeout": "Backend respons timeout",
+                        "frequency_to_check_resurrected_backends": "Frekvens for at kontrollere genoprettede bagsider",
+                        "client_request_timeout": "Klient anmodning timeout",
+                        "message_error_414": "Meddelelsesfejl 414",
+                        "message_error_500": "Meddelelsesfejl 500",
+                        "message_error_501": "Meddelelsesfejl 501",
+                        "message_error_503": "Meddelelsesfejl 503"
+                    },
+                    "https": {
+                        "title": "HTTPS-parametre",
+                        "disable_sslv2": "Deaktiver SSLv2",
+                        "disable_sslv3": "Deaktiver SSLv3",
+                        "disable_tslv1": "Deaktiver TLSv1",
+                        "disable_tslv1_1": "Deaktiver TLSv1.1",
+                        "disable_tslv1_2": "Deaktiver TLSv1.2",
+                        "ciphers": "ciphers",
+                        "custom_ciphers": "Brugerdefinerede cifre",
+                        "certificate_enabled": "Certifikat aktiveret"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "Virtual Host",
+                    "url_pattern": "URL-mønster",
+                    "least_response": "Mindste svar",
+                    "https_backends": "HTTPS backends",
+                    "redirect": {
+                        "title": "Omdiriger",
+                        "url": "Omdirigeringswebadresse",
+                        "type": "Omdirigeringstype"
+                    },
+                    "load_balancer_algorithm": "Load balancer Algoritme",
+                    "persistence": {
+                        "title": "Vedholdenhed",
+                        "persistence_session_identifier": "Persistens session identifikator",
+                        "persistence_session_to_live_time": "Persistens session tid til live",
+                        "": "Ingen vedholdenhed",
+                        "IP": "IP: Klientadresse",
+                        "BASIC": "GRUNDLÆGGENDE: Grundlæggende godkendelse",
+                        "URL": "URL: En anmodning parameter",
+                        "PARM": "PARM: En URI-parameter",
+                        "COOKIE": "COOKIE: En bestemt cookie",
+                        "HEADER": "HEADER: En bestemt forespørgselsoverskrift"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "Protokol type",
+                    "nat_type": "Nat type"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "Load balancer Algoritme",
+                    "persistence": {
+                        "title": "Vedholdenhed",
+                        "persistence_session_to_live_time": "Persistens session tid til live",
+                        "": "Ingen vedholdenhed",
+                        "ip": "IP: Source IP",
+                        "srcport": "Port: Kilde",
+                        "srcmac": "MAC: Source MAC",
+                        "srcip_srcport": "Kilde IP og Source Port",
+                        "srcip_dstport": "Kilde IP og destinationsport"
+                    },
+                    "algorithms": {
+                        "weight": "Vægt: Tilslutning lineær forsendelse efter vægt",
+                        "hash_srcip_srcport": "Source Hash: Hash per kilde IP og Source Port",
+                        "hash_srcip": "Simple Source Hash: Hash pr. Kilde IP kun",
+                        "symhash": "Symmetrisk Hash: Round trip hash pr. IP og Port",
+                        "roundrobin": "Round Robin: Sekventiel backend-valg"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "SSL-certifikatliste",
+            "generate_csr": "Generer CSR",
+            "upload_certificate": "Upload SSL-certifikat",
+            "choose_files": "Vælg en eller flere filer"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "DSLB Farm List",
+                "create_farm": "Opret DSLB Farm"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "Systemgrafer",
+            "interfaces_graphs": "Grænseflader",
+            "show_graphs": "Vis grafer",
+            "farms_graphs": "Gårde Grafer",
+            "select_graphs": "Vælg Grafer"
+        },
+        "farm_stats": "Farms Stats",
+        "farm_graphs": "Gårde Grafer",
+        "farmsguardian": {
+            "title": "Farmguardians",
+            "farms_settings": "Farms Indstillinger",
+            "create_farmguardian": "Opret Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "NIC-liste",
+        "vlan": {
+            "title": "VLAN Interface List",
+            "create_vlan": "Opret VLAN-grænseflade"
+        },
+        "virtual_interface": {
+            "title": "Virtual Interface List",
+            "create_virtual_interface": "Opret Virtual Interface"
+        },
+        "gateway": {
+            "ipv4_gateway": "IPv4 Gateway",
+            "ipv6_gateway": "IPv6 Gateway",
+            "gateway_settings": "Gateway Indstillinger"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "DNS Service",
+            "default_dns": "Standard er 8.8.8.8",
+            "optional": "Valgfri",
+            "default_npt": "Standard er pool.ntp.org",
+            "primary_server": "Primær server",
+            "secondary_server": "Sekundær server",
+            "npt_service": "NPT Service",
+            "npt_server": "NPT-server",
+            "snmp_service": "SNMP Service",
+            "enable_snmp": "Aktivér SNMP",
+            "physical_interface_running": "Fysisk grænseflade hvor kører SNMP-service",
+            "snmp_por_running": "SNMP Port, hvor kører SNMP-tjeneste",
+            "snmp_por_default": "Standard er 161.",
+            "conmunity_name": "Gruppenavn",
+            "ip_subnet": "IP eller subnet med adgang (IP / bit)"
+        },
+        "backups": {
+            "backup_list": "Backup List",
+            "upload_backup": "Upload sikkerhedskopiering",
+            "backup_file": "Backup-fil",
+            "create_backup": "Opret sikkerhedskopiering",
+            "choose_file": "Vælg en fil"
+        },
+        "user": {
+            "settings_user": "Indstillinger Bruger",
+            "user": "Bruger",
+            "zapi_permissions": "ZAPI-tilladelser",
+            "zapi_key": "ZAPI-nøgle",
+            "change_password": "Skift adgangskode",
+            "current_password": "Nuværende kodeord",
+            "new_password": "Ny adgangskode",
+            "repeat_new_password": "Gentag ny adgangskode"
+        },
+        "logs": {
+            "log_list": "Logliste",
+            "log_view": "Logvisning",
+            "number_lines": "Antal linjer"
+        },
+        "license": "Licens",
+        "support_save": {
+            "title": "Support Gem",
+            "downloaded": "Når denne handling udføres, downloades en fil med systemoplysninger.",
+            "gui": "Denne handling kan tage flere sekunder, du kan fortsætte browsing GUI'en."
+        }
+    },
+    "FORMS": {
+        "name": "Navn",
+        "locality": "Lokalitet",
+        "country": "Land",
+        "state_province": "Stat / provins",
+        "common_name": "Almindeligt navn",
+        "organization": "Organisation",
+        "division": "Afdeling",
+        "email_address": "Email adresse",
+        "services_settings": "Tjenester Indstillinger",
+        "global_settings": "Globale indstillinger",
+        "virtual_ip_and_port": "Virtual IP og Port",
+        "backend": "Bagende",
+        "interval": "Interval",
+        "cut_connections": "Skær forbindelser",
+        "description": "Beskrivelse",
+        "copy_rule": "Kopier regel",
+        "rule_to_copy": "Regel at kopiere",
+        "seconds": "sekunder",
+        "log": "Log",
+        "address": "Adresse",
+        "virtual_interface_name": "Virtuelt interfacenavn",
+        "parent_interface": "Forældreinterface",
+        "vlan_name": "VLAN Navn",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "Load balancer Algoritme",
+        "health_checks_for_backend": "Sundhedschecks til backend",
+        "help_form": {
+            "help_name": "Beskrivende tekst, dette navn bruges til at identificere dette certifikat.",
+            "help_alert_name": "Kun redigerbar, når gården er nede.",
+            "help_locality": "By, hvor din organisation er placeret.",
+            "help_country": "Land (to tegn), hvor din organisation er placeret.",
+            "help_state_province": "Stat eller provins, hvor din organisation er placeret.",
+            "help_common_name": "FQDN af serveren. Eksempel: domain.com, mail.domain.com eller * .domain.com.",
+            "help_organization": "Det fulde juridiske navn på din organisation / virksomhed (ex .: Zevenet Co.).",
+            "help_division": "Din afdeling f.eks. 'IT', 'Web', 'Office' osv.",
+            "help_email_address": "Din e-mail-adresse."
+        }
+    },
+    "TABLES": {
+        "name": "Navn",
+        "farmname": "Navn",
+        "profile": "profiler",
+        "vip": "Virtual IP",
+        "vport": "Virtual Port",
+        "status": "Status",
+        "actions": "handlinger",
+        "id": " ID",
+        "ip": " IP",
+        "address": "Adresse",
+        "port": "port",
+        "timeout": "Timeout",
+        "weight": "Vægt",
+        "CN": "Almindeligt navn",
+        "type": "Type",
+        "file": "filet",
+        "issuer": "Udsteder",
+        "creation": "Opret på",
+        "expiration": "Udløber den",
+        "priority": "Prioritet",
+        "interface": "grænseflade",
+        "service": "Service",
+        "client": "Klient",
+        "sessions": "Sessions",
+        "session_id": "Sessions ID",
+        "backend_id": "Backend ID",
+        "command": "Kommando",
+        "description": "Beskrivelse",
+        "farms": "Gårde",
+        "farm": "Farm",
+        "gateway": "Gateway",
+        "netmask": "netmaske",
+        "mac": "MAC",
+        "ipv4_ipv6": "IP-adresse (IPv4 / IPv6)",
+        "vlan_tag": "VLAN tag",
+        "date": "Dato",
+        "log": "Log",
+        "established": "Etableret Conns",
+        "pending": "Afventer Conns",
+        "No": "Ingen",
+        "found": "fundet"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "Der kræves",
+        "name_not_valid": "er ikke gyldig, det er kun muligt alfanumeriske tegn og bindestreg (-).",
+        "port_not_valid": "ikke er gyldigt, er det muligt at definere en enkelt port, flere porte eller intervaller af porte (Ex: 80 eller 80,81 eller 80: 90)",
+        "greater_than_0": "skal være større end 0",
+        "only_two_characters": "kan kun have to tegn.",
+        "valid_email": "skal være en gyldig email",
+        "not_match": "passer ikke sammen.",
+        "farm": {
+            "delete": "Gården <strong>{{param}}</strong> er blevet slettet korrekt.",
+            "delete_farm_service": "Gården <strong>{{param}}</strong> {{param2}} er blevet slettet korrekt.",
+            "confirm_delete": "Er du sikker på, at du vil slette {{param}} farmname?",
+            "stop": "Gården <strong>{{param}}</strong> har været {{param2}} ed med succes.",
+            "created": "Gården <strong>{{param}}</strong> er blevet oprettet med succes.",
+            "restarted": "Gården <strong>{{param}}</strong> er blevet genstartet med succes.",
+            "backend_created": "Baggrunden er oprettet med succes.",
+            "profile_changed": "Profilen er blevet ændret til {{param}}.",
+            "farmguardian_disabled": "Gården har været deaktiveret succesfuldt.",
+            "farmguardian_changed": "Farmguardian er blevet ændret til {{param}} med succes.",
+            "farmguardian_created": "Den <strong>{{param}}</strong> farmguardian er blevet oprettet med succes.",
+            "farmguardian_update": "Den <strong>{{param}}</strong> Farmguardian er blevet opdateret med succes",
+            "farmguardian_confirm_delete": "Er du sikker på, at du vil slette {{param}} farmguardian?",
+            "farmguardian_delete": "Den <strong>{{param}}</strong> Farmguardian er blevet slettet med succes.",
+            "updated": "Gården er blevet opdateret med succes.",
+            "delete_farm_of_farmguardian": "Er du sikker på, at du vil slette gården {{param}} {{param2}} af farmguardianen?",
+            "backend_confirm_delete": "Er du sikker på, at du vil slette backend {{param}}?",
+            "backend_deleted": "Baggrunden <strong>{{param}}</strong> er blevet slettet korrekt",
+            "backend_maintenance": "Baggrunden <strong>{{param}}</strong> har været {{param2}} succesfuldt.",
+            "service_created": "Tjenesten <strong>{{param}}</strong> er blevet oprettet med succes.",
+            "service_deleted": "Tjenesten <strong>{{param}}</strong> er blevet slettet korrekt.",
+            "service_update": "Tjenesten <strong>{{param}}</strong> er blevet opdateret med succes."
+        },
+        "network": {
+            "gateway_update": "Den <strong>{{param}}</strong> Gateway er blevet opdateret med succes.",
+            "gateway_confirm_unset": "Er du sikker på, at du vil afbryde den aktuelle gateway?",
+            "gateway_confirm_unset_interface": "Er du sikker på, at du vil afbryde {{param}} gatewayen?",
+            "gateway_unconfigured": "Den <strong>{{param}}</strong> Gateway har været konfigureret med succes.",
+            "nic_update": "Den <strong>{{param}}</strong> NIC er blevet opdateret med succes.",
+            "nic_unconfigured": "Den <strong>{{param}}</strong> NIC har været konfigureret med succes.",
+            "nic_is": "Den <strong>{{param}}</strong> NIC er {{param2}}",
+            "virtual_interface_created": "Den <strong>{{param}}</strong> Virtual interface er blevet oprettet med succes.",
+            "virtual_interface_updated": "Den <strong>{{param}}</strong> Virtuel grænseflade er blevet opdateret med succes.",
+            "virtual_interface_confirm_deleted": "Er du sikker på, at du vil slette {{param}} Virtual-grænsefladen?",
+            "virtual_interface_deleted": "Den <strong>{{param}}</strong> Virtual interface er slettet korrekt.",
+            "vlan_created": "Den <strong>{{param}}</strong> VLAN er blevet oprettet med succes.",
+            "vlan_update": "Den <strong>{{param}}</strong> VLAN er blevet opdateret med succes.",
+            "vlan_confirm_delete": "Er du sikker på, at du vil slette {{param}} VLAN?",
+            "vlan_deleted": "Den <strong>{{param}}</strong> VLAN er blevet slettet.",
+            "vlan_is": "Den <strong>{{param}}</strong> VLAN er {{param2}}"
+        },
+        "system": {
+            "backup_created": "Sikkerheden <strong>{{param}}</strong> er blevet oprettet med succes.",
+            "backup_uploaded": "Sikkerheden <strong>{{param}}</strong> er blevet uploadet korrekt.",
+            "backup_confirm_deleted": "Er du sikker på, at du vil slette backup {{param}}?",
+            "backup_deleted": "Sikkerheden <strong>{{param}}</strong> er blevet slettet korrekt.",
+            "backup_applied": "Sikkerheden <strong>{{param}}</strong> er blevet anvendt succesfuldt.",
+            "backup_downloaded": "Sikkerheden <strong>{{backup}}</strong> er blevet downloadet med succes.",
+            "log_downloaded": "Loggen <strong>{{param}}</strong> er blevet downloadet med succes.",
+            "service_updated": "Den <strong>{{param}}</strong> tjenesten er blevet opdateret med succes.",
+            "support_save_downloaded": "Den <strong> Support Gem </strong> er blevet downloadet med succes",
+            "user_updated": "Brugeren er blevet opdateret med succes."
+        },
+        "certificate": {
+            "csr_generated": "CSR'en <strong>{{param}}</strong> er blevet genereret med succes.",
+            "uploaded": "certifikatet <strong>{{param}}</strong> er blevet uploadet korrekt.",
+            "deleted": "certifikatet <strong>{{param}}</strong> er blevet slettet korrekt.",
+            "downloaded": "certifikatet <strong>{{param}}</strong> er blevet downloadet med succes."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "Ny Service",
+        "create": "Opret",
+        "cancel": "Ophæve",
+        "submit": "Indsend",
+        "save": "Gem",
+        "generate": "Generer",
+        "update": "Opdatering",
+        "upload": "Upload",
+        "generate_key_random": "Generer tilfældig nøgle",
+        "generate_support_save": "Generer Support Save",
+        "clear": "klar",
+        "start": "starte",
+        "apply": "Benyt",
+        "add": "Tilføje",
+        "edit": "Redigere"
+    },
+    "ZEVENET": {
+        "go_to_home": "Gå hjem",
+        "error_404": "404 side ikke fundet",
+        "page_does_not_exist": "Den side du ledte findes ikke",
+        "no_farms_found": "Ingen gårde fundet"
+    },
+    "CHARTS": {
+        "established": "Etableret Conns",
+        "pending": "Afventer Conns"
+    },
+    "PLACEHOLDERS": {
+        "graph": "Vælg en graf",
+        "profile": "Vælg en profil",
+        "virtual_ip": "Vælg en virtuel IP",
+        "parent_interface": "Vælg en overordnet grænseflade",
+        "interface": "Vælg en grænseflade"
+    },
+    "AUTH": {
+        "logout": "Log på",
+        "login": {
+            "text": "Log ind med dit brugernavn og din adgangskode",
+            "username": "Brugernavn",
+            "password": "Adgangskode",
+            "button": "Log ind",
+            "user_required": "Bruger er påkrævet!",
+            "user_real": "Bruger skal være den rigtige",
+            "password_required": "adgangskode er påkrævet",
+            "password_contains": "Adgangskoden skal indeholde {{param}} til {{param2}} tegn",
+            "success": "Succes!",
+            "success_msg": "Du er blevet logget ind."
+        }
+    }
+}

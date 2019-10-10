@@ -10,7 +10,7 @@
 
 <nb-card>
   <nb-card-header>
-    Upload SSL Certificate
+    <div translate>LSLB.ssl_certificates.upload_certificate</div>
   </nb-card-header>
 
   <nb-card-body>
@@ -19,14 +19,14 @@
 			<div class="col-sm-10 col-10">
 				<div class="form-group">
 					<label class="custom-file-label" for="file">
-						{{names.length > 0 ? names.length > 1 ? names.length + ' Selected files' : names[0] : 'Choose one or more files' }}
+						{{names.length > 0 ? names.length > 1 ? names.length + ' Selected files' : names[0] : 'LSLB.ssl_certificates.choose_files' | translate}}
 					</label>
 			  		<input type="file" class="custom-file-input" name="file" id="file" multiple (change)="onFileSelected($event)" accept=".pem,.csr">
 			  	</div>
 			 </div>
 		</div>
 		<div class="row">
-			<button type="submit" [disabled]="!formGroup.dirty" class="btn btn-success mt-2">Upload</button>
+			<button type="submit" [disabled]="!formGroup.dirty" class="btn btn-success mt-2" translate="">BUTTONS.upload</button>
 		</div>
 	</form>
   </nb-card-body>

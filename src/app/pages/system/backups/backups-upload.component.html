@@ -10,7 +10,7 @@
 
 <nb-card>
   <nb-card-header>
-    Upload Backup
+    <div translate>SYSTEM.backups.upload_backup</div>
   </nb-card-header>
 
   <nb-card-body>
@@ -19,25 +19,25 @@
 			<div class="col-12">
 				<div class="form-group">
 					<label for="name">
-						Name
+							<div translate>FORMS.name</div>
 					</label>
 			  		<input type="text" class="form-control" name="name" id="name" formControlName="name"/>
 			  	</div>
 			 </div>
 		</div>  		
 		<div class="row">
-			<span class="col-12 mb-2">Backup file</span>
+			<span class="col-12 mb-2" translate>SYSTEM.backups.backup_file</span>
 			<div class="col-sm-12 col-12">
 				<div class="form-group">
 					<label class="custom-file-label" for="file">
-						{{nameFile ? nameFile : 'Choose one file' }}
+						{{nameFile ? nameFile : 'SYSTEM.backups.choose_file' | translate}}
 					</label>
 			  		<input type="file" class="custom-file-input" name="file" id="file" (change)="readFile($event)">
 			  	</div>
 			 </div>
 		</div>
 		<div class="row">
-			<button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mt-2">Upload</button>
+			<button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mt-2" translate>BUTTONS.upload</button>
 		</div>
 	</form>
   </nb-card-body>

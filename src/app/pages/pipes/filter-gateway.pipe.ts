@@ -8,7 +8,7 @@
   * See License.txt in the project root for license information.
 **/
 
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
  name: 'filterGateway',
@@ -17,7 +17,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class FilterGateway implements PipeTransform {
   transform(value): any {
     return value.filter(item => {
-        return (item.type !== 'virtual' && item.status === 'up' && item.ip !== '' && item.netmask !== '');
+      return (item.type !== 'virtual' && item.status === 'up' && item.ip !== '' && item.netmask !== '');
     });
   }
 }

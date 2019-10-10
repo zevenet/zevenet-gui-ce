@@ -38,6 +38,17 @@ export class BackupsUploadComponent {
 		});
 	}
 
+	showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+	    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+	      .then(data => {
+	        if (func === 'toast') {
+	          this.service.showToast('success', '', data);
+	        } else if (func === 'window') {
+	          return window.confirm(data);
+	        }
+	      });
+	}
+
 	onSubmit(): void {
 		this.service.upload('system/backup', this.formGroup.controls.name.value, this.formGroup.controls.file.value)
 	  	.subscribe(
@@ -46,11 +57,7 @@ export class BackupsUploadComponent {
 		  	},
 		  	(error) => {},
 		  	() => {
-		  		this.service.showToast(
-					'success',
-					 '',
-					 'The backup <strong>' + this.formGroup.controls.name.value + '</strong> has been uploaded successfully.',
-				);
+					this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_uploaded', 'toast', this.formGroup.controls.name.value);
 				this.router.navigate(['../'], {relativeTo: this.route});
 		  	});
 	}

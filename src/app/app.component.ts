@@ -17,6 +17,9 @@
 import { Component } from '@angular/core';
 import { ToasterConfig } from 'angular2-toaster';
 import 'style-loader!angular2-toaster/toaster.css';
+import { TranslateService } from '@ngx-translate/core';
+import { LANGS } from '../assets/i18n/langs/langs_en';
+import { ZevenetAuthService } from './@core/zevenet/auth/zevenet-auth.service';
 
 @Component({
   selector: 'zevenet-console-central',
@@ -25,6 +28,8 @@ import 'style-loader!angular2-toaster/toaster.css';
   `,
 })
 export class AppComponent {
+
+  LANGS: any = LANGS;
 
   config: ToasterConfig = new ToasterConfig({
     positionClass: 'toast-bottom-right',
@@ -36,6 +41,19 @@ export class AppComponent {
     limit: 10,
   });
 
-  constructor() { }
+  constructor(public translate: TranslateService, public zevenetAuthService: ZevenetAuthService) {
+    const langs = LANGS.map(lang => lang.code );
+    this.translate.addLangs(langs);
+
+    this.getLanguage();
+  }
+
+  getLanguage() {
+    this.zevenetAuthService.getLanguage()
+      .subscribe((data) => {
+        const selectedLang = data.params.language || 'en';
+        this.translate.setDefaultLang(selectedLang);
+      });
+  }
 
 }

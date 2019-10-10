@@ -8,7 +8,7 @@
   * See License.txt in the project root for license information.
 **/
 
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
  name: 'filterCertsFarm',
@@ -17,9 +17,9 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class FilterCertsFarm implements PipeTransform {
   transform(value): any {
  		if (value) {
-        return value.filter(item => {
-        	return item.type === 'Certificate';
-        });
+      return value.filter(item => {
+      	return item.type === 'Certificate';
+      });
     }
   }
 }

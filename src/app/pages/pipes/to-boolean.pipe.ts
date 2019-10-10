@@ -14,17 +14,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ToBooleanPipe implements PipeTransform {
 
     transform(value: any) {
-        const result = {};
-        if (value) {
-            Object.keys(value).map(function(param) {
-            	if (value[param] === 'true' || value[param] === 'false') {
-            		result[param] = JSON.parse(value[param]);
-            	} else {
-            		result[param] = value[param];
-            	}
-            });
-        }
+      const result = {};
+      if (value) {
+          Object.keys(value).map(function(param) {
+          	if (value[param] === 'true' || value[param] === 'false') {
+          		result[param] = JSON.parse(value[param]);
+          	} else {
+          		result[param] = value[param];
+          	}
+          });
+      }
 
-        return result;
+      return result;
     }
 }

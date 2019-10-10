@@ -19,6 +19,7 @@ import { ServiceUpdateComponent } from './farms/service-update.component';
 import { CertificatesComponent } from './certificates/certificates.component';
 import { CertificatesUploadComponent } from './certificates/certificates-upload.component';
 import { CertificatesCsrComponent } from './certificates/certificates-csr.component';
+import { MyBreadcrumbsResolver } from '../../@core/zevenet/services/breadcrumb.resolver';
 
 const routes: Routes = [{
   path: '',
@@ -32,7 +33,8 @@ const routes: Routes = [{
     path: 'farms',
     component: LslbComponent,
     data: {
-      breadcrumbs: 'Farms',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'Farms',
     },
     children: [
       {
@@ -46,13 +48,15 @@ const routes: Routes = [{
         path: 'create',
         component: FarmsCreateComponent,
         data: {
-          breadcrumbs: 'Create',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Create',
         },
       }, {
         path: 'edit/:name',
         component: FarmsUpdateComponent,
         data: {
-          breadcrumbs: 'Edit',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Edit',
         },
       },
     ],
@@ -77,14 +81,16 @@ const routes: Routes = [{
         path: 'upload',
         component: CertificatesUploadComponent,
         data: {
-          breadcrumbs: 'Upload',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Upload',
         },
       },
       {
         path: 'csr',
         component: CertificatesCsrComponent,
         data: {
-          breadcrumbs: 'Genereate CSR',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Generate CSR',
         },
       },
     ],

@@ -16,7 +16,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class FilterReplaceRoot implements PipeTransform {
    transform(value: any, args?: any) {
-	    return value.replace(/(disk\/)?root/g, '');
+	  return value.replace(/(disk\/)?root/g, '');
 	}
 }
 

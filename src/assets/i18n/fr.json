@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "Tableau de bord"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "Fermes"
+        },
+        "ssl_certificates": {
+            "title": "Certificats SSL"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "La surveillance"
+        },
+        "graphs": {
+            "title": "Graphiques"
+        },
+        "farm_stats": {
+            "title": "Statistiques de la ferme"
+        },
+        "farmguardians": {
+            "title": "Gardiens de ferme"
+        },
+        "network": {
+            "title": "Réseau"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "Interfaces virtuelles"
+        },
+        "gateway": {
+            "title": "passerelle"
+        },
+        "system": {
+            "title": "système"
+        },
+        "remote_services": {
+            "title": "Services à distance"
+        },
+        "backups": {
+            "title": "sauvegardes"
+        },
+        "user": {
+            "title": "utilisateur"
+        },
+        "logs": {
+            "title": "Journaux"
+        },
+        "license": {
+            "title": "Licence"
+        },
+        "support_save": {
+            "title": "Support Enregistrer"
+        },
+        "create": {
+            "title": "Créer"
+        },
+        "edit": {
+            "title": "Éditer"
+        },
+        "configure": {
+            "title": "Configurer"
+        },
+        "upload": {
+            "title": "Télécharger"
+        },
+        "view": {
+            "title": "Affichage"
+        },
+        "generate_csr": {
+            "title": "Générer de la RSE"
+        }
+    },
+    "OBJECTS": {
+        "farm": "ferme",
+        "certificate": "certificat",
+        "farmguardian": "garde de ferme",
+        "VLAN": "VLAN",
+        "virtual interface": "interface virtuelle",
+        "backup": "sauvegarde",
+        "backend": "backend",
+        "session": "Session"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "Produits professionnels"
+        },
+        "professional_services": {
+            "title": "Services professionnels"
+        },
+        "news": {
+            "title": "Actualités"
+        },
+        "resources": {
+            "title": "Ressources"
+        },
+        "system_stats": {
+            "title": "Statistiques du système",
+            "cpu": "CPU",
+            "memory": "Mémoire",
+            "load": "Charge",
+            "cores": "Couleurs"
+        },
+        "system_information": {
+            "title": "Système d'information",
+            "zevenet_version": "Version Zevenet",
+            "appliance_version": "Version de l'appareil",
+            "kernel_version": "Version du noyau",
+            "hostname": "Hostname",
+            "system_date": "Date du système"
+        },
+        "nic_interfaces": {
+            "title": "Interfaces NIC",
+            "megabytes": "Mégaoctets (Mo)"
+        },
+        "farm_list": {
+            "title": "Liste de ferme",
+            "farmname": "Nom",
+            "profile": "Profil",
+            "status": "Statut"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "Liste des fermes LSLB",
+                "create_farm": "Créer une ferme LSLB"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "Auditeur",
+                    "advanced_settings": {
+                        "title": "paramètres avancés",
+                        "rewrite_location_headers": "Réécrire les en-têtes d'emplacement",
+                        "http_verbs_accepted": "Verbes HTTP acceptés",
+                        "backend_connection_timeout": "Délai de connexion au backend",
+                        "backend_response_timeout": "Délai de réponse du backend",
+                        "frequency_to_check_resurrected_backends": "Fréquence de vérification des backends ressuscités",
+                        "client_request_timeout": "Délai d'attente de la demande du client",
+                        "message_error_414": "Erreur de message 414",
+                        "message_error_500": "Erreur de message 500",
+                        "message_error_501": "Erreur de message 501",
+                        "message_error_503": "Erreur de message 503"
+                    },
+                    "https": {
+                        "title": "Paramètres HTTPS",
+                        "disable_sslv2": "Désactiver SSLv2",
+                        "disable_sslv3": "Désactiver SSLv3",
+                        "disable_tslv1": "Désactiver TLSv1",
+                        "disable_tslv1_1": "Désactiver TLSv1.1",
+                        "disable_tslv1_2": "Désactiver TLSv1.2",
+                        "ciphers": "chiffrements",
+                        "custom_ciphers": "Chiffres personnalisés",
+                        "certificate_enabled": "Certificat activé"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "hôte virtuel",
+                    "url_pattern": "Modèle d'URL",
+                    "least_response": "Moindre réponse",
+                    "https_backends": "Les backends HTTPS",
+                    "redirect": {
+                        "title": "Réorienter",
+                        "url": "URL de redirection",
+                        "type": "Type de redirection"
+                    },
+                    "load_balancer_algorithm": "Algorithme d'équilibrage de charge",
+                    "persistence": {
+                        "title": "Persistance",
+                        "persistence_session_identifier": "Identifiant de session de persistance",
+                        "persistence_session_to_live_time": "Temps de session de persistance à vivre",
+                        "": "Pas de persistance",
+                        "IP": "IP: adresse du client",
+                        "BASIC": "BASIC: authentification de base",
+                        "URL": "URL: un paramètre de requête",
+                        "PARM": "PARM: un paramètre d'URI",
+                        "COOKIE": "COOKIE: Un certain cookie",
+                        "HEADER": "HEADER: Un en-tête de requête"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "Type de protocole",
+                    "nat_type": "Type Nat"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "Algorithme d'équilibrage de charge",
+                    "persistence": {
+                        "title": "Persistance",
+                        "persistence_session_to_live_time": "Temps de session de persistance à vivre",
+                        "": "Pas de persistance",
+                        "ip": "IP: IP source",
+                        "srcport": "Port: Source",
+                        "srcmac": "MAC: MAC source",
+                        "srcip_srcport": "Source IP et port source",
+                        "srcip_dstport": "IP source et port de destination"
+                    },
+                    "algorithms": {
+                        "weight": "Poids: connexion linéaire en fonction du poids",
+                        "hash_srcip_srcport": "Hachage source: hachage par IP source et port source",
+                        "hash_srcip": "Hachage source simple: hachage par adresse IP source uniquement",
+                        "symhash": "Symmetric Hash: hachage aller-retour par IP et par port",
+                        "roundrobin": "Round Robin: sélection séquentielle du backend"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "Liste de certificats SSL",
+            "generate_csr": "Générer de la RSE",
+            "upload_certificate": "Télécharger le certificat SSL",
+            "choose_files": "Choisissez un ou plusieurs fichiers"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "Liste de ferme DSLB",
+                "create_farm": "Créer une ferme DSLB"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "Graphes système",
+            "interfaces_graphs": "Graphes d'interfaces",
+            "show_graphs": "Afficher les graphiques",
+            "farms_graphs": "Graphiques de fermes",
+            "select_graphs": "Sélectionner des graphiques"
+        },
+        "farm_stats": "Statistiques de fermes",
+        "farm_graphs": "Graphiques de fermes",
+        "farmsguardian": {
+            "title": "Gardiens de ferme",
+            "farms_settings": "Paramètres de fermes",
+            "create_farmguardian": "Créer Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "Liste de cartes réseau",
+        "vlan": {
+            "title": "Liste d'interfaces VLAN",
+            "create_vlan": "Créer une interface VLAN"
+        },
+        "virtual_interface": {
+            "title": "Liste d'interfaces virtuelles",
+            "create_virtual_interface": "Créer une interface virtuelle"
+        },
+        "gateway": {
+            "ipv4_gateway": "Passerelle IPv4",
+            "ipv6_gateway": "Passerelle IPv6",
+            "gateway_settings": "Paramètres de la passerelle"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "Service DNS",
+            "default_dns": "La valeur par défaut est 8.8.8.8",
+            "optional": "Optionnel",
+            "default_npt": "La valeur par défaut est pool.ntp.org",
+            "primary_server": "Serveur primaire",
+            "secondary_server": "Serveur secondaire",
+            "npt_service": "Service TNP",
+            "npt_server": "Serveur NPT",
+            "snmp_service": "Service SNMP",
+            "enable_snmp": "Activer SNMP",
+            "physical_interface_running": "Interface physique où le service SNMP est exécuté",
+            "snmp_por_running": "Port SNMP sur lequel le service SNMP est exécuté",
+            "snmp_por_default": "La valeur par défaut est 161.",
+            "conmunity_name": "Nom de la communauté",
+            "ip_subnet": "IP ou sous-réseau avec accès (IP / bit)"
+        },
+        "backups": {
+            "backup_list": "Liste de sauvegarde",
+            "upload_backup": "Télécharger la sauvegarde",
+            "backup_file": "Fichier de sauvegarde",
+            "create_backup": "Créer une sauvegarde",
+            "choose_file": "Choisissez un fichier"
+        },
+        "user": {
+            "settings_user": "Paramètres utilisateur",
+            "user": "utilisateur",
+            "zapi_permissions": "Autorisations ZAPI",
+            "zapi_key": "Clé ZAPI",
+            "change_password": "Changer le mot de passe",
+            "current_password": "Mot de passe actuel",
+            "new_password": "Nouveau mot de passe",
+            "repeat_new_password": "Répété le nouveau mot de passe"
+        },
+        "logs": {
+            "log_list": "Liste de journal",
+            "log_view": "Log View",
+            "number_lines": "Nombre de lignes"
+        },
+        "license": "Licence",
+        "support_save": {
+            "title": "Support Enregistrer",
+            "downloaded": "Lorsque cette action est exécutée, un fichier contenant des informations sur le système sera téléchargé.",
+            "gui": "Cette action peut prendre plusieurs secondes, vous pouvez continuer à naviguer dans l'interface graphique."
+        }
+    },
+    "FORMS": {
+        "name": "Nom",
+        "locality": "Localité",
+        "country": "Pays ",
+        "state_province": "État / Province",
+        "common_name": "Nom commun",
+        "organization": "Organisation",
+        "division": "Division",
+        "email_address": "Adresse e-mail",
+        "services_settings": "Paramètres de services",
+        "global_settings": "Paramètres globaux",
+        "virtual_ip_and_port": "IP virtuel et port",
+        "backend": "backend",
+        "interval": "intervalle",
+        "cut_connections": "Couper les connexions",
+        "description": "Description",
+        "copy_rule": "Règle de copie",
+        "rule_to_copy": "Règle à copier",
+        "seconds": "secondes",
+        "log": "Bûche",
+        "address": "Adresse",
+        "virtual_interface_name": "Nom de l'interface virtuelle",
+        "parent_interface": "Interface parent",
+        "vlan_name": "Nom du VLAN",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "Algorithme d'équilibrage de charge",
+        "health_checks_for_backend": "Bilans de santé pour le backend",
+        "help_form": {
+            "help_name": "Texte descriptif, ce nom servira à identifier ce certificat.",
+            "help_alert_name": "Editable uniquement lorsque la ferme est en panne.",
+            "help_locality": "Ville où est située votre organisation.",
+            "help_country": "Pays (deux caractères) où se trouve votre organisation.",
+            "help_state_province": "Etat ou province où votre organisation est située.",
+            "help_common_name": "FQDN du serveur. Exemple: domain.com, mail.domain.com ou * .domain.com.",
+            "help_organization": "La dénomination sociale complète de votre organisation / société (ex: Zevenet Co.).",
+            "help_division": "Votre département; tels que 'IT', 'Web', 'Office', etc.",
+            "help_email_address": "Votre adresse e-mail."
+        }
+    },
+    "TABLES": {
+        "name": "Nom",
+        "farmname": "Nom",
+        "profile": "Profil",
+        "vip": "IP virtuelle",
+        "vport": "Port virtuel",
+        "status": "Statut",
+        "actions": "Actions",
+        "id": " ID",
+        "ip": " IP",
+        "address": "Adresse",
+        "port": "Port",
+        "timeout": "Temps mort",
+        "weight": "Poids",
+        "CN": "Nom commun",
+        "type": "Type",
+        "file": "Fichier",
+        "issuer": "Emetteur",
+        "creation": "Créer sur",
+        "expiration": "Expire le",
+        "priority": "Priorité",
+        "interface": "Interface",
+        "service": "Service Clients",
+        "client": "Client",
+        "sessions": "Sessions",
+        "session_id": "Session ID",
+        "backend_id": "ID du backend",
+        "command": "commandement",
+        "description": "Description",
+        "farms": "Fermes",
+        "farm": "Ferme",
+        "gateway": "passerelle",
+        "netmask": "Masque de réseau",
+        "mac": "MAC",
+        "ipv4_ipv6": "Adresse IP (IPv4 / IPv6)",
+        "vlan_tag": "Balise VLAN",
+        "date": "Date",
+        "log": "Bûche",
+        "established": "Conns établi",
+        "pending": "Conns en attente",
+        "No": "Non",
+        "found": "trouvé"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "est nécessaire",
+        "name_not_valid": "n'est pas valide, il ne s'agit que de caractères alphanumériques et d'un tiret (-).",
+        "port_not_valid": "not is valid, il est possible de définir un seul port, plusieurs ports ou plages de ports (Ex: 80 ou 80,81 ou 80: 90)",
+        "greater_than_0": "doit être supérieur à 0",
+        "only_two_characters": "peut seulement avoir deux caractères.",
+        "valid_email": "doit être un email valide.",
+        "not_match": "ne correspond pas.",
+        "farm": {
+            "delete": "La ferme <strong>{{param}}</strong> a été supprimé avec succès.",
+            "delete_farm_service": "La ferme <strong>{{param}}</strong> {{param2}} a été supprimé avec succès.",
+            "confirm_delete": "Êtes-vous sûr de vouloir supprimer le {{param}} nom de la ferme?",
+            "stop": "La ferme <strong>{{param}}</strong> {{param2}} a été édité avec succès.",
+            "created": "La ferme <strong>{{param}}</strong> a été créé avec succès.",
+            "restarted": "La ferme <strong>{{param}}</strong> a été redémarré avec succès.",
+            "backend_created": "Le backend a été créé avec succès.",
+            "profile_changed": "Le profil a été changé en {{param}} avec succès.",
+            "farmguardian_disabled": "Le surveillant de ferme a été désactivé avec succès.",
+            "farmguardian_changed": "Farmguardian a été remplacé par {{param}} avec succès.",
+            "farmguardian_created": "La <strong>{{param}}</strong> farmguardian a été créé avec succès.",
+            "farmguardian_update": "La <strong>{{param}}</strong> farmguardian a été mis à jour avec succès",
+            "farmguardian_confirm_delete": "Êtes-vous sûr de vouloir supprimer le {{param}} farmguardian?",
+            "farmguardian_delete": "La <strong>{{param}}</strong> farmguardian a été supprimé avec succès.",
+            "updated": "La batterie a été mise à jour avec succès.",
+            "delete_farm_of_farmguardian": "Êtes-vous sûr de vouloir supprimer la batterie {{param}} {{param2}} du farmguardian?",
+            "backend_confirm_delete": "Êtes-vous sûr de vouloir supprimer le backend {{param}}?",
+            "backend_deleted": "Le backend <strong>{{param}}</strong> a été supprimé avec succès",
+            "backend_maintenance": "Le backend <strong>{{param}}</strong> a été {{param2}} avec succès.",
+            "service_created": "Le service <strong>{{param}}</strong> a été créé avec succès.",
+            "service_deleted": "Le service <strong>{{param}}</strong> a été supprimé avec succès.",
+            "service_update": "Le service <strong>{{param}}</strong> a été mis à jour avec succès."
+        },
+        "network": {
+            "gateway_update": "La <strong>{{param}}</strong> La passerelle a été mise à jour avec succès.",
+            "gateway_confirm_unset": "Êtes-vous sûr de vouloir désactiver la passerelle actuelle?",
+            "gateway_confirm_unset_interface": "Êtes-vous sûr de vouloir désactiver la passerelle {{param}}?",
+            "gateway_unconfigured": "La <strong>{{param}}</strong> La passerelle a été déconfigurée avec succès.",
+            "nic_update": "La <strong>{{param}}</strong> La carte réseau a été mise à jour avec succès.",
+            "nic_unconfigured": "La <strong>{{param}}</strong> La carte réseau a été déconfigurée avec succès.",
+            "nic_is": "La <strong>{{param}}</strong> La carte réseau est {{param2}}",
+            "virtual_interface_created": "La <strong>{{param}}</strong> L'interface virtuelle a été créée avec succès.",
+            "virtual_interface_updated": "La <strong>{{param}}</strong> L'interface virtuelle a été mise à jour avec succès.",
+            "virtual_interface_confirm_deleted": "Êtes-vous sûr de vouloir supprimer l'interface {{param}} virtuelle?",
+            "virtual_interface_deleted": "La <strong>{{param}}</strong> L'interface virtuelle a été supprimée avec succès.",
+            "vlan_created": "La <strong>{{param}}</strong> Le VLAN a été créé avec succès.",
+            "vlan_update": "La <strong>{{param}}</strong> Le VLAN a été mis à jour avec succès.",
+            "vlan_confirm_delete": "Êtes-vous sûr de vouloir supprimer le {{param}} VLAN?",
+            "vlan_deleted": "La <strong>{{param}}</strong> Le VLAN a été supprimé avec succès.",
+            "vlan_is": "La <strong>{{param}}</strong> Le VLAN est {{param2}}"
+        },
+        "system": {
+            "backup_created": "La sauvegarde <strong>{{param}}</strong> a été créé avec succès.",
+            "backup_uploaded": "La sauvegarde <strong>{{param}}</strong> a été téléchargé avec succès.",
+            "backup_confirm_deleted": "Êtes-vous sûr de vouloir supprimer la sauvegarde {{param}}?",
+            "backup_deleted": "La sauvegarde <strong>{{param}}</strong> a été supprimé avec succès.",
+            "backup_applied": "La sauvegarde <strong>{{param}}</strong> a été appliqué avec succès.",
+            "backup_downloaded": "La sauvegarde <strong>{{backup}}</strong> A été téléchargé avec succès.",
+            "log_downloaded": "Le journal <strong>{{param}}</strong> A été téléchargé avec succès.",
+            "service_updated": "La <strong>{{param}}</strong> le service a été mis à jour avec succès.",
+            "support_save_downloaded": "La <strong> Support Enregistrer </strong> A été téléchargé avec succès",
+            "user_updated": "L'utilisateur a été mis à jour avec succès."
+        },
+        "certificate": {
+            "csr_generated": "La RSE <strong>{{param}}</strong> a été généré avec succès.",
+            "uploaded": "Le certificat <strong>{{param}}</strong> a été téléchargé avec succès.",
+            "deleted": "Le certificat <strong>{{param}}</strong> a été supprimé avec succès.",
+            "downloaded": "Le certificat <strong>{{param}}</strong> A été téléchargé avec succès."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "Nouveau service",
+        "create": "Créer",
+        "cancel": "Annuler",
+        "submit": "SOUMETTRE",
+        "save": "Épargnez",
+        "generate": "Générer",
+        "update": "Actualiser",
+        "upload": "Télécharger",
+        "generate_key_random": "Générer des clés aléatoires",
+        "generate_support_save": "Générer du support",
+        "clear": "clair",
+        "start": "Démarrer",
+        "apply": "Appliquer",
+        "add": "Ajoutez",
+        "edit": "Éditer"
+    },
+    "ZEVENET": {
+        "go_to_home": "Aller à la maison",
+        "error_404": "Page 404 non trouvée",
+        "page_does_not_exist": "La page que vous recherchez n'existe pas",
+        "no_farms_found": "Aucune ferme trouvée"
+    },
+    "CHARTS": {
+        "established": "Conns établi",
+        "pending": "Conns en attente"
+    },
+    "PLACEHOLDERS": {
+        "graph": "Sélectionnez un graphique",
+        "profile": "Sélectionnez un profil",
+        "virtual_ip": "Sélectionnez une adresse IP virtuelle",
+        "parent_interface": "Sélectionnez une interface parent",
+        "interface": "Sélectionnez une interface"
+    },
+    "AUTH": {
+        "logout": "Déconnexion",
+        "login": {
+            "text": "Connectez-vous avec votre nom d'utilisateur et mot de passe",
+            "username": "Nom d'utilisateur",
+            "password": "Mot de passe :",
+            "button": "Connextion",
+            "user_required": "L'utilisateur est requis!",
+            "user_real": "L'utilisateur devrait être le vrai",
+            "password_required": "Mot de passe requis",
+            "password_contains": "Le mot de passe doit contenir des caractères {{param}} à {{param2}}.",
+            "success": "Succès!",
+            "success_msg": "Vous avez été connecté avec succès."
+        }
+    }
+}

@@ -10,7 +10,7 @@
 
 <nb-card>
   <nb-card-header>
-    Create DSLB Farm
+    <span translate>DSLB.farms.titles_farms.create_farm</span>
   </nb-card-header>
 
   <nb-card-body>
@@ -18,11 +18,11 @@
 	  	<div class="row">
 	  		<div class="col-12">
 	  			<div class="form-group">
-	  				<label for="farmname">Name</label>
+	  				<label for="farmname" translate>FORMS.name</label>
 	  				<input type="text" class="form-control" name="farmname" id="farmname" formControlName="farmname"/>
 	  				<div *ngIf="gF.farmname.dirty && gF.farmname.errors" class="invalid-feedback">
-	                	<div *ngIf="gF.farmname.errors.required">Name is required</div>
-	                	<div *ngIf="gF.farmname.errors.pattern">Name is not valid, it only is possible alphanumeric characters and dash (-).</div>
+	                	<div *ngIf="gF.farmname.errors.required">{{'FORMS.name' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
+	                	<div *ngIf="gF.farmname.errors.pattern">{{'FORMS.name' | translate}} {{'SYSTEM_MESSAGES.name_not_valid' | translate}}</div>
 	            	</div>
 	  			</div>
 	  		</div>
@@ -30,7 +30,7 @@
 	  	<div class="row">
 	  		<div class="col-12">
 	  			<div class="form-group">
-	  				<label for="vip">Virtual IP</label>
+	  				<label for="vip" translate>TABLES.vip</label>
   						<ng-select [items]="interfaces | filterInterfacesFarm"
 						           bindLabel="ip"
 						           bindValue="ip"
@@ -53,15 +53,15 @@
 						        	</ng-template>			        
 						</ng-select>
 						<div *ngIf="gF.vip.dirty && gF.vip.errors" class="invalid-feedback">
-		                	<div *ngIf="gF.vip.errors?.required">Virtual IP is required</div>
+		                	<div *ngIf="gF.vip.errors?.required">{{'TABLES.vip' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 		            	</div>
 	  			</div>
 	  		</div>
 	  	</div>		 	
 	    <div class="row">
 	    	<div class="col-sm-12 col-12">
-		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2">Create</button>
-		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../">Cancel</button>
+		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2" translate>BUTTONS.create</button>
+		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../" translate>BUTTONS.cancel</button>
 		    </div>
 	    </div> 
 	</form>

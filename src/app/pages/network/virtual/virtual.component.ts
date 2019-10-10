@@ -22,12 +22,12 @@ export class VirtualComponent implements OnInit {
   actionResp: any;
 
   columns: Array<any> = [
-    {field: 'name', header: 'Name', width: '20%'},
-    {field: 'ip', header: 'Address', width: '15%'},
-    {field: 'mac', header: 'MAC', width: '15%'},
-    {field: 'netmask', header: 'Netmask', width: '15%'},
-    {field: 'gateway', header: 'Gateway', width: '15%'},
-    {field: 'status', header: 'Status', width: '10%'},
+    {field: 'name', header: '', width: '20%'},
+    {field: 'ip', header: '', width: '15%'},
+    {field: 'mac', header: '', width: '15%'},
+    {field: 'netmask', header: '', width: '15%'},
+    {field: 'gateway', header: '', width: '15%'},
+    {field: 'status', header: '', width: '10%'},
   ];
 
   actionsList: Array<any> = [
@@ -40,6 +40,23 @@ export class VirtualComponent implements OnInit {
 
   ngOnInit() {
     this.getInterfaces();
+    this.getLangTranslated('TABLES', this.columns);
+  }
+
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
   }
 
   getInterfaces(): void {
@@ -52,18 +69,18 @@ export class VirtualComponent implements OnInit {
 
   onAction(event) {
     if (event.action === 'delete') {
-      if (window.confirm('Are you sure you want to delete the ' + event.data.name + ' Virtual interface?')) {
+      if (this.showMessageTranslated(
+        'SYSTEM_MESSAGES.network.virtual_interface_confirm_deleted',
+        'toast',
+        event.data.name,
+      )) {
         this.service.delete('interfaces/virtual', event.data.name)
         .subscribe(
           (data) => { this.actionResp  =  data; },
           (error) => { },
           () => {
             this.interfaces.splice(this.interfaces.findIndex(i => i.name === event.data.name), 1);
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + event.data.name + '</strong> Virtual interface has been deleted successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.network.virtual_interface_deleted', 'toast', event.data.name);
           });
       }
     } else {

@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "armatuurlaud"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "Põllumajandusettevõtted"
+        },
+        "ssl_certificates": {
+            "title": "SSL sertifikaadid"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "Järelevalve"
+        },
+        "graphs": {
+            "title": "Graafikud"
+        },
+        "farm_stats": {
+            "title": "Põllumajandusstatistika"
+        },
+        "farmguardians": {
+            "title": "Talupidajad"
+        },
+        "network": {
+            "title": "võrk"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "Virtuaalsed liidesed"
+        },
+        "gateway": {
+            "title": "Värav"
+        },
+        "system": {
+            "title": "süsteem"
+        },
+        "remote_services": {
+            "title": "Kaugteenused"
+        },
+        "backups": {
+            "title": "Varukoopiad"
+        },
+        "user": {
+            "title": "Kasutaja"
+        },
+        "logs": {
+            "title": "Logid"
+        },
+        "license": {
+            "title": "litsents"
+        },
+        "support_save": {
+            "title": "Toetus Salvesta"
+        },
+        "create": {
+            "title": "Looma"
+        },
+        "edit": {
+            "title": "Edit"
+        },
+        "configure": {
+            "title": "Seadistamine"
+        },
+        "upload": {
+            "title": "Täiendava"
+        },
+        "view": {
+            "title": "vaade"
+        },
+        "generate_csr": {
+            "title": "Loo CSR"
+        }
+    },
+    "OBJECTS": {
+        "farm": "talu",
+        "certificate": "sertifikaat",
+        "farmguardian": "talupoeg",
+        "VLAN": "VLAN",
+        "virtual interface": "virtuaalne liides",
+        "backup": "backup",
+        "backend": "backend",
+        "session": "istung"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "Professionaalsed tooted"
+        },
+        "professional_services": {
+            "title": "Professional Services"
+        },
+        "news": {
+            "title": "Uudised"
+        },
+        "resources": {
+            "title": "Vahendid"
+        },
+        "system_stats": {
+            "title": "Süsteemi statistika",
+            "cpu": "Protsessor",
+            "memory": "Mälu",
+            "load": "Koormus",
+            "cores": "Südamikud"
+        },
+        "system_information": {
+            "title": "System Information",
+            "zevenet_version": "Zevenet versioon",
+            "appliance_version": "Seadme versioon",
+            "kernel_version": "Kerneli versioon",
+            "hostname": "hostname",
+            "system_date": "Süsteemi kuupäev"
+        },
+        "nic_interfaces": {
+            "title": "NIC liidesed",
+            "megabytes": "Megabaiti (MB)"
+        },
+        "farm_list": {
+            "title": "Põllumajandusloend",
+            "farmname": "nimi",
+            "profile": "profiil",
+            "status": "olek"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "LSLB talu nimekiri",
+                "create_farm": "LSLB talu loomine"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "Kuulaja",
+                    "advanced_settings": {
+                        "title": "Lisaseaded",
+                        "rewrite_location_headers": "Asukoha päiste ümberkirjutamine",
+                        "http_verbs_accepted": "HTTP verbid aktsepteeritakse",
+                        "backend_connection_timeout": "Backend-ühenduse ajalõpp",
+                        "backend_response_timeout": "Tagajärgse vastuse aegumine",
+                        "frequency_to_check_resurrected_backends": "Ülestõusnud taustaprogrammide kontrollimise sagedus",
+                        "client_request_timeout": "Kliendi sooviaeg",
+                        "message_error_414": "Sõnumi viga 414",
+                        "message_error_500": "Sõnumi viga 500",
+                        "message_error_501": "Sõnumi viga 501",
+                        "message_error_503": "Sõnumi viga 503"
+                    },
+                    "https": {
+                        "title": "HTTPS parameetrid",
+                        "disable_sslv2": "Keela SSLv2",
+                        "disable_sslv3": "Keela SSLv3",
+                        "disable_tslv1": "Keela TLSv1",
+                        "disable_tslv1_1": "Keela TLSv1.1",
+                        "disable_tslv1_2": "Keela TLSv1.2",
+                        "ciphers": "Ciphers",
+                        "custom_ciphers": "Kohandatud klapid",
+                        "certificate_enabled": "Sertifikaat lubatud"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "Virtuaalne hostija",
+                    "url_pattern": "URL-i muster",
+                    "least_response": "Vähim vastus",
+                    "https_backends": "HTTPSi taustaprogrammid",
+                    "redirect": {
+                        "title": "Ümbersuunamine",
+                        "url": "Ümbersuunamise URL",
+                        "type": "Ümbersuunamise tüüp"
+                    },
+                    "load_balancer_algorithm": "Koormuse tasakaalustaja algoritm",
+                    "persistence": {
+                        "title": "Püsivus",
+                        "persistence_session_identifier": "Püsivuse seansi tunnus",
+                        "persistence_session_to_live_time": "Püsivus seansi aeg elada",
+                        "": "Püsivus puudub",
+                        "IP": "IP: Kliendi aadress",
+                        "BASIC": "BASIC: Põhiline autentimine",
+                        "URL": "URL: päringu parameeter",
+                        "PARM": "PARM: URI parameeter",
+                        "COOKIE": "COOKIE: teatud küpsis",
+                        "HEADER": "HEADER: teatud päringu päis"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "Protokolli tüüp",
+                    "nat_type": "Nat tüüp"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "Koormuse tasakaalustaja algoritm",
+                    "persistence": {
+                        "title": "Püsivus",
+                        "persistence_session_to_live_time": "Püsivus seansi aeg elada",
+                        "": "Püsivus puudub",
+                        "ip": "IP: Allikas IP",
+                        "srcport": "Sadam: Allikas",
+                        "srcmac": "MAC: Allikas MAC",
+                        "srcip_srcport": "Allikas IP ja lähteport",
+                        "srcip_dstport": "Allikas IP ja sihtkoha port"
+                    },
+                    "algorithms": {
+                        "weight": "Kaal: ühendus lineaarselt",
+                        "hash_srcip_srcport": "Allikas Hash: Hash ühe allika IP ja lähtepordi kohta",
+                        "hash_srcip": "Lihtne allikas Hash: Hash all Source IP ainult",
+                        "symhash": "Sümmeetriline Hash: Ümberlülitunud räsi IP ja Porti kohta",
+                        "roundrobin": "Ümar Robin: järjestikune taustvalik"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "SSL-sertifikaatide loend",
+            "generate_csr": "Loo CSR",
+            "upload_certificate": "Laadi SSL-sertifikaat üles",
+            "choose_files": "Valige üks või mitu faili"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "DSLB põllumajandusettevõtete loend",
+                "create_farm": "Looge DSLB Farm"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "Süsteemi graafikud",
+            "interfaces_graphs": "Liidese graafikud",
+            "show_graphs": "Kuva graafikud",
+            "farms_graphs": "Põllumajandusettevõtete graafikud",
+            "select_graphs": "Valige graafikud"
+        },
+        "farm_stats": "Põllumajandusettevõtete statistika",
+        "farm_graphs": "Põllumajandusettevõtete graafikud",
+        "farmsguardian": {
+            "title": "Talupidajad",
+            "farms_settings": "Põllumajandusettevõtete seaded",
+            "create_farmguardian": "Loo Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "NIC nimekiri",
+        "vlan": {
+            "title": "VLAN-liidese loend",
+            "create_vlan": "Loo VLAN-i liides"
+        },
+        "virtual_interface": {
+            "title": "Virtuaalse liidese loend",
+            "create_virtual_interface": "Loo virtuaalne liides"
+        },
+        "gateway": {
+            "ipv4_gateway": "IPv4 Gateway",
+            "ipv6_gateway": "IPv6 Gateway",
+            "gateway_settings": "Gateway seaded"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "DNS-teenus",
+            "default_dns": "Vaikimisi on 8.8.8.8",
+            "optional": "vabatahtlik",
+            "default_npt": "Vaikimisi on pool.ntp.org",
+            "primary_server": "Esmane server",
+            "secondary_server": "Sekundaarne server",
+            "npt_service": "NPT teenus",
+            "npt_server": "NPT server",
+            "snmp_service": "SNMP teenus",
+            "enable_snmp": "Luba SNMP",
+            "physical_interface_running": "Füüsiline liides, kus töötab SNMP teenus",
+            "snmp_por_running": "SNMP port, kus töötab SNMP teenus",
+            "snmp_por_default": "Vaikimisi on 161.",
+            "conmunity_name": "Kogukonna nimi",
+            "ip_subnet": "Juurdepääsuga IP või alamvõrk (IP / bit)"
+        },
+        "backups": {
+            "backup_list": "Varundamise loend",
+            "upload_backup": "Laadige varukoopia üles",
+            "backup_file": "Varundusfail",
+            "create_backup": "Loo varundamine",
+            "choose_file": "Valige üks fail"
+        },
+        "user": {
+            "settings_user": "Seadete kasutaja",
+            "user": "Kasutaja",
+            "zapi_permissions": "ZAPI load",
+            "zapi_key": "ZAPI võti",
+            "change_password": "Muuda parool",
+            "current_password": "Praegune salasõna",
+            "new_password": "New Password",
+            "repeat_new_password": "Korda uut parooli"
+        },
+        "logs": {
+            "log_list": "Logi nimekiri",
+            "log_view": "Logi vaade",
+            "number_lines": "Ridade arv"
+        },
+        "license": "litsents",
+        "support_save": {
+            "title": "Toetus Salvesta",
+            "downloaded": "Kui see toiming käivitatakse, laaditakse alla süsteemiteabe fail.",
+            "gui": "See toiming võib võtta mitu sekundit, jätkata GUI sirvimist."
+        }
+    },
+    "FORMS": {
+        "name": "nimi",
+        "locality": "Asukoht",
+        "country": "Riik",
+        "state_province": "Osariik / maakond",
+        "common_name": "Üldnimetus",
+        "organization": "Organisatsioon",
+        "division": "jaotus",
+        "email_address": "E-posti aadress",
+        "services_settings": "Teenuste seaded",
+        "global_settings": "Global Settings",
+        "virtual_ip_and_port": "Virtuaalne IP ja port",
+        "backend": "Taustaprogramm",
+        "interval": "Intervall",
+        "cut_connections": "Lõika ühendused",
+        "description": "kirjeldus",
+        "copy_rule": "Kopeeri reegel",
+        "rule_to_copy": "Reegel kopeerimiseks",
+        "seconds": "sekundit",
+        "log": "Logi",
+        "address": "Aadress",
+        "virtual_interface_name": "Virtuaalse liidese nimi",
+        "parent_interface": "Vanemliides",
+        "vlan_name": "VLAN-i nimi",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "Koormuse tasakaalustaja algoritm",
+        "health_checks_for_backend": "Tervisekontrollid taustaprogrammi jaoks",
+        "help_form": {
+            "help_name": "Kirjeldav tekst, seda nime kasutatakse selle sertifikaadi tuvastamiseks.",
+            "help_alert_name": "Redigeeritav ainult siis, kui talu on alla.",
+            "help_locality": "Linn, kus asub teie organisatsioon.",
+            "help_country": "Riik (kaks märki), kus teie organisatsioon asub.",
+            "help_state_province": "Riik või provints, kus asub teie organisatsioon.",
+            "help_common_name": "Serveri FQDN. Näide: domain.com, mail.domain.com või * .domain.com.",
+            "help_organization": "Teie organisatsiooni / ettevõtte täielik juriidiline nimi (nt. Zevenet Co.).",
+            "help_division": "Teie osakond; näiteks &quot;IT&quot;, &quot;Veeb&quot;, &quot;Kontor&quot; jne.",
+            "help_email_address": "Sinu e-posti aadress."
+        }
+    },
+    "TABLES": {
+        "name": "nimi",
+        "farmname": "nimi",
+        "profile": "profiil",
+        "vip": "Virtuaalne IP",
+        "vport": "Virtuaalne port",
+        "status": "olek",
+        "actions": "Meetmete",
+        "id": " ID",
+        "ip": " IP",
+        "address": "Aadress",
+        "port": "port",
+        "timeout": "Aegumine",
+        "weight": "Kaal",
+        "CN": "Üldnimetus",
+        "type": "tüüp",
+        "file": "fail",
+        "issuer": "Emitent",
+        "creation": "Loo sisse",
+        "expiration": "Aegub",
+        "priority": "Prioriteet",
+        "interface": "Interface",
+        "service": "Teenus",
+        "client": "klient",
+        "sessions": "Seansid",
+        "session_id": "Seansi ID",
+        "backend_id": "Backend ID",
+        "command": "käsk",
+        "description": "kirjeldus",
+        "farms": "Põllumajandusettevõtted",
+        "farm": "Talu",
+        "gateway": "Värav",
+        "netmask": "Netmask",
+        "mac": "MAC",
+        "ipv4_ipv6": "IP-aadress (IPv4 / IPv6)",
+        "vlan_tag": "VLAN-i silt",
+        "date": "kuupäev",
+        "log": "Logi",
+        "established": "Kehtestatud ühendused",
+        "pending": "Ootavad ühendused",
+        "No": "Ei",
+        "found": "avastatud"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "on vaja",
+        "name_not_valid": "ei ole kehtiv, see on ainult võimalik tähtnumbriline täht ja kriips (-).",
+        "port_not_valid": "ei ole kehtiv, on võimalik määratleda üks sadam, mitu porti või portide vahemikku (nt 80 või 80,81 või 80: 90)",
+        "greater_than_0": "peab olema suurem kui 0",
+        "only_two_characters": "võib olla ainult kaks märki.",
+        "valid_email": "peab olema kehtiv e-kiri.",
+        "not_match": "ei klapi.",
+        "farm": {
+            "delete": "Talu <strong>{{param}}</strong> on edukalt kustutatud.",
+            "delete_farm_service": "Talu <strong>{{param}}</strong> {{param2}} on edukalt kustutatud.",
+            "confirm_delete": "Kas soovite kindlasti {{param}} farmnimi kustutada?",
+            "stop": "Talu <strong>{{param}}</strong> on {{param2}} edukas.",
+            "created": "Talu <strong>{{param}}</strong> on edukalt loodud.",
+            "restarted": "Talu <strong>{{param}}</strong> on edukalt käivitatud.",
+            "backend_created": "Taustaprogramm on edukalt loodud.",
+            "profile_changed": "Profiil on edukalt muudetud {{param}}.",
+            "farmguardian_disabled": "Talupidaja on edukalt välja lülitatud.",
+            "farmguardian_changed": "Farmguardian on edukalt muudetud {{param}}.",
+            "farmguardian_created": "The <strong>{{param}}</strong> farmguardian on edukalt loodud.",
+            "farmguardian_update": "The <strong>{{param}}</strong> farmguardian on edukalt uuendatud",
+            "farmguardian_confirm_delete": "Kas soovite kindlasti {{param}} talupoegat kustutada?",
+            "farmguardian_delete": "The <strong>{{param}}</strong> farmguardian on edukalt kustutatud.",
+            "updated": "Talu on edukalt uuendatud.",
+            "delete_farm_of_farmguardian": "Kas olete kindel, et soovite talumajast talu {{param}} {{param2}} kustutada?",
+            "backend_confirm_delete": "Kas olete kindel, et soovid backend {{param}} kustutada?",
+            "backend_deleted": "Taust <strong>{{param}}</strong> on edukalt kustutatud",
+            "backend_maintenance": "Taust <strong>{{param}}</strong> on edukalt {{param2}}.",
+            "service_created": "Teenus <strong>{{param}}</strong> on edukalt loodud.",
+            "service_deleted": "Teenus <strong>{{param}}</strong> on edukalt kustutatud.",
+            "service_update": "Teenus <strong>{{param}}</strong> on edukalt uuendatud."
+        },
+        "network": {
+            "gateway_update": "The <strong>{{param}}</strong> Gateway on edukalt uuendatud.",
+            "gateway_confirm_unset": "Kas olete kindel, et soovite praeguse lüüsi tühistada?",
+            "gateway_confirm_unset_interface": "Kas soovite kindlasti {{param}} lüüsi tühistada?",
+            "gateway_unconfigured": "The <strong>{{param}}</strong> Gateway on edukalt konfigureerimata.",
+            "nic_update": "The <strong>{{param}}</strong> NIC on edukalt uuendatud.",
+            "nic_unconfigured": "The <strong>{{param}}</strong> NIC on edukalt seadistamata.",
+            "nic_is": "The <strong>{{param}}</strong> NIC on {{param2}}",
+            "virtual_interface_created": "The <strong>{{param}}</strong> Virtuaalne liides on edukalt loodud.",
+            "virtual_interface_updated": "The <strong>{{param}}</strong> Virtuaalne liides on edukalt uuendatud.",
+            "virtual_interface_confirm_deleted": "Kas soovite kindlasti {{param}} virtuaalse liidese kustutada?",
+            "virtual_interface_deleted": "The <strong>{{param}}</strong> Virtuaalne liides on edukalt kustutatud.",
+            "vlan_created": "The <strong>{{param}}</strong> VLAN on edukalt loodud.",
+            "vlan_update": "The <strong>{{param}}</strong> VLAN on edukalt uuendatud.",
+            "vlan_confirm_delete": "Kas soovite kindlasti {{param}} VLAN-i kustutada?",
+            "vlan_deleted": "The <strong>{{param}}</strong> VLAN on edukalt kustutatud.",
+            "vlan_is": "The <strong>{{param}}</strong> VLAN on {{param2}}"
+        },
+        "system": {
+            "backup_created": "Varukoopia <strong>{{param}}</strong> on edukalt loodud.",
+            "backup_uploaded": "Varukoopia <strong>{{param}}</strong> on edukalt üles laaditud.",
+            "backup_confirm_deleted": "Kas soovite kindlasti varukoopia {{param}} kustutada?",
+            "backup_deleted": "Varukoopia <strong>{{param}}</strong> on edukalt kustutatud.",
+            "backup_applied": "Varukoopia <strong>{{param}}</strong> on edukalt rakendatud.",
+            "backup_downloaded": "Varukoopia <strong>{{backup}}</strong> on edukalt alla laaditud.",
+            "log_downloaded": "Logi <strong>{{param}}</strong> on edukalt alla laaditud.",
+            "service_updated": "The <strong>{{param}}</strong> teenus on edukalt uuendatud.",
+            "support_save_downloaded": "The <strong> Toetus Salvesta </strong> on edukalt alla laaditud",
+            "user_updated": "Kasutaja on edukalt uuendatud."
+        },
+        "certificate": {
+            "csr_generated": "CSR <strong>{{param}}</strong> on loodud edukalt.",
+            "uploaded": "Sertifikaat <strong>{{param}}</strong> on edukalt üles laaditud.",
+            "deleted": "Sertifikaat <strong>{{param}}</strong> on edukalt kustutatud.",
+            "downloaded": "Sertifikaat <strong>{{param}}</strong> on edukalt alla laaditud."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "Uus teenus",
+        "create": "Looma",
+        "cancel": "tühistama",
+        "submit": "SAADA",
+        "save": "Salvesta",
+        "generate": "Tekitama",
+        "update": "ajakohastama",
+        "upload": "Täiendava",
+        "generate_key_random": "Loo juhuslik võti",
+        "generate_support_save": "Loo tugi Salvesta",
+        "clear": "selge",
+        "start": "algus",
+        "apply": "kehtima",
+        "add": "lisama",
+        "edit": "Edit"
+    },
+    "ZEVENET": {
+        "go_to_home": "Mine koju",
+        "error_404": "404i lehte ei leitud",
+        "page_does_not_exist": "Lehte, mida otsisite, pole olemas",
+        "no_farms_found": "Talusid ei leitud"
+    },
+    "CHARTS": {
+        "established": "Kehtestatud ühendused",
+        "pending": "Ootavad ühendused"
+    },
+    "PLACEHOLDERS": {
+        "graph": "Valige graafik",
+        "profile": "Valige profiil",
+        "virtual_ip": "Valige virtuaalne IP",
+        "parent_interface": "Valige vanemliides",
+        "interface": "Valige liides"
+    },
+    "AUTH": {
+        "logout": "Logi välja",
+        "login": {
+            "text": "Logige sisse oma kasutajanime ja parooliga",
+            "username": "kasutajanimi",
+            "password": "parool",
+            "button": "Logi sisse",
+            "user_required": "Kasutaja on kohustatud!",
+            "user_real": "Kasutaja peaks olema tõeline",
+            "password_required": "Parool on vajalik",
+            "password_contains": "Parool peaks sisaldama {{param}} {{param2}} tähemärki",
+            "success": "Edu!",
+            "success_msg": "Olete edukalt sisse logitud."
+        }
+    }
+}

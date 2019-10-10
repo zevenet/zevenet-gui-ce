@@ -8,61 +8,58 @@
   * See License.txt in the project root for license information.
 -->
 
-<nb-auth-block>
+  <nb-auth-block *ngIf="login_texts">
       <div class="mb-4 text-center">
         <img src="assets/Zevenet_Logo.png" alt="Zevenet Logo" id="logo-signin"/>
       </div>
       <h2 class="title">Zevenet Community Edition</h2>
-      <small class="form-text sub-title">Sign in with your username and password</small>
+      <small class="form-text sub-title" translate>{{login_texts.text}}</small>
       <form (ngSubmit)="login()" #form="ngForm" autocomplete="nope">
         <nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success">
-          <div><strong>Success!</strong></div>
-          <div *ngFor="let message of messages">{{ message }}</div>
+          <div><strong>{{login_texts.success}}</strong></div>
+          <div translate>{{login_texts.success_msg}}</div>
         </nb-alert>
         <div class="form-group">
-          <label for="input-user" class="sr-only">Username</label>
+          <label for="input-user" class="sr-only" translate>{{login_texts.username}}</label>
           <input nbInput
                  [(ngModel)]="user.email"
                  #email="ngModel"
                  name="user"
                  id="input-user"
-                 placeholder="Username"                 
+                 placeholder="{{login_texts.username}}"                 
                  autofocus
                  fullWidth
                  [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
                  [required]="getConfigValue('forms.validation.email.required')">
-          <small class="form-text error" *ngIf="email.invalid && email.touched && email.errors?.required">
-            User is required!
+          <small class="form-text error" *ngIf="email.invalid && email.touched && email.errors?.required" translate>
+            {{login_texts.user_required}}
           </small>
           <small class="form-text error"
-                 *ngIf="email.invalid && email.touched && email.errors?.pattern">
-            User should be the real one!
+                 *ngIf="email.invalid && email.touched && email.errors?.pattern" translate>
+            {{login_texts.user_real}}
           </small>
         </div>
         <div class="form-group">
-          <label for="input-password" class="sr-only">Password</label>
+          <label for="input-password" class="sr-only" translate>{{login_texts.password}}</label>
           <input nbInput
                  [(ngModel)]="user.password"
                  #password="ngModel"
                  name="password"
                  type="password"
                  id="input-password"
-                 placeholder="Password"
+                 placeholder="{{login_texts.password}}"
                  fullWidth
                  [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
                  [required]="getConfigValue('forms.validation.password.required')"
                  [minlength]="getConfigValue('forms.validation.password.minLength')"
                  [maxlength]="getConfigValue('forms.validation.password.maxLength')">
           <small class="form-text error" *ngIf="password.invalid && password.touched && password.errors?.required">
-            Password is required!
+            {{login_texts.password_required}}
           </small>
           <small
             class="form-text error"
-            *ngIf="password.invalid && password.touched && (password.errors?.minlength || password.errors?.maxlength)">
-            Password should contains
-            from {{ getConfigValue('forms.validation.password.minLength') }}
-            to {{ getConfigValue('forms.validation.password.maxLength') }}
-            characters
+            *ngIf="password.invalid && password.touched && (password.errors?.minlength || password.errors?.maxlength)" translate [attr.translateParams]="{param: getConfigValue('forms.validation.password.minLength'), param2: getConfigValue('forms.validation.password.maxLength')}">
+              {{login_texts.password_contains}}
           </small>
         </div>
         <button nbButton
@@ -70,7 +67,7 @@
                 fullWidth
                 [disabled]="submitted || !form.valid"
                 [class.btn-pulse]="submitted">
-          Sign In
+          {{login_texts.button}}
         </button>
       </form>
     </nb-auth-block>

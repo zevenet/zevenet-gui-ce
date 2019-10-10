@@ -8,7 +8,7 @@
   * See License.txt in the project root for license information.
 **/
 
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
  name: 'filterInterfacesFarm',

@@ -27,7 +27,7 @@ import { Component } from '@angular/core';
       </nb-sidebar>
 
       <nb-layout-column class="main-content">
-        <mmc-breadcrumbs></mmc-breadcrumbs>
+        <zevenet-breadcrumbs></zevenet-breadcrumbs>
         <ng-content select="router-outlet"></ng-content>
       </nb-layout-column>
     </nb-layout>

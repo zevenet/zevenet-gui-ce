@@ -11,19 +11,19 @@
 <nb-card>
 	<nb-card-body>
 		<div class="d-flex justify-content-between mb-3">
-			<h2>Global Settings</h2>
+			<h2 translate>FORMS.global_settings</h2>
 		</div>
 		<form [formGroup]="form" (ngSubmit)="onSubmit('form')" *ngIf="form">
 			<div class="row form">
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="name">Name</label>
+			      <label for="name" translate>FORMS.name</label>
 			      <input type="text" class="form-control" id="name" [(ngModel)]="interface.name" [ngModelOptions]="{standalone: true}" readonly>
 			    </div>
 			  </div>
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="mac">MAC</label>
+			      <label for="mac" translate>TABLES.mac</label>
 			      <input type="text" class="form-control" id="mac" [(ngModel)]="interface.mac" [ngModelOptions]="{standalone: true}" readonly />
 			    </div>
 			  </div>		  
@@ -31,16 +31,16 @@
 			<div class="row form">
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="ip">IP Address (IPv4 / IPv6)</label>
+			      <label for="ip" translate>TABLES.ipv4_ipv6</label>
 			      <input type="text" class="form-control" id="ip" formControlName="ip">
 			      <div *ngIf="f.ip.errors" class="invalid-feedback">
-                    <div *ngIf="f.ip.errors.required">IP Address is required</div>
+                    <div *ngIf="f.ip.errors.required">{{'TABLES.ipv4_ipv6' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
               	  </div>
 			    </div>
 			  </div>
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="netmask">Netmask</label>
+			      <label for="netmask" translate>TABLES.netmask</label>
 			      <input type="text" class="form-control" id="netmask" [(ngModel)]="interface.netmask" [ngModelOptions]="{standalone: true}" readonly />
 			    </div>
 			  </div>		  
@@ -48,18 +48,18 @@
 			<div class="row form">
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="gateway">Gateway</label>
+			      <label for="gateway" translate>TABLES.gateway</label>
 			      <input type="text" class="form-control" id="gateway" [(ngModel)]="interface.gateway" [ngModelOptions]="{standalone: true}" readonly />
 			    </div>
 			  </div>
 			  <div class="col-sm-6 col-12">
 			    <div class="form-group">
-			      <label for="tag">VLAN tag</label>
+			      <label for="tag"translate>TABLES.vlan_tag</label>
 			      <input type="text" class="form-control" id="tag" name="tag" [(ngModel)]="interface.tag" [ngModelOptions]="{standalone: true}" readonly>
 			    </div>
 			  </div>
 			</div>
-			<button class="btn btn-success mt-4" [disabled]="form.invalid || denySubmit">Submit</button>
+			<button class="btn btn-success mt-4" [disabled]="form.invalid || denySubmit" translate>BUTTONS.submit</button>
 		</form>
 
 	</nb-card-body>

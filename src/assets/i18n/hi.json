@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "डैशबोर्ड"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "फार्म"
+        },
+        "ssl_certificates": {
+            "title": "SSL प्रमाणपत्र"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "निगरानी"
+        },
+        "graphs": {
+            "title": "रेखाचित्र"
+        },
+        "farm_stats": {
+            "title": "खेत के तने"
+        },
+        "farmguardians": {
+            "title": "Farmguardians"
+        },
+        "network": {
+            "title": "नेटवर्क"
+        },
+        "nic": {
+            "title": "एनआईसी"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "वर्चुअल इंटरफेस"
+        },
+        "gateway": {
+            "title": "प्रवेश द्वार"
+        },
+        "system": {
+            "title": "प्रणाली"
+        },
+        "remote_services": {
+            "title": "दूरस्थ सेवाएँ"
+        },
+        "backups": {
+            "title": "बैकअप"
+        },
+        "user": {
+            "title": "उपयोगकर्ता"
+        },
+        "logs": {
+            "title": "Logs"
+        },
+        "license": {
+            "title": "लाइसेंस"
+        },
+        "support_save": {
+            "title": "समर्थन बचाओ"
+        },
+        "create": {
+            "title": "बनाएं"
+        },
+        "edit": {
+            "title": "संपादित करें"
+        },
+        "configure": {
+            "title": "कॉन्फ़िगर"
+        },
+        "upload": {
+            "title": "अपलोड"
+        },
+        "view": {
+            "title": "राय"
+        },
+        "generate_csr": {
+            "title": "CSR उत्पन्न करें"
+        }
+    },
+    "OBJECTS": {
+        "farm": "खेत",
+        "certificate": "प्रमाण पत्र",
+        "farmguardian": "farmguardian",
+        "VLAN": "VLAN",
+        "virtual interface": "आभासी इंटरफ़ेस",
+        "backup": "बैकअप",
+        "backend": "बैकेंड",
+        "session": "सत्र"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "व्यावसायिक उत्पाद"
+        },
+        "professional_services": {
+            "title": "व्यवसायी सेवाए"
+        },
+        "news": {
+            "title": "समाचार"
+        },
+        "resources": {
+            "title": "साधन"
+        },
+        "system_stats": {
+            "title": "सिस्टम आँकड़े",
+            "cpu": "सी पी यू",
+            "memory": "याद",
+            "load": "भार",
+            "cores": "कोर"
+        },
+        "system_information": {
+            "title": "सिस्टम जानकारी",
+            "zevenet_version": "Zevenet संस्करण",
+            "appliance_version": "उपकरण संस्करण",
+            "kernel_version": "कर्नेल संस्करण",
+            "hostname": "मेजबाननाम",
+            "system_date": "सिस्टम का दिनांक"
+        },
+        "nic_interfaces": {
+            "title": "एनआईसी इंटरफेस",
+            "megabytes": "मेगाबाइट्स (एमबी)"
+        },
+        "farm_list": {
+            "title": "फार्म सूची",
+            "farmname": "नाम",
+            "profile": "प्रोफाइल",
+            "status": "स्थिति"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "एलएसएलबी फार्म लिस्ट",
+                "create_farm": "LSLB फार्म बनाएँ"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "श्रोता",
+                    "advanced_settings": {
+                        "title": "उन्नत सेटिंग",
+                        "rewrite_location_headers": "स्थान हेडर को फिर से लिखें",
+                        "http_verbs_accepted": "HTTP क्रियाओं को स्वीकार किया",
+                        "backend_connection_timeout": "बैकएंड कनेक्शन टाइमआउट",
+                        "backend_response_timeout": "बैकएंड रिस्पांस टाइमआउट",
+                        "frequency_to_check_resurrected_backends": "पुनर्जीवित बैकेंड की जांच करने की आवृत्ति",
+                        "client_request_timeout": "ग्राहक अनुरोध समयबाह्य",
+                        "message_error_414": "संदेश त्रुटि 414",
+                        "message_error_500": "संदेश त्रुटि 500",
+                        "message_error_501": "संदेश त्रुटि 501",
+                        "message_error_503": "संदेश त्रुटि 503"
+                    },
+                    "https": {
+                        "title": "HTTPS पैरामीटर",
+                        "disable_sslv2": "SSLv2 अक्षम करें",
+                        "disable_sslv3": "SSLv3 अक्षम करें",
+                        "disable_tslv1": "TLSv1 को अक्षम करें",
+                        "disable_tslv1_1": "TLSv1.1 को अक्षम करें",
+                        "disable_tslv1_2": "TLSv1.2 को अक्षम करें",
+                        "ciphers": "सिफर",
+                        "custom_ciphers": "कस्टम सिफर्स",
+                        "certificate_enabled": "प्रमाण पत्र सक्षम"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "वर्चुअल होस्ट",
+                    "url_pattern": "URL पैटर्न",
+                    "least_response": "कम से कम प्रतिक्रिया",
+                    "https_backends": "HTTPS बैकेंड",
+                    "redirect": {
+                        "title": "पुन: निर्देशित",
+                        "url": "रीडायरेक्ट URL",
+                        "type": "पुनर्निर्देशित प्रकार"
+                    },
+                    "load_balancer_algorithm": "लोड बैलेंसर एल्गोरिथम",
+                    "persistence": {
+                        "title": "हठ",
+                        "persistence_session_identifier": "दृढ़ता सत्र पहचानकर्ता",
+                        "persistence_session_to_live_time": "जीवन निर्वाह का समय",
+                        "": "कोई दृढ़ता नहीं",
+                        "IP": "आईपी: क्लाइंट का पता",
+                        "BASIC": "बुनियादी: मूल प्रमाणीकरण",
+                        "URL": "URL: एक अनुरोध पैरामीटर",
+                        "PARM": "PARM: एक URI पैरामीटर",
+                        "COOKIE": "कूकी: एक निश्चित कुकी",
+                        "HEADER": "हेडर: एक निश्चित अनुरोध हैडर"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "प्रोटोकॉल प्रकार",
+                    "nat_type": "नट प्रकार"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "लोड बैलेंसर एल्गोरिथम",
+                    "persistence": {
+                        "title": "हठ",
+                        "persistence_session_to_live_time": "जीवन निर्वाह का समय",
+                        "": "कोई दृढ़ता नहीं",
+                        "ip": "आईपी: स्रोत आईपी",
+                        "srcport": "पोर्ट: स्रोत",
+                        "srcmac": "मैक: स्रोत मैक",
+                        "srcip_srcport": "स्रोत आईपी और स्रोत पोर्ट",
+                        "srcip_dstport": "स्रोत आईपी और गंतव्य बंदरगाह"
+                    },
+                    "algorithms": {
+                        "weight": "वजन: कनेक्शन रैखिक वजन द्वारा भेजना",
+                        "hash_srcip_srcport": "सोर्स हैश: हैश प्रति सोर्स आईपी और सोर्स पोर्ट",
+                        "hash_srcip": "सरल स्रोत हैश: केवल स्रोत आईपी प्रति हैश",
+                        "symhash": "सममित हैश: गोल यात्रा हैश प्रति आईपी और पोर्ट",
+                        "roundrobin": "राउंड रॉबिन: अनुक्रमिक बैकएंड चयन"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "एसएसएल प्रमाणपत्र सूची",
+            "generate_csr": "CSR उत्पन्न करें",
+            "upload_certificate": "SSL प्रमाणपत्र अपलोड करें",
+            "choose_files": "एक या अधिक फाइलें चुनें"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "डीएसएलबी फार्म लिस्ट",
+                "create_farm": "डीएसएलबी फार्म बनाएं"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "सिस्टम रेखांकन",
+            "interfaces_graphs": "रेखांकन रेखांकन",
+            "show_graphs": "रेखांकन दिखाएं",
+            "farms_graphs": "खेतों के रेखांकन",
+            "select_graphs": "ग्राफ़ का चयन करें"
+        },
+        "farm_stats": "खेतों के आँकड़े",
+        "farm_graphs": "खेतों के रेखांकन",
+        "farmsguardian": {
+            "title": "Farmguardians",
+            "farms_settings": "फार्म सेटिंग्स",
+            "create_farmguardian": "फार्मगार्डियन बनाएं"
+        }
+    },
+    "NETWORK": {
+        "nic": "एनआईसी सूची",
+        "vlan": {
+            "title": "VLAN इंटरफ़ेस सूची",
+            "create_vlan": "VLAN इंटरफ़ेस बनाएँ"
+        },
+        "virtual_interface": {
+            "title": "वर्चुअल इंटरफ़ेस सूची",
+            "create_virtual_interface": "वर्चुअल इंटरफ़ेस बनाएँ"
+        },
+        "gateway": {
+            "ipv4_gateway": "IPv4 गेटवे",
+            "ipv6_gateway": "IPv6 गेटवे",
+            "gateway_settings": "गेटवे सेटिंग्स"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "डीएनएस सेवा",
+            "default_dns": "डिफ़ॉल्ट 8.8.8.8 है",
+            "optional": "ऐच्छिक",
+            "default_npt": "डिफ़ॉल्ट है pool.ntp.org",
+            "primary_server": "प्राथमिक सर्वर",
+            "secondary_server": "द्वितीयक सर्वर",
+            "npt_service": "एनपीटी सेवा",
+            "npt_server": "एनपीटी सर्वर",
+            "snmp_service": "SNMP सेवा",
+            "enable_snmp": "SNMP सक्षम करें",
+            "physical_interface_running": "भौतिक इंटरफ़ेस जहाँ SNMP सेवा चल रही है",
+            "snmp_por_running": "SNMP पोर्ट जहाँ SNMP सेवा चल रही है",
+            "snmp_por_default": "डिफ़ॉल्ट 161 है।",
+            "conmunity_name": "समुदाय का नाम",
+            "ip_subnet": "उपयोग के साथ आईपी या सबनेट (आईपी / बिट)"
+        },
+        "backups": {
+            "backup_list": "बैकअप सूची",
+            "upload_backup": "बैकअप अपलोड करें",
+            "backup_file": "बैकअपफ़ाइल",
+            "create_backup": "बैकअप बनाएं",
+            "choose_file": "एक फ़ाइल चुनें"
+        },
+        "user": {
+            "settings_user": "सेटिंग्स उपयोगकर्ता",
+            "user": "उपयोगकर्ता",
+            "zapi_permissions": "ZAPI अनुमतियाँ",
+            "zapi_key": "ZAPI कुंजी",
+            "change_password": "पासवर्ड बदलें",
+            "current_password": "वर्तमान पासवर्ड",
+            "new_password": "नया पासवर्ड",
+            "repeat_new_password": "नया पासवर्ड दोहराएँ"
+        },
+        "logs": {
+            "log_list": "लॉग लिस्ट",
+            "log_view": "लॉग देखें",
+            "number_lines": "लाइनों की संख्या"
+        },
+        "license": "लाइसेंस",
+        "support_save": {
+            "title": "समर्थन बचाओ",
+            "downloaded": "जब इस क्रिया को निष्पादित किया जाता है, तो सिस्टम जानकारी के साथ एक फ़ाइल डाउनलोड की जाएगी।",
+            "gui": "इस क्रिया में कई सेकंड लग सकते हैं, आप GUI ब्राउज़ करना जारी रख सकते हैं।"
+        }
+    },
+    "FORMS": {
+        "name": "नाम",
+        "locality": "लोकैलिटी",
+        "country": "देश",
+        "state_province": "राज्य / प्रांत",
+        "common_name": "साधारण नाम",
+        "organization": "संगठन",
+        "division": "विभाजन",
+        "email_address": "ईमेल पता",
+        "services_settings": "सेवाएँ सेटिंग्स",
+        "global_settings": "वैश्विक व्यवस्था",
+        "virtual_ip_and_port": "वर्चुअल आईपी और पोर्ट",
+        "backend": "बैकएण्ड",
+        "interval": "अंतराल",
+        "cut_connections": "कनेक्शन काटें",
+        "description": "विवरण",
+        "copy_rule": "नियम की प्रति",
+        "rule_to_copy": "नकल करने का नियम",
+        "seconds": "सेकंड",
+        "log": "लॉग इन",
+        "address": "पता",
+        "virtual_interface_name": "वर्चुअल इंटरफ़ेस नाम",
+        "parent_interface": "जनक इंटरफ़ेस",
+        "vlan_name": "VLAN का नाम",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "लोड बैलेंसर एल्गोरिथम",
+        "health_checks_for_backend": "बैकएंड के लिए स्वास्थ्य जांच",
+        "help_form": {
+            "help_name": "वर्णनात्मक पाठ, इस नाम का उपयोग इस प्रमाण पत्र की पहचान करने के लिए किया जाएगा।",
+            "help_alert_name": "खेत नीचे होने पर ही संपादन योग्य।",
+            "help_locality": "शहर जहां आपका संगठन स्थित है।",
+            "help_country": "देश (दो अक्षर) जहां आपका संगठन स्थित है।",
+            "help_state_province": "राज्य या प्रांत जहां आपका संगठन स्थित है।",
+            "help_common_name": "सर्वर का FQDN। उदाहरण: domain.com, mail.domain.com, या * .domain.com।",
+            "help_organization": "आपके संगठन / कंपनी का पूर्ण कानूनी नाम (उदा .: Zevenet Co.)।",
+            "help_division": "आपका विभाग; जैसे 'आईटी', 'वेब', 'ऑफिस', आदि।",
+            "help_email_address": "आपका ईमेल पता."
+        }
+    },
+    "TABLES": {
+        "name": "नाम",
+        "farmname": "नाम",
+        "profile": "प्रोफाइल",
+        "vip": "वर्चुअल आईपी",
+        "vport": "वर्चुअल पोर्ट",
+        "status": "स्थिति",
+        "actions": "क्रियाएँ",
+        "id": " ID",
+        "ip": " IP",
+        "address": "पता",
+        "port": "बंदरगाह",
+        "timeout": "मध्यांतर",
+        "weight": "वजन",
+        "CN": "साधारण नाम",
+        "type": "प्रकार",
+        "file": "पट्टिका",
+        "issuer": "जारीकर्ता",
+        "creation": "पर बनाएं",
+        "expiration": "पर समाप्त होना",
+        "priority": "प्राथमिकता",
+        "interface": "इंटरफेस",
+        "service": "सर्विस",
+        "client": "ग्राहक",
+        "sessions": "सत्र",
+        "session_id": "सत्र आईडी",
+        "backend_id": "बैकएंड आईडी",
+        "command": "आदेश",
+        "description": "विवरण",
+        "farms": "फार्म",
+        "farm": "खेत",
+        "gateway": "प्रवेश द्वार",
+        "netmask": "netmask",
+        "mac": "मैक",
+        "ipv4_ipv6": "IP पता (IPv4 / IPv6)",
+        "vlan_tag": "वीएलएएन टैग",
+        "date": "तारीख",
+        "log": "लॉग इन",
+        "established": "स्थापित शंकु",
+        "pending": "लंबित शंकु",
+        "No": "नहीं",
+        "found": "पाया"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "आवश्यकता है",
+        "name_not_valid": "मान्य नहीं है, यह केवल अल्फ़ान्यूमेरिक वर्ण और डैश (-) संभव है।",
+        "port_not_valid": "मान्य नहीं है, यह एकल पोर्ट, कई पोर्ट या पोर्ट की श्रेणी को परिभाषित करने के लिए पॉसिबल है (उदा: 80 या 80,81 या 80: 90)",
+        "greater_than_0": "0 से अधिक होना चाहिए",
+        "only_two_characters": "केवल दो वर्ण हो सकते हैं।",
+        "valid_email": "एक वैध ईमेल होना चाहिए।",
+        "not_match": "मिलता जुलता नहीं है।",
+        "farm": {
+            "delete": "खेत <strong>{{param}}</strong> सफलतापूर्वक हटा दिया गया है।",
+            "delete_farm_service": "खेत <strong>{{param}}</strong> {{param2}} को सफलतापूर्वक हटा दिया गया है।",
+            "confirm_delete": "क्या आप वाकई {{param}} farmname हटाना चाहते हैं?",
+            "stop": "खेत <strong>{{param}}</strong> सफलतापूर्वक {{param2}} एड किया गया है।",
+            "created": "खेत <strong>{{param}}</strong> सफलतापूर्वक बनाया गया है।",
+            "restarted": "खेत <strong>{{param}}</strong> सफलतापूर्वक पुनः आरंभ किया गया है।",
+            "backend_created": "बैकएंड को सफलतापूर्वक बनाया गया है।",
+            "profile_changed": "प्रोफ़ाइल को सफलतापूर्वक {{param}} में बदल दिया गया है।",
+            "farmguardian_disabled": "फ़ार्मगार्डियन को पर्याप्त रूप से अक्षम कर दिया गया है।",
+            "farmguardian_changed": "फार्मगार्डियन को सफलतापूर्वक {{param}} में बदल दिया गया है।",
+            "farmguardian_created": "यह  <strong>{{param}}</strong> फार्मगार्डियन सफलतापूर्वक बनाया गया है।",
+            "farmguardian_update": "यह  <strong>{{param}}</strong> फार्मगार्डियन को सफलतापूर्वक अपडेट किया गया है",
+            "farmguardian_confirm_delete": "क्या आप वाकई {{param}} फार्मगार्डियन को हटाना चाहते हैं?",
+            "farmguardian_delete": "यह  <strong>{{param}}</strong> फार्मगार्डियन को सफलतापूर्वक हटा दिया गया है।",
+            "updated": "खेत को सफलतापूर्वक अपडेट किया गया है।",
+            "delete_farm_of_farmguardian": "क्या आप वाकई फार्मगार्डियन के {{param}} {{param2}} खेत को हटाना चाहते हैं?",
+            "backend_confirm_delete": "क्या आप वाकई {{param}} बैकएंड को हटाना चाहते हैं?",
+            "backend_deleted": "बैकेंड <strong>{{param}}</strong> सफलतापूर्वक हटा दिया गया है",
+            "backend_maintenance": "बैकेंड <strong>{{param}}</strong> सफलतापूर्वक {{param2}} किया गया है।",
+            "service_created": "सेवा <strong>{{param}}</strong> सफलतापूर्वक बनाया गया है।",
+            "service_deleted": "सेवा <strong>{{param}}</strong> सफलतापूर्वक हटा दिया गया है।",
+            "service_update": "सेवा <strong>{{param}}</strong> सफलतापूर्वक अपडेट कर दिया गया है।"
+        },
+        "network": {
+            "gateway_update": "यह  <strong>{{param}}</strong> गेटवे को सफलतापूर्वक अपडेट किया गया है।",
+            "gateway_confirm_unset": "क्या आप वाकई वर्तमान प्रवेश द्वार को खोलना चाहते हैं?",
+            "gateway_confirm_unset_interface": "क्या आप वाकई {{परम}} गेटवे को खोलना चाहते हैं?",
+            "gateway_unconfigured": "यह  <strong>{{param}}</strong> गेटवे को सफलतापूर्वक अपुष्ट कर दिया गया है।",
+            "nic_update": "यह  <strong>{{param}}</strong> एनआईसी को सफलतापूर्वक अपडेट किया गया है।",
+            "nic_unconfigured": "यह  <strong>{{param}}</strong> एनआईसी सफलतापूर्वक अपुष्ट किया गया है।",
+            "nic_is": "यह  <strong>{{param}}</strong> NIC {{param2}} है",
+            "virtual_interface_created": "यह  <strong>{{param}}</strong> वर्चुअल इंटरफ़ेस सफलतापूर्वक बनाया गया है।",
+            "virtual_interface_updated": "यह  <strong>{{param}}</strong> वर्चुअल इंटरफ़ेस सफलतापूर्वक अपडेट किया गया है।",
+            "virtual_interface_confirm_deleted": "क्या आप वाकई {{param}} वर्चुअल इंटरफ़ेस हटाना चाहते हैं?",
+            "virtual_interface_deleted": "यह  <strong>{{param}}</strong> वर्चुअल इंटरफ़ेस सफलतापूर्वक हटा दिया गया है।",
+            "vlan_created": "यह  <strong>{{param}}</strong> VLAN को सफलतापूर्वक बनाया गया है।",
+            "vlan_update": "यह  <strong>{{param}}</strong> VLAN को सफलतापूर्वक अपडेट कर दिया गया है।",
+            "vlan_confirm_delete": "क्या आप वाकई {{param}} VLAN को हटाना चाहते हैं?",
+            "vlan_deleted": "यह  <strong>{{param}}</strong> VLAN को सफलतापूर्वक हटा दिया गया है।",
+            "vlan_is": "यह  <strong>{{param}}</strong> VLAN {{param2}} है"
+        },
+        "system": {
+            "backup_created": "बैकअप <strong>{{param}}</strong> सफलतापूर्वक बनाया गया है।",
+            "backup_uploaded": "बैकअप <strong>{{param}}</strong> सफलतापूर्वक अपलोड किया गया है।",
+            "backup_confirm_deleted": "क्या आप वाकई {{param}} बैकअप हटाना चाहते हैं?",
+            "backup_deleted": "बैकअप <strong>{{param}}</strong> सफलतापूर्वक हटा दिया गया है।",
+            "backup_applied": "बैकअप <strong>{{param}}</strong> सफलतापूर्वक लागू किया गया है।",
+            "backup_downloaded": "बैकअप <strong>{{backup}}</strong> सफलतापूर्वक डाउनलोड किया गया है।",
+            "log_downloaded": "लकड़ी का लठा <strong>{{param}}</strong> सफलतापूर्वक डाउनलोड किया गया है।",
+            "service_updated": "यह  <strong>{{param}}</strong> सेवा को सफलतापूर्वक अपडेट कर दिया गया है।",
+            "support_save_downloaded": "यह  <strong> समर्थन बचाओ </strong> सफलतापूर्वक डाउनलोड किया गया है",
+            "user_updated": "उपयोगकर्ता को सफलतापूर्वक अपडेट किया गया है।"
+        },
+        "certificate": {
+            "csr_generated": "सीएसआर <strong>{{param}}</strong> सफलतापूर्वक उत्पन्न किया गया है।",
+            "uploaded": "प्रमाणपत्र <strong>{{param}}</strong> सफलतापूर्वक अपलोड किया गया है।",
+            "deleted": "प्रमाणपत्र <strong>{{param}}</strong> सफलतापूर्वक हटा दिया गया है।",
+            "downloaded": "प्रमाणपत्र <strong>{{param}}</strong> सफलतापूर्वक डाउनलोड किया गया है।"
+        }
+    },
+    "BUTTONS": {
+        "new_service": "नई सेवा",
+        "create": "बनाएं",
+        "cancel": "रद्द करना",
+        "submit": "जमा करें",
+        "save": "सहेजें",
+        "generate": "उत्पन्न",
+        "update": "अपडेट",
+        "upload": "अपलोड",
+        "generate_key_random": "रैंडम कुंजी उत्पन्न करें",
+        "generate_support_save": "समर्थन सहेजें उत्पन्न करें",
+        "clear": "स्पष्ट",
+        "start": "प्रारंभ",
+        "apply": "लागू करें",
+        "add": "जोड़ना",
+        "edit": "संपादित करें"
+    },
+    "ZEVENET": {
+        "go_to_home": "घर जाओ",
+        "error_404": "404 पृष्ठ नहीं मिला",
+        "page_does_not_exist": "आप जिस पृष्ठ की तलाश कर रहे थे वह मौजूद नहीं है",
+        "no_farms_found": "कोई खेत नहीं मिला"
+    },
+    "CHARTS": {
+        "established": "स्थापित शंकु",
+        "pending": "लंबित शंकु"
+    },
+    "PLACEHOLDERS": {
+        "graph": "एक ग्राफ का चयन करें",
+        "profile": "एक प्रोफ़ाइल का चयन करें",
+        "virtual_ip": "एक वर्चुअल आईपी चुनें",
+        "parent_interface": "एक मूल इंटरफ़ेस चुनें",
+        "interface": "एक इंटरफ़ेस चुनें"
+    },
+    "AUTH": {
+        "logout": "लोग आउट",
+        "login": {
+            "text": "अपने उपयोगकर्ता नाम और पासवर्ड के साथ साइन इन करें",
+            "username": "उपयोगकर्ता नाम",
+            "password": "पासवर्ड",
+            "button": "साइन इन करें",
+            "user_required": "उपयोगकर्ता की आवश्यकता है!",
+            "user_real": "उपयोगकर्ता वास्तविक होना चाहिए",
+            "password_required": "पासवर्ड की आवश्यकता है",
+            "password_contains": "पासवर्ड में {{param}} से {{param2}} अक्षर होने चाहिए",
+            "success": "सफलता!",
+            "success_msg": "आपने सफ़लतापूर्वक लॉग इन कर लिया है।"
+        }
+    }
+}

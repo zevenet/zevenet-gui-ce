@@ -38,6 +38,16 @@ export class FarmguardiansCreateComponent {
 		});
 	}
 
+	showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+	    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+	      .then(data => {
+	        if (func === 'toast') {
+	          this.service.showToast('success', '', data);
+	        } else if (func === 'window') {
+	          return window.confirm(data);
+	        }
+	      });
+	}
 	toggleCopy(status) {
 		this.copy = status;
 		if (this.copy) {
@@ -64,11 +74,11 @@ export class FarmguardiansCreateComponent {
 	  		(data) => { this.resAction = data; },
 	  		(error) => { },
 	  		() => {
-	  			this.service.showToast(
-						'success',
-						 '',
-						 'The <strong>' + this.formGroup.controls.name.value + '</strong> farmguardian has been created successfully.',
-					);
+				this.showMessageTranslated(
+					'SYSTEM_MESSAGES.farm.farmguardian_created',
+					'toast',
+					this.formGroup.controls.name.value,
+				);
 	  			this.router.navigate(['../'], {relativeTo: this.route});
 	  		});
 	}

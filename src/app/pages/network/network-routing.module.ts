@@ -22,6 +22,7 @@ import { VirtualCreateComponent } from './virtual/virtual-create.component';
 import { VirtualUpdateComponent } from './virtual/virtual-update.component';
 import { GatewayComponent } from './gateway/gateway.component';
 import { GatewayConfigureComponent } from './gateway/gateway-configure.component';
+import { MyBreadcrumbsResolver } from '../../@core/zevenet/services/breadcrumb.resolver';
 
 const routes: Routes = [{
   path: '',
@@ -35,7 +36,8 @@ const routes: Routes = [{
     path: 'nic',
     component: NetworkComponent,
     data: {
-      breadcrumbs: 'NIC',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'NIC',
     },
     children: [
       {
@@ -49,7 +51,8 @@ const routes: Routes = [{
         path: 'edit/:name',
         component: NicUpdateComponent,
         data: {
-          breadcrumbs: 'Edit',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Edit',
         },
       },
     ],
@@ -58,7 +61,8 @@ const routes: Routes = [{
     path: 'vlan',
     component: NetworkComponent,
     data: {
-      breadcrumbs: 'VLAN',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'VLAN',
     },
     children: [
       {
@@ -72,13 +76,15 @@ const routes: Routes = [{
         path: 'create',
         component: VlanCreateComponent,
         data: {
-          breadcrumbs: 'Create',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Create',
         },
       }, {
         path: 'edit/:name',
         component: VlanUpdateComponent,
         data: {
-          breadcrumbs: 'Edit',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Edit',
         },
       },
     ],
@@ -87,7 +93,8 @@ const routes: Routes = [{
     path: 'virtual',
     component: NetworkComponent,
     data: {
-      breadcrumbs: 'Virtual Interfaces',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'Virtual Interfaces',
     },
     children: [
       {
@@ -101,13 +108,15 @@ const routes: Routes = [{
         path: 'create',
         component: VirtualCreateComponent,
         data: {
-          breadcrumbs: 'Create',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Create',
         },
       }, {
         path: 'edit/:name',
         component: VirtualUpdateComponent,
         data: {
-          breadcrumbs: 'Edit',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Edit',
         },
       },
     ],
@@ -116,7 +125,8 @@ const routes: Routes = [{
     path: 'gateway',
     component: NetworkComponent,
     data: {
-      breadcrumbs: 'Gateway',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'Gateway',
     },
     children: [
       {
@@ -130,7 +140,8 @@ const routes: Routes = [{
         path: 'configure/:name',
         component: GatewayConfigureComponent,
         data: {
-          breadcrumbs: 'Configure',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Configure',
         },
       },
     ],

@@ -22,11 +22,11 @@ export class FarmsComponent implements  OnInit {
   actionResp: any;
 
   columns: Array<any> = [
-    {field: 'farmname', header: 'Name', width: '20%'},
-    {field: 'profile', header: 'Profile', width: '12%'},
-    {field: 'vip', header: 'Virtual IP', width: '25%'},
-    {field: 'vport', header: 'Virtual Port', width: '14%'},
-    {field: 'status', header: 'Status', width: '10%'},
+    {field: 'farmname', header: '', width: '20%'},
+    {field: 'profile', header: '', width: '12%'},
+    {field: 'vip', header: '', width: '25%'},
+    {field: 'vport', header: '', width: '14%'},
+    {field: 'status', header: '', width: '10%'},
   ];
 
   actionsList: Array<any> = [
@@ -36,10 +36,27 @@ export class FarmsComponent implements  OnInit {
     {action: 'delete', icon: 'fa-trash'},
   ];
 
-  constructor(private service: ZevenetService) { }
+  constructor(private service: ZevenetService) {}
 
   ngOnInit() {
     this.getFarms();
+    this.getLangTranslated('TABLES', this.columns);
+  }
+
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, {param: param, param2: param2})
+    .then(data =>  {
+      if (func === 'toast') {
+        this.service.showToast('success', '', data);
+      } else if (func === 'window') {
+        return window.confirm(data);
+      }
+    });
   }
 
   getFarms(): void {
@@ -51,18 +68,14 @@ export class FarmsComponent implements  OnInit {
 
   onAction(event) {
     if (event.action === 'delete') {
-      if (window.confirm('Are you sure you want to delete the farm ' + event.data.farmname + '?')) {
+      if (this.showMessageTranslated('SYSTEM_MESSAGES.farm.confirm_delete', 'window', event.data.farmname)) {
         this.service.delete('farms', event.data.farmname)
         .subscribe(
           (data) => { this.actionResp  =  data; },
           (error) => { },
           () => {
             this.farms.splice(this.farms.findIndex(i => i.farmname === event.data.farmname), 1);
-            this.service.showToast(
-								'success',
-								 '',
-								 'The farm <strong>' + event.data.farmname + '</strong> has been deleted successfully.',
-							);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.delete', 'toast', event.data.farmname);
           });
       }
     } else {
@@ -76,11 +89,7 @@ export class FarmsComponent implements  OnInit {
 
             this.farms[this.farms.findIndex(i => i.farmname === event.data.farmname)] = object;
             const actionMsg = event.action === 'stop' ? 'stopp' : event.action;
-            this.service.showToast(
-							'success',
-							 '',
-							 'The farm <strong>' + event.data.farmname + '</strong> has been ' + actionMsg + 'ed successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.stop', 'toast', event.data.farmname, actionMsg);
           });
     }
   }

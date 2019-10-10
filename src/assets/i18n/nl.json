@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "Dashboard"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "Boerderijen"
+        },
+        "ssl_certificates": {
+            "title": "SSL Certificaten"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "Monitoring"
+        },
+        "graphs": {
+            "title": "Grafieken"
+        },
+        "farm_stats": {
+            "title": "Farm Stats"
+        },
+        "farmguardians": {
+            "title": "Farmguardians"
+        },
+        "network": {
+            "title": "netwerk"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "Virtuele interfaces"
+        },
+        "gateway": {
+            "title": "Poort"
+        },
+        "system": {
+            "title": "Systeem"
+        },
+        "remote_services": {
+            "title": "Remote Services"
+        },
+        "backups": {
+            "title": "Backups"
+        },
+        "user": {
+            "title": "Gebruiker"
+        },
+        "logs": {
+            "title": "Logs"
+        },
+        "license": {
+            "title": "Vergunningen"
+        },
+        "support_save": {
+            "title": "Ondersteuning Opslaan"
+        },
+        "create": {
+            "title": "creëren"
+        },
+        "edit": {
+            "title": "Edit"
+        },
+        "configure": {
+            "title": "configureren"
+        },
+        "upload": {
+            "title": "Uploaden"
+        },
+        "view": {
+            "title": "View"
+        },
+        "generate_csr": {
+            "title": "CSR genereren"
+        }
+    },
+    "OBJECTS": {
+        "farm": "boerderij",
+        "certificate": "certificaat",
+        "farmguardian": "farmguardian",
+        "VLAN": "VLAN",
+        "virtual interface": "virtuele interface",
+        "backup": "backup",
+        "backend": "backend",
+        "session": "Sessie"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "Professionele producten"
+        },
+        "professional_services": {
+            "title": "Professional Services"
+        },
+        "news": {
+            "title": "Nieuws"
+        },
+        "resources": {
+            "title": "Informatie"
+        },
+        "system_stats": {
+            "title": "Systeemstatistieken",
+            "cpu": "CPU",
+            "memory": "Geheugen",
+            "load": "Laden",
+            "cores": "Cores"
+        },
+        "system_information": {
+            "title": "Systeem informatie",
+            "zevenet_version": "Zevenet-versie",
+            "appliance_version": "Appliance-versie",
+            "kernel_version": "Kernel-versie",
+            "hostname": "hostname",
+            "system_date": "Systeem datum"
+        },
+        "nic_interfaces": {
+            "title": "NIC-interfaces",
+            "megabytes": "Megabytes (MB)"
+        },
+        "farm_list": {
+            "title": "Farm List",
+            "farmname": "Naam",
+            "profile": "Profiel",
+            "status": "Status"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "LSLB-boerderijlijst",
+                "create_farm": "Maak LSLB Farm"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "Luisteraar",
+                    "advanced_settings": {
+                        "title": "geavanceerde instellingen",
+                        "rewrite_location_headers": "Herschrijf locatiekoppen",
+                        "http_verbs_accepted": "HTTP-werkwoorden geaccepteerd",
+                        "backend_connection_timeout": "Back-endverbindingstimeout",
+                        "backend_response_timeout": "Back-endresponstime-out",
+                        "frequency_to_check_resurrected_backends": "Frequentie om opgerichte backends te controleren",
+                        "client_request_timeout": "Timeout voor clientaanvragen",
+                        "message_error_414": "Berichtfout 414",
+                        "message_error_500": "Berichtfout 500",
+                        "message_error_501": "Berichtfout 501",
+                        "message_error_503": "Berichtfout 503"
+                    },
+                    "https": {
+                        "title": "HTTPS-parameters",
+                        "disable_sslv2": "Schakel SSLv2 uit",
+                        "disable_sslv3": "Schakel SSLv3 uit",
+                        "disable_tslv1": "Schakel TLSv1 uit",
+                        "disable_tslv1_1": "Schakel TLSv1.1 uit",
+                        "disable_tslv1_2": "Schakel TLSv1.2 uit",
+                        "ciphers": "cijfers",
+                        "custom_ciphers": "Aangepaste codes",
+                        "certificate_enabled": "Certificaat ingeschakeld"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "Virtuele host",
+                    "url_pattern": "URL-patroon",
+                    "least_response": "Minst respons",
+                    "https_backends": "HTTPS-backends",
+                    "redirect": {
+                        "title": "redirect",
+                        "url": "Omleidings-URL",
+                        "type": "Omleidingstype"
+                    },
+                    "load_balancer_algorithm": "Load balancer algoritme",
+                    "persistence": {
+                        "title": "Volharding",
+                        "persistence_session_identifier": "Persistentie sessie-ID",
+                        "persistence_session_to_live_time": "Persistentie sessietijd om te leven",
+                        "": "Geen doorzettingsvermogen",
+                        "IP": "IP: adres van de klant",
+                        "BASIC": "BASIC: basisverificatie",
+                        "URL": "URL: een verzoekparameter",
+                        "PARM": "PARM: een URI-parameter",
+                        "COOKIE": "COOKIE: Een bepaald koekje",
+                        "HEADER": "HEADER: een bepaalde verzoekkop"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "Protocoltype",
+                    "nat_type": "Nat type"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "Load balancer algoritme",
+                    "persistence": {
+                        "title": "Volharding",
+                        "persistence_session_to_live_time": "Persistentie sessietijd om te leven",
+                        "": "Geen doorzettingsvermogen",
+                        "ip": "IP: Source IP",
+                        "srcport": "Poort: Bron",
+                        "srcmac": "MAC: Source MAC",
+                        "srcip_srcport": "Bron-IP en bronpoort",
+                        "srcip_dstport": "Bron-IP en bestemmingspoort"
+                    },
+                    "algorithms": {
+                        "weight": "Gewicht: verbinding lineaire verzending naar gewicht",
+                        "hash_srcip_srcport": "Bron Hash: Hash per bron-IP en bronpoort",
+                        "hash_srcip": "Simple Source Hash: hash per bron-IP alleen",
+                        "symhash": "Symmetrische hash: round-trip hash per IP en poort",
+                        "roundrobin": "Round Robin: sequentiële backendselectie"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "SSL-certificaatlijst",
+            "generate_csr": "CSR genereren",
+            "upload_certificate": "Upload SSL-certificaat",
+            "choose_files": "Kies een of meer bestanden"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "DSLB-boerderijlijst",
+                "create_farm": "Maak een DSLB-boerderij"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "Systeemgrafieken",
+            "interfaces_graphs": "Interfaces grafieken",
+            "show_graphs": "Grafieken weergeven",
+            "farms_graphs": "Boerderijen Grafieken",
+            "select_graphs": "Selecteer grafieken"
+        },
+        "farm_stats": "Farmastatistieken",
+        "farm_graphs": "Boerderijen Grafieken",
+        "farmsguardian": {
+            "title": "Farmguardians",
+            "farms_settings": "Boerderijen instellingen",
+            "create_farmguardian": "Maak Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "NIC-lijst",
+        "vlan": {
+            "title": "Lijst met VLAN-interfaces",
+            "create_vlan": "Maak een VLAN-interface"
+        },
+        "virtual_interface": {
+            "title": "Virtuele interface lijst",
+            "create_virtual_interface": "Maak een virtuele interface"
+        },
+        "gateway": {
+            "ipv4_gateway": "IPv4 Gateway",
+            "ipv6_gateway": "IPv6 Gateway",
+            "gateway_settings": "Gateway-instellingen"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "DNS-service",
+            "default_dns": "Standaard is 8.8.8.8",
+            "optional": "facultatief",
+            "default_npt": "Standaard is pool.ntp.org",
+            "primary_server": "Primaire server",
+            "secondary_server": "Secundaire server",
+            "npt_service": "NPT-service",
+            "npt_server": "NPT-server",
+            "snmp_service": "SNMP-service",
+            "enable_snmp": "Schakel SNMP in",
+            "physical_interface_running": "Fysieke interface waar SNMP-service wordt uitgevoerd",
+            "snmp_por_running": "SNMP-poort waarop SNMP-service wordt uitgevoerd",
+            "snmp_por_default": "Standaard is 161.",
+            "conmunity_name": "Gemeenschaps naam",
+            "ip_subnet": "IP of subnet met toegang (IP / bit)"
+        },
+        "backups": {
+            "backup_list": "Back-uplijst",
+            "upload_backup": "Upload een back-up",
+            "backup_file": "Backup bestand",
+            "create_backup": "Maak een back-up",
+            "choose_file": "Kies een bestand"
+        },
+        "user": {
+            "settings_user": "Instellingen Gebruiker",
+            "user": "Gebruiker",
+            "zapi_permissions": "ZAPI-machtigingen",
+            "zapi_key": "ZAPI-sleutel",
+            "change_password": "Wachtwoord wijzigen",
+            "current_password": "Huidig ​​wachtwoord",
+            "new_password": "Nieuw wachtwoord",
+            "repeat_new_password": "Herhaal nieuw wachtwoord"
+        },
+        "logs": {
+            "log_list": "Log lijst",
+            "log_view": "Log bekijken",
+            "number_lines": "Aantal regels"
+        },
+        "license": "Vergunningen",
+        "support_save": {
+            "title": "Ondersteuning Opslaan",
+            "downloaded": "Wanneer deze actie wordt uitgevoerd, wordt een bestand met systeeminformatie gedownload.",
+            "gui": "Deze actie kan enkele seconden duren, je kunt doorgaan met browsen in de GUI."
+        }
+    },
+    "FORMS": {
+        "name": "Naam",
+        "locality": "Plaats",
+        "country": "Land",
+        "state_province": "Staat / Provincie",
+        "common_name": "Gemeenschappelijke naam",
+        "organization": "Organisatie",
+        "division": "Divisie",
+        "email_address": "E-mailadres",
+        "services_settings": "Services-instellingen",
+        "global_settings": "Algemene instellingen",
+        "virtual_ip_and_port": "Virtuele IP en poort",
+        "backend": "backend",
+        "interval": "interval",
+        "cut_connections": "Verbindingen doorsnijden",
+        "description": "Omschrijving",
+        "copy_rule": "Kopieer regel",
+        "rule_to_copy": "Regel om te kopiëren",
+        "seconds": "seconden",
+        "log": "Log",
+        "address": "Adres",
+        "virtual_interface_name": "Virtuele interfacenaam",
+        "parent_interface": "Ouder interface",
+        "vlan_name": "VLAN-naam",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "Load balancer algoritme",
+        "health_checks_for_backend": "Health Checks voor backend",
+        "help_form": {
+            "help_name": "Beschrijvende tekst, deze naam zal worden gebruikt om dit certificaat te identificeren.",
+            "help_alert_name": "Alleen bewerkbaar als de farm offline is.",
+            "help_locality": "Plaats waar uw organisatie zich bevindt.",
+            "help_country": "Land (twee tekens) waar uw organisatie zich bevindt.",
+            "help_state_province": "Staat of provincie waar uw organisatie is gevestigd.",
+            "help_common_name": "FQDN van de server. Voorbeeld: domein.com, mail.domain.com of * .domain.com.",
+            "help_organization": "De volledige legale naam van uw organisatie / bedrijf (bijv .: Zevenet Co.).",
+            "help_division": "Uw afdeling; zoals 'IT', 'Web', 'Office', etc.",
+            "help_email_address": "Jouw e-mailadres."
+        }
+    },
+    "TABLES": {
+        "name": "Naam",
+        "farmname": "Naam",
+        "profile": "Profiel",
+        "vip": "Virtueel IP",
+        "vport": "Virtuele poort",
+        "status": "Status",
+        "actions": "acties",
+        "id": " ID",
+        "ip": " IP",
+        "address": "Adres",
+        "port": "Haven",
+        "timeout": "Timeout",
+        "weight": "Gewicht",
+        "CN": "Gemeenschappelijke naam",
+        "type": "Type ",
+        "file": "filet",
+        "issuer": "Emittent",
+        "creation": "Aanmaken",
+        "expiration": "Vervallen op",
+        "priority": "Prioriteit",
+        "interface": "Interface",
+        "service": "Service",
+        "client": "Cliënt",
+        "sessions": "Sessions",
+        "session_id": "Session ID",
+        "backend_id": "Backend ID",
+        "command": "commando",
+        "description": "Omschrijving",
+        "farms": "Boerderijen",
+        "farm": "Farm",
+        "gateway": "Poort",
+        "netmask": "netmask",
+        "mac": "MAC",
+        "ipv4_ipv6": "IP-adres (IPv4 / IPv6)",
+        "vlan_tag": "VLAN-tag",
+        "date": "Datum",
+        "log": "Log",
+        "established": "Gevestigde Conns",
+        "pending": "In afwachting van Conns",
+        "No": "Nee",
+        "found": "gevonden"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "Is benodigd",
+        "name_not_valid": "is niet geldig, het is alleen mogelijk alfanumerieke tekens en streepje (-).",
+        "port_not_valid": "niet geldig is, is het mogelijk om een ​​enkele poort, verschillende poorten of reeksen poorten te definiëren (bijv .: 80 of 80,81 of 80: 90)",
+        "greater_than_0": "moet groter zijn dan 0",
+        "only_two_characters": "kan maar twee tekens bevatten.",
+        "valid_email": "moet een geldige e-mail zijn.",
+        "not_match": "komt niet overeen.",
+        "farm": {
+            "delete": "De boerderij <strong>{{param}}</strong> is succesvol verwijderd.",
+            "delete_farm_service": "De boerderij <strong>{{param}}</strong> {{param2}} is met succes verwijderd.",
+            "confirm_delete": "Weet je zeker dat je de farmnaam van {{param} wilt verwijderen?",
+            "stop": "De boerderij <strong>{{param}}</strong> is {{param2}} ed succesvol geweest.",
+            "created": "De boerderij <strong>{{param}}</strong> is met succes gemaakt.",
+            "restarted": "De boerderij <strong>{{param}}</strong> is succesvol opnieuw gestart.",
+            "backend_created": "De backend is met succes gemaakt.",
+            "profile_changed": "Het profiel is succesvol gewijzigd in {{param}}.",
+            "farmguardian_disabled": "De farmguardian is met succes uitgeschakeld.",
+            "farmguardian_changed": "De farmguardian is succesvol gewijzigd in {{param}}.",
+            "farmguardian_created": "De <strong>{{param}}</strong> farmguardian is met succes gemaakt.",
+            "farmguardian_update": "De <strong>{{param}}</strong> farmguardian is succesvol bijgewerkt",
+            "farmguardian_confirm_delete": "Weet u zeker dat u de farmguardian {{param}} wilt verwijderen?",
+            "farmguardian_delete": "De <strong>{{param}}</strong> farmguardian is succesvol verwijderd.",
+            "updated": "De boerderij is succesvol bijgewerkt.",
+            "delete_farm_of_farmguardian": "Weet u zeker dat u de farm {{param}} {{param2}} van de farmguardian wilt verwijderen?",
+            "backend_confirm_delete": "Weet u zeker dat u de backend {{param}} wilt verwijderen?",
+            "backend_deleted": "De backend <strong>{{param}}</strong> is succesvol verwijderd",
+            "backend_maintenance": "De backend <strong>{{param}}</strong> is {{param2}} succesvol geweest.",
+            "service_created": "De dienst <strong>{{param}}</strong> is met succes gemaakt.",
+            "service_deleted": "De dienst <strong>{{param}}</strong> is succesvol verwijderd.",
+            "service_update": "De dienst <strong>{{param}}</strong> is succesvol bijgewerkt."
+        },
+        "network": {
+            "gateway_update": "De <strong>{{param}}</strong> Gateway is succesvol bijgewerkt.",
+            "gateway_confirm_unset": "Weet u zeker dat u de huidige gateway wilt uitschakelen?",
+            "gateway_confirm_unset_interface": "Weet u zeker dat u de {{param}} -gateway wilt uitschakelen?",
+            "gateway_unconfigured": "De <strong>{{param}}</strong> Gateway is niet succesvol geconfigureerd.",
+            "nic_update": "De <strong>{{param}}</strong> NIC is succesvol bijgewerkt.",
+            "nic_unconfigured": "De <strong>{{param}}</strong> NIC is niet succesvol geconfigureerd.",
+            "nic_is": "De <strong>{{param}}</strong> NIC is {{param2}}",
+            "virtual_interface_created": "De <strong>{{param}}</strong> Virtuele interface is succesvol gemaakt.",
+            "virtual_interface_updated": "De <strong>{{param}}</strong> Virtuele interface is succesvol bijgewerkt.",
+            "virtual_interface_confirm_deleted": "Weet u zeker dat u de virtuele interface {{param}} wilt verwijderen?",
+            "virtual_interface_deleted": "De <strong>{{param}}</strong> Virtuele interface is succesvol verwijderd.",
+            "vlan_created": "De <strong>{{param}}</strong> VLAN is met succes gemaakt.",
+            "vlan_update": "De <strong>{{param}}</strong> VLAN is succesvol bijgewerkt.",
+            "vlan_confirm_delete": "Weet u zeker dat u het {{param}} VLAN wilt verwijderen?",
+            "vlan_deleted": "De <strong>{{param}}</strong> VLAN is succesvol verwijderd.",
+            "vlan_is": "De <strong>{{param}}</strong> VLAN is {{param2}}"
+        },
+        "system": {
+            "backup_created": "De back-up <strong>{{param}}</strong> is met succes gemaakt.",
+            "backup_uploaded": "De back-up <strong>{{param}}</strong> is succesvol geüpload.",
+            "backup_confirm_deleted": "Weet u zeker dat u de back-up {{param}} wilt verwijderen?",
+            "backup_deleted": "De back-up <strong>{{param}}</strong> is succesvol verwijderd.",
+            "backup_applied": "De back-up <strong>{{param}}</strong> is succesvol toegepast.",
+            "backup_downloaded": "De back-up <strong>{{backup}}</strong> is succesvol gedownload.",
+            "log_downloaded": "Het logboek <strong>{{param}}</strong> is succesvol gedownload.",
+            "service_updated": "De <strong>{{param}}</strong> service is succesvol bijgewerkt.",
+            "support_save_downloaded": "De <strong> Ondersteuning Opslaan </strong> is succesvol gedownload",
+            "user_updated": "De gebruiker is succesvol bijgewerkt."
+        },
+        "certificate": {
+            "csr_generated": "Het CSR <strong>{{param}}</strong> is met succes gegenereerd.",
+            "uploaded": "Het certificaat <strong>{{param}}</strong> is succesvol geüpload.",
+            "deleted": "Het certificaat <strong>{{param}}</strong> is succesvol verwijderd.",
+            "downloaded": "Het certificaat <strong>{{param}}</strong> is succesvol gedownload."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "Nieuwe service",
+        "create": "creëren",
+        "cancel": "Annuleer",
+        "submit": "OPSTUREN",
+        "save": "Bespaar",
+        "generate": "Genereer",
+        "update": "bijwerken",
+        "upload": "Uploaden",
+        "generate_key_random": "Genereer willekeurige sleutel",
+        "generate_support_save": "Genereer Ondersteuning Opslaan",
+        "clear": "duidelijk",
+        "start": "begin",
+        "apply": "Van toepassing zijn",
+        "add": "Toevoegen",
+        "edit": "Edit"
+    },
+    "ZEVENET": {
+        "go_to_home": "Ga naar huis",
+        "error_404": "404-pagina niet gevonden",
+        "page_does_not_exist": "De pagina waarnaar u zocht bestaat niet",
+        "no_farms_found": "Geen boerderijen gevonden"
+    },
+    "CHARTS": {
+        "established": "Gevestigde Conns",
+        "pending": "In afwachting van Conns"
+    },
+    "PLACEHOLDERS": {
+        "graph": "Selecteer een grafiek",
+        "profile": "Selecteer een profiel",
+        "virtual_ip": "Selecteer een virtueel IP",
+        "parent_interface": "Selecteer een bovenliggende interface",
+        "interface": "Selecteer een interface"
+    },
+    "AUTH": {
+        "logout": "Uitloggen",
+        "login": {
+            "text": "Log in met uw gebruikersnaam en wachtwoord",
+            "username": "Gebruikersnaam",
+            "password": "Wachtwoord",
+            "button": "Aanmelden",
+            "user_required": "Gebruiker is verplicht!",
+            "user_real": "Gebruiker zou de echte moeten zijn",
+            "password_required": "Een wachtwoord is verplicht",
+            "password_contains": "Wachtwoord moet {{param}} to {{param2}} tekens bevatten",
+            "success": "Succes!",
+            "success_msg": "U bent succesvol ingelogd."
+        }
+    }
+}

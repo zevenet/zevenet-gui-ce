@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "لوحة التحكم"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "المزارع"
+        },
+        "ssl_certificates": {
+            "title": "شهادة SSL"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "مراقبة"
+        },
+        "graphs": {
+            "title": "الرسوم البيانية"
+        },
+        "farm_stats": {
+            "title": "إحصائيات المزرعة"
+        },
+        "farmguardians": {
+            "title": "Farmguardians"
+        },
+        "network": {
+            "title": "شبكة"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "واجهات افتراضية"
+        },
+        "gateway": {
+            "title": "بوابة"
+        },
+        "system": {
+            "title": "نظام"
+        },
+        "remote_services": {
+            "title": "الخدمات عن بعد"
+        },
+        "backups": {
+            "title": "النسخ الاحتياطي"
+        },
+        "user": {
+            "title": "المستخدم "
+        },
+        "logs": {
+            "title": "سجلات"
+        },
+        "license": {
+            "title": "رخصة الخصوصية"
+        },
+        "support_save": {
+            "title": "دعم حفظ"
+        },
+        "create": {
+            "title": "خلق"
+        },
+        "edit": {
+            "title": "تعديل"
+        },
+        "configure": {
+            "title": "ضبط"
+        },
+        "upload": {
+            "title": "تحميل صورة"
+        },
+        "view": {
+            "title": "مشاهدة"
+        },
+        "generate_csr": {
+            "title": "توليد المسؤولية الاجتماعية للشركات"
+        }
+    },
+    "OBJECTS": {
+        "farm": "مزرعة",
+        "certificate": "شهادة",
+        "farmguardian": "farmguardian",
+        "VLAN": "VLAN",
+        "virtual interface": "واجهة افتراضية",
+        "backup": "دعم",
+        "backend": "الخلفية",
+        "session": "الجلسة"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "المنتجات المهنية"
+        },
+        "professional_services": {
+            "title": "خدمات مهنية"
+        },
+        "news": {
+            "title": "الأخبار"
+        },
+        "resources": {
+            "title": "الموارد"
+        },
+        "system_stats": {
+            "title": "إحصائيات النظام",
+            "cpu": "وحدة المعالجة المركزية‏:",
+            "memory": "مكبر الصوت : يدعم، مع دعم ميكروفون مدمج لمنع الضوضاء ",
+            "load": "حمل",
+            "cores": "الألوان"
+        },
+        "system_information": {
+            "title": "نظام المعلومات",
+            "zevenet_version": "نسخة Zevenet",
+            "appliance_version": "إصدار الأجهزة",
+            "kernel_version": "إصدار النواة",
+            "hostname": "اسم المضيف",
+            "system_date": "تاريخ النظام"
+        },
+        "nic_interfaces": {
+            "title": "واجهات NIC",
+            "megabytes": "ميغابايت (MB)"
+        },
+        "farm_list": {
+            "title": "قائمة المزرعة",
+            "farmname": "الاسم",
+            "profile": "الملف",
+            "status": "الحالة"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "قائمة مزرعة LSLB",
+                "create_farm": "إنشاء مزرعة LSLB"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "مستمع",
+                    "advanced_settings": {
+                        "title": "الإعدادات المتقدمة",
+                        "rewrite_location_headers": "أعد كتابة رؤوس الموقع",
+                        "http_verbs_accepted": "الأفعال HTTP مقبولة",
+                        "backend_connection_timeout": "الخلفية انقطاع الاتصال",
+                        "backend_response_timeout": "مهلة استجابة الخلفية",
+                        "frequency_to_check_resurrected_backends": "تردد للتحقق من الخلفيات التي أعيد إنشاؤها",
+                        "client_request_timeout": "طلب العميل مهلة",
+                        "message_error_414": "رسالة خطأ 414",
+                        "message_error_500": "رسالة خطأ 500",
+                        "message_error_501": "رسالة خطأ 501",
+                        "message_error_503": "رسالة خطأ 503"
+                    },
+                    "https": {
+                        "title": "معلمات HTTPS",
+                        "disable_sslv2": "تعطيل SSLv2",
+                        "disable_sslv3": "تعطيل SSLv3",
+                        "disable_tslv1": "تعطيل TLSv1",
+                        "disable_tslv1_1": "تعطيل TLSv1.1",
+                        "disable_tslv1_2": "تعطيل TLSv1.2",
+                        "ciphers": "الأصفار",
+                        "custom_ciphers": "الأصفار المخصصة",
+                        "certificate_enabled": "الشهادة ممكّنة"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "استضافة افتراضية",
+                    "url_pattern": "نمط عنوان URL",
+                    "least_response": "استجابة أقل",
+                    "https_backends": "HTTPS الخلفية",
+                    "redirect": {
+                        "title": "إعادة توجيه",
+                        "url": "إعادة توجيه URL",
+                        "type": "نوع إعادة التوجيه"
+                    },
+                    "load_balancer_algorithm": "تحميل موازن الخوارزمية",
+                    "persistence": {
+                        "title": "إصرار",
+                        "persistence_session_identifier": "معرف جلسة المثابرة",
+                        "persistence_session_to_live_time": "وقت الجلسة المثابرة للعيش",
+                        "": "لا استمرار",
+                        "IP": "IP: عنوان العميل",
+                        "BASIC": "الأساسية: المصادقة الأساسية",
+                        "URL": "عنوان URL: معلمة طلب",
+                        "PARM": "PARM: معلمة URI",
+                        "COOKIE": "كوكي: ملف تعريف ارتباط معين",
+                        "HEADER": "العنوان: رأس طلب معين"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "نوع البروتوكول",
+                    "nat_type": "نوع نات"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "تحميل موازن الخوارزمية",
+                    "persistence": {
+                        "title": "إصرار",
+                        "persistence_session_to_live_time": "وقت الجلسة المثابرة للعيش",
+                        "": "لا استمرار",
+                        "ip": "IP: مصدر IP",
+                        "srcport": "ميناء: المصدر",
+                        "srcmac": "MAC: مصدر MAC",
+                        "srcip_srcport": "مصدر IP ومصدر المنفذ",
+                        "srcip_dstport": "مصدر IP ومنفذ الوجهة"
+                    },
+                    "algorithms": {
+                        "weight": "الوزن: اتصال خطي الإرسال حسب الوزن",
+                        "hash_srcip_srcport": "تجزئة المصدر: تجزئة لكل مصدر IP و منفذ مصدر",
+                        "hash_srcip": "تجزئة مصدر بسيط: تجزئة لكل مصدر IP فقط",
+                        "symhash": "هاش متماثل: تجول ذهابا وإيابا لكل IP والميناء",
+                        "roundrobin": "جولة روبن: اختيار الخلفية المتسلسلة"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "قائمة شهادات SSL",
+            "generate_csr": "توليد المسؤولية الاجتماعية للشركات",
+            "upload_certificate": "تحميل شهادة SSL",
+            "choose_files": "اختر ملفًا واحدًا أو أكثر"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "قائمة مزرعة DSLB",
+                "create_farm": "إنشاء مزرعة DSLB"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "الرسوم البيانية للنظام",
+            "interfaces_graphs": "واجهات الرسوم البيانية",
+            "show_graphs": "عرض الرسوم البيانية",
+            "farms_graphs": "مزارع الرسوم البيانية",
+            "select_graphs": "حدد الرسوم البيانية"
+        },
+        "farm_stats": "إحصائيات المزارع",
+        "farm_graphs": "مزارع الرسوم البيانية",
+        "farmsguardian": {
+            "title": "Farmguardians",
+            "farms_settings": "إعدادات المزارع",
+            "create_farmguardian": "إنشاء Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "قائمة NIC",
+        "vlan": {
+            "title": "قائمة واجهة VLAN",
+            "create_vlan": "إنشاء واجهة VLAN"
+        },
+        "virtual_interface": {
+            "title": "قائمة واجهة افتراضية",
+            "create_virtual_interface": "إنشاء واجهة افتراضية"
+        },
+        "gateway": {
+            "ipv4_gateway": "بوابة IPv4",
+            "ipv6_gateway": "بوابة IPv6",
+            "gateway_settings": "إعدادات البوابة"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "خدمة DNS",
+            "default_dns": "الافتراضي هو 8.8.8.8",
+            "optional": "اختياري",
+            "default_npt": "الافتراضي هو pool.ntp.org",
+            "primary_server": "الخادم الرئيسي",
+            "secondary_server": "الخادم الثانوي",
+            "npt_service": "خدمة معاهدة عدم الانتشار",
+            "npt_server": "خادم معاهدة حظر الانتشار النووي",
+            "snmp_service": "خدمة SNMP",
+            "enable_snmp": "تمكين SNMP",
+            "physical_interface_running": "الواجهة الفعلية حيث يتم تشغيل خدمة SNMP",
+            "snmp_por_running": "SNMP Port حيث يقوم بتشغيل خدمة SNMP",
+            "snmp_por_default": "الافتراضي هو 161.",
+            "conmunity_name": "اسم المجتمع",
+            "ip_subnet": "IP أو الشبكة الفرعية مع الوصول (IP / بت)"
+        },
+        "backups": {
+            "backup_list": "قائمة النسخ الاحتياطي",
+            "upload_backup": "تحميل النسخ الاحتياطي",
+            "backup_file": "ملف النسخ الاحتياطي",
+            "create_backup": "إنشاء نسخة احتياطية",
+            "choose_file": "اختيار ملف واحد"
+        },
+        "user": {
+            "settings_user": "إعدادات المستخدم",
+            "user": "المستخدم ",
+            "zapi_permissions": "أذونات ZAPI",
+            "zapi_key": "مفتاح ZAPI",
+            "change_password": "تغيير كلمة المرور",
+            "current_password": "كلمة المرور الحالية",
+            "new_password": "كلمة مرور جديدة",
+            "repeat_new_password": "كرر كلمة المرور الجديدة"
+        },
+        "logs": {
+            "log_list": "قائمة السجل",
+            "log_view": "عرض السجل",
+            "number_lines": "عدد الخطوط"
+        },
+        "license": "رخصة الخصوصية",
+        "support_save": {
+            "title": "دعم حفظ",
+            "downloaded": "عند تنفيذ هذا الإجراء ، سيتم تنزيل ملف به معلومات النظام.",
+            "gui": "قد يستغرق هذا الإجراء عدة ثوان ، يمكنك متابعة تصفح واجهة المستخدم الرسومية."
+        }
+    },
+    "FORMS": {
+        "name": "الاسم",
+        "locality": "مكان",
+        "country": "البلد",
+        "state_province": "الدولة / مقاطعة",
+        "common_name": "اسم شائع",
+        "organization": "منظمة",
+        "division": "تقسيم",
+        "email_address": "عنوان البريد الإلكتروني",
+        "services_settings": "إعدادات الخدمات",
+        "global_settings": "إعدادات العالمية",
+        "virtual_ip_and_port": "IP الظاهري والمنفذ",
+        "backend": "الخلفية",
+        "interval": "الفاصلة",
+        "cut_connections": "قطع الاتصالات",
+        "description": "الوصف",
+        "copy_rule": "نسخة القاعدة",
+        "rule_to_copy": "حكم للنسخ",
+        "seconds": "ثواني",
+        "log": "سجل",
+        "address": "العنوان",
+        "virtual_interface_name": "اسم الواجهة الافتراضية",
+        "parent_interface": "واجهة الأم",
+        "vlan_name": "اسم شبكة محلية ظاهرية",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "تحميل موازن الخوارزمية",
+        "health_checks_for_backend": "الشيكات الصحية للوظيفه",
+        "help_form": {
+            "help_name": "نص وصفي ، سيتم استخدام هذا الاسم لتحديد هذه الشهادة.",
+            "help_alert_name": "فقط للتحرير عندما تكون المزرعة معطلة.",
+            "help_locality": "المدينة التي تقع فيها مؤسستك.",
+            "help_country": "البلد (حرفين) حيث توجد مؤسستك.",
+            "help_state_province": "الولاية أو المقاطعة التي تقع فيها منظمتك.",
+            "help_common_name": "FQDN للخادم. مثال: domain.com أو mail.domain.com أو * .domain.com.",
+            "help_organization": "الاسم القانوني الكامل لمؤسستك / شركتك (على سبيل المثال: شركة Zevenet).",
+            "help_division": "قسمك؛ مثل &quot;تكنولوجيا المعلومات&quot; ، &quot;الويب&quot; ، &quot;المكتب&quot; ، إلخ.",
+            "help_email_address": "عنوان البريد الإلكتروني الخاص بك."
+        }
+    },
+    "TABLES": {
+        "name": "الاسم",
+        "farmname": "الاسم",
+        "profile": "الملف",
+        "vip": "IP الظاهري",
+        "vport": "ميناء الظاهري",
+        "status": "الحالة",
+        "actions": "الإجراءات",
+        "id": " ID",
+        "ip": " IP",
+        "address": "العنوان",
+        "port": "ميناء",
+        "timeout": "مهلة",
+        "weight": "الوزن",
+        "CN": "اسم شائع",
+        "type": "النوع",
+        "file": "تقديم",
+        "issuer": "المصدر",
+        "creation": "خلق على",
+        "expiration": "تنتهي في",
+        "priority": "درجة الأهمية",
+        "interface": "السطح البيني",
+        "service": "اختار نوع الكشف اوالخدمه",
+        "client": "زبون",
+        "sessions": "دورات",
+        "session_id": "الدورة ID",
+        "backend_id": "معرف الخلفية",
+        "command": "أمر",
+        "description": "الوصف",
+        "farms": "المزارع",
+        "farm": "مزرعة",
+        "gateway": "بوابة",
+        "netmask": "قناع الشبكة",
+        "mac": "ماك",
+        "ipv4_ipv6": "عنوان IP (IPv4 / IPv6)",
+        "vlan_tag": "علامة VLAN",
+        "date": "التاريخ",
+        "log": "سجل",
+        "established": "أنشئت كونز",
+        "pending": "معلقة كونز",
+        "No": "لا",
+        "found": "وجدت"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "مطلوب",
+        "name_not_valid": "غير صالح ، إنه ممكن فقط الأحرف الأبجدية الرقمية وشرطة (-).",
+        "port_not_valid": "غير صالح ، فمن الممكن تحديد منفذ واحد أو عدة منافذ أو نطاقات من المنافذ (على سبيل المثال: 80 أو 80,81 أو 80: 90)",
+        "greater_than_0": "يجب أن يكون أكبر من 0",
+        "only_two_characters": "لا يمكن إلا أن اثنين من الشخصيات.",
+        "valid_email": "يجب أن يكون بريدًا إلكترونيًا صالحًا.",
+        "not_match": "لا يطابق.",
+        "farm": {
+            "delete": "المزرعة <strong>{{param}}</strong> تم حذفه بنجاح",
+            "delete_farm_service": "المزرعة <strong>{{param}}</strong> تم حذف {{param2}} بنجاح.",
+            "confirm_delete": "هل تريد بالتأكيد حذف اسم المزرعة {{param}}؟",
+            "stop": "المزرعة <strong>{{param}}</strong> تم {{param2}} بنجاح.",
+            "created": "المزرعة <strong>{{param}}</strong> تم إنشاؤه بنجاح.",
+            "restarted": "المزرعة <strong>{{param}}</strong> تم اعادة التشغيل بنجاح.",
+            "backend_created": "تم إنشاء الواجهة الخلفية بنجاح.",
+            "profile_changed": "تم تغيير ملف التعريف إلى {{param}} بنجاح.",
+            "farmguardian_disabled": "تم تعطيل farmguardian بنجاح.",
+            "farmguardian_changed": "تم تغيير farmguardian إلى {{param}} بنجاح.",
+            "farmguardian_created": "الـ <strong>{{param}}</strong> تم إنشاء farmguardian بنجاح.",
+            "farmguardian_update": "الـ <strong>{{param}}</strong> تم تحديث farmguardian بنجاح",
+            "farmguardian_confirm_delete": "هل أنت متأكد من رغبتك في حذف {farm} {guardian}؟",
+            "farmguardian_delete": "الـ <strong>{{param}}</strong> تم حذف farmguardian بنجاح.",
+            "updated": "تم تحديث المزرعة بنجاح.",
+            "delete_farm_of_farmguardian": "هل أنت متأكد من أنك تريد حذف المزرعة {{param}} {{param2}} للمزارع؟",
+            "backend_confirm_delete": "هل أنت متأكد من أنك تريد حذف الواجهة الخلفية {{param}}؟",
+            "backend_deleted": "الخلفية <strong>{{param}}</strong> تم حذفه بنجاح",
+            "backend_maintenance": "الخلفية <strong>{{param}}</strong> تم {{param2}} بنجاح.",
+            "service_created": "الخدمة <strong>{{param}}</strong> تم إنشاؤه بنجاح.",
+            "service_deleted": "الخدمة <strong>{{param}}</strong> تم حذفه بنجاح",
+            "service_update": "الخدمة <strong>{{param}}</strong> تم تحديثه بنجاح."
+        },
+        "network": {
+            "gateway_update": "الـ <strong>{{param}}</strong> تم تحديث البوابة بنجاح.",
+            "gateway_confirm_unset": "هل أنت متأكد من أنك تريد إلغاء تعيين العبارة الحالية؟",
+            "gateway_confirm_unset_interface": "هل أنت متأكد من أنك تريد إلغاء تعيين العبارة {{param}}؟",
+            "gateway_unconfigured": "الـ <strong>{{param}}</strong> لقد تم تكوين العبّارة بنجاح.",
+            "nic_update": "الـ <strong>{{param}}</strong> تم تحديث NIC بنجاح.",
+            "nic_unconfigured": "الـ <strong>{{param}}</strong> لقد تم تكوين NIC بنجاح.",
+            "nic_is": "الـ <strong>{{param}}</strong> NIC هو {{param2}}",
+            "virtual_interface_created": "الـ <strong>{{param}}</strong> تم إنشاء واجهة افتراضية بنجاح.",
+            "virtual_interface_updated": "الـ <strong>{{param}}</strong> تم تحديث الواجهة الافتراضية بنجاح.",
+            "virtual_interface_confirm_deleted": "هل تريد بالتأكيد حذف الواجهة الظاهرية {{param}}؟",
+            "virtual_interface_deleted": "الـ <strong>{{param}}</strong> تم حذف الواجهة الافتراضية بنجاح.",
+            "vlan_created": "الـ <strong>{{param}}</strong> تم إنشاء شبكة محلية ظاهرية بنجاح.",
+            "vlan_update": "الـ <strong>{{param}}</strong> تم تحديث VLAN بنجاح.",
+            "vlan_confirm_delete": "هل تريد بالتأكيد حذف شبكة محلية ظاهرية {{param}}؟",
+            "vlan_deleted": "الـ <strong>{{param}}</strong> تم حذف VLAN بنجاح.",
+            "vlan_is": "الـ <strong>{{param}}</strong> VLAN هو {{param2}}"
+        },
+        "system": {
+            "backup_created": "النسخ الاحتياطي <strong>{{param}}</strong> تم إنشاؤه بنجاح.",
+            "backup_uploaded": "النسخ الاحتياطي <strong>{{param}}</strong> تم الرفع بنجاح",
+            "backup_confirm_deleted": "هل أنت متأكد من أنك تريد حذف النسخة الاحتياطية {{param}}؟",
+            "backup_deleted": "النسخ الاحتياطي <strong>{{param}}</strong> تم حذفه بنجاح",
+            "backup_applied": "النسخ الاحتياطي <strong>{{param}}</strong> تم تطبيقه بنجاح.",
+            "backup_downloaded": "النسخ الاحتياطي <strong>{{backup}}</strong> وقد تم تحميلها بنجاح.",
+            "log_downloaded": "السجل <strong>{{param}}</strong> وقد تم تحميلها بنجاح.",
+            "service_updated": "الـ <strong>{{param}}</strong> تم تحديث الخدمة بنجاح.",
+            "support_save_downloaded": "الـ <strong> دعم حفظ </strong> وقد تم تحميلها بنجاح",
+            "user_updated": "تم تحديث المستخدم بنجاح."
+        },
+        "certificate": {
+            "csr_generated": "المسؤولية الاجتماعية للشركات <strong>{{param}}</strong> تم إنشاؤه بنجاح.",
+            "uploaded": "الشهادة <strong>{{param}}</strong> تم الرفع بنجاح",
+            "deleted": "الشهادة <strong>{{param}}</strong> تم حذفه بنجاح",
+            "downloaded": "الشهادة <strong>{{param}}</strong> وقد تم تحميلها بنجاح."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "خدمة جديدة",
+        "create": "خلق",
+        "cancel": "إلغاء",
+        "submit": "تسليم",
+        "save": "حفظ",
+        "generate": "توليد",
+        "update": "تحديث",
+        "upload": "تحميل صورة",
+        "generate_key_random": "توليد مفتاح عشوائي",
+        "generate_support_save": "توليد الدعم انقاذ",
+        "clear": "واضح",
+        "start": "بداية",
+        "apply": "تطبيق",
+        "add": "إضافة: ",
+        "edit": "تعديل"
+    },
+    "ZEVENET": {
+        "go_to_home": "الذهاب إلى المنزل",
+        "error_404": "لم يتم العثور على صفحة 404",
+        "page_does_not_exist": "الصفحة التي تبحث عنها غير موجودة",
+        "no_farms_found": "لم يتم العثور على مزارع"
+    },
+    "CHARTS": {
+        "established": "أنشئت كونز",
+        "pending": "معلقة كونز"
+    },
+    "PLACEHOLDERS": {
+        "graph": "حدد الرسم البياني",
+        "profile": "اختر ملف تعريف",
+        "virtual_ip": "حدد IP الظاهري",
+        "parent_interface": "حدد واجهة الأصل",
+        "interface": "اختر واجهة"
+    },
+    "AUTH": {
+        "logout": "تسجيل الخروج",
+        "login": {
+            "text": "تسجيل الدخول باستخدام اسم المستخدم وكلمة المرور الخاصة بك",
+            "username": "اسم المستخدم",
+            "password": "كلمة المرور",
+            "button": "تسجيل الدخول",
+            "user_required": "المستخدم مطلوب!",
+            "user_real": "يجب أن يكون المستخدم هو الحقيقي",
+            "password_required": "كلمة المرور مطلوبة",
+            "password_contains": "يجب أن تحتوي كلمة المرور على {{param}} على {{param2}} حرفًا",
+            "success": "النجاح!",
+            "success_msg": "قمت بتسجيل الدخول بنجاح."
+        }
+    }
+}

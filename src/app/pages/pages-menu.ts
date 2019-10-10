@@ -77,12 +77,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         pathMatch: 'part',
       },
       {
-        title: 'VLAN ',
+        title: 'VLAN',
         link: '/pages/network/vlan',
         pathMatch: 'part',
       },
       {
-        title: 'Virtual interfaces ',
+        title: 'Virtual interfaces',
         link: '/pages/network/virtual',
         pathMatch: 'part',
       },

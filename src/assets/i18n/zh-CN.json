@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "用户面板"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "农场"
+        },
+        "ssl_certificates": {
+            "title": "SSL证书"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "监控"
+        },
+        "graphs": {
+            "title": "图"
+        },
+        "farm_stats": {
+            "title": "农场统计"
+        },
+        "farmguardians": {
+            "title": "Farmguardians"
+        },
+        "network": {
+            "title": "网络"
+        },
+        "nic": {
+            "title": "网卡"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "虚拟接口"
+        },
+        "gateway": {
+            "title": "网关"
+        },
+        "system": {
+            "title": "系统"
+        },
+        "remote_services": {
+            "title": "远程服务"
+        },
+        "backups": {
+            "title": "备份"
+        },
+        "user": {
+            "title": "用户"
+        },
+        "logs": {
+            "title": "日志"
+        },
+        "license": {
+            "title": "执照"
+        },
+        "support_save": {
+            "title": "支持保存"
+        },
+        "create": {
+            "title": "创建"
+        },
+        "edit": {
+            "title": "编辑"
+        },
+        "configure": {
+            "title": "配置"
+        },
+        "upload": {
+            "title": "上传"
+        },
+        "view": {
+            "title": "查看"
+        },
+        "generate_csr": {
+            "title": "生成CSR"
+        }
+    },
+    "OBJECTS": {
+        "farm": "农场",
+        "certificate": "证书",
+        "farmguardian": "farmguardian",
+        "VLAN": "VLAN",
+        "virtual interface": "虚拟接口",
+        "backup": "备份",
+        "backend": "后端",
+        "session": "会议"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "专业产品"
+        },
+        "professional_services": {
+            "title": "专业的服务"
+        },
+        "news": {
+            "title": "最新消息"
+        },
+        "resources": {
+            "title": "资源中心"
+        },
+        "system_stats": {
+            "title": "系统统计",
+            "cpu": "中央处理器",
+            "memory": "大小",
+            "load": "加载",
+            "cores": "颜色"
+        },
+        "system_information": {
+            "title": "系统信息",
+            "zevenet_version": "Zevenet版本",
+            "appliance_version": "设备版本",
+            "kernel_version": "内核版本",
+            "hostname": "主机名",
+            "system_date": "系统日期"
+        },
+        "nic_interfaces": {
+            "title": "NIC接口",
+            "megabytes": "兆字节（MB）"
+        },
+        "farm_list": {
+            "title": "农场清单",
+            "farmname": "名字",
+            "profile": "个人信息",
+            "status": "当前状态"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "LSLB农场清单",
+                "create_farm": "创建LSLB农场"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "倾听者",
+                    "advanced_settings": {
+                        "title": "高级设置",
+                        "rewrite_location_headers": "重写位置标题",
+                        "http_verbs_accepted": "接受HTTP动词",
+                        "backend_connection_timeout": "后端连接超时",
+                        "backend_response_timeout": "后端响应超时",
+                        "frequency_to_check_resurrected_backends": "检查复活后端的频率",
+                        "client_request_timeout": "客户端请求超时",
+                        "message_error_414": "消息错误414",
+                        "message_error_500": "消息错误500",
+                        "message_error_501": "消息错误501",
+                        "message_error_503": "消息错误503"
+                    },
+                    "https": {
+                        "title": "HTTPS参数",
+                        "disable_sslv2": "禁用SSLv2",
+                        "disable_sslv3": "禁用SSLv3",
+                        "disable_tslv1": "禁用TLSv1",
+                        "disable_tslv1_1": "禁用TLSv1.1",
+                        "disable_tslv1_2": "禁用TLSv1.2",
+                        "ciphers": "密码",
+                        "custom_ciphers": "自定义密码",
+                        "certificate_enabled": "证书已启用"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "虚拟主机",
+                    "url_pattern": "网址格局",
+                    "least_response": "最不起的回应",
+                    "https_backends": "HTTPS后端",
+                    "redirect": {
+                        "title": "重定向",
+                        "url": "重定向网址",
+                        "type": "重定向类型"
+                    },
+                    "load_balancer_algorithm": "负载平衡器算法",
+                    "persistence": {
+                        "title": "坚持",
+                        "persistence_session_identifier": "持久性会话标识符",
+                        "persistence_session_to_live_time": "持久性会话时间",
+                        "": "没有坚持",
+                        "IP": "IP：客户端地址",
+                        "BASIC": "BASIC：基本身份验证",
+                        "URL": "URL：请求参数",
+                        "PARM": "PARM：URI参数",
+                        "COOKIE": "COOKIE：某个饼干",
+                        "HEADER": "HEADER：某个请求标头"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "协议类型",
+                    "nat_type": "Nat型"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "负载平衡器算法",
+                    "persistence": {
+                        "title": "坚持",
+                        "persistence_session_to_live_time": "持久性会话时间",
+                        "": "没有坚持",
+                        "ip": "IP：源IP",
+                        "srcport": "端口：来源",
+                        "srcmac": "MAC：来源MAC",
+                        "srcip_srcport": "源IP和源端口",
+                        "srcip_dstport": "源IP和目标端口"
+                    },
+                    "algorithms": {
+                        "weight": "重量：按重量连接线性调度",
+                        "hash_srcip_srcport": "源哈希：每个源IP和源端口的哈希值",
+                        "hash_srcip": "简单源哈希：仅限源IP的哈希值",
+                        "symhash": "对称哈希：每个IP和端口的往返哈希",
+                        "roundrobin": "Round Robin：顺序后端选择"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "SSL证书列表",
+            "generate_csr": "生成CSR",
+            "upload_certificate": "上传SSL证书",
+            "choose_files": "选择一个或多个文件"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "DSLB农场清单",
+                "create_farm": "创建DSLB农场"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "系统图",
+            "interfaces_graphs": "接口图",
+            "show_graphs": "显示图表",
+            "farms_graphs": "农场图",
+            "select_graphs": "选择图表"
+        },
+        "farm_stats": "农场统计",
+        "farm_graphs": "农场图",
+        "farmsguardian": {
+            "title": "Farmguardians",
+            "farms_settings": "农场设置",
+            "create_farmguardian": "创建Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "网卡列表",
+        "vlan": {
+            "title": "VLAN接口列表",
+            "create_vlan": "创建VLAN接口"
+        },
+        "virtual_interface": {
+            "title": "虚拟接口列表",
+            "create_virtual_interface": "创建虚拟接口"
+        },
+        "gateway": {
+            "ipv4_gateway": "IPv4网关",
+            "ipv6_gateway": "IPv6网关",
+            "gateway_settings": "网关设置"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "DNS服务",
+            "default_dns": "默认值为8.8.8.8",
+            "optional": "可选",
+            "default_npt": "默认为pool.ntp.org",
+            "primary_server": "主服务器",
+            "secondary_server": "辅助服务器",
+            "npt_service": "NPT服务",
+            "npt_server": "NPT服务器",
+            "snmp_service": "SNMP服务",
+            "enable_snmp": "启用S​​NMP",
+            "physical_interface_running": "运行SNMP服务的物理接口",
+            "snmp_por_running": "SNMP端口运行SNMP服务的位置",
+            "snmp_por_default": "默认值为161。",
+            "conmunity_name": "社区名字",
+            "ip_subnet": "具有访问权限的IP或子网（IP /位）"
+        },
+        "backups": {
+            "backup_list": "备份清单",
+            "upload_backup": "上传备份",
+            "backup_file": "备份文件",
+            "create_backup": "创建备份",
+            "choose_file": "选择一个文件"
+        },
+        "user": {
+            "settings_user": "设置用户",
+            "user": "用户",
+            "zapi_permissions": "ZAPI权限",
+            "zapi_key": "ZAPI密钥",
+            "change_password": "更改密码",
+            "current_password": "当前密码",
+            "new_password": "新密码",
+            "repeat_new_password": "重复新密码"
+        },
+        "logs": {
+            "log_list": "日志列表",
+            "log_view": "日志视图",
+            "number_lines": "行数"
+        },
+        "license": "执照",
+        "support_save": {
+            "title": "支持保存",
+            "downloaded": "执行此操作时，将下载包含系统信息的文件。",
+            "gui": "此操作可能需要几秒钟，您可以继续浏览GUI。"
+        }
+    },
+    "FORMS": {
+        "name": "名字",
+        "locality": "局部性",
+        "country": "国家",
+        "state_province": "州/省",
+        "common_name": "通用名称",
+        "organization": "组织",
+        "division": "司",
+        "email_address": "电子邮件地址",
+        "services_settings": "服务设置",
+        "global_settings": "全局设置",
+        "virtual_ip_and_port": "虚拟IP和端口",
+        "backend": "后端",
+        "interval": "间隔",
+        "cut_connections": "切断连接",
+        "description": "产品详情",
+        "copy_rule": "复制规则",
+        "rule_to_copy": "要复制的规则",
+        "seconds": "秒",
+        "log": "历史记录",
+        "address": "地址",
+        "virtual_interface_name": "虚拟接口名称",
+        "parent_interface": "父接口",
+        "vlan_name": "VLAN名称",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "负载平衡器算法",
+        "health_checks_for_backend": "健康检查后端",
+        "help_form": {
+            "help_name": "描述性文本，此名称将用于标识此证书。",
+            "help_alert_name": "仅在服务器场关闭时才可编辑。",
+            "help_locality": "您所在组织所在的城市。",
+            "help_country": "您的组织所在的国家/地区（两个字符）。",
+            "help_state_province": "您所在组织所在的州或省。",
+            "help_common_name": "服务器的FQDN。 示例：domain.com，mail.domain.com或* .domain.com。",
+            "help_organization": "您组织/公司的完整法定名称（例如：Zevenet Co.）。",
+            "help_division": "你的部门; 例如'IT'，'Web'，'Office'等。",
+            "help_email_address": "您的电子邮件地址。"
+        }
+    },
+    "TABLES": {
+        "name": "名字",
+        "farmname": "名字",
+        "profile": "个人信息",
+        "vip": "虚拟IP",
+        "vport": "虚拟端口",
+        "status": "当前状态",
+        "actions": "行动",
+        "id": " ID",
+        "ip": " IP",
+        "address": "地址",
+        "port": "港口",
+        "timeout": "超时",
+        "weight": "重量",
+        "CN": "通用名称",
+        "type": "类型",
+        "file": "文件",
+        "issuer": "发行者",
+        "creation": "创建",
+        "expiration": "过期",
+        "priority": "优先",
+        "interface": "接口",
+        "service": "服务",
+        "client": "客户",
+        "sessions": "会议",
+        "session_id": "会话ID",
+        "backend_id": "后端ID",
+        "command": "命令",
+        "description": "产品详情",
+        "farms": "农场",
+        "farm": "农场",
+        "gateway": "网关",
+        "netmask": "子网掩码",
+        "mac": "苹果电脑",
+        "ipv4_ipv6": "IP地址（IPv4 / IPv6）",
+        "vlan_tag": "VLAN标记",
+        "date": "日期",
+        "log": "历史记录",
+        "established": "成立康恩斯",
+        "pending": "待定的Conns",
+        "No": "没有",
+        "found": "发现"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "是必须的",
+        "name_not_valid": "无效，只能使用字母数字字符和短划线（ - ）。",
+        "port_not_valid": "无效，可以定义单个端口，多个端口或端口范围（例如：80或80,81或80：90）",
+        "greater_than_0": "必须大于0",
+        "only_two_characters": "只能有两个字符。",
+        "valid_email": "必须是有效的电子邮件。",
+        "not_match": "不匹配。",
+        "farm": {
+            "delete": "农场 <strong>{{param}}</strong> 已成功删除。",
+            "delete_farm_service": "农场 <strong>{{param}}</strong> {{param2}}已成功删除。",
+            "confirm_delete": "您确定要删除{{param}}农场名吗？",
+            "stop": "农场 <strong>{{param}}</strong> 已成功{{param2}}编辑。",
+            "created": "农场 <strong>{{param}}</strong> 已成功创建。",
+            "restarted": "农场 <strong>{{param}}</strong> 已成功重启。",
+            "backend_created": "后端已成功创建。",
+            "profile_changed": "该个人资料已成功更改为{{param}}。",
+            "farmguardian_disabled": "农场养老金成功残疾。",
+            "farmguardian_changed": "farmguardian已成功更改为{{param}}。",
+            "farmguardian_created": "在此 <strong>{{param}}</strong> farmguardian已成功创建。",
+            "farmguardian_update": "在此 <strong>{{param}}</strong> farmguardian已成功更新",
+            "farmguardian_confirm_delete": "您确定要删除{{param}}农场主吗？",
+            "farmguardian_delete": "在此 <strong>{{param}}</strong> farmguardian已成功删除。",
+            "updated": "该服务器场已成功更新。",
+            "delete_farm_of_farmguardian": "您确定要删除农场主的农场{{param}} {{param2}}吗？",
+            "backend_confirm_delete": "您确定要删除后端{{param}}吗？",
+            "backend_deleted": "后端 <strong>{{param}}</strong> 已成功删除",
+            "backend_maintenance": "后端 <strong>{{param}}</strong> 已成功{{param2}}。",
+            "service_created": "该服务 <strong>{{param}}</strong> 已成功创建。",
+            "service_deleted": "该服务 <strong>{{param}}</strong> 已成功删除。",
+            "service_update": "该服务 <strong>{{param}}</strong> 已成功更新。"
+        },
+        "network": {
+            "gateway_update": "在此 <strong>{{param}}</strong> 网关已成功更新。",
+            "gateway_confirm_unset": "您确定要取消设置当前网关吗？",
+            "gateway_confirm_unset_interface": "您确定要取消设置{{param}}网关吗？",
+            "gateway_unconfigured": "在此 <strong>{{param}}</strong> Gateway已成功取消配置。",
+            "nic_update": "在此 <strong>{{param}}</strong> NIC已成功更新。",
+            "nic_unconfigured": "在此 <strong>{{param}}</strong> NIC已成功取消配置。",
+            "nic_is": "在此 <strong>{{param}}</strong> 网卡是{{param2}}",
+            "virtual_interface_created": "在此 <strong>{{param}}</strong> 虚拟接口已成功创建。",
+            "virtual_interface_updated": "在此 <strong>{{param}}</strong> 虚拟接口已成功更新。",
+            "virtual_interface_confirm_deleted": "您确定要删除{{param}}虚拟界面吗？",
+            "virtual_interface_deleted": "在此 <strong>{{param}}</strong> 虚拟接口已成功删除。",
+            "vlan_created": "在此 <strong>{{param}}</strong> 已成功创建VLAN。",
+            "vlan_update": "在此 <strong>{{param}}</strong> VLAN已成功更新。",
+            "vlan_confirm_delete": "您确定要删除{{param}} VLAN吗？",
+            "vlan_deleted": "在此 <strong>{{param}}</strong> VLAN已成功删除。",
+            "vlan_is": "在此 <strong>{{param}}</strong> VLAN是{{param2}}"
+        },
+        "system": {
+            "backup_created": "备份 <strong>{{param}}</strong> 已成功创建。",
+            "backup_uploaded": "备份 <strong>{{param}}</strong> 已成功上传。",
+            "backup_confirm_deleted": "您确定要删除备份{{param}}吗？",
+            "backup_deleted": "备份 <strong>{{param}}</strong> 已成功删除。",
+            "backup_applied": "备份 <strong>{{param}}</strong> 已成功应用。",
+            "backup_downloaded": "备份 <strong>{{backup}}</strong> 已成功下载。",
+            "log_downloaded": "日志 <strong>{{param}}</strong> 已成功下载。",
+            "service_updated": "在此 <strong>{{param}}</strong> 服务已成功更新。",
+            "support_save_downloaded": "在此 <strong> 支持保存 </strong> 已成功下载",
+            "user_updated": "用户已成功更新。"
+        },
+        "certificate": {
+            "csr_generated": "CSR <strong>{{param}}</strong> 已成功生成。",
+            "uploaded": "证书 <strong>{{param}}</strong> 已成功上传。",
+            "deleted": "证书 <strong>{{param}}</strong> 已成功删除。",
+            "downloaded": "证书 <strong>{{param}}</strong> 已成功下载。"
+        }
+    },
+    "BUTTONS": {
+        "new_service": "新服务",
+        "create": "创建",
+        "cancel": "取消",
+        "submit": "提交",
+        "save": "保存",
+        "generate": "产生",
+        "update": "提交",
+        "upload": "上传",
+        "generate_key_random": "生成随机密钥",
+        "generate_support_save": "生成支持保存",
+        "clear": "明确",
+        "start": "开始",
+        "apply": "申请",
+        "add": "添加",
+        "edit": "编辑"
+    },
+    "ZEVENET": {
+        "go_to_home": "回家",
+        "error_404": "找不到404页面",
+        "page_does_not_exist": "您要查找的页面不存在",
+        "no_farms_found": "找不到农场"
+    },
+    "CHARTS": {
+        "established": "成立康恩斯",
+        "pending": "待定的Conns"
+    },
+    "PLACEHOLDERS": {
+        "graph": "选择一个图表",
+        "profile": "选择个人资料",
+        "virtual_ip": "选择虚拟IP",
+        "parent_interface": "选择父接口",
+        "interface": "选择一个界面"
+    },
+    "AUTH": {
+        "logout": "登出",
+        "login": {
+            "text": "使用您的用户名和密码登录",
+            "username": "用户名",
+            "password": "密码",
+            "button": "登录",
+            "user_required": "用户是必需的！",
+            "user_real": "用户应该是真实的",
+            "password_required": "密码是必需的",
+            "password_contains": "密码应包含{{param}}到{{param2}}个字符",
+            "success": "成功了！",
+            "success_msg": "您已成功登录。"
+        }
+    }
+}

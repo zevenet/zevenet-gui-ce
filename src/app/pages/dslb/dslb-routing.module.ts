@@ -15,6 +15,7 @@ import { DslbComponent } from './dslb.component';
 import { FarmsComponent } from './farms/farms.component';
 import { FarmsUpdateComponent } from './farms/farms-update.component';
 import { FarmsCreateComponent } from './farms/farms-create.component';
+import { MyBreadcrumbsResolver } from '../../@core/zevenet/services/breadcrumb.resolver';
 
 const routes: Routes = [{
   path: '',
@@ -28,7 +29,8 @@ const routes: Routes = [{
     path: 'farms',
     component: DslbComponent,
     data: {
-      breadcrumbs: 'Farms',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'Farms',
     },
     children: [
       {
@@ -42,13 +44,15 @@ const routes: Routes = [{
         path: 'create',
         component: FarmsCreateComponent,
         data: {
-          breadcrumbs: 'Create',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Create',
         },
       }, {
         path: 'edit/:name',
         component: FarmsUpdateComponent,
         data: {
-          breadcrumbs: 'Edit',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Edit',
         },
       },
     ],

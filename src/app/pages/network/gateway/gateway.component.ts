@@ -11,6 +11,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ZevenetService } from '../../../@core/zevenet/services/zevenet.service';
 
+
 @Component({
   selector: 'zevenet-network-gateway',
   templateUrl: './gateway.component.html',
@@ -24,8 +25,8 @@ export class GatewayComponent implements OnInit {
   gateway: any = {ipv6: [], ipv4: []};
 
   columns: Array<any> = [
-    {field: 'address', header: 'Address', width: '50%'},
-    {field: 'interface', header: 'Interface', width: '40%'},
+    {field: 'address', header: '', width: '50%'},
+    {field: 'interface', header: '', width: '40%'},
   ];
 
   actionsList: Array<any> = [
@@ -36,8 +37,24 @@ export class GatewayComponent implements OnInit {
 
   ngOnInit() {
     this.getInterfaces();
+    this.getLangTranslated('TABLES', this.columns);
   }
 
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
   public getInterfaces(): void {
     this.service.getList('interfaces/gateway/ipv4')
       .subscribe((data) => {
@@ -51,7 +68,11 @@ export class GatewayComponent implements OnInit {
 
   onAction(event) {
     if (event.action === 'unset' &&
-      window.confirm('Are you sure you want to unset the ' + event.data.version + ' gateway?')) {
+      this.showMessageTranslated(
+        'SYSTEM_MESSAGES.network.gateway_confirm_unset_interface',
+        'window',
+        event.data.version)
+    ) {
       this.service.delete('interfaces/gateway', event.data.version.toLowerCase())
         .subscribe(
           (data) => { this.actionResp  =  data; },
@@ -65,11 +86,7 @@ export class GatewayComponent implements OnInit {
             } else {
               this.gateway.ipv6 = object;
             }
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + event.version + '</strong> Gateway has been unconfigured successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.network.gateway_unconfigured', 'toast', event.version);
           });
     }
   }

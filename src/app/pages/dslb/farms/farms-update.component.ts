@@ -46,27 +46,41 @@ export class FarmsUpdateComponent implements  OnInit {
   backends: Array<any>;
 
   columns: Array<any> = [
-    {field: 'id', header: 'ID', width: '5%', editable: false},
-    {field: 'ip', header: 'IP', width: '20%', editable: true},
-    {field: 'interface', header: 'Interface', width: '18%', editable: true},
-    {field: 'priority', header: 'Priority', width: '10%', editable: true},
-    {field: 'weight', header: 'Weight', width: '10%', editable: true},
+    {field: 'id', header: '', width: '5%', editable: false},
+    {field: 'ip', header: '', width: '20%', editable: true},
+    {field: 'interface', header: '', width: '18%', editable: true},
+    {field: 'priority', header: '', width: '10%', editable: true},
+    {field: 'weight', header: '', width: '10%', editable: true},
   ];
 
   actionsList: Array<any> = [
     {action: 'delete', icon: 'fa-trash'},
   ];
 
-  constructor(private service: ZevenetService,
-    private route: ActivatedRoute,
-    private fb: FormBuilder,
-  ) { }
+  constructor(private service: ZevenetService, private route: ActivatedRoute,
+    private fb: FormBuilder) {}
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
     this.getFarm(this.name);
+    this.getLangTranslated('TABLES', this.columns);
   }
 
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
   createForm() {
     this.globalForm = this.fb.group({
       newfarmname: [this.name, [Validators.required, Validators.pattern('^[A-Za-z0-9\\-]{1,256}$')]],
@@ -182,7 +196,7 @@ export class FarmsUpdateComponent implements  OnInit {
           backend.weight = backend.weight ? backend.weight : 1;
           items.push(backend);
           this.backends = items;
-          this.service.showToast('success', '', 'The backend has been created successfully.');
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_created', 'toast');
         });
   }
 
@@ -197,7 +211,7 @@ export class FarmsUpdateComponent implements  OnInit {
             items[backend.index][key] = backend.object[key];
           });
           this.backends = items;
-          this.service.showToast('success', '', 'The backend has been created successfully.');
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_created', 'toast');
         });
   }
 

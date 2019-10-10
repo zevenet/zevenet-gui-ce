@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "ダッシュボード"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "農場"
+        },
+        "ssl_certificates": {
+            "title": "SSL証明書"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "監視"
+        },
+        "graphs": {
+            "title": "グラフ"
+        },
+        "farm_stats": {
+            "title": "農場統計"
+        },
+        "farmguardians": {
+            "title": "農場の人々"
+        },
+        "network": {
+            "title": "ネットワーク"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "仮想インタフェース"
+        },
+        "gateway": {
+            "title": "ゲートウェイ"
+        },
+        "system": {
+            "title": "エントルピー"
+        },
+        "remote_services": {
+            "title": "リモートサービス"
+        },
+        "backups": {
+            "title": "バックアップ"
+        },
+        "user": {
+            "title": "ユーザー"
+        },
+        "logs": {
+            "title": "ログ"
+        },
+        "license": {
+            "title": "ライセンス"
+        },
+        "support_save": {
+            "title": "サポート保存"
+        },
+        "create": {
+            "title": "作ります"
+        },
+        "edit": {
+            "title": "編集"
+        },
+        "configure": {
+            "title": "設定する"
+        },
+        "upload": {
+            "title": "アップロード"
+        },
+        "view": {
+            "title": "詳細"
+        },
+        "generate_csr": {
+            "title": "CSRを生み出す"
+        }
+    },
+    "OBJECTS": {
+        "farm": "ファーム",
+        "certificate": "証明書",
+        "farmguardian": "農家",
+        "VLAN": "VLAN",
+        "virtual interface": "仮想インタフェース",
+        "backup": "バックアップ",
+        "backend": "バックエンド",
+        "session": "セッション"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "プロフェッショナル製品"
+        },
+        "professional_services": {
+            "title": "プロフェッショナルサービス"
+        },
+        "news": {
+            "title": "ニュース"
+        },
+        "resources": {
+            "title": "リソース"
+        },
+        "system_stats": {
+            "title": "システム統計",
+            "cpu": "CPU",
+            "memory": "メモリ",
+            "load": "負荷",
+            "cores": "コア"
+        },
+        "system_information": {
+            "title": "システム情報",
+            "zevenet_version": "Zevenetのバージョン",
+            "appliance_version": "アプライアンスのバージョン",
+            "kernel_version": "カーネルバージョン",
+            "hostname": "ホスト名",
+            "system_date": "システム日付"
+        },
+        "nic_interfaces": {
+            "title": "NICインタフェース",
+            "megabytes": "メガバイト（MB）"
+        },
+        "farm_list": {
+            "title": "農場リスト",
+            "farmname": "氏名",
+            "profile": "会社",
+            "status": "状態"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "LSLB農場リスト",
+                "create_farm": "LSLBファームを作成する"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "リスナー",
+                    "advanced_settings": {
+                        "title": "詳細設定",
+                        "rewrite_location_headers": "ロケーションヘッダーを書き換える",
+                        "http_verbs_accepted": "HTTP動詞が受け入れられました",
+                        "backend_connection_timeout": "バックエンド接続タイムアウト",
+                        "backend_response_timeout": "バックエンドの応答タイムアウト",
+                        "frequency_to_check_resurrected_backends": "復活したバックエンドをチェックする頻度",
+                        "client_request_timeout": "クライアント要求タイムアウト",
+                        "message_error_414": "メッセージエラー414",
+                        "message_error_500": "メッセージエラー500",
+                        "message_error_501": "メッセージエラー501",
+                        "message_error_503": "メッセージエラー503"
+                    },
+                    "https": {
+                        "title": "HTTPSパラメータ",
+                        "disable_sslv2": "SSLv2を無効にする",
+                        "disable_sslv3": "SSLv3を無効にする",
+                        "disable_tslv1": "TLSv1を無効にする",
+                        "disable_tslv1_1": "TLSv1.1を無効にする",
+                        "disable_tslv1_2": "TLSv1.2を無効にする",
+                        "ciphers": "暗号",
+                        "custom_ciphers": "カスタム暗号",
+                        "certificate_enabled": "証明書が有効"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "仮想ホスト",
+                    "url_pattern": "URLパターン",
+                    "least_response": "最小の応答",
+                    "https_backends": "HTTPSバックエンド",
+                    "redirect": {
+                        "title": "リダイレクト",
+                        "url": "リダイレクトURL",
+                        "type": "リダイレクトタイプ"
+                    },
+                    "load_balancer_algorithm": "ロードバランサのアルゴリズム",
+                    "persistence": {
+                        "title": "固執",
+                        "persistence_session_identifier": "持続セッション識別子",
+                        "persistence_session_to_live_time": "持続セッションの存続時間",
+                        "": "持続性なし",
+                        "IP": "IP：クライアントアドレス",
+                        "BASIC": "基本：基本認証",
+                        "URL": "URL：リクエストパラメータ",
+                        "PARM": "PARM：URIパラメータ",
+                        "COOKIE": "COOKIE：あるクッキー",
+                        "HEADER": "HEADER：あるリクエストヘッダ"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "プロトコルの種類",
+                    "nat_type": "ナットタイプ"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "ロードバランサのアルゴリズム",
+                    "persistence": {
+                        "title": "固執",
+                        "persistence_session_to_live_time": "持続セッションの存続時間",
+                        "": "持続性なし",
+                        "ip": "IP：送信元IP",
+                        "srcport": "ポート：ソース",
+                        "srcmac": "MAC：送信元MAC",
+                        "srcip_srcport": "送信元IPと送信元ポート",
+                        "srcip_dstport": "送信元IPと宛先ポート"
+                    },
+                    "algorithms": {
+                        "weight": "重量：重量による接続線形発送",
+                        "hash_srcip_srcport": "送信元ハッシュ：送信元IPおよび送信元ポートごとのハッシュ",
+                        "hash_srcip": "シンプルソースハッシュ：ソースIPごとのハッシュのみ",
+                        "symhash": "対称ハッシュ：IPおよびポートごとのラウンドトリップハッシュ",
+                        "roundrobin": "ラウンドロビン：シーケンシャルバックエンド選択"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "SSL証明書リスト",
+            "generate_csr": "CSRを生み出す",
+            "upload_certificate": "SSL証明書をアップロードする",
+            "choose_files": "1つ以上のファイルを選択"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "DSLBファームリスト",
+                "create_farm": "DSLBファームを作成する"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "システムグラフ",
+            "interfaces_graphs": "インタフェースグラフ",
+            "show_graphs": "グラフを表示",
+            "farms_graphs": "農場グラフ",
+            "select_graphs": "グラフを選択"
+        },
+        "farm_stats": "農場統計",
+        "farm_graphs": "農場グラフ",
+        "farmsguardian": {
+            "title": "農場の人々",
+            "farms_settings": "農場の設定",
+            "create_farmguardian": "Farmguardianを作成する"
+        }
+    },
+    "NETWORK": {
+        "nic": "NICリスト",
+        "vlan": {
+            "title": "VLANインタフェースリスト",
+            "create_vlan": "VLANインタフェースを作成する"
+        },
+        "virtual_interface": {
+            "title": "仮想インタフェース一覧",
+            "create_virtual_interface": "仮想インターフェースを作成する"
+        },
+        "gateway": {
+            "ipv4_gateway": "IPv64ゲートウェイ",
+            "ipv6_gateway": "IPv66ゲートウェイ",
+            "gateway_settings": "ゲートウェイ設定"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "DNSサービス",
+            "default_dns": "デフォルトは8.8.8.8です",
+            "optional": "任意",
+            "default_npt": "デフォルトはpool.ntp.orgです。",
+            "primary_server": "プライマリサーバ",
+            "secondary_server": "副サーバ",
+            "npt_service": "NPTサービス",
+            "npt_server": "NPTサーバー",
+            "snmp_service": "SNMPサービス",
+            "enable_snmp": "SNMPを有効にする",
+            "physical_interface_running": "SNMPサービスを実行している物理インタフェース",
+            "snmp_por_running": "SNMPサービスを実行しているSNMPポート",
+            "snmp_por_default": "デフォルトは161です。",
+            "conmunity_name": "コミュニティ名",
+            "ip_subnet": "アクセス権を持つIPまたはサブネット（IP /ビット）"
+        },
+        "backups": {
+            "backup_list": "バックアップリスト",
+            "upload_backup": "バックアップをアップロード",
+            "backup_file": "バックアップファイル",
+            "create_backup": "バックアップを作成する",
+            "choose_file": "ファイルを1つ選択してください"
+        },
+        "user": {
+            "settings_user": "設定ユーザー",
+            "user": "ユーザー",
+            "zapi_permissions": "ZAPIのアクセス許可",
+            "zapi_key": "ZAPIキー",
+            "change_password": "パスワードの変更",
+            "current_password": "現在のパスワード",
+            "new_password": "新しいパスワード",
+            "repeat_new_password": "新しいパスワードを再入力"
+        },
+        "logs": {
+            "log_list": "ログリスト",
+            "log_view": "ログビュー",
+            "number_lines": "行数"
+        },
+        "license": "ライセンス",
+        "support_save": {
+            "title": "サポート保存",
+            "downloaded": "このアクションが実行されると、システム情報を含むファイルがダウンロードされます。",
+            "gui": "この操作には数秒かかることがあります。GUIを参照し続けることができます。"
+        }
+    },
+    "FORMS": {
+        "name": "氏名",
+        "locality": "地域",
+        "country": "国",
+        "state_province": "州/地方",
+        "common_name": "一般名",
+        "organization": "組織",
+        "division": "除算",
+        "email_address": "電子メールアドレス",
+        "services_settings": "サービス設定",
+        "global_settings": "グローバル設定",
+        "virtual_ip_and_port": "仮想IPとポート",
+        "backend": "バックエンド",
+        "interval": "インターバル",
+        "cut_connections": "接続を切断する",
+        "description": "説明",
+        "copy_rule": "コピールール",
+        "rule_to_copy": "コピーする規則",
+        "seconds": "秒",
+        "log": "ログ",
+        "address": "自宅住所",
+        "virtual_interface_name": "仮想インタフェース名",
+        "parent_interface": "親インターフェース",
+        "vlan_name": "VLAN名",
+        "farmguardian": "農場の守護者",
+        "load_balancer_algorithm": "ロードバランサのアルゴリズム",
+        "health_checks_for_backend": "バックエンドのヘルスチェック",
+        "help_form": {
+            "help_name": "説明テキスト、この名前はこの証明書を識別するために使用されます。",
+            "help_alert_name": "ファームが停止しているときにのみ編集可能です。",
+            "help_locality": "あなたの組織が所在する市。",
+            "help_country": "組織が所在する国（2文字）",
+            "help_state_province": "組織が所在する州または県。",
+            "help_common_name": "サーバーのFQDN。 例：domain.com、mail.domain.com、または* .domain.com。",
+            "help_organization": "あなたの組織/会社の正式な正式名称（例：Zevenet Co.）。",
+            "help_division": "あなたの部署 「IT」、「Web」、「オフィス」など。",
+            "help_email_address": "あなたのメールアドレス。"
+        }
+    },
+    "TABLES": {
+        "name": "氏名",
+        "farmname": "氏名",
+        "profile": "会社",
+        "vip": "仮想IP",
+        "vport": "仮想ポート",
+        "status": "状態",
+        "actions": "アクション",
+        "id": " ID",
+        "ip": " IP",
+        "address": "自宅住所",
+        "port": "ポート",
+        "timeout": "タイムアウト",
+        "weight": "重要度",
+        "CN": "一般名",
+        "type": "タイプ",
+        "file": "フィレット",
+        "issuer": "発行者",
+        "creation": "に作成",
+        "expiration": "期限切れ",
+        "priority": "優先",
+        "interface": "インタフェース",
+        "service": "サービス",
+        "client": "クライアント",
+        "sessions": "セッションズ",
+        "session_id": "セッションID",
+        "backend_id": "バックエンドID",
+        "command": "コマンド",
+        "description": "説明",
+        "farms": "農場",
+        "farm": "農場",
+        "gateway": "ゲートウェイ",
+        "netmask": "ネットマスク",
+        "mac": "マック",
+        "ipv4_ipv6": "IPアドレス（IPXアドレス/ IPX4）",
+        "vlan_tag": "VLANタグ",
+        "date": "日付",
+        "log": "ログ",
+        "established": "確立されたConns",
+        "pending": "保留中のコーン",
+        "No": "いいえ",
+        "found": "発見"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "必要とされる",
+        "name_not_valid": "有効ではありません。使用できるのは英数字とダッシュ（ - ）だけです。",
+        "port_not_valid": "有効ではありません。単一のポート、複数のポート、またはポートの範囲（例：80または80,81または80：90）を定義することが可能です。",
+        "greater_than_0": "0より大きくなければなりません",
+        "only_two_characters": "2文字までです。",
+        "valid_email": "有効なメールアドレスである必要があります。",
+        "not_match": "一致していません。",
+        "farm": {
+            "delete": "農場 <strong>{{param}}</strong> 削除されました。",
+            "delete_farm_service": "農場 <strong>{{param}}</strong> {{param2}}は正常に削除されました。",
+            "confirm_delete": "{{param}}ファーム名を削除してもよろしいですか？",
+            "stop": "農場 <strong>{{param}}</strong> {{param2}}は正常に処理されました。",
+            "created": "農場 <strong>{{param}}</strong> 正常に作成されました。",
+            "restarted": "農場 <strong>{{param}}</strong> 正常に再起動されました。",
+            "backend_created": "バックエンドは正常に作成されました。",
+            "profile_changed": "プロファイルは{{param}}に正常に変更されました。",
+            "farmguardian_disabled": "農場の保護者は無事に無効にされました。",
+            "farmguardian_changed": "農場の守護者は{{param}}に変更されました。",
+            "farmguardian_created": "滞在期間の長さによって発生する <strong>{{param}}</strong> farmguardianが正常に作成されました。",
+            "farmguardian_update": "滞在期間の長さによって発生する <strong>{{param}}</strong> farmguardianは正常に更新されました",
+            "farmguardian_confirm_delete": "{{param}}ファームガードを削除してもよろしいですか？",
+            "farmguardian_delete": "滞在期間の長さによって発生する <strong>{{param}}</strong> farmguardianは正常に削除されました。",
+            "updated": "ファームは正常に更新されました。",
+            "delete_farm_of_farmguardian": "農場の農場の{{param}} {{param2}}ファームを削除してよろしいですか？",
+            "backend_confirm_delete": "バックエンド{{param}}を削除してよろしいですか？",
+            "backend_deleted": "バックエンド <strong>{{param}}</strong> 削除されました",
+            "backend_maintenance": "バックエンド <strong>{{param}}</strong> {{param2}}は成功しました。",
+            "service_created": "サービス <strong>{{param}}</strong> 正常に作成されました。",
+            "service_deleted": "サービス <strong>{{param}}</strong> 削除されました。",
+            "service_update": "サービス <strong>{{param}}</strong> 更新に成功しました。"
+        },
+        "network": {
+            "gateway_update": "滞在期間の長さによって発生する <strong>{{param}}</strong> ゲートウェイは正常に更新されました。",
+            "gateway_confirm_unset": "現在のゲートウェイを設定解除してよろしいですか？",
+            "gateway_confirm_unset_interface": "{{param}}ゲートウェイの設定を解除してもよろしいですか？",
+            "gateway_unconfigured": "滞在期間の長さによって発生する <strong>{{param}}</strong> ゲートウェイは正常に構成解除されました。",
+            "nic_update": "滞在期間の長さによって発生する <strong>{{param}}</strong> NICは正常に更新されました。",
+            "nic_unconfigured": "滞在期間の長さによって発生する <strong>{{param}}</strong> NICは正常に構成解除されました。",
+            "nic_is": "滞在期間の長さによって発生する <strong>{{param}}</strong> NICは{{param2}}です",
+            "virtual_interface_created": "滞在期間の長さによって発生する <strong>{{param}}</strong> 仮想インターフェースは正常に作成されました。",
+            "virtual_interface_updated": "滞在期間の長さによって発生する <strong>{{param}}</strong> 仮想インターフェースは正常に更新されました。",
+            "virtual_interface_confirm_deleted": "{{param}}仮想インターフェースを削除してよろしいですか？",
+            "virtual_interface_deleted": "滞在期間の長さによって発生する <strong>{{param}}</strong> 仮想インターフェースは正常に削除されました。",
+            "vlan_created": "滞在期間の長さによって発生する <strong>{{param}}</strong> VLANは正常に作成されました。",
+            "vlan_update": "滞在期間の長さによって発生する <strong>{{param}}</strong> VLANは正常に更新されました。",
+            "vlan_confirm_delete": "{{param}} VLANを削除してよろしいですか？",
+            "vlan_deleted": "滞在期間の長さによって発生する <strong>{{param}}</strong> VLANは正常に削除されました。",
+            "vlan_is": "滞在期間の長さによって発生する <strong>{{param}}</strong> VLANは{{param2}}です"
+        },
+        "system": {
+            "backup_created": "バックアップ <strong>{{param}}</strong> 正常に作成されました。",
+            "backup_uploaded": "バックアップ <strong>{{param}}</strong> アップロードに成功しました。",
+            "backup_confirm_deleted": "バックアップ{{param}}を削除してよろしいですか？",
+            "backup_deleted": "バックアップ <strong>{{param}}</strong> 削除されました。",
+            "backup_applied": "バックアップ <strong>{{param}}</strong> 正常に適用されました。",
+            "backup_downloaded": "バックアップ <strong>{{backup}}</strong> ダウンロードに成功しました。",
+            "log_downloaded": "ログ <strong>{{param}}</strong> ダウンロードに成功しました。",
+            "service_updated": "滞在期間の長さによって発生する <strong>{{param}}</strong> サービスは正常に更新されました。",
+            "support_save_downloaded": "滞在期間の長さによって発生する <strong> サポート保存 </strong> ダウンロードに成功しました",
+            "user_updated": "ユーザーは正常に更新されました。"
+        },
+        "certificate": {
+            "csr_generated": "CSR <strong>{{param}}</strong> 正常に生成されました。",
+            "uploaded": "証明書 <strong>{{param}}</strong> アップロードに成功しました。",
+            "deleted": "証明書 <strong>{{param}}</strong> 削除されました。",
+            "downloaded": "証明書 <strong>{{param}}</strong> ダウンロードに成功しました。"
+        }
+    },
+    "BUTTONS": {
+        "new_service": "新サービス",
+        "create": "作ります",
+        "cancel": "キャンセル",
+        "submit": "送信",
+        "save": "保存",
+        "generate": "生成する",
+        "update": "更新版",
+        "upload": "アップロード",
+        "generate_key_random": "ランダムキーを生成する",
+        "generate_support_save": "サポートを生成保存",
+        "clear": "クリア",
+        "start": "start",
+        "apply": "適用します",
+        "add": "Add をクリックします。",
+        "edit": "編集"
+    },
+    "ZEVENET": {
+        "go_to_home": "ホームに行く",
+        "error_404": "404ページが見つかりません",
+        "page_does_not_exist": "探しているページは存在しません",
+        "no_farms_found": "農場が見つかりません"
+    },
+    "CHARTS": {
+        "established": "確立されたConns",
+        "pending": "保留中のコーン"
+    },
+    "PLACEHOLDERS": {
+        "graph": "グラフを選択",
+        "profile": "プロフィールを選択",
+        "virtual_ip": "仮想IPを選択",
+        "parent_interface": "親インターフェースを選択",
+        "interface": "インターフェースを選択"
+    },
+    "AUTH": {
+        "logout": "ログアウト",
+        "login": {
+            "text": "ユーザー名とパスワードを使ってサインインする",
+            "username": "ユーザー名",
+            "password": "パスワード",
+            "button": "サインイン",
+            "user_required": "ユーザーは必須です。",
+            "user_real": "ユーザーは本物のはずです",
+            "password_required": "パスワードが必要です",
+            "password_contains": "パスワードには{{param}}から{{param2}}文字を含める必要があります",
+            "success": "成功！",
+            "success_msg": "あなたは正常にログインしました。"
+        }
+    }
+}

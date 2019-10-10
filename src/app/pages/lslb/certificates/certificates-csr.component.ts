@@ -39,17 +39,26 @@ export class CertificatesCsrComponent {
 		});
 	}
 
+	showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+	    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+	      .then(data => {
+	        if (func === 'toast') {
+	          this.service.showToast('success', '', data);
+		} else if (func === 'window') {
+	          return window.confirm(data);
+	        }
+	      });
+	}
+
 	onSubmit(): void {
 		this.service.post('certificates', this.formGroup.getRawValue())
 		.subscribe(
 			(data) => { this.resAction = data; },
 			(error) => { },
 			() => {
-				this.service.showToast(
-					'success',
-					 '',
-					 'The CSR <strong>' + this.formGroup.controls.name.value + '</strong> has been generated successfully.',
-				);
+				this.showMessageTranslated(
+					'SYSTEM_MESSAGES.certificate.csr_generated', 'toast', this.formGroup.controls.name.value,
+					);
 				this.router.navigate(['../'], {relativeTo: this.route});
 			});
 	}

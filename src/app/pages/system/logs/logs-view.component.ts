@@ -29,15 +29,22 @@ export class LogsViewComponent implements  OnInit {
   lines: any = 50;
 
   columns: Array<any> = [
-    {field: 'id', header: '#', width: '10%'},
-    {field: 'log', header: 'Log', width: '80%'},
+    {field: 'id', header: '', width: '10%'},
+    {field: 'log', header: '', width: '80%'},
   ];
 
-  constructor(private service: ZevenetService, private route: ActivatedRoute) { }
+  constructor(private service: ZevenetService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
     this.getLog();
+    this.getLangTranslated('TABLES', this.columns);
+  }
+
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
   }
 
   getLog(lines = false): void {

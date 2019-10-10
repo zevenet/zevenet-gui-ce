@@ -14,6 +14,7 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from '../@core/zevenet/components/not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MyBreadcrumbsResolver } from '../@core/zevenet/services/breadcrumb.resolver';
 
 const routes: Routes = [{
   path: '',
@@ -25,31 +26,36 @@ const routes: Routes = [{
     path: 'lslb',
     loadChildren: './lslb/lslb.module#LslbModule',
     data: {
-        breadcrumbs: 'LSLB',
+        breadcrumbs: MyBreadcrumbsResolver,
+        text: 'LSLB',
     },
   }, {
      path: 'dslb',
     loadChildren: './dslb/dslb.module#DslbModule',
     data: {
-        breadcrumbs: 'DSLB',
+        breadcrumbs: MyBreadcrumbsResolver,
+        text: 'DSLB',
     },
   }, {
     path: 'monitoring',
     loadChildren: './monitoring/monitoring.module#MonitoringModule',
     data: {
-        breadcrumbs: 'Monitoring',
+        breadcrumbs: MyBreadcrumbsResolver,
+        text: 'Monitoring',
     },
   }, {
     path: 'network',
     loadChildren: './network/network.module#NetworkModule',
     data: {
-        breadcrumbs: 'Network',
+        breadcrumbs: MyBreadcrumbsResolver,
+        text: 'Network',
     },
   }, {
     path: 'system',
     loadChildren: './system/system.module#SystemModule',
     data: {
-        breadcrumbs: 'System',
+        breadcrumbs: MyBreadcrumbsResolver,
+        text: 'System',
     },
   }, {
     path: '',
@@ -66,4 +72,5 @@ const routes: Routes = [{
   exports: [RouterModule],
 })
 export class PagesRoutingModule {
+
 }

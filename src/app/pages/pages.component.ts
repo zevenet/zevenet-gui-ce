@@ -9,8 +9,11 @@
 **/
 
 import { Component } from '@angular/core';
-import {ViewEncapsulation} from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 import { MENU_ITEMS } from './pages-menu';
+import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent } from '@ngx-translate/core';
+import { isObject } from 'util';
 
 @Component({
   selector: 'zevenet-pages',
@@ -23,10 +26,50 @@ import { MENU_ITEMS } from './pages-menu';
   styleUrls: ['./pages.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
+
 export class PagesComponent {
 
-  constructor() {
+  value: any;
+  menu: any = [];
+  menu_struct: any = MENU_ITEMS;
+
+  constructor(public translate: TranslateService) {
+    this.refreshLangMenu();
+    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.refreshLangMenu();
+    });
+    translate.onDefaultLangChange.subscribe((event: LangChangeEvent) => {
+      this.refreshLangMenu();
+    });
   }
 
-  menu = MENU_ITEMS;
+  refreshLangMenu(): void {
+    this.menu_struct.forEach((x, index) => {
+      this.menu[index] = Object.assign({}, x);
+      if (x.children) {
+        const children = [];
+        x.children.forEach((child, ind) =>  {
+          children[ind] = Object.assign({}, child);
+        });
+        this.menu[index].children = children;
+      }
+    });
+
+    this.translate.get('PAGES-MENU').subscribe((valor) => {
+      this.value = valor;
+      if (isObject(this.value))
+        this.menu.forEach((element, index) => {
+          const item = element.title.toLowerCase().replace(' ', '_');
+          element.title = this.value[item].title;
+          if (element.children) {
+            element.children.forEach((child, childindex) => {
+              const subitem = child.title.toLowerCase().replace(' ', '_');
+              child.title = this.value[subitem].title;
+            });
+          }
+        });
+    });
+  }
 }
+
+

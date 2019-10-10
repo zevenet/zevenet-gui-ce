@@ -8,7 +8,7 @@
   * See License.txt in the project root for license information.
 **/
 
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
  name: 'filterGraphs',
@@ -16,10 +16,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 export class FilterGraphs implements PipeTransform {
   transform(value: any, args?: any) {
-	    if (typeof(value) !== 'undefined') {
-	       return 'data:image/png;base64,' + value;
-	    } else {
-	       return '';
-	    }
+    if (typeof(value) !== 'undefined') {
+      return 'data:image/png;base64,' + value;
+    } else {
+      return '';
+    }
 	}
 }

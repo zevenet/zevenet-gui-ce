@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "Панель"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "Фермы"
+        },
+        "ssl_certificates": {
+            "title": "SSL-сертификаты"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "мониторинг"
+        },
+        "graphs": {
+            "title": "Графики"
+        },
+        "farm_stats": {
+            "title": "Статистика фермы"
+        },
+        "farmguardians": {
+            "title": "Farmguardians"
+        },
+        "network": {
+            "title": "сеть"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "Виртуальные интерфейсы"
+        },
+        "gateway": {
+            "title": "Шлюз оплаты"
+        },
+        "system": {
+            "title": "Платформа"
+        },
+        "remote_services": {
+            "title": "Удаленные Услуги"
+        },
+        "backups": {
+            "title": "Резервные копии"
+        },
+        "user": {
+            "title": "Пользователь"
+        },
+        "logs": {
+            "title": "Журналы"
+        },
+        "license": {
+            "title": "Лицензия"
+        },
+        "support_save": {
+            "title": "Поддержка Сохранить"
+        },
+        "create": {
+            "title": "создать"
+        },
+        "edit": {
+            "title": "Редактировать"
+        },
+        "configure": {
+            "title": "Установка"
+        },
+        "upload": {
+            "title": "Загрузить"
+        },
+        "view": {
+            "title": "Вид"
+        },
+        "generate_csr": {
+            "title": "Создать CSR"
+        }
+    },
+    "OBJECTS": {
+        "farm": "ферма",
+        "certificate": "сертификат",
+        "farmguardian": "farmguardian",
+        "VLAN": "VLAN",
+        "virtual interface": "виртуальный интерфейс",
+        "backup": "резервная копия",
+        "backend": "бэкэнда",
+        "session": "Сессия"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "Профессиональные продукты"
+        },
+        "professional_services": {
+            "title": "Профессиональные услуги"
+        },
+        "news": {
+            "title": "Новости"
+        },
+        "resources": {
+            "title": "Ресурсы"
+        },
+        "system_stats": {
+            "title": "Статистика системы",
+            "cpu": "CPU ",
+            "memory": "Memory",
+            "load": "нагрузка",
+            "cores": "Цвета"
+        },
+        "system_information": {
+            "title": "Информация о системе",
+            "zevenet_version": "Версия Zevenet",
+            "appliance_version": "Версия устройства",
+            "kernel_version": "Версия ядра",
+            "hostname": "Hostname",
+            "system_date": "Дата системы"
+        },
+        "nic_interfaces": {
+            "title": "Интерфейсы NIC",
+            "megabytes": "Мегабайт (МБ)"
+        },
+        "farm_list": {
+            "title": "Список ферм",
+            "farmname": "Имя",
+            "profile": "Профиль",
+            "status": "Статус"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "LSLB Farm List",
+                "create_farm": "Создать LSLB Farm"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "слушатель",
+                    "advanced_settings": {
+                        "title": "Расширенные настройки",
+                        "rewrite_location_headers": "Переписать заголовки местоположения",
+                        "http_verbs_accepted": "HTTP глаголы принимаются",
+                        "backend_connection_timeout": "Тайм-аут подключения к серверу",
+                        "backend_response_timeout": "Тайм-аут ответа сервера",
+                        "frequency_to_check_resurrected_backends": "Частота проверки воскресших бэкэндов",
+                        "client_request_timeout": "Тайм-аут запроса клиента",
+                        "message_error_414": "Сообщение об ошибке 414",
+                        "message_error_500": "Сообщение об ошибке 500",
+                        "message_error_501": "Сообщение об ошибке 501",
+                        "message_error_503": "Сообщение об ошибке 503"
+                    },
+                    "https": {
+                        "title": "Параметры HTTPS",
+                        "disable_sslv2": "Отключить SSLv2",
+                        "disable_sslv3": "Отключить SSLv3",
+                        "disable_tslv1": "Отключить TLSv1",
+                        "disable_tslv1_1": "Отключить TLSv1.1",
+                        "disable_tslv1_2": "Отключить TLSv1.2",
+                        "ciphers": "шифры",
+                        "custom_ciphers": "Пользовательские шифры",
+                        "certificate_enabled": "Сертификат включен"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "Виртуальный хост",
+                    "url_pattern": "Шаблон URL",
+                    "least_response": "Наименьший ответ",
+                    "https_backends": "HTTPS Backends",
+                    "redirect": {
+                        "title": "переадресовывать",
+                        "url": "URL перенаправления",
+                        "type": "Тип перенаправления"
+                    },
+                    "load_balancer_algorithm": "Алгоритм балансировки нагрузки",
+                    "persistence": {
+                        "title": "Настойчивость",
+                        "persistence_session_identifier": "Постоянный идентификатор сеанса",
+                        "persistence_session_to_live_time": "Настойчивость сеанс время жить",
+                        "": "Нет настойчивости",
+                        "IP": "IP: адрес клиента",
+                        "BASIC": "ОСНОВНЫЕ: Базовая аутентификация",
+                        "URL": "URL: параметр запроса",
+                        "PARM": "PARM: параметр URI",
+                        "COOKIE": "КУКИ: Некое печенье",
+                        "HEADER": "HEADER: определенный заголовок запроса"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "Тип протокола",
+                    "nat_type": "Нат типа"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "Алгоритм балансировки нагрузки",
+                    "persistence": {
+                        "title": "Настойчивость",
+                        "persistence_session_to_live_time": "Настойчивость сеанс время жить",
+                        "": "Нет настойчивости",
+                        "ip": "IP: исходный IP",
+                        "srcport": "Порт: Источник",
+                        "srcmac": "MAC: источник MAC",
+                        "srcip_srcport": "Исходный IP и исходный порт",
+                        "srcip_dstport": "IP-адрес источника и порт назначения"
+                    },
+                    "algorithms": {
+                        "weight": "Вес: соединение линейной диспетчеризации по весу",
+                        "hash_srcip_srcport": "Source Hash: хэш для исходного IP и исходного порта",
+                        "hash_srcip": "Простой исходный хеш: хэш только для исходного IP",
+                        "symhash": "Симметричное хеширование: хэш в оба конца по IP и порту",
+                        "roundrobin": "Round Robin: последовательный выбор бэкэнда"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "Список сертификатов SSL",
+            "generate_csr": "Создать CSR",
+            "upload_certificate": "Загрузить сертификат SSL",
+            "choose_files": "Выберите один или несколько файлов"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "DSLB Farm List",
+                "create_farm": "Создать DSLB Farm"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "Системные графики",
+            "interfaces_graphs": "Графики интерфейсов",
+            "show_graphs": "Показать графики",
+            "farms_graphs": "Фермы Графики",
+            "select_graphs": "Выберите Графики"
+        },
+        "farm_stats": "Статистика фермы",
+        "farm_graphs": "Фермы Графики",
+        "farmsguardian": {
+            "title": "Farmguardians",
+            "farms_settings": "Настройки ферм",
+            "create_farmguardian": "Создать Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "Список сетевых карт",
+        "vlan": {
+            "title": "Список интерфейсов VLAN",
+            "create_vlan": "Создать интерфейс VLAN"
+        },
+        "virtual_interface": {
+            "title": "Список виртуальных интерфейсов",
+            "create_virtual_interface": "Создать виртуальный интерфейс"
+        },
+        "gateway": {
+            "ipv4_gateway": "Шлюз IPv4",
+            "ipv6_gateway": "Шлюз IPv6",
+            "gateway_settings": "Настройки шлюза"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "Служба DNS",
+            "default_dns": "По умолчанию это 8.8.8.8",
+            "optional": "Опция",
+            "default_npt": "По умолчанию это pool.ntp.org",
+            "primary_server": "Основной сервер",
+            "secondary_server": "Вторичный сервер",
+            "npt_service": "NPT Service",
+            "npt_server": "Сервер NPT",
+            "snmp_service": "Служба SNMP",
+            "enable_snmp": "Включить SNMP",
+            "physical_interface_running": "Физический интерфейс, где работает служба SNMP",
+            "snmp_por_running": "Порт SNMP, где работает служба SNMP",
+            "snmp_por_default": "По умолчанию это 161.",
+            "conmunity_name": "Имя сообщества",
+            "ip_subnet": "IP или подсеть с доступом (IP / бит)"
+        },
+        "backups": {
+            "backup_list": "Резервный список",
+            "upload_backup": "Загрузить резервную копию",
+            "backup_file": "Резервный файл",
+            "create_backup": "Создание резервной копии",
+            "choose_file": "Выберите один файл"
+        },
+        "user": {
+            "settings_user": "Настройки пользователя",
+            "user": "Пользователь",
+            "zapi_permissions": "ZAPI Permissions",
+            "zapi_key": "Ключ ZAPI",
+            "change_password": "Пароль",
+            "current_password": "Текущий пароль",
+            "new_password": "Новый пароль",
+            "repeat_new_password": "повторите новый пароль"
+        },
+        "logs": {
+            "log_list": "Список журналов",
+            "log_view": "Просмотр журнала",
+            "number_lines": "Количество строк"
+        },
+        "license": "Лицензия",
+        "support_save": {
+            "title": "Поддержка Сохранить",
+            "downloaded": "Когда это действие выполнено, будет загружен файл с системной информацией.",
+            "gui": "Это действие может занять несколько секунд, вы можете продолжить просмотр графического интерфейса."
+        }
+    },
+    "FORMS": {
+        "name": "Имя",
+        "locality": "Местонахождение",
+        "country": "Страна",
+        "state_province": "Штат / провинция",
+        "common_name": "Распространенное имя",
+        "organization": "организация",
+        "division": "Разделение",
+        "email_address": "Адрес электронной почты",
+        "services_settings": "Настройки услуг",
+        "global_settings": "Глобальные настройки",
+        "virtual_ip_and_port": "Виртуальный IP и порт",
+        "backend": "Backend",
+        "interval": "Интервал",
+        "cut_connections": "Разрезать соединения",
+        "description": "Описание",
+        "copy_rule": "Скопировать правило",
+        "rule_to_copy": "Правило копировать",
+        "seconds": "секунды",
+        "log": "Журнал",
+        "address": "Адрес",
+        "virtual_interface_name": "Имя виртуального интерфейса",
+        "parent_interface": "Родительский интерфейс",
+        "vlan_name": "Имя VLAN",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "Алгоритм балансировки нагрузки",
+        "health_checks_for_backend": "Проверка здоровья на бэкэнд",
+        "help_form": {
+            "help_name": "Описательный текст, это имя будет использоваться для идентификации этого сертификата.",
+            "help_alert_name": "Редактируется только когда ферма не работает.",
+            "help_locality": "Город, в котором находится ваша организация.",
+            "help_country": "Страна (два символа), в которой находится ваша организация.",
+            "help_state_province": "Штат или провинция, в которой находится ваша организация.",
+            "help_common_name": "Полное доменное имя сервера. Пример: domain.com, mail.domain.com или * .domain.com.",
+            "help_organization": "Полное юридическое название вашей организации / компании (например, Zevenet Co.).",
+            "help_division": "Ваш отдел; такие как «ИТ», «Интернет», «Офис» и т. д.",
+            "help_email_address": "Ваш адрес электронной почты."
+        }
+    },
+    "TABLES": {
+        "name": "Имя",
+        "farmname": "Имя",
+        "profile": "Профиль",
+        "vip": "Виртуальный IP",
+        "vport": "Виртуальный порт",
+        "status": "Статус",
+        "actions": "Действия",
+        "id": " ID",
+        "ip": " IP",
+        "address": "Адрес",
+        "port": "порт",
+        "timeout": "Истек",
+        "weight": "Вес",
+        "CN": "Распространенное имя",
+        "type": "Тип:",
+        "file": "филе",
+        "issuer": "эмитент",
+        "creation": "Создать на",
+        "expiration": "Истекает на",
+        "priority": "приоритет",
+        "interface": "Интерфейс",
+        "service": "Service",
+        "client": "клиент",
+        "sessions": "Сессии",
+        "session_id": "ID сессии",
+        "backend_id": "Backend ID",
+        "command": "команда",
+        "description": "Описание",
+        "farms": "Фермы",
+        "farm": "- ",
+        "gateway": "Шлюз оплаты",
+        "netmask": "Netmask",
+        "mac": "MAC",
+        "ipv4_ipv6": "IP-адрес (IPv4 / IPv6)",
+        "vlan_tag": "Тег VLAN",
+        "date": "Время",
+        "log": "Журнал",
+        "established": "Штатные Коннс",
+        "pending": "В ожидании Conns",
+        "No": "Нет",
+        "found": "найденный"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "требуется",
+        "name_not_valid": "недопустимо, возможны только буквенно-цифровые символы и тире (-).",
+        "port_not_valid": "недопустимо, возможно определить один порт, несколько портов или диапазоны портов (например: 80 или 80,81 или 80: 90)",
+        "greater_than_0": "должен быть больше чем 0",
+        "only_two_characters": "может иметь только два символа.",
+        "valid_email": "должен быть действительный адрес электронной почты.",
+        "not_match": "не совпадает.",
+        "farm": {
+            "delete": "Ферма <strong>{{param}}</strong> был успешно удален.",
+            "delete_farm_service": "Ферма <strong>{{param}}</strong> {{param2}} был успешно удален.",
+            "confirm_delete": "Вы уверены, что хотите удалить имя фермы {{param}}?",
+            "stop": "Ферма <strong>{{param}}</strong> {{param2}} успешно отредактирован.",
+            "created": "Ферма <strong>{{param}}</strong> был успешно создан.",
+            "restarted": "Ферма <strong>{{param}}</strong> был перезапущен успешно.",
+            "backend_created": "Бэкэнд был успешно создан.",
+            "profile_changed": "Профиль был успешно изменен на {{param}}.",
+            "farmguardian_disabled": "Фермер был успешно отключен.",
+            "farmguardian_changed": "Хозяин фермы был успешно изменен на {{param}}.",
+            "farmguardian_created": "  <strong>{{param}}</strong> Farmguardian был создан успешно.",
+            "farmguardian_update": "  <strong>{{param}}</strong> Farmguardian был успешно обновлен",
+            "farmguardian_confirm_delete": "Вы уверены, что хотите удалить фермера {{param}}?",
+            "farmguardian_delete": "  <strong>{{param}}</strong> Farmguardian был успешно удален.",
+            "updated": "Ферма была успешно обновлена.",
+            "delete_farm_of_farmguardian": "Вы уверены, что хотите удалить ферму {{param}} {{param2}} фермера?",
+            "backend_confirm_delete": "Вы уверены, что хотите удалить серверную часть {{param}}?",
+            "backend_deleted": "Бэкэнд <strong>{{param}}</strong> был успешно удален",
+            "backend_maintenance": "Бэкэнд <strong>{{param}}</strong> успешно прошел {{param2}}.",
+            "service_created": "Обслуживание <strong>{{param}}</strong> был успешно создан.",
+            "service_deleted": "Обслуживание <strong>{{param}}</strong> был успешно удален.",
+            "service_update": "Обслуживание <strong>{{param}}</strong> был успешно обновлен."
+        },
+        "network": {
+            "gateway_update": "  <strong>{{param}}</strong> Шлюз был успешно обновлен.",
+            "gateway_confirm_unset": "Вы уверены, что хотите сбросить текущий шлюз?",
+            "gateway_confirm_unset_interface": "Вы уверены, что хотите удалить шлюз {{param}}?",
+            "gateway_unconfigured": "  <strong>{{param}}</strong> Шлюз был успешно настроен.",
+            "nic_update": "  <strong>{{param}}</strong> NIC был успешно обновлен.",
+            "nic_unconfigured": "  <strong>{{param}}</strong> Сетевая карта успешно настроена.",
+            "nic_is": "  <strong>{{param}}</strong> NIC - это {{param2}}",
+            "virtual_interface_created": "  <strong>{{param}}</strong> Виртуальный интерфейс был успешно создан.",
+            "virtual_interface_updated": "  <strong>{{param}}</strong> Виртуальный интерфейс был успешно обновлен.",
+            "virtual_interface_confirm_deleted": "Вы уверены, что хотите удалить виртуальный интерфейс {{param}}?",
+            "virtual_interface_deleted": "  <strong>{{param}}</strong> Виртуальный интерфейс был успешно удален.",
+            "vlan_created": "  <strong>{{param}}</strong> VLAN был успешно создан.",
+            "vlan_update": "  <strong>{{param}}</strong> VLAN успешно обновлен.",
+            "vlan_confirm_delete": "Вы уверены, что хотите удалить VLAN {{param}}?",
+            "vlan_deleted": "  <strong>{{param}}</strong> VLAN был успешно удален.",
+            "vlan_is": "  <strong>{{param}}</strong> VLAN - это {{param2}}"
+        },
+        "system": {
+            "backup_created": "Бэкап <strong>{{param}}</strong> был успешно создан.",
+            "backup_uploaded": "Бэкап <strong>{{param}}</strong> был успешно загружен.",
+            "backup_confirm_deleted": "Вы уверены, что хотите удалить резервную копию {{param}}?",
+            "backup_deleted": "Бэкап <strong>{{param}}</strong> был успешно удален.",
+            "backup_applied": "Бэкап <strong>{{param}}</strong> был успешно применен.",
+            "backup_downloaded": "Бэкап <strong>{{backup}}</strong> был успешно загружен.",
+            "log_downloaded": "Журнал <strong>{{param}}</strong> был успешно загружен.",
+            "service_updated": "  <strong>{{param}}</strong> Сервис был успешно обновлен.",
+            "support_save_downloaded": "  <strong> Поддержка Сохранить </strong> был успешно загружен",
+            "user_updated": "Пользователь был успешно обновлен."
+        },
+        "certificate": {
+            "csr_generated": "CSR <strong>{{param}}</strong> был успешно создан.",
+            "uploaded": "Свидетельство <strong>{{param}}</strong> был успешно загружен.",
+            "deleted": "Свидетельство <strong>{{param}}</strong> был успешно удален.",
+            "downloaded": "Свидетельство <strong>{{param}}</strong> был успешно загружен."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "Новый Сервис",
+        "create": "создать",
+        "cancel": "Отмена",
+        "submit": "Представить",
+        "save": "Сохранить",
+        "generate": "Порождать",
+        "update": "Обновить",
+        "upload": "Загрузить",
+        "generate_key_random": "Создать случайный ключ",
+        "generate_support_save": "Создать поддержку Сохранить",
+        "clear": "Очистить",
+        "start": "Начало",
+        "apply": "применять",
+        "add": "Добавить",
+        "edit": "Редактировать"
+    },
+    "ZEVENET": {
+        "go_to_home": "Иди домой",
+        "error_404": "Страница 404 не найдена",
+        "page_does_not_exist": "Страница, которую вы искали, не существует",
+        "no_farms_found": "Фермы не найдены"
+    },
+    "CHARTS": {
+        "established": "Штатные Коннс",
+        "pending": "В ожидании Conns"
+    },
+    "PLACEHOLDERS": {
+        "graph": "Выберите график",
+        "profile": "Выберите профиль",
+        "virtual_ip": "Выберите виртуальный IP",
+        "parent_interface": "Выберите родительский интерфейс",
+        "interface": "Выберите интерфейс"
+    },
+    "AUTH": {
+        "logout": "Выйти",
+        "login": {
+            "text": "Войдите под своим именем пользователя и паролем",
+            "username": "Имя пользователя",
+            "password": " Пароль",
+            "button": "войдите",
+            "user_required": "Требуется пользователь!",
+            "user_real": "Пользователь должен быть настоящим",
+            "password_required": "необходим пароль",
+            "password_contains": "Пароль должен содержать символы от {{param}} до {{param2}}",
+            "success": "Успех!",
+            "success_msg": "Вы успешно вошли в систему."
+        }
+    }
+}

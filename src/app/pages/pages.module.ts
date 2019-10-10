@@ -9,7 +9,6 @@
 **/
 
 import { NgModule } from '@angular/core';
-
 import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
@@ -19,11 +18,14 @@ import { ToBooleanPipe } from './pipes/to-boolean.pipe';
 import { ZevenetService } from '../@core/zevenet/services/zevenet.service';
 import { NotFoundComponent } from '../@core/zevenet/components/not-found/not-found.component';
 import { ZevenetLayoutComponent } from '../@theme/layout/zevenet.layout';
+import { ZevenetBreadcrumbsComponent } from '../@theme/layout/breadcrumbs/zevenet-breadcrumbs.component';
+import { TranslateService } from '@ngx-translate/core';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
   NotFoundComponent,
   ZevenetLayoutComponent,
+  ZevenetBreadcrumbsComponent,
 ];
 
 @NgModule({
@@ -40,6 +42,7 @@ const PAGES_COMPONENTS = [
   providers: [
     ToBooleanPipe,
     ZevenetService,
+    TranslateService,
   ],
 })
 export class PagesModule {

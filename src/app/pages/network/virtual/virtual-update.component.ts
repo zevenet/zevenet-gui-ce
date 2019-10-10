@@ -72,6 +72,17 @@ export class VirtualUpdateComponent implements  OnInit {
     this.toastForce.data.name = this.name;
   }
 
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
+
   isNecessaryForce(object) {
     if (object.hasOwnProperty('force')) {
       if (object.force === 'true') {
@@ -163,11 +174,7 @@ export class VirtualUpdateComponent implements  OnInit {
             }, this);
             this.interfaceValues = this.form.value;
             this.denySubmit = false;
-            this.service.showToast(
-							'success',
-							 '',
-							 'The <strong>' + this.name + '</strong> Virtual interface has been updated successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.network.virtual_interface_updated', 'toast', this.name);
           });
     }
   }

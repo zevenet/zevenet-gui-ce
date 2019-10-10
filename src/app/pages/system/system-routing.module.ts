@@ -21,6 +21,7 @@ import { LogsComponent } from './logs/logs.component';
 import { LogsViewComponent } from './logs/logs-view.component';
 import { LicenseComponent } from './license/license.component';
 import { SupportSaveComponent } from './support-save/support-save.component';
+import { MyBreadcrumbsResolver } from '../../@core/zevenet/services/breadcrumb.resolver';
 
 const routes: Routes = [{
   path: '',
@@ -34,13 +35,15 @@ const routes: Routes = [{
     path: 'remote-services',
     component: RemoteServicesComponent,
     data: {
-      breadcrumbs: 'Remote Services',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'Remote Services',
     },
   }, {
     path: 'backups',
     component: SystemComponent,
     data: {
-      breadcrumbs: 'Backups',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'Backups',
     },
     children: [
       {
@@ -54,13 +57,15 @@ const routes: Routes = [{
         path: 'create',
         component: BackupsCreateComponent,
         data: {
-          breadcrumbs: 'Create',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Create',
         },
       }, {
         path: 'upload',
         component: BackupsUploadComponent,
         data: {
-          breadcrumbs: 'Upload',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'Upload',
         },
       },
     ],
@@ -68,11 +73,16 @@ const routes: Routes = [{
   {
     path: 'user',
     component: UserComponent,
+    data: {
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'User',
+    },
   }, {
     path: 'logs',
     component: SystemComponent,
     data: {
-      breadcrumbs: 'Logs',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'Logs',
     },
     children: [
       {
@@ -86,7 +96,8 @@ const routes: Routes = [{
         path: 'view/:name',
         component: LogsViewComponent,
         data: {
-          breadcrumbs: 'View',
+          breadcrumbs: MyBreadcrumbsResolver,
+          text: 'View',
         },
       },
     ],
@@ -95,13 +106,15 @@ const routes: Routes = [{
     path: 'license',
     component: LicenseComponent,
     data: {
-      breadcrumbs: 'License',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'License',
     },
   }, {
     path: 'support-save',
     component: SupportSaveComponent,
     data: {
-      breadcrumbs: 'Support Save',
+      breadcrumbs: MyBreadcrumbsResolver,
+      text: 'Support Save',
     },
   }],
 }];

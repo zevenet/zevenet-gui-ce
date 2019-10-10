@@ -8,7 +8,7 @@
   * See License.txt in the project root for license information.
 **/
 
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ZevenetService } from '../../@core/zevenet/services/zevenet.service';
 
 @Component({
@@ -31,27 +31,42 @@ export class DashboardComponent implements OnInit {
   farms: any;
 
   columns: Array<any> = [
-    {field: 'farmname', header: 'Name', width: '50%'},
-    {field: 'profile', header: 'Profile', width: '30%'},
-    {field: 'status', header: 'Status', width: '20%'},
+    {field: 'farmname', header: '', width: '50%'},
+    {field: 'profile', header: '', width: '30%'},
+    {field: 'status', header: '', width: '20%'},
   ];
 
   colorScheme = {
     domain: ['#21b573', '#999999'],
   };
 
-  constructor(private service: ZevenetService) { }
+  constructor(private service: ZevenetService, private elementRef: ElementRef) {}
 
   ngOnInit(): void {
     this.getStats();
     this.getInfo();
     this.getInterfaces();
     this.getFarms();
+    this.getLangTranslated('TABLES', this.columns);
+  }
+
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => this.columns = langTranslated);
   }
 
   getNews(): void {
     this.service.getNews(this.info.hostname, this.info.zevenet_version)
-      .subscribe(data => { this.news = data.results; });
+      .subscribe(data => {
+        this.news = data.results;
+        if (!this.service.tracked && this.news[4]) {
+          const s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.innerHTML = this.news[4];
+          this.elementRef.nativeElement.appendChild(s);
+          this.service.tracked = true;
+        }
+      });
   }
 
   getStats(): void {

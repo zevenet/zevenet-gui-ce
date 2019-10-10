@@ -10,7 +10,7 @@
 
 <nb-card>
   <nb-card-header>
-    Create Virtual interface
+			<h2 translate>NETWORK.virtual_interface.create_virtual_interface</h2>
   </nb-card-header>
 
   <nb-card-body>
@@ -18,7 +18,7 @@
 	  	<div class="row">
 	  		<div class="col-12">
 	  			<div class="form-group">
-	  				<label for="parent">Parent Interface</label>
+	  				<label for="parent" translate>FORMS.parent_interface</label>
 	  				<ng-select *ngIf="interfaces"
 	  						   [items]="interfaces | filterVirtualCreate"
 					           bindLabel="name"
@@ -29,7 +29,7 @@
 					           [ngModelOptions]="{standalone: true}"
 					           id="parent"
 					           name="parent"
-					           placeholder="Select a parent interface">
+							   placeholder="{{'PLACEHOLDERS.parent_interface' | translate}}">
 					           <ng-template ng-label-tmp let-item="item">
 							        {{item.name}} <small><b>{{item.ip}}</b></small>
 							    </ng-template>
@@ -48,13 +48,13 @@
 		  	<div class="row">
 		  		<div class="col-12">
 				    <div class="form-group">
-				      <label for="name">Virtual interface name</label>
+				      <label for="name" translate>FORMS.virtual_interface_name</label>
 				 	  <div class="input-group">
 				 	  	  <span class="input-group-addon">{{parent}}:</span>
 				          <input type="text" class="form-control" name="name" id="name" formControlName="name"/>		          
 				       </div>
 				       <div *ngIf="gF.name.dirty && gF.name.errors" class="invalid-feedback">
-	                    <div *ngIf="gF.name.errors.required">Name is required</div>
+	                    <div *ngIf="gF.name.errors.required">{{'FORMS.virtual_interface_name' | translate}} {{'SYSTEM_MESSAGES.required' | translate}}</div>
 	              	  </div>
 				    </div>
 				</div>
@@ -62,7 +62,7 @@
 			<div class="row">
 		  		<div class="col-12">
 		  			<div class="form-group">
-		  				<label for="ip">Address (IPv4 / IPv6)</label>
+		  				<label for="ip" translate>TABLES.ipv4_ipv6</label>
 		  				<input type="text" class="form-control" name="ip" id="ip" formControlName="ip"/>
 		  			</div>
 		  		</div>
@@ -71,7 +71,7 @@
 	    <div class="row">
 	    	<div class="col-sm-12 col-12">
 		        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-1 mt-2">Create</button>
-		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../">Cancel</button>
+		        <button type="button" class="btn btn-default mr-1 mt-2" routerLink="../" translate>BUTTONS.cancel</button>
 		    </div>
 	    </div> 
 	</form>

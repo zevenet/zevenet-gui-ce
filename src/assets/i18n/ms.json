@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "Dashboard"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "Farms"
+        },
+        "ssl_certificates": {
+            "title": "Sijil SSL"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "Pemantauan"
+        },
+        "graphs": {
+            "title": "Graf"
+        },
+        "farm_stats": {
+            "title": "Statistik Ladang"
+        },
+        "farmguardians": {
+            "title": "Farmguardians"
+        },
+        "network": {
+            "title": "rangkaian"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "Antara muka maya"
+        },
+        "gateway": {
+            "title": "Gerbang"
+        },
+        "system": {
+            "title": "sistem"
+        },
+        "remote_services": {
+            "title": "Perkhidmatan Jauh"
+        },
+        "backups": {
+            "title": "Backup"
+        },
+        "user": {
+            "title": "pengguna"
+        },
+        "logs": {
+            "title": "Balak"
+        },
+        "license": {
+            "title": "lesen"
+        },
+        "support_save": {
+            "title": "Sokongan Simpan"
+        },
+        "create": {
+            "title": "Buat"
+        },
+        "edit": {
+            "title": "Edit"
+        },
+        "configure": {
+            "title": "Konfigurasi"
+        },
+        "upload": {
+            "title": "Upload"
+        },
+        "view": {
+            "title": "Lihat"
+        },
+        "generate_csr": {
+            "title": "Menjana CSR"
+        }
+    },
+    "OBJECTS": {
+        "farm": "ladang",
+        "certificate": "sijil",
+        "farmguardian": "tukang ladang",
+        "VLAN": "VLAN",
+        "virtual interface": "antara muka maya",
+        "backup": "sandaran",
+        "backend": "backend",
+        "session": "Sesi"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "Produk Profesional"
+        },
+        "professional_services": {
+            "title": "Perkhidmatan profesional"
+        },
+        "news": {
+            "title": "Berita"
+        },
+        "resources": {
+            "title": "sumber"
+        },
+        "system_stats": {
+            "title": "Statistik Sistem",
+            "cpu": "CPU",
+            "memory": "Memori",
+            "load": "Beban",
+            "cores": "Cores"
+        },
+        "system_information": {
+            "title": "Sistem Maklumat",
+            "zevenet_version": "Versi Zevenet",
+            "appliance_version": "Versi Perkakas",
+            "kernel_version": "Versi Kernel",
+            "hostname": "nama hos",
+            "system_date": "Tarikh Sistem"
+        },
+        "nic_interfaces": {
+            "title": "Antara muka NIC",
+            "megabytes": "Megabytes (MB)"
+        },
+        "farm_list": {
+            "title": "Senarai Ladang",
+            "farmname": "Nama",
+            "profile": "Profil",
+            "status": "status"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "Senarai Ladang LSLB",
+                "create_farm": "Buat Ladang LSLB"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "Pendengar",
+                    "advanced_settings": {
+                        "title": "tetapan lanjutan",
+                        "rewrite_location_headers": "Tulis semula tajuk lokasi",
+                        "http_verbs_accepted": "Kata kerja HTTP diterima",
+                        "backend_connection_timeout": "Tempoh masa sambungan sambungan",
+                        "backend_response_timeout": "Tempoh tamat tindak balas belakang",
+                        "frequency_to_check_resurrected_backends": "Kekerapan untuk memeriksa belakang dibangkitkan",
+                        "client_request_timeout": "Masa tunggu permintaan klien",
+                        "message_error_414": "Ralat Mesej 414",
+                        "message_error_500": "Ralat Mesej 500",
+                        "message_error_501": "Ralat Mesej 501",
+                        "message_error_503": "Ralat Mesej 503"
+                    },
+                    "https": {
+                        "title": "Parameter HTTPS",
+                        "disable_sslv2": "Lumpuhkan SSLv2",
+                        "disable_sslv3": "Lumpuhkan SSLv3",
+                        "disable_tslv1": "Lumpuhkan TLSv1",
+                        "disable_tslv1_1": "Lumpuhkan TLSv1.1",
+                        "disable_tslv1_2": "Lumpuhkan TLSv1.2",
+                        "ciphers": "Ciphers",
+                        "custom_ciphers": "Ciphers adat",
+                        "certificate_enabled": "Sijil Diaktifkan"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "Hos Maya",
+                    "url_pattern": "Corak URL",
+                    "least_response": "Kurangnya Maklum Balas",
+                    "https_backends": "Backend HTTPS",
+                    "redirect": {
+                        "title": "Redirect",
+                        "url": "URL Redirect",
+                        "type": "Jenis Redirect"
+                    },
+                    "load_balancer_algorithm": "Algoritma pengimbangan beban",
+                    "persistence": {
+                        "title": "Kegigihan",
+                        "persistence_session_identifier": "Pengenal sesi ketekunan",
+                        "persistence_session_to_live_time": "Masa sesi kegigihan untuk hidup",
+                        "": "Tiada kegigihan",
+                        "IP": "IP: Alamat klien",
+                        "BASIC": "DASAR: Pengesahan asas",
+                        "URL": "URL: Parameter permintaan",
+                        "PARM": "PARM: Parameter URI",
+                        "COOKIE": "COOKIE: Kuki tertentu",
+                        "HEADER": "HEADER: Pengepala permintaan tertentu"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "Jenis protokol",
+                    "nat_type": "Jenis Nat"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "Algoritma pengimbangan beban",
+                    "persistence": {
+                        "title": "Kegigihan",
+                        "persistence_session_to_live_time": "Masa sesi kegigihan untuk hidup",
+                        "": "Tiada kegigihan",
+                        "ip": "IP: IP sumber",
+                        "srcport": "Pelabuhan: Sumber",
+                        "srcmac": "MAC: MAC sumber",
+                        "srcip_srcport": "Sumber IP dan Port Sumber",
+                        "srcip_dstport": "Sumber IP dan Pelabuhan Destinasi"
+                    },
+                    "algorithms": {
+                        "weight": "Berat: penghantaran secara linear mengikut berat",
+                        "hash_srcip_srcport": "Source Hash: Hash per Source IP and Source Port",
+                        "hash_srcip": "Sumber Mudah Hash: Hash per Sumber IP sahaja",
+                        "symhash": "Symmetric Hash: Hash perjalanan pusingan setiap IP dan Port",
+                        "roundrobin": "Round Robin: Pemilihan backend urutan"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "Senarai Sijil SSL",
+            "generate_csr": "Menjana CSR",
+            "upload_certificate": "Muat naik Sijil SSL",
+            "choose_files": "Pilih satu atau lebih fail"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "Senarai Ladang DSLB",
+                "create_farm": "Buat DSLB Farm"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "Grafik Sistem",
+            "interfaces_graphs": "Grafik Antaramuka",
+            "show_graphs": "Tunjukkan Graf",
+            "farms_graphs": "Grafik Farms",
+            "select_graphs": "Pilih Grafik"
+        },
+        "farm_stats": "Statistik Ladang",
+        "farm_graphs": "Grafik Farms",
+        "farmsguardian": {
+            "title": "Farmguardians",
+            "farms_settings": "Tetapan Ladang",
+            "create_farmguardian": "Buat Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "Senarai NIC",
+        "vlan": {
+            "title": "Senarai Antara Muka VLAN",
+            "create_vlan": "Buat antara muka VLAN"
+        },
+        "virtual_interface": {
+            "title": "Senarai Antara Muka Maya",
+            "create_virtual_interface": "Buat antara muka Maya"
+        },
+        "gateway": {
+            "ipv4_gateway": "Gateway IPv4",
+            "ipv6_gateway": "Gateway IPv6",
+            "gateway_settings": "Tetapan Gateway"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "Perkhidmatan DNS",
+            "default_dns": "Lalai adalah 8.8.8.8",
+            "optional": "Pilihan",
+            "default_npt": "Lalai adalah pool.ntp.org",
+            "primary_server": "Pelayan utama",
+            "secondary_server": "Pelayan sekunder",
+            "npt_service": "Perkhidmatan NPT",
+            "npt_server": "Pelayan NPT",
+            "snmp_service": "Perkhidmatan SNMP",
+            "enable_snmp": "Dayakan SNMP",
+            "physical_interface_running": "Antaramuka fizikal di mana menjalankan perkhidmatan SNMP",
+            "snmp_por_running": "Port SNMP di mana menjalankan perkhidmatan SNMP",
+            "snmp_por_default": "Lalai adalah 161.",
+            "conmunity_name": "Nama komuniti",
+            "ip_subnet": "IP atau subnet dengan akses (IP / bit)"
+        },
+        "backups": {
+            "backup_list": "Senarai Cadangan",
+            "upload_backup": "Muat naik Sandaran",
+            "backup_file": "Fail Cadangan",
+            "create_backup": "Buat Sandaran",
+            "choose_file": "Pilih satu fail"
+        },
+        "user": {
+            "settings_user": "Pengguna Tetapan",
+            "user": "pengguna",
+            "zapi_permissions": "Kebenaran ZAPI",
+            "zapi_key": "ZAPI Key",
+            "change_password": "Tukar Kata Laluan",
+            "current_password": "Kata Laluan Semasa",
+            "new_password": "Kata laluan baru",
+            "repeat_new_password": "ulangi katalaluan baharu"
+        },
+        "logs": {
+            "log_list": "Senarai Log",
+            "log_view": "Log View",
+            "number_lines": "Bilangan baris"
+        },
+        "license": "lesen",
+        "support_save": {
+            "title": "Sokongan Simpan",
+            "downloaded": "Apabila tindakan ini dilaksanakan fail dengan maklumat sistem akan dimuat turun.",
+            "gui": "Tindakan ini mungkin mengambil masa beberapa saat, anda boleh terus melayari GUI."
+        }
+    },
+    "FORMS": {
+        "name": "Nama",
+        "locality": "Kampung",
+        "country": "Negara",
+        "state_province": "Negeri / Wilayah",
+        "common_name": "Nama yang selalu digunakan",
+        "organization": "pertubuhan",
+        "division": "Bahagian",
+        "email_address": "Alamat emel",
+        "services_settings": "Tetapan Perkhidmatan",
+        "global_settings": "Tetapan Global",
+        "virtual_ip_and_port": "IP dan Port Maya",
+        "backend": "Backend",
+        "interval": "Jeda",
+        "cut_connections": "Potong sambungan",
+        "description": "Penerangan",
+        "copy_rule": "Salin peraturan",
+        "rule_to_copy": "Peraturan untuk menyalin",
+        "seconds": "saat",
+        "log": "Log",
+        "address": "alamat",
+        "virtual_interface_name": "Nama antara muka maya",
+        "parent_interface": "Antara Muka Ibu Bapa",
+        "vlan_name": "Nama VLAN",
+        "farmguardian": "Farmguardian",
+        "load_balancer_algorithm": "Algoritma pengimbangan beban",
+        "health_checks_for_backend": "Pemeriksaan kesihatan untuk backend",
+        "help_form": {
+            "help_name": "Teks deskriptif, nama ini akan digunakan untuk mengenal pasti sijil ini.",
+            "help_alert_name": "Hanya boleh diedit apabila ladang itu turun.",
+            "help_locality": "Bandar tempat organisasi anda berada.",
+            "help_country": "Negara (dua aksara) di mana organisasi anda berada.",
+            "help_state_province": "Negeri atau wilayah tempat organisasi anda berada.",
+            "help_common_name": "FQDN pelayan. Contoh: domain.com, mail.domain.com, atau * .domain.com.",
+            "help_organization": "Nama penuh undang-undang organisasi / syarikat anda (ex .: Zevenet Co.).",
+            "help_division": "Jabatan anda; seperti 'IT', 'Web', 'Office', dll.",
+            "help_email_address": "Alamat emel anda."
+        }
+    },
+    "TABLES": {
+        "name": "Nama",
+        "farmname": "Nama",
+        "profile": "Profil",
+        "vip": "IP maya",
+        "vport": "Port Maya",
+        "status": "status",
+        "actions": "Tindakan",
+        "id": " ID",
+        "ip": " IP",
+        "address": "alamat",
+        "port": "Port",
+        "timeout": "tamat masa",
+        "weight": "Berat",
+        "CN": "Nama yang selalu digunakan",
+        "type": "Jenis",
+        "file": "File",
+        "issuer": "issuer",
+        "creation": "Buat pada",
+        "expiration": "Tamat tempoh",
+        "priority": "Keutamaan",
+        "interface": "Antara muka",
+        "service": "Servis",
+        "client": "Pelanggan",
+        "sessions": "Sesyen",
+        "session_id": "ID sesi",
+        "backend_id": "ID belakang",
+        "command": "Perintah",
+        "description": "Penerangan",
+        "farms": "Farms",
+        "farm": "Ladang",
+        "gateway": "Gerbang",
+        "netmask": "Netmask",
+        "mac": "MAC",
+        "ipv4_ipv6": "Alamat IP (IPv4 / IPv6)",
+        "vlan_tag": "Tag VLAN",
+        "date": "Tarikh",
+        "log": "Log",
+        "established": "Ditubuhkan Conns",
+        "pending": "Pending Conns",
+        "No": "Tidak",
+        "found": "ditemui"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "diperlukan",
+        "name_not_valid": "tidak sah, ia hanya mungkin aksara abjad angka dan sengkang (-).",
+        "port_not_valid": "tidak sah, adalah mungkin untuk menentukan port tunggal, beberapa port atau rentang port (Contoh: 80 atau 80,81 atau 80: 90)",
+        "greater_than_0": "mesti lebih besar daripada 0",
+        "only_two_characters": "hanya boleh mempunyai dua aksara.",
+        "valid_email": "mesti menjadi e-mel yang sah.",
+        "not_match": "tidak sepadan.",
+        "farm": {
+            "delete": "Ladang <strong>{{param}}</strong> telah dipadam dengan jayanya.",
+            "delete_farm_service": "Ladang <strong>{{param}}</strong> {{param2}} telah berjaya dipadam.",
+            "confirm_delete": "Adakah anda pasti mahu memadamkan nama ladang {{param}}?",
+            "stop": "Ladang <strong>{{param}}</strong> telah berjaya {{param2}} ed berjaya.",
+            "created": "Ladang <strong>{{param}}</strong> telah berjaya diwujudkan.",
+            "restarted": "Ladang <strong>{{param}}</strong> telah berjaya dimulakan semula.",
+            "backend_created": "Backend telah berjaya dibuat.",
+            "profile_changed": "Profil telah diubah menjadi {{param}} dengan jayanya.",
+            "farmguardian_disabled": "Pengawal ladang telah dilumpuhkan dengan berjaya.",
+            "farmguardian_changed": "Pengawal ladang telah ditukar kepada {{param}} dengan jayanya.",
+            "farmguardian_created": "Platform <strong>{{param}}</strong> tukang ladang telah berjaya diwujudkan.",
+            "farmguardian_update": "Platform <strong>{{param}}</strong> tukang ladang telah berjaya dikemas kini",
+            "farmguardian_confirm_delete": "Adakah anda pasti mahu memadam pengawal ladang {{param}}?",
+            "farmguardian_delete": "Platform <strong>{{param}}</strong> tukang ladang telah berjaya dihapuskan.",
+            "updated": "Ladang itu telah berjaya dikemas kini.",
+            "delete_farm_of_farmguardian": "Adakah anda pasti mahu memadamkan ladang {{param}} {{param2}} pengawal ladang?",
+            "backend_confirm_delete": "Adakah anda pasti mahu memadamkan backend {{param}}?",
+            "backend_deleted": "Backend <strong>{{param}}</strong> telah dipadam dengan jayanya",
+            "backend_maintenance": "Backend <strong>{{param}}</strong> telah berjaya {{param2}} berjaya.",
+            "service_created": "Perkhidmatan <strong>{{param}}</strong> telah berjaya diwujudkan.",
+            "service_deleted": "Perkhidmatan <strong>{{param}}</strong> telah dipadam dengan jayanya.",
+            "service_update": "Perkhidmatan <strong>{{param}}</strong> telah berjaya dikemas kini."
+        },
+        "network": {
+            "gateway_update": "Platform <strong>{{param}}</strong> Gateway telah berjaya dikemas kini.",
+            "gateway_confirm_unset": "Adakah anda pasti mahu membatalkan gerbang semasa?",
+            "gateway_confirm_unset_interface": "Adakah anda pasti mahu menyahpasang gerbang {{param}}?",
+            "gateway_unconfigured": "Platform <strong>{{param}}</strong> Gateway telah berjaya dikonfigurasikan.",
+            "nic_update": "Platform <strong>{{param}}</strong> NIC telah berjaya dikemas kini.",
+            "nic_unconfigured": "Platform <strong>{{param}}</strong> NIC telah berjaya dikonfigurasikan.",
+            "nic_is": "Platform <strong>{{param}}</strong> NIC ialah {{param2}}",
+            "virtual_interface_created": "Platform <strong>{{param}}</strong> Antara muka maya telah berjaya dihasilkan.",
+            "virtual_interface_updated": "Platform <strong>{{param}}</strong> Antara muka maya telah berjaya dikemas kini.",
+            "virtual_interface_confirm_deleted": "Adakah anda pasti mahu memadamkan {{param}} antara muka Maya?",
+            "virtual_interface_deleted": "Platform <strong>{{param}}</strong> Antara muka maya telah berjaya dihapuskan.",
+            "vlan_created": "Platform <strong>{{param}}</strong> VLAN telah berjaya dicipta.",
+            "vlan_update": "Platform <strong>{{param}}</strong> VLAN telah berjaya dikemas kini.",
+            "vlan_confirm_delete": "Adakah anda pasti mahu memadamkan VLAN {{param}}?",
+            "vlan_deleted": "Platform <strong>{{param}}</strong> VLAN telah berjaya dihapuskan.",
+            "vlan_is": "Platform <strong>{{param}}</strong> VLAN ialah {{param2}}"
+        },
+        "system": {
+            "backup_created": "Sandaran <strong>{{param}}</strong> telah berjaya diwujudkan.",
+            "backup_uploaded": "Sandaran <strong>{{param}}</strong> telah berjaya dimuat naik.",
+            "backup_confirm_deleted": "Adakah anda pasti mahu memadamkan sandaran {{param}}?",
+            "backup_deleted": "Sandaran <strong>{{param}}</strong> telah dipadam dengan jayanya.",
+            "backup_applied": "Sandaran <strong>{{param}}</strong> telah digunakan dengan jayanya.",
+            "backup_downloaded": "Sandaran <strong>{{backup}}</strong> telah dimuat turun dengan jayanya.",
+            "log_downloaded": "Log itu <strong>{{param}}</strong> telah dimuat turun dengan jayanya.",
+            "service_updated": "Platform <strong>{{param}}</strong> perkhidmatan telah berjaya dikemas kini.",
+            "support_save_downloaded": "Platform <strong> Sokongan Simpan </strong> telah dimuat turun dengan jayanya",
+            "user_updated": "Pengguna telah berjaya dikemas kini."
+        },
+        "certificate": {
+            "csr_generated": "CSR <strong>{{param}}</strong> telah dijana berjaya.",
+            "uploaded": "Sijil ini <strong>{{param}}</strong> telah berjaya dimuat naik.",
+            "deleted": "Sijil ini <strong>{{param}}</strong> telah dipadam dengan jayanya.",
+            "downloaded": "Sijil ini <strong>{{param}}</strong> telah dimuat turun dengan jayanya."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "Perkhidmatan Baru",
+        "create": "Buat",
+        "cancel": "Batal",
+        "submit": "Hantar",
+        "save": "Simpan",
+        "generate": "Menjana",
+        "update": "Update",
+        "upload": "Upload",
+        "generate_key_random": "Menjana Kunci Rawak",
+        "generate_support_save": "Hasilkan Sokongan Simpan",
+        "clear": "jelas",
+        "start": "permulaan",
+        "apply": "Memohon",
+        "add": "Tambah",
+        "edit": "Edit"
+    },
+    "ZEVENET": {
+        "go_to_home": "Pulang ke rumah",
+        "error_404": "Halaman 404 tidak dijumpai",
+        "page_does_not_exist": "Halaman yang anda cari tidak wujud",
+        "no_farms_found": "Tiada ladang ditemui"
+    },
+    "CHARTS": {
+        "established": "Ditubuhkan Conns",
+        "pending": "Pending Conns"
+    },
+    "PLACEHOLDERS": {
+        "graph": "Pilih graf",
+        "profile": "Pilih profil",
+        "virtual_ip": "Pilih IP Maya",
+        "parent_interface": "Pilih antara muka ibu bapa",
+        "interface": "Pilih antara muka"
+    },
+    "AUTH": {
+        "logout": "Logout",
+        "login": {
+            "text": "Log masuk dengan nama pengguna dan kata laluan anda",
+            "username": "Nama pengguna",
+            "password": "Kata Laluan",
+            "button": "Masuk",
+            "user_required": "Pengguna diperlukan!",
+            "user_real": "Pengguna mestilah yang sebenar",
+            "password_required": "Kata laluan diperlukan",
+            "password_contains": "Kata laluan harus mengandungi {{param}} kepada aksara {{param2}}",
+            "success": "Kejayaan!",
+            "success_msg": "Anda berjaya dilog masuk."
+        }
+    }
+}

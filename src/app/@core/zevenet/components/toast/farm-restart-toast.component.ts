@@ -94,19 +94,24 @@ export class FarmRestartToastComponent {
   constructor(protected service: ZevenetService) {
   }
 
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
+
   actionEvt(event: Event) {
     this.service.clearToast(this.toast.toastId);
     this.service.actionFarm(this.toast.data.name, 'restart')
       .subscribe(
         (data) => { this.actionResp  =  data; },
         (error) => {},
-        () => {
-          this.service.showToast(
-						'success',
-						 '',
-						 'The farm <strong>' + this.toast.data.name + '</strong> has been restarted successfully.',
-					);
-        });
+        () => this.showMessageTranslated('SYSTEM_MESSAGES.farm.restarted', 'toast', this.toast.data.name));
   }
   remove(event: Event) {
     this.service.clearToast(this.toast.toastId);

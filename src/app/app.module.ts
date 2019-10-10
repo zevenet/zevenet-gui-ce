@@ -17,7 +17,7 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { ZevenetInterceptor } from './@core/zevenet/services/zevenet.interceptor';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +31,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { MmcBreadcrumbsModule } from 'mmc-breadcrumbs';
 import { ToasterModule } from 'angular2-toaster';
 import { ZevenetAuthModule } from './@core/zevenet/auth/zevenet-auth.module';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MyBreadcrumbsResolver } from './@core/zevenet/services/breadcrumb.resolver';
+
 
 @NgModule({
   declarations: [AppComponent, UpdateForceToastComponent, FarmRestartToastComponent],
@@ -44,6 +48,13 @@ import { ZevenetAuthModule } from './@core/zevenet/auth/zevenet-auth.module';
     ZevenetAuthModule.forRoot(),
     ToasterModule.forRoot(),
     MmcBreadcrumbsModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+      },
+  }),
   ],
   entryComponents: [
     UpdateForceToastComponent,
@@ -59,7 +70,17 @@ import { ZevenetAuthModule } from './@core/zevenet/auth/zevenet-auth.module';
       multi: true,
       deps: [Router, AlertService, CookieService],
     },
+    MyBreadcrumbsResolver,
   ],
 })
+
+
 export class AppModule {
 }
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
+

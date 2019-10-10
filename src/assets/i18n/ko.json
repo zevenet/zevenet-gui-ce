@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "대시보드"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "농장"
+        },
+        "ssl_certificates": {
+            "title": "SSL 인증서"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "모니터링"
+        },
+        "graphs": {
+            "title": "그래프"
+        },
+        "farm_stats": {
+            "title": "농장 통계"
+        },
+        "farmguardians": {
+            "title": "농장 가디언"
+        },
+        "network": {
+            "title": "네트워크"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "가상 인터페이스"
+        },
+        "gateway": {
+            "title": "게이트웨이"
+        },
+        "system": {
+            "title": "체계"
+        },
+        "remote_services": {
+            "title": "원격 서비스"
+        },
+        "backups": {
+            "title": "백업"
+        },
+        "user": {
+            "title": "사용자"
+        },
+        "logs": {
+            "title": "로그"
+        },
+        "license": {
+            "title": "특허"
+        },
+        "support_save": {
+            "title": "지원 저장"
+        },
+        "create": {
+            "title": "만들기"
+        },
+        "edit": {
+            "title": "편집"
+        },
+        "configure": {
+            "title": "구성"
+        },
+        "upload": {
+            "title": "업로드 (Upload)"
+        },
+        "view": {
+            "title": "보기"
+        },
+        "generate_csr": {
+            "title": "CSR 생성"
+        }
+    },
+    "OBJECTS": {
+        "farm": "농장",
+        "certificate": "증명서",
+        "farmguardian": "농장 가디언",
+        "VLAN": "VLAN",
+        "virtual interface": "가상 인터페이스",
+        "backup": "백업",
+        "backend": "백엔드",
+        "session": "세션"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "전문 제품"
+        },
+        "professional_services": {
+            "title": "전문적인 서비스"
+        },
+        "news": {
+            "title": "최근 소식"
+        },
+        "resources": {
+            "title": "자원"
+        },
+        "system_stats": {
+            "title": "시스템 통계",
+            "cpu": "CPU",
+            "memory": "기억",
+            "load": "하중",
+            "cores": "코어"
+        },
+        "system_information": {
+            "title": "시스템 정보",
+            "zevenet_version": "Zevenet 버전",
+            "appliance_version": "어플라이언스 버전",
+            "kernel_version": "커널 버전",
+            "hostname": "호스트 이름",
+            "system_date": "시스템 날짜"
+        },
+        "nic_interfaces": {
+            "title": "NIC 인터페이스",
+            "megabytes": "메가 바이트 (MB)"
+        },
+        "farm_list": {
+            "title": "농장 목록",
+            "farmname": "이름",
+            "profile": "프로필",
+            "status": "진행 현황"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "LSLB 농장 목록",
+                "create_farm": "LSLB Farm 만들기"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "경청자",
+                    "advanced_settings": {
+                        "title": "고급 설정",
+                        "rewrite_location_headers": "위치 헤더 재 작성",
+                        "http_verbs_accepted": "허용 된 HTTP 동사",
+                        "backend_connection_timeout": "백엔드 연결 시간 초과",
+                        "backend_response_timeout": "백엔드 응답 시간 초과",
+                        "frequency_to_check_resurrected_backends": "부활 한 백엔드를 확인하는 빈도",
+                        "client_request_timeout": "클라이언트 요청 시간 초과",
+                        "message_error_414": "메시지 오류 414",
+                        "message_error_500": "메시지 오류 500",
+                        "message_error_501": "메시지 오류 501",
+                        "message_error_503": "메시지 오류 503"
+                    },
+                    "https": {
+                        "title": "HTTPS 매개 변수",
+                        "disable_sslv2": "SSLv2 사용 중지",
+                        "disable_sslv3": "SSLv3 사용 중지",
+                        "disable_tslv1": "TLSv1 사용 안 함",
+                        "disable_tslv1_1": "TLSv1.1 사용 안 함",
+                        "disable_tslv1_2": "TLSv1.2 사용 안 함",
+                        "ciphers": "암호문",
+                        "custom_ciphers": "사용자 지정 암호",
+                        "certificate_enabled": "인증서 사용"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "가상 호스트",
+                    "url_pattern": "URL 패턴",
+                    "least_response": "최소 응답",
+                    "https_backends": "HTTPS 백엔드",
+                    "redirect": {
+                        "title": "리디렉션",
+                        "url": "리디렉션 URL",
+                        "type": "리디렉션 유형"
+                    },
+                    "load_balancer_algorithm": "로드 밸런서 알고리즘",
+                    "persistence": {
+                        "title": "고집",
+                        "persistence_session_identifier": "지속 세션 식별자",
+                        "persistence_session_to_live_time": "지속 세션 세션 시간",
+                        "": "지속성 없음",
+                        "IP": "IP : 고객 주소",
+                        "BASIC": "기본 : 기본 인증",
+                        "URL": "URL : 요청 매개 변수",
+                        "PARM": "PARM : URI 매개 변수",
+                        "COOKIE": "쿠킹 : 특정 쿠키",
+                        "HEADER": "HEADER : 특정 요청 헤더"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "프로토콜 유형",
+                    "nat_type": "낫 타입"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "로드 밸런서 알고리즘",
+                    "persistence": {
+                        "title": "고집",
+                        "persistence_session_to_live_time": "지속 세션 세션 시간",
+                        "": "지속성 없음",
+                        "ip": "IP : 소스 IP",
+                        "srcport": "포트 : 소스",
+                        "srcmac": "MAC : 원본 MAC",
+                        "srcip_srcport": "소스 IP 및 소스 포트",
+                        "srcip_dstport": "원본 IP 및 대상 포트"
+                    },
+                    "algorithms": {
+                        "weight": "무게 : 중량으로 연결 선형 파견",
+                        "hash_srcip_srcport": "Source Hash : 소스 IP 및 소스 포트마다 해시",
+                        "hash_srcip": "간단한 소스 해시 : 소스 IP 당 해시 만",
+                        "symhash": "대칭 해시 : IP 및 포트 별 왕복 해시",
+                        "roundrobin": "라운드 로빈 : 순차적 백엔드 선택"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "SSL 인증서 목록",
+            "generate_csr": "CSR 생성",
+            "upload_certificate": "SSL 인증서 업로드",
+            "choose_files": "하나 이상의 파일 선택"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "DSLB 팜 목록",
+                "create_farm": "DSLB Farm 만들기"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "시스템 그래프",
+            "interfaces_graphs": "인터페이스 그래프",
+            "show_graphs": "그래프 표시",
+            "farms_graphs": "농장 그래프",
+            "select_graphs": "그래프 선택"
+        },
+        "farm_stats": "농장 통계",
+        "farm_graphs": "농장 그래프",
+        "farmsguardian": {
+            "title": "농장 가디언",
+            "farms_settings": "농장 설정",
+            "create_farmguardian": "Farmguardian 만들기"
+        }
+    },
+    "NETWORK": {
+        "nic": "NIC 목록",
+        "vlan": {
+            "title": "VLAN 인터페이스 목록",
+            "create_vlan": "VLAN 인터페이스 생성"
+        },
+        "virtual_interface": {
+            "title": "가상 인터페이스 목록",
+            "create_virtual_interface": "가상 인터페이스 생성"
+        },
+        "gateway": {
+            "ipv4_gateway": "IPv4 게이트웨이",
+            "ipv6_gateway": "IPv6 게이트웨이",
+            "gateway_settings": "게이트웨이 설정"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "DNS 서비스",
+            "default_dns": "기본값은 8.8.8.8입니다.",
+            "optional": "Optional",
+            "default_npt": "기본값은 pool.ntp.org입니다.",
+            "primary_server": "주 서버",
+            "secondary_server": "보조 서버",
+            "npt_service": "NPT 서비스",
+            "npt_server": "NPT 서버",
+            "snmp_service": "SNMP 서비스",
+            "enable_snmp": "SNMP 사용",
+            "physical_interface_running": "SNMP 서비스를 실행중인 실제 인터페이스",
+            "snmp_por_running": "SNMP 포트 SNMP 서비스를 실행중인 포트",
+            "snmp_por_default": "기본값은 161입니다.",
+            "conmunity_name": "커뮤니티 이름",
+            "ip_subnet": "액세스 할 수있는 IP 또는 서브넷 (IP / 비트)"
+        },
+        "backups": {
+            "backup_list": "백업 목록",
+            "upload_backup": "백업 업로드",
+            "backup_file": "백업 파일",
+            "create_backup": "백업 만들기",
+            "choose_file": "하나의 파일 선택"
+        },
+        "user": {
+            "settings_user": "설정 사용자",
+            "user": "사용자",
+            "zapi_permissions": "ZAPI 권한",
+            "zapi_key": "ZAPI 키",
+            "change_password": "비밀번호를 변경",
+            "current_password": "현재 비밀번호",
+            "new_password": "새 암호",
+            "repeat_new_password": "새로운 비밀번호를 재 입력하세요"
+        },
+        "logs": {
+            "log_list": "로그 목록",
+            "log_view": "로그보기",
+            "number_lines": "라인 수"
+        },
+        "license": "특허",
+        "support_save": {
+            "title": "지원 저장",
+            "downloaded": "이 작업이 실행되면 시스템 정보가있는 파일이 다운로드됩니다.",
+            "gui": "이 작업은 몇 초가 걸릴 수 있습니다. GUI를 계속 탐색 할 수 있습니다."
+        }
+    },
+    "FORMS": {
+        "name": "이름",
+        "locality": "소재지",
+        "country": "서비스 국가",
+        "state_province": "주 /도",
+        "common_name": "공통 이름",
+        "organization": "조직",
+        "division": "분할",
+        "email_address": "이메일 주소",
+        "services_settings": "서비스 설정",
+        "global_settings": "전역 설정",
+        "virtual_ip_and_port": "가상 IP 및 포트",
+        "backend": "백엔드",
+        "interval": "간격",
+        "cut_connections": "연결 끊기",
+        "description": "설명",
+        "copy_rule": "규칙 복사",
+        "rule_to_copy": "복사 규칙",
+        "seconds": "초",
+        "log": "로그",
+        "address": "주소",
+        "virtual_interface_name": "가상 인터페이스 이름",
+        "parent_interface": "부모 인터페이스",
+        "vlan_name": "VLAN 이름",
+        "farmguardian": "농장 가디언",
+        "load_balancer_algorithm": "로드 밸런서 알고리즘",
+        "health_checks_for_backend": "백엔드의 상태 검사",
+        "help_form": {
+            "help_name": "설명 텍스트,이 이름은이 인증서를 식별하는 데 사용됩니다.",
+            "help_alert_name": "팜이 다운되었을 때만 편집 가능.",
+            "help_locality": "조직이 위치한 도시.",
+            "help_country": "조직이 위치한 국가 (2 자).",
+            "help_state_province": "조직이있는 주 또는도.",
+            "help_common_name": "서버의 FQDN. 예 : domain.com, mail.domain.com 또는 * .domain.com.",
+            "help_organization": "귀사의 전체 법인 명 (예 : Zevenet Co.).",
+            "help_division": "당신 부서; 'IT', 'Web', 'Office'등",
+            "help_email_address": "귀하의 전자 메일 주소입니다."
+        }
+    },
+    "TABLES": {
+        "name": "이름",
+        "farmname": "이름",
+        "profile": "프로필",
+        "vip": "가상 IP",
+        "vport": "가상 포트",
+        "status": "진행 현황",
+        "actions": "행위",
+        "id": " ID",
+        "ip": " IP",
+        "address": "주소",
+        "port": "포트",
+        "timeout": "시간 초과",
+        "weight": "무게",
+        "CN": "공통 이름",
+        "type": "거래증명방식",
+        "file": "필렛",
+        "issuer": "발급자",
+        "creation": "만들기",
+        "expiration": "만료일",
+        "priority": "우선",
+        "interface": "인터페이스",
+        "service": "서비스",
+        "client": "고객",
+        "sessions": "세션",
+        "session_id": "세션 ID",
+        "backend_id": "백엔드 ID",
+        "command": "명령",
+        "description": "설명",
+        "farms": "농장",
+        "farm": "농장",
+        "gateway": "게이트웨이",
+        "netmask": "넷 마스크",
+        "mac": "맥",
+        "ipv4_ipv6": "IP 주소 (IPv4 / IPv6)",
+        "vlan_tag": "VLAN 태그",
+        "date": "등록일",
+        "log": "로그",
+        "established": "Conns 설립",
+        "pending": "대기중인 전화",
+        "No": "아니",
+        "found": "발견"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "필요",
+        "name_not_valid": "유효하지 않으면 영숫자와 대시 (-) 만 가능합니다.",
+        "port_not_valid": "유효하지 않음, 단일 포트, 여러 포트 또는 포트 범위 (예 : 80 또는 80,81 또는 80 : 90)를 정의 할 수 있습니다.",
+        "greater_than_0": "0보다 커야합니다",
+        "only_two_characters": "두 자만 가능합니다.",
+        "valid_email": "유효한 이메일이어야합니다.",
+        "not_match": "일치하지 않습니다.",
+        "farm": {
+            "delete": "농장 <strong>{{param}}</strong> 삭제되었습니다.",
+            "delete_farm_service": "농장 <strong>{{param}}</strong> {{param2}}이 (가) 성공적으로 삭제되었습니다.",
+            "confirm_delete": "{{param}} 팜 이름을 삭제 하시겠습니까?",
+            "stop": "농장 <strong>{{param}}</strong> {{param2}}이 (가) 성공적으로 처리되었습니다.",
+            "created": "농장 <strong>{{param}}</strong> 이 (가) 성공적으로 생성되었습니다.",
+            "restarted": "농장 <strong>{{param}}</strong> 다시 시작되었습니다.",
+            "backend_created": "백엔드가 성공적으로 생성되었습니다.",
+            "profile_changed": "프로필이 {{param}} (으)로 변경되었습니다.",
+            "farmguardian_disabled": "농장 가디언은 성공적으로 무능력 해졌습니다.",
+            "farmguardian_changed": "Farmguardian이 {{param}}으로 변경되었습니다.",
+            "farmguardian_created": "  <strong>{{param}}</strong> 농장 가드가 성공적으로 만들어졌습니다.",
+            "farmguardian_update": "  <strong>{{param}}</strong> farmguardian이 성공적으로 업데이트되었습니다.",
+            "farmguardian_confirm_delete": "{{param}} farmguardian을 삭제 하시겠습니까?",
+            "farmguardian_delete": "  <strong>{{param}}</strong> farmguardian이 삭제되었습니다.",
+            "updated": "팜이 성공적으로 업데이트되었습니다.",
+            "delete_farm_of_farmguardian": "Farmguardian의 {{param}} {{param2}} 농장을 삭제 하시겠습니까?",
+            "backend_confirm_delete": "백엔드 {{param}}을 (를) 삭제 하시겠습니까?",
+            "backend_deleted": "백엔드 <strong>{{param}}</strong> 삭제되었습니다.",
+            "backend_maintenance": "백엔드 <strong>{{param}}</strong> {{param2}}되었습니다.",
+            "service_created": "서비스 <strong>{{param}}</strong> 이 (가) 성공적으로 생성되었습니다.",
+            "service_deleted": "서비스 <strong>{{param}}</strong> 삭제되었습니다.",
+            "service_update": "서비스 <strong>{{param}}</strong> 이 (가) 성공적으로 업데이트되었습니다."
+        },
+        "network": {
+            "gateway_update": "  <strong>{{param}}</strong> 게이트웨이가 성공적으로 업데이트되었습니다.",
+            "gateway_confirm_unset": "현재 게이트웨이의 설정을 해제 하시겠습니까?",
+            "gateway_confirm_unset_interface": "{{param}} 게이트웨이를 설정 해제 하시겠습니까?",
+            "gateway_unconfigured": "  <strong>{{param}}</strong> 게이트웨이가 성공적으로 구성 해제되었습니다.",
+            "nic_update": "  <strong>{{param}}</strong> NIC가 성공적으로 업데이트되었습니다.",
+            "nic_unconfigured": "  <strong>{{param}}</strong> NIC가 성공적으로 구성 해제되었습니다.",
+            "nic_is": "  <strong>{{param}}</strong> NIC는 {{param2}}입니다.",
+            "virtual_interface_created": "  <strong>{{param}}</strong> 가상 인터페이스가 성공적으로 생성되었습니다.",
+            "virtual_interface_updated": "  <strong>{{param}}</strong> 가상 인터페이스가 성공적으로 업데이트되었습니다.",
+            "virtual_interface_confirm_deleted": "{{param}} 가상 인터페이스를 삭제 하시겠습니까?",
+            "virtual_interface_deleted": "  <strong>{{param}}</strong> 가상 인터페이스가 성공적으로 삭제되었습니다.",
+            "vlan_created": "  <strong>{{param}}</strong> VLAN이 성공적으로 생성되었습니다.",
+            "vlan_update": "  <strong>{{param}}</strong> VLAN이 성공적으로 업데이트되었습니다.",
+            "vlan_confirm_delete": "{{param}} VLAN을 삭제 하시겠습니까?",
+            "vlan_deleted": "  <strong>{{param}}</strong> VLAN이 성공적으로 삭제되었습니다.",
+            "vlan_is": "  <strong>{{param}}</strong> VLAN은 {{param2}}입니다."
+        },
+        "system": {
+            "backup_created": "백업 <strong>{{param}}</strong> 이 (가) 성공적으로 생성되었습니다.",
+            "backup_uploaded": "백업 <strong>{{param}}</strong> 업로드되었습니다.",
+            "backup_confirm_deleted": "{{param}} 백업을 삭제 하시겠습니까?",
+            "backup_deleted": "백업 <strong>{{param}}</strong> 삭제되었습니다.",
+            "backup_applied": "백업 <strong>{{param}}</strong> 이 (가) 성공적으로 적용되었습니다.",
+            "backup_downloaded": "백업 <strong>{{backup}}</strong> 다운로드가 완료되었습니다.",
+            "log_downloaded": "일지 <strong>{{param}}</strong> 다운로드가 완료되었습니다.",
+            "service_updated": "  <strong>{{param}}</strong> 서비스가 성공적으로 업데이트되었습니다.",
+            "support_save_downloaded": "  <strong> 지원 저장 </strong> 다운로드 완료",
+            "user_updated": "사용자가 성공적으로 업데이트되었습니다."
+        },
+        "certificate": {
+            "csr_generated": "CSR <strong>{{param}}</strong> 생성되었습니다.",
+            "uploaded": "인증서 <strong>{{param}}</strong> 업로드되었습니다.",
+            "deleted": "인증서 <strong>{{param}}</strong> 삭제되었습니다.",
+            "downloaded": "인증서 <strong>{{param}}</strong> 다운로드가 완료되었습니다."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "새로운 서비스",
+        "create": "만들기",
+        "cancel": "취소하다",
+        "submit": "보내기",
+        "save": "저장",
+        "generate": "생성",
+        "update": "업데이트",
+        "upload": "업로드 (Upload)",
+        "generate_key_random": "무작위 키 생성",
+        "generate_support_save": "지원 저장 생성",
+        "clear": "맑은",
+        "start": "스타트",
+        "apply": "적용",
+        "add": "추가",
+        "edit": "편집"
+    },
+    "ZEVENET": {
+        "go_to_home": "집으로 이동",
+        "error_404": "404 페이지를 찾을 수 없음",
+        "page_does_not_exist": "찾고 있던 페이지가 존재하지 않습니다.",
+        "no_farms_found": "농장을 찾을 수 없음"
+    },
+    "CHARTS": {
+        "established": "Conns 설립",
+        "pending": "대기중인 전화"
+    },
+    "PLACEHOLDERS": {
+        "graph": "그래프 선택",
+        "profile": "프로필 선택",
+        "virtual_ip": "가상 IP 선택",
+        "parent_interface": "상위 인터페이스 선택",
+        "interface": "인터페이스 선택"
+    },
+    "AUTH": {
+        "logout": "로그아웃",
+        "login": {
+            "text": "사용자 이름과 비밀번호로 로그인하십시오.",
+            "username": "사용자 이름",
+            "password": "비밀번호",
+            "button": "로그인",
+            "user_required": "사용자는 필수입니다!",
+            "user_real": "사용자는 진짜이어야합니다.",
+            "password_required": "비밀번호가 필요합니다.",
+            "password_contains": "비밀번호에는 {{param}} ~ {{param2}}자를 포함해야합니다.",
+            "success": "성공!",
+            "success_msg": "귀하는 성공적으로 로그인되었습니다."
+        }
+    }
+}

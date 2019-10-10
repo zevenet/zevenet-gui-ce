@@ -17,6 +17,7 @@ import { FarmguardiansComponent } from './farmguardians/farmguardians.component'
 import { FarmguardiansCreateComponent } from './farmguardians/farmguardians-create.component';
 import { FarmguardiansUpdateComponent } from './farmguardians/farmguardians-update.component';
 import { StatsComponent } from './stats/stats.component';
+import { MyBreadcrumbsResolver } from '../../@core/zevenet/services/breadcrumb.resolver';
 
 const routes: Routes = [{
   path: '',
@@ -30,19 +31,22 @@ const routes: Routes = [{
       path: 'graphs',
       component: GraphsComponent,
       data: {
-        breadcrumbs: 'Graphs',
+        breadcrumbs: MyBreadcrumbsResolver,
+        text: 'Graphs',
       },
     }, {
       path: 'stats',
       component: StatsComponent,
       data: {
-        breadcrumbs: 'Stats',
+        breadcrumbs: MyBreadcrumbsResolver,
+        text: 'Farm Stats',
       },
     }, {
       path: 'farmguardians',
       component: MonitoringComponent,
       data: {
-        breadcrumbs: 'Farmguardians',
+        breadcrumbs: MyBreadcrumbsResolver,
+        text: 'Farmguardians',
       },
       children: [
         {
@@ -56,13 +60,15 @@ const routes: Routes = [{
           path: 'create',
           component: FarmguardiansCreateComponent,
           data: {
-            breadcrumbs: 'Create',
+            breadcrumbs: MyBreadcrumbsResolver,
+            text: 'Create',
           },
         }, {
           path: 'edit/:name',
           component: FarmguardiansUpdateComponent,
           data: {
-            breadcrumbs: 'Edit',
+            breadcrumbs: MyBreadcrumbsResolver,
+            text: 'Edit',
           },
         },
       ],

@@ -1,9 +1,13 @@
-import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { Injectable, } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import 'rxjs';
 import { AlertService } from './zevenet-alert.service';
 import { timeout } from 'rxjs/operators';
+import { isArray, isObject } from 'util';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
+
 
 @Injectable({
 providedIn:  'root',
@@ -12,14 +16,84 @@ providedIn:  'root',
 export class ZevenetService {
 
   API_URL  =  '';
-
+  langTranslated: Observable<any>;
   host: string;
   hostname: string;
+  tracked: boolean = false;
+  langSubject = new BehaviorSubject('');
 
   constructor(private httpClient: HttpClient,
     private alertService: AlertService,
+    public translate: TranslateService,
   ) {
     this.locationHost();
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.langSubject.next(event.lang);
+    });
+  }
+
+  changeLang(): Observable<any> {
+    return this.langSubject.asObservable();
+  }
+
+  /* Translate Language */
+  interpolateLang(selectJson: any, param: any): any {
+     return new Promise((resolve, reject) => {
+      this.translate.get(selectJson, param).subscribe((translated_text) => {
+        resolve(translated_text);
+      });
+    });
+  }
+
+  refreshLang(selectJson: string, textLang: any): Observable<any> {
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      return this.translateLang(selectJson, textLang);
+    });
+    return this.translateLang(selectJson, textLang);
+  }
+
+  translateLang(selectJson: string, textLang: any): Observable<any> {
+    if (isArray(textLang)) {
+      this.translate.get(selectJson).subscribe((translated_text) => {
+        textLang.forEach(element => {
+          const header = element.hasOwnProperty('header') ? 'header' : 'label';
+          const lab = element.hasOwnProperty('value') ? 'value' : 'field';
+          element[header] = translated_text[element[lab]];
+        });
+      });
+    } else if (isObject(textLang)) {
+      if (textLang.hasOwnProperty('backend') && textLang.hasOwnProperty('session') ) {
+        this.translate.get(selectJson).subscribe((translated_text) => {
+          Object.keys(textLang.backend).forEach(element => {
+            textLang.backend[element].forEach(child => {
+              child.header = translated_text[child.field];
+            });
+          });
+          Object.keys(textLang.session).forEach(element => {
+            textLang.session[element].forEach(child => {
+            child.header = translated_text[child.field];
+            if (child.field === 'id') {
+              child.header = translated_text['backend_id'];
+            } else if (child.field === 'session') {
+                child.header = translated_text['session_id'];
+            } else {
+                child.header = translated_text[child.field];
+              }
+            });
+          });
+        });
+      }
+    } else if (typeof textLang === 'string') {
+      this.translate.get(selectJson).subscribe((translated_text) => {
+        textLang = translated_text;
+      });
+    }
+    this.langTranslated = new Observable((observer) => {
+      observer.next(textLang);
+      observer.complete();
+    });
+
+    return this.langTranslated;
   }
 
   /* Locations */

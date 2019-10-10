@@ -10,16 +10,16 @@
 
 <nb-card>
   <nb-card-header>
-    System Graphs
+    <div translate>MONITORING.graphs.system_graphs</div>
   </nb-card-header>
   <nb-card-body>
     	<div class="row">
 	  		<div class="col-12">
 	  			<div class="form-group">
-	  				<label for="systemValue">Show graphs</label>
+	  				<label for="systemValue" translate>MONITORING.graphs.show_graphs</label>
 					<ng-select #type [items]="systemList"
 						   (change)="getGraphSystem()"
-						   placeholder="Select Graph"
+						   placeholder="{{'PLACEHOLDERS.graph' | translate}}"
 				           [(ngModel)]="systemValue"
 				           appendTo="nb-card"
 				           id="systemValue"
@@ -46,16 +46,16 @@
 </nb-card>
 <nb-card>
   <nb-card-header>
-    Interfaces Graphs
+    <div translate>MONITORING.graphs.interfaces_graphs</div>
   </nb-card-header>
   <nb-card-body>
     	<div class="row">
 	  		<div class="col-12">
 	  			<div class="form-group">
-	  				<label for="interfaceValue">Show graphs</label>
+	  				<label for="interfaceValue" translate>MONITORING.graphs.show_graphs</label>
 					<ng-select #type [items]="interfaceList | filterGraphsInterfaces"
 						   (change)="getGraphInterfaces()"
-						   placeholder="Select Graph"
+						   placeholder="{{'PLACEHOLDERS.graph' | translate}}"
 				           [(ngModel)]="interfaceValue"
 				           appendTo="nb-card"
 				           id="interfaceValue"
@@ -74,16 +74,16 @@
 </nb-card>
 <nb-card>
   <nb-card-header>
-   	Farms Graphs
+	<div translate>MONITORING.graphs.farms_graphs</div>
   </nb-card-header>
   <nb-card-body>
     	<div class="row">
 	  		<div class="col-12">
 	  			<div class="form-group">
-	  				<label for="farmValue">Show graphs</label>
+	  				<label for="farmValue" translate>MONITORING.graphs.show_graphs</label>
 					<ng-select #type [items]="farmList | filterFarmStats"
 						   (change)="getGraphFarms()"
-						   placeholder="Select Graph"
+						   placeholder="{{'PLACEHOLDERS.graph' | translate}}"
 				           [(ngModel)]="farmValue"
 				           appendTo="nb-card"
 				           id="farmValue"

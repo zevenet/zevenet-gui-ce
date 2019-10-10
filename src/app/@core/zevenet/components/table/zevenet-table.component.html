@@ -11,19 +11,19 @@
 <p-table #tt [columns]="cols" [value]="_data" [responsive]="true" rowHover="true">
     <ng-template pTemplate="caption">
         <div *ngIf="createButton || object == 'log line'" class="d-flex mb-4 justify-content-start">
-            <button *ngIf="createButton" type="button" class="btn btn-success create" [routerLink]="['../' + titleCreate | lowercase]">{{titleCreate}} {{object}}</button>
-            <button *ngIf="object == 'certificate'" type="button" class="btn btn-default ml-2 create" [routerLink]="['../csr']">Generate CSR</button>
-            <button *ngIf="object == 'backup'" type="button" class="btn btn-default ml-2 create" [routerLink]="['../upload']">Upload Backup</button>
+            <button *ngIf="createButton" type="button" class="btn btn-success create" [routerLink]="['../' + titleCreate | lowercase]"><span translate>BUTTONS.{{titleCreate | lowercase}}</span> <span translate> OBJECTS.{{object}}</span></button>
+            <button *ngIf="object == 'certificate'" type="button" class="btn btn-default ml-2 create" [routerLink]="['../csr']" translate>LSLB.ssl_certificates.generate_csr</button>
+            <button *ngIf="object == 'backup'" type="button" class="btn btn-default ml-2 create" [routerLink]="['../upload']" translate>SYSTEM.backups.upload_backup</button>
             <div class="col-5 pl-0" *ngIf="object == 'log line'">
                 <div class="row">
                     <div class="col-10">
-                        <label *ngIf="object == 'log line'" for="lines" class="d-flex justify-content-start">Number of lines</label>
+                        <label *ngIf="object == 'log line'" for="lines" class="d-flex justify-content-start" translate>SYSTEM.logs.number_lines</label>
                         <div class="form-group mb-0">
                             <input type="number" class="form-control" name="lines" id="lines" [(ngModel)]="linesLog"/>
                         </div>
                     </div>
                     <div class="col-2 pt-4">
-                        <button type="button" (click)="getLog()" class="btn btn-success">Apply</button>
+                        <button type="button" (click)="getLog()" class="btn btn-success" translate>BUTTONS.apply</button>
                     </div>
                 </div>
             </div>                    
@@ -33,10 +33,10 @@
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th *ngFor="let col of columns" [ngStyle]="{width: col.width}" [ngClass]="{'text-center':col.field == 'status'}">                
-                {{col.header}}                             
+                {{col.header}}
             </th>
             <th *ngIf="actions.length > 0" style="width: 10%;">
-                Actions
+                <div translate>TABLES.actions</div>
             </th>
         </tr>
     </ng-template>
@@ -113,7 +113,7 @@
     <ng-template pTemplate="emptymessage" let-columns="columns">
         <tr>
             <td [attr.colspan]="actions.length > 0 ? cols.length + 1 : cols.length">
-                No {{object}}s found
+                <span translate>TABLES.No </span> <span translate>OBJECTS.{{object}}</span><span translate> TABLES.found</span>
             </td>
         </tr>
     </ng-template>

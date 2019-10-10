@@ -1,0 +1,514 @@
+{
+    "PAGES-MENU": {
+        "dashboard": {
+            "title": "לוח דשבורד"
+        },
+        "lslb": {
+            "title": "LSLB"
+        },
+        "farms": {
+            "title": "חוות"
+        },
+        "ssl_certificates": {
+            "title": "תעודות SSL"
+        },
+        "dslb": {
+            "title": "DSLB"
+        },
+        "monitoring": {
+            "title": "ניטור"
+        },
+        "graphs": {
+            "title": "גרפים"
+        },
+        "farm_stats": {
+            "title": "סטטיסטיקות משק חקלאי"
+        },
+        "farmguardians": {
+            "title": "חקלאים"
+        },
+        "network": {
+            "title": "רשת"
+        },
+        "nic": {
+            "title": "NIC"
+        },
+        "vlan": {
+            "title": "VLAN"
+        },
+        "virtual_interfaces": {
+            "title": "ממשקים וירטואליים"
+        },
+        "gateway": {
+            "title": "Gateway"
+        },
+        "system": {
+            "title": "מערכת"
+        },
+        "remote_services": {
+            "title": "שירותים מרוחקים"
+        },
+        "backups": {
+            "title": "גיבויים"
+        },
+        "user": {
+            "title": "משתמש"
+        },
+        "logs": {
+            "title": "יומנים"
+        },
+        "license": {
+            "title": "רישיון"
+        },
+        "support_save": {
+            "title": "שמור תמיכה"
+        },
+        "create": {
+            "title": "צור"
+        },
+        "edit": {
+            "title": "ערוך"
+        },
+        "configure": {
+            "title": "גדר"
+        },
+        "upload": {
+            "title": "העלה"
+        },
+        "view": {
+            "title": "נוף"
+        },
+        "generate_csr": {
+            "title": "צור CSR"
+        }
+    },
+    "OBJECTS": {
+        "farm": "משק",
+        "certificate": "תעודה",
+        "farmguardian": "חקלאי",
+        "VLAN": "VLAN",
+        "virtual interface": "ממשק וירטואלי",
+        "backup": "גיבוי",
+        "backend": "Backend",
+        "session": "מושב"
+    },
+    "DASHBOARD": {
+        "professional_products": {
+            "title": "מוצרים מקצועיים"
+        },
+        "professional_services": {
+            "title": "שירותים מקצועיים"
+        },
+        "news": {
+            "title": "חדשות "
+        },
+        "resources": {
+            "title": "מידע נוסף"
+        },
+        "system_stats": {
+            "title": "סטטיסטיקת מערכת",
+            "cpu": "CPU",
+            "memory": "זכרון",
+            "load": "לִטעוֹן",
+            "cores": "ליבות"
+        },
+        "system_information": {
+            "title": "מערכת מידע",
+            "zevenet_version": "גרסה זאבנט",
+            "appliance_version": "גרסת מכשיר",
+            "kernel_version": "גרסת הליבה",
+            "hostname": "שם מארח",
+            "system_date": "תאריך מערכת"
+        },
+        "nic_interfaces": {
+            "title": "ממשקי NIC",
+            "megabytes": "מגה בייט (MB)"
+        },
+        "farm_list": {
+            "title": "רשימת החווה",
+            "farmname": "שם",
+            "profile": "פּרוֹפִיל",
+            "status": "מצב"
+        }
+    },
+    "LSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "LSLB רשימת החווה",
+                "create_farm": "יצירת LSLB משק"
+            },
+            "http": {
+                "global_setting": {
+                    "listener": "מקשיב",
+                    "advanced_settings": {
+                        "title": "הגדרות מתקדמות",
+                        "rewrite_location_headers": "שכתוב כותרות מיקום",
+                        "http_verbs_accepted": "פעלים HTTP מקובלים",
+                        "backend_connection_timeout": "זמן קצוב לחיבור",
+                        "backend_response_timeout": "זמן קצוב לתגובה לאחור",
+                        "frequency_to_check_resurrected_backends": "תדירות לבדיקת חזיתות backers",
+                        "client_request_timeout": "זמן קצוב לבקשת הלקוח",
+                        "message_error_414": "הודעת שגיאה 414",
+                        "message_error_500": "הודעת שגיאה 500",
+                        "message_error_501": "הודעת שגיאה 501",
+                        "message_error_503": "הודעת שגיאה 503"
+                    },
+                    "https": {
+                        "title": "HTTPS פרמטרים",
+                        "disable_sslv2": "השבת SSLv2",
+                        "disable_sslv3": "השבת SSLv3",
+                        "disable_tslv1": "השבת TLSv1",
+                        "disable_tslv1_1": "השבת TLSv1.1",
+                        "disable_tslv1_2": "השבת TLSv1.2",
+                        "ciphers": "צופן",
+                        "custom_ciphers": "ציפויים מותאמים אישית",
+                        "certificate_enabled": "אישור הופעל"
+                    }
+                },
+                "service_settings": {
+                    "virtual_host": "מארח וירטואלי",
+                    "url_pattern": "תבנית כתובת אתר",
+                    "least_response": "תגובה לפחות",
+                    "https_backends": "HTTPS Backends",
+                    "redirect": {
+                        "title": "הפניה מחדש",
+                        "url": "כתובת אתר להפניה מחדש",
+                        "type": "סוג כתובת אתר להפניה מחדש"
+                    },
+                    "load_balancer_algorithm": "אלגוריתם טען איזון",
+                    "persistence": {
+                        "title": "התמדה",
+                        "persistence_session_identifier": "זיהוי פעילות ההתמדה",
+                        "persistence_session_to_live_time": "זמן ישיבה התמדה לחיות",
+                        "": "אין התמדה",
+                        "IP": "IP: כתובת לקוח",
+                        "BASIC": "בסיסי: אימות בסיסי",
+                        "URL": "כתובת אתר: פרמטר בקשה",
+                        "PARM": "PARM: פרמטר URI",
+                        "COOKIE": "COOKIE: עוגיה מסוימת",
+                        "HEADER": "HEADER: כותרת בקשה מסוימת"
+                    }
+                }
+            },
+            "l4xnat": {
+                "global_setting": {
+                    "protocol_type": "סוג פרוטוקול",
+                    "nat_type": "סוג Nat"
+                },
+                "service_settings": {
+                    "load_balancer_algorithm": "אלגוריתם טען איזון",
+                    "persistence": {
+                        "title": "התמדה",
+                        "persistence_session_to_live_time": "זמן ישיבה התמדה לחיות",
+                        "": "אין התמדה",
+                        "ip": "IP: מקור IP",
+                        "srcport": "נמל: מקור",
+                        "srcmac": "MAC: מקור MAC",
+                        "srcip_srcport": "מקור IP ו יציאת מקור",
+                        "srcip_dstport": "מקור IP ופורט יעד"
+                    },
+                    "algorithms": {
+                        "weight": "משקל: חיבור לינארי המשגר ​​לפי משקל",
+                        "hash_srcip_srcport": "מקור Hash: Hash לכל מקור IP ו יציאת מקור",
+                        "hash_srcip": "פשוט מקור Hash: Hash לכל מקור IP בלבד",
+                        "symhash": "סימטרי Hash: חשיש נסיעה הלוך ושוב לכל IP ופורט",
+                        "roundrobin": "סיבוב רובין: בחירת backend עוקבת"
+                    }
+                }
+            }
+        },
+        "ssl_certificates": {
+            "title": "רשימת תעודות SSL",
+            "generate_csr": "צור CSR",
+            "upload_certificate": "העלה תעודת SSL",
+            "choose_files": "בחר קובץ אחד או יותר"
+        }
+    },
+    "DSLB": {
+        "farms": {
+            "titles_farms": {
+                "farm": "רשימת החוות DSLB",
+                "create_farm": "יצירת חוות DSLB"
+            }
+        }
+    },
+    "MONITORING": {
+        "graphs": {
+            "system_graphs": "גרפים של המערכת",
+            "interfaces_graphs": "ממשקים גרפים",
+            "show_graphs": "הצג גרפים",
+            "farms_graphs": "חוות חקלאיות",
+            "select_graphs": "בחר גרפים"
+        },
+        "farm_stats": "סטטיסטיקה",
+        "farm_graphs": "חוות חקלאיות",
+        "farmsguardian": {
+            "title": "חקלאים",
+            "farms_settings": "הגדרות חוות",
+            "create_farmguardian": "צור Farmguardian"
+        }
+    },
+    "NETWORK": {
+        "nic": "רשימת NIC",
+        "vlan": {
+            "title": "רשימת ממשק VLAN",
+            "create_vlan": "צור ממשק VLAN"
+        },
+        "virtual_interface": {
+            "title": "רשימת ממשק וירטואלי",
+            "create_virtual_interface": "יצירת ממשק וירטואלי"
+        },
+        "gateway": {
+            "ipv4_gateway": "שער IPv4",
+            "ipv6_gateway": "שער IPv6",
+            "gateway_settings": "הגדרות שער"
+        }
+    },
+    "SYSTEM": {
+        "remote_services": {
+            "dns_service": "שירות DNS",
+            "default_dns": "ברירת המחדל היא 8.8.8.8",
+            "optional": "אופציונלי",
+            "default_npt": "ברירת המחדל היא pool.ntp.org",
+            "primary_server": "שרת ראשי",
+            "secondary_server": "שרת משני",
+            "npt_service": "שירות NPT",
+            "npt_server": "שרת NPT",
+            "snmp_service": "שירות SNMP",
+            "enable_snmp": "הפעל SNMP",
+            "physical_interface_running": "ממשק פיזי שבו פועל שירות SNMP",
+            "snmp_por_running": "נמל SNMP שבו פועל שירות SNMP",
+            "snmp_por_default": "ברירת המחדל היא 161.",
+            "conmunity_name": "שם קהילה",
+            "ip_subnet": "IP או רשת משנה עם גישה (IP / bit)"
+        },
+        "backups": {
+            "backup_list": "רשימת גיבוי",
+            "upload_backup": "העלה גיבוי",
+            "backup_file": "קובץ גיבוי",
+            "create_backup": "צור גיבוי",
+            "choose_file": "בחר קובץ אחד"
+        },
+        "user": {
+            "settings_user": "משתמש הגדרות",
+            "user": "משתמש",
+            "zapi_permissions": "הרשאות ZAPI",
+            "zapi_key": "מפתח ZAPI",
+            "change_password": "שינוי סיסמא",
+            "current_password": "סיסמה נוכחית",
+            "new_password": "סיסמא חדשה",
+            "repeat_new_password": "חזור על סיסמה חדשה"
+        },
+        "logs": {
+            "log_list": "רשימת היומנים",
+            "log_view": "תצוגת יומן",
+            "number_lines": "מספר השורות"
+        },
+        "license": "רישיון",
+        "support_save": {
+            "title": "שמור תמיכה",
+            "downloaded": "כאשר פעולה זו מתבצעת קובץ עם מידע מערכת יורדו.",
+            "gui": "פעולה זו עשויה להימשך מספר שניות, תוכל להמשיך לגלוש בממשק הגרפי."
+        }
+    },
+    "FORMS": {
+        "name": "שם",
+        "locality": "יישוב",
+        "country": "מדינה",
+        "state_province": "מדינה / מחוז",
+        "common_name": "שם נפוץ",
+        "organization": "ארגון",
+        "division": "חטיבה",
+        "email_address": "כתובת דוא&quot;ל",
+        "services_settings": "הגדרות שירות",
+        "global_settings": "הגדרות כלליות",
+        "virtual_ip_and_port": "IP וירטואלי ופורט",
+        "backend": "קצה אחורי",
+        "interval": "הפסקה",
+        "cut_connections": "גזור קשרים",
+        "description": "תיאור",
+        "copy_rule": "העתק כלל",
+        "rule_to_copy": "כלל להעתיק",
+        "seconds": "שניות",
+        "log": "התחבר",
+        "address": "כתובת",
+        "virtual_interface_name": "שם ממשק וירטואלי",
+        "parent_interface": "ממשק האב",
+        "vlan_name": "שם VLAN",
+        "farmguardian": "חקלאי",
+        "load_balancer_algorithm": "אלגוריתם טען איזון",
+        "health_checks_for_backend": "בדיקות בריאות עבור backend",
+        "help_form": {
+            "help_name": "טקסט תיאורי, שם זה ישמש לזיהוי אישור זה.",
+            "help_alert_name": "רק לעריכה כאשר החווה היא למטה.",
+            "help_locality": "עיר שבה נמצא הארגון שלך.",
+            "help_country": "ארץ (שני תווים) שבהם נמצא הארגון שלך.",
+            "help_state_province": "מדינה או מחוז שבהם נמצא הארגון שלך.",
+            "help_common_name": "FQDN של השרת. דוגמה: domain.com, mail.domain.com או * .domain.com.",
+            "help_organization": "השם המשפטי המלא של הארגון / חברה (למשל: Zevenet Co.).",
+            "help_division": "המחלקה שלך; כגון 'IT', 'אינטרנט', 'משרד' וכו '.",
+            "help_email_address": "כתובת הדוא&quot;ל שלך."
+        }
+    },
+    "TABLES": {
+        "name": "שם",
+        "farmname": "שם",
+        "profile": "פּרוֹפִיל",
+        "vip": "IP וירטואלי",
+        "vport": "יציאה וירטואלית",
+        "status": "מצב",
+        "actions": "פעולות",
+        "id": " ID",
+        "ip": " IP",
+        "address": "כתובת",
+        "port": "נָמָל",
+        "timeout": "פסק זמן",
+        "weight": "מִשׁקָל",
+        "CN": "שם נפוץ",
+        "type": "סוּג",
+        "file": "פילה",
+        "issuer": "מנפיק",
+        "creation": "צור ב",
+        "expiration": "פג בתאריך",
+        "priority": "עדיפות",
+        "interface": "מִמְשָׁק",
+        "service": "שֵׁרוּת",
+        "client": "לקוח",
+        "sessions": "מפגשים",
+        "session_id": "מזהה הפעלה",
+        "backend_id": "מזהה Backend",
+        "command": "פיקוד",
+        "description": "תיאור",
+        "farms": "חוות",
+        "farm": "משק",
+        "gateway": "Gateway",
+        "netmask": "מסכת רשת",
+        "mac": "מק",
+        "ipv4_ipv6": "כתובת IP (IPv4 / IPv6)",
+        "vlan_tag": "תג VLAN",
+        "date": "תַאֲרִיך",
+        "log": "התחבר",
+        "established": "הקים הקים",
+        "pending": "ממתין",
+        "No": "לא",
+        "found": "מצא"
+    },
+    "SYSTEM_MESSAGES": {
+        "required": "נדרש",
+        "name_not_valid": "אינו חוקי, זה רק תווים אלפאנומריים מקף (-).",
+        "port_not_valid": "לא תקף, הוא posible להגדיר יציאה אחת, יציאות או טווחים שונים של יציאות (לדוגמה: 80 או 80,81 או 80: 90)",
+        "greater_than_0": "צריך להיות גדול מ- 0",
+        "only_two_characters": "יכול להכיל רק שתי תווים.",
+        "valid_email": "חייב להיות דוא&quot;ל חוקי.",
+        "not_match": "לא מתאים.",
+        "farm": {
+            "delete": "החווה <strong>{{param}}</strong> נמחק בהצלחה.",
+            "delete_farm_service": "החווה <strong>{{param}}</strong> {{param2}} נמחק בהצלחה.",
+            "confirm_delete": "האם אתה בטוח שברצונך למחוק את שם החשבון {{param}}?",
+            "stop": "החווה <strong>{{param}}</strong> {{param2}} בהצלחה.",
+            "created": "החווה <strong>{{param}}</strong> נוצרה בהצלחה.",
+            "restarted": "החווה <strong>{{param}}</strong> הופעל מחדש בהצלחה.",
+            "backend_created": "ה- backend נוצר בהצלחה.",
+            "profile_changed": "הפרופיל השתנה ל- {{param}} בהצלחה.",
+            "farmguardian_disabled": "החוואי הושבת בהצלחה.",
+            "farmguardian_changed": "שומר החלב השתנה ל- {{param}} בהצלחה.",
+            "farmguardian_created": "קטגורית <strong>{{param}}</strong> Farmguardian נוצר בהצלחה.",
+            "farmguardian_update": "קטגורית <strong>{{param}}</strong> farmguardian עודכן בהצלחה",
+            "farmguardian_confirm_delete": "האם אתה בטוח שברצונך למחוק את {{param}} farmguardian?",
+            "farmguardian_delete": "קטגורית <strong>{{param}}</strong> Farmguardian נמחק בהצלחה.",
+            "updated": "החווה עודכנה בהצלחה.",
+            "delete_farm_of_farmguardian": "האם אתה בטוח שברצונך למחוק את החווה {{param}} {{param2}} של החוואי?",
+            "backend_confirm_delete": "האם אתה בטוח שברצונך למחוק את ה- backend {{param}}?",
+            "backend_deleted": "את backend <strong>{{param}}</strong> נמחק בהצלחה",
+            "backend_maintenance": "את backend <strong>{{param}}</strong> {{param2}} בהצלחה.",
+            "service_created": "השירות <strong>{{param}}</strong> נוצרה בהצלחה.",
+            "service_deleted": "השירות <strong>{{param}}</strong> נמחק בהצלחה.",
+            "service_update": "השירות <strong>{{param}}</strong> עודכן בהצלחה."
+        },
+        "network": {
+            "gateway_update": "קטגורית <strong>{{param}}</strong> שער עודכן בהצלחה.",
+            "gateway_confirm_unset": "האם אתה בטוח שברצונך לבטל את הגדרת השער הנוכחי?",
+            "gateway_confirm_unset_interface": "האם אתה בטוח שברצונך לבטל את הגדרת השער {{param}}?",
+            "gateway_unconfigured": "קטגורית <strong>{{param}}</strong> Gateway לא הוגדר בהצלחה.",
+            "nic_update": "קטגורית <strong>{{param}}</strong> NIC עודכן בהצלחה.",
+            "nic_unconfigured": "קטגורית <strong>{{param}}</strong> NIC כבר unconfigured בהצלחה.",
+            "nic_is": "קטגורית <strong>{{param}}</strong> NIC הוא {{param2}}",
+            "virtual_interface_created": "קטגורית <strong>{{param}}</strong> ממשק וירטואלי נוצר בהצלחה.",
+            "virtual_interface_updated": "קטגורית <strong>{{param}}</strong> ממשק וירטואלי עודכן בהצלחה.",
+            "virtual_interface_confirm_deleted": "האם אתה בטוח שברצונך למחוק את הממשק {{param}} הוירטואלי?",
+            "virtual_interface_deleted": "קטגורית <strong>{{param}}</strong> ממשק וירטואלי נמחק בהצלחה.",
+            "vlan_created": "קטגורית <strong>{{param}}</strong> VLAN נוצר בהצלחה.",
+            "vlan_update": "קטגורית <strong>{{param}}</strong> VLAN עודכן בהצלחה.",
+            "vlan_confirm_delete": "האם אתה בטוח שברצונך למחוק את {{param}} VLAN?",
+            "vlan_deleted": "קטגורית <strong>{{param}}</strong> VLAN נמחק בהצלחה.",
+            "vlan_is": "קטגורית <strong>{{param}}</strong> VLAN הוא {{param2}}"
+        },
+        "system": {
+            "backup_created": "הגיבוי <strong>{{param}}</strong> נוצרה בהצלחה.",
+            "backup_uploaded": "הגיבוי <strong>{{param}}</strong> הועלה בהצלחה.",
+            "backup_confirm_deleted": "האם אתה בטוח שברצונך למחוק את הגיבוי {{param}}?",
+            "backup_deleted": "הגיבוי <strong>{{param}}</strong> נמחק בהצלחה.",
+            "backup_applied": "הגיבוי <strong>{{param}}</strong> הוחל בהצלחה.",
+            "backup_downloaded": "הגיבוי <strong>{{backup}}</strong> הורד בהצלחה.",
+            "log_downloaded": "היומן <strong>{{param}}</strong> הורד בהצלחה.",
+            "service_updated": "קטגורית <strong>{{param}}</strong> השירות עודכן בהצלחה.",
+            "support_save_downloaded": "קטגורית <strong> שמור תמיכה </strong> הורד בהצלחה",
+            "user_updated": "המשתמש עודכן בהצלחה."
+        },
+        "certificate": {
+            "csr_generated": "אחריות חברתית <strong>{{param}}</strong> נוצרה בהצלחה.",
+            "uploaded": "התעודה <strong>{{param}}</strong> הועלה בהצלחה.",
+            "deleted": "התעודה <strong>{{param}}</strong> נמחק בהצלחה.",
+            "downloaded": "התעודה <strong>{{param}}</strong> הורד בהצלחה."
+        }
+    },
+    "BUTTONS": {
+        "new_service": "שירות חדש",
+        "create": "צור",
+        "cancel": "ביטול",
+        "submit": "שלח",
+        "save": "שמור",
+        "generate": "ליצור",
+        "update": "עדכון",
+        "upload": "העלה",
+        "generate_key_random": "צור מפתח אקראי",
+        "generate_support_save": "יצירת תמיכה תמיכה",
+        "clear": "ברור",
+        "start": "התחלה",
+        "apply": "החל",
+        "add": "להוסיף",
+        "edit": "ערוך"
+    },
+    "ZEVENET": {
+        "go_to_home": "לך הביתה",
+        "error_404": "דף 404 לא נמצא",
+        "page_does_not_exist": "הדף שחיפשת אינו קיים",
+        "no_farms_found": "לא נמצאו חוות"
+    },
+    "CHARTS": {
+        "established": "הקים הקים",
+        "pending": "ממתין"
+    },
+    "PLACEHOLDERS": {
+        "graph": "בחר תרשים",
+        "profile": "בחר פרופיל",
+        "virtual_ip": "בחר כתובת IP וירטואלית",
+        "parent_interface": "בחר ממשק אב",
+        "interface": "בחר ממשק"
+    },
+    "AUTH": {
+        "logout": "להתנתק",
+        "login": {
+            "text": "היכנס באמצעות שם המשתמש והסיסמה שלך",
+            "username": "שם משתמש",
+            "password": "סיסמה",
+            "button": "כניסה",
+            "user_required": "המשתמש נדרש!",
+            "user_real": "המשתמש צריך להיות אחד אמיתי",
+            "password_required": "דרושה סיסמא",
+            "password_contains": "הסיסמה צריכה להכיל {{param}} לתווים {{param2}}",
+            "success": "הצלחה!",
+            "success_msg": "התחברת בהצלחה."
+        }
+    }
+}

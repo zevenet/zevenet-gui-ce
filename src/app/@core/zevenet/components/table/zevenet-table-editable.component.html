@@ -11,7 +11,7 @@
 <p-table #tt [columns]="cols" [value]="_data" [dataKey]="keySort" [responsive]="true" rowHover="true">
     <ng-template pTemplate="caption">
       <div class="d-flex justify-content-start mb-3">
-        <button *ngIf="createButton" type="button" class="btn btn-success create" (click)="showDialogToAdd()" >Add {{object}}</button>
+        <button *ngIf="createButton" type="button" class="btn btn-success create" (click)="showDialogToAdd()" ><span translate="">BUTTONS.add</span> <span translate> OBJECTS.{{object}}</span></button>
       </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
@@ -20,7 +20,7 @@
                 {{col.header}}
             </th>
             <th style="width: 10%;" *ngIf="editButton || actions.length > 0">
-                Actions
+                <div translate>TABLES.actions</div>
             </th>
         </tr>
     </ng-template>
@@ -57,13 +57,13 @@
     <ng-template pTemplate="emptymessage" let-columns>
         <tr>
             <td [attr.colspan]="actions?.length > 0 ? cols?.length + 1 : cols?.length">
-                No {{obejct}} found
+                <span translate>TABLES.No </span> <span translate>OBJECTS.{{object}}</span><span translate> TABLES.found</span>
             </td>
         </tr>
     </ng-template>    
 </p-table>
 
-<p-dialog header="{{new ? 'Add' : 'Edit'}} {{object}}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="300" [resizable]="false">
+<p-dialog header="{{new ? ('BUTTONS.add' | translate) : ('BUTTONS.edit' | translate)}} {{ 'OBJECTS.' + object | translate}}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="300" [resizable]="false">
     <div *ngIf="newItem">
         <ng-template ngFor let-col [ngForOf]="cols">
             <div class="row" *ngIf="col.field != 'id' || !new">
@@ -85,7 +85,7 @@
                                appendTo="body"
                                bindLabel="name"
                                bindValue="name"     
-                               placeholder="Select a interface"
+                               placeholder="{{'PLACEHOLDERS.interface' | translate}}"
                                (change)="onChange($event)"
                                >
                                 <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
@@ -101,7 +101,7 @@
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button"  class="btn btn-success btn-sm" (click)="save()" [disabled]="!changed" label="Save">Save</button>
+            <button type="button"  class="btn btn-success btn-sm" (click)="save()" [disabled]="!changed" label="Save" translate>BUTTONS.save</button>
         </div>
     </p-footer>
 </p-dialog>

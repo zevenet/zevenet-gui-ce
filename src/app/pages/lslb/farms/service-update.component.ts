@@ -45,13 +45,13 @@ export class ServiceUpdateComponent implements  OnInit {
   farmguardian: any;
 
   persistenceTypes: Array<any> = [
-    {label: 'No persistence', value: ''},
-    {label: 'IP: Client address', value: 'IP'},
-    {label: 'BASIC: Basic authentication', value: 'BASIC'},
-    {label: 'URL: A request parameter', value: 'URL'},
-    {label: 'PARM: An URI parameter', value: 'PARM'},
-    {label: 'COOKIE: A certain cookie', value: 'COOKIE'},
-    {label: 'HEADER: A certain request header', value: 'HEADER'},
+    {label: '', value: ''},
+    {label: '', value: 'IP'},
+    {label: '', value: 'BASIC'},
+    {label: '', value: 'URL'},
+    {label: '', value: 'PARM'},
+    {label: '', value: 'COOKIE'},
+    {label: '', value: 'HEADER'},
   ];
 
   serviceValues: any;
@@ -59,11 +59,11 @@ export class ServiceUpdateComponent implements  OnInit {
   denySubmit: boolean = true;
 
   columns: Array<any> = [
-    {field: 'id', header: 'ID', width: '5%', editable: false},
-    {field: 'ip', header: 'IP', width: '20%', editable: true},
-    {field: 'port', header: 'Port', width: '18%', editable: true},
-    {field: 'timeout', header: 'Timeout', width: '10%', editable: true},
-    {field: 'weight', header: 'Weight', width: '10%', editable: true},
+    {field: 'id', header: '', width: '5%', editable: false},
+    {field: 'ip', header: '', width: '20%', editable: true},
+    {field: 'port', header: '', width: '18%', editable: true},
+    {field: 'timeout', header: '', width: '10%', editable: true},
+    {field: 'weight', header: '', width: '10%', editable: true},
   ];
 
   actionsList: Array<any> = [
@@ -76,7 +76,37 @@ export class ServiceUpdateComponent implements  OnInit {
 
   ngOnInit() {
     this.getService(this.nameService);
+    this.getLangTranslated('TABLES', this.columns);
+    this.getLangTranslated('LSLB.farms.http.service_settings.persistence', this.persistenceTypes);
+
+    this.service.changeLang()
+      .subscribe((data) => {
+        this.persistenceTypes = [...this.persistenceTypes];
+      });
   }
+
+  getLangTranslated(selectJson: string, columns: any): any {
+    this.service.refreshLang(selectJson, columns)
+      .subscribe((langTranslated) => {
+        if (Array.isArray(langTranslated)) {
+          columns = [...langTranslated]
+        } else {
+          columns = langTranslated;
+        }
+      });
+  }
+
+  showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
+    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+      .then(data => {
+        if (func === 'toast') {
+          this.service.showToast('success', '', data);
+        } else if (func === 'window') {
+          return window.confirm(data);
+        }
+      });
+  }
+
 
   createForm() {
     this.serviceForm = new FormGroup(this.fb.group({
@@ -136,11 +166,7 @@ export class ServiceUpdateComponent implements  OnInit {
         (error) => { },
         () => {
           if (!this.farmguardian) {
-            this.service.showToast(
-              'success',
-               '',
-               'The farmguardian has been disabled sucessfully.',
-            );
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_disabled', 'toast');
           }
           this.serviceParams.farmguardian = '';
           this.addFarmGuardian();
@@ -161,11 +187,7 @@ export class ServiceUpdateComponent implements  OnInit {
         (error) => { },
         () => {
           this.serviceParams.farmguardian = this.farmguardian;
-          this.service.showToast(
-            'success',
-             '',
-             'The farmguardian has been changed to ' + param.name + ' successfully.',
-          );
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.farmguardian_changed', 'toast', param.name);
         });
     }
   }
@@ -214,12 +236,7 @@ export class ServiceUpdateComponent implements  OnInit {
               }
             }, this);
             this.serviceValues = this.serviceForm.value;
-
-            this.service.showToast(
-							'success',
-							 '',
-							 'The service <strong>' + this.nameService + '</strong> has been updated successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.service_update', 'toast', this.nameService);
             this.restart.emit(this.resAction);
           });
     }
@@ -227,7 +244,7 @@ export class ServiceUpdateComponent implements  OnInit {
 
   onAction(event) {
     if (event.action === 'delete') {
-      if (window.confirm('Are you sure you want to delete the backend ' + event.data.id + '?')) {
+      if (this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_confirm_delete', 'window', event.data.id)) {
         this.service.deleteBackend(this.nameFarm, event.data.id, this.nameService)
         .subscribe(
           (data) => { this.resAction  =  data; },
@@ -239,11 +256,7 @@ export class ServiceUpdateComponent implements  OnInit {
                 this.serviceParams.backends[index].id -= 1;
               }
             });
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backend <strong>' + event.data.id + '</strong> has been deleted successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_deleted', 'toast', event.data.id);
             this.restart.emit(this.resAction);
           });
       }
@@ -258,11 +271,7 @@ export class ServiceUpdateComponent implements  OnInit {
             object.status = this.resAction.params.action;
             this.serviceParams.backends[this.serviceParams.backends.findIndex(i => i.id === event.data.id)] = object;
             const actionMsg = event.action === 'maintenance' ? 'put in maintenance' : event.action + 'ed';
-            this.service.showToast(
-							'success',
-							 '',
-							 'The backend <strong>' + event.data.id + '</strong> has been ' + actionMsg + ' successfully.',
-						);
+            this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_maintenance', 'toast', event.data.id, actionMsg);
           });
     }
   }
@@ -297,7 +306,7 @@ export class ServiceUpdateComponent implements  OnInit {
             items[backend.index][key] = backend.object[key];
           });
           this.serviceParams.backends = items;
-          this.service.showToast('success', '', 'The backend has been created successfully.');
+          this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_created', 'toast');
           this.restart.emit(this.resAction);
         });
   }
