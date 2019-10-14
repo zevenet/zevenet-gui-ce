@@ -405,7 +405,7 @@
             "delete": "खेत <strong>{{param}}</strong> सफलतापूर्वक हटा दिया गया है।",
             "delete_farm_service": "खेत <strong>{{param}}</strong> {{param2}} को सफलतापूर्वक हटा दिया गया है।",
             "confirm_delete": "क्या आप वाकई {{param}} farmname हटाना चाहते हैं?",
-            "stop": "खेत <strong>{{param}}</strong> सफलतापूर्वक {{param2}} एड किया गया है।",
+            "stop": "खेत <strong>{{param}}</strong> सफलतापूर्वक {{param2}} किया गया है।",
             "created": "खेत <strong>{{param}}</strong> सफलतापूर्वक बनाया गया है।",
             "restarted": "खेत <strong>{{param}}</strong> सफलतापूर्वक पुनः आरंभ किया गया है।",
             "backend_created": "बैकएंड को सफलतापूर्वक बनाया गया है।",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "यह  <strong>{{param}}</strong> वर्चुअल इंटरफ़ेस सफलतापूर्वक अपडेट किया गया है।",
             "virtual_interface_confirm_deleted": "क्या आप वाकई {{param}} वर्चुअल इंटरफ़ेस हटाना चाहते हैं?",
             "virtual_interface_deleted": "यह  <strong>{{param}}</strong> वर्चुअल इंटरफ़ेस सफलतापूर्वक हटा दिया गया है।",
+            "virtual_interface_is": "यह  <strong>{{param}}</strong> वर्चुअल इंटरफ़ेस {{param2}} है",
             "vlan_created": "यह  <strong>{{param}}</strong> VLAN को सफलतापूर्वक बनाया गया है।",
             "vlan_update": "यह  <strong>{{param}}</strong> VLAN को सफलतापूर्वक अपडेट कर दिया गया है।",
             "vlan_confirm_delete": "क्या आप वाकई {{param}} VLAN को हटाना चाहते हैं?",
@@ -510,5 +511,14 @@
             "success": "सफलता!",
             "success_msg": "आपने सफ़लतापूर्वक लॉग इन कर लिया है।"
         }
+    },
+    "STATUS": {
+        "maintenance" : "रखरखाव में डाल दिया",
+        "upped" : "बढ़ा",
+        "stopped": "रोक",
+        "started": "शुरू",
+        "restarted": "पुन: प्रारंभ",
+        "down": "नीचे",
+        "up": " up"
     }
 }

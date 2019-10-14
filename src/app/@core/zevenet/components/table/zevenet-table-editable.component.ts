@@ -81,7 +81,7 @@ export class ZevenetTableEditableComponent {
 
             const object = {};
             Object.keys(this.newItem).forEach((key) => {
-                if (this.newItem[key] && this.newItem[key] !== this.editing[key])
+                if ((key === 'port' || this.newItem[key]) && this.newItem[key] !== this.editing[key])
                     object[key] = this.newItem[key];
             });
             this.edit.emit({object, id, index});

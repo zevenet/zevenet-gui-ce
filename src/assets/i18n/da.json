@@ -405,7 +405,7 @@
             "delete": "Gården <strong>{{param}}</strong> er blevet slettet korrekt.",
             "delete_farm_service": "Gården <strong>{{param}}</strong> {{param2}} er blevet slettet korrekt.",
             "confirm_delete": "Er du sikker på, at du vil slette {{param}} farmname?",
-            "stop": "Gården <strong>{{param}}</strong> har været {{param2}} ed med succes.",
+            "stop": "Gården <strong>{{param}}</strong> har været {{param2}} succesfuldt.",
             "created": "Gården <strong>{{param}}</strong> er blevet oprettet med succes.",
             "restarted": "Gården <strong>{{param}}</strong> er blevet genstartet med succes.",
             "backend_created": "Baggrunden er oprettet med succes.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "Den <strong>{{param}}</strong> Virtuel grænseflade er blevet opdateret med succes.",
             "virtual_interface_confirm_deleted": "Er du sikker på, at du vil slette {{param}} Virtual-grænsefladen?",
             "virtual_interface_deleted": "Den <strong>{{param}}</strong> Virtual interface er slettet korrekt.",
+            "virtual_interface_is": "Den <strong>{{param}}</strong> Virtuel interface er {{param2}}",
             "vlan_created": "Den <strong>{{param}}</strong> VLAN er blevet oprettet med succes.",
             "vlan_update": "Den <strong>{{param}}</strong> VLAN er blevet opdateret med succes.",
             "vlan_confirm_delete": "Er du sikker på, at du vil slette {{param}} VLAN?",
@@ -510,5 +511,14 @@
             "success": "Succes!",
             "success_msg": "Du er blevet logget ind."
         }
+    },
+    "STATUS": {
+        "maintenance" : "læg i vedligeholdelse",
+        "upped" : "forøgede",
+        "stopped": "stoppet",
+        "started": "påbegyndt",
+        "restarted": "genstartes",
+        "down": "ned",
+        "up": " up"
     }
 }

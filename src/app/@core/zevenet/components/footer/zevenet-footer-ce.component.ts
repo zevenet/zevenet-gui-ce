@@ -34,7 +34,7 @@ import { LANGS } from '../../../../../assets/i18n/langs/langs_en';
     /deep/ button {
       outline: none !important;
     }
-  `]
+  `],
 })
 export class ZevenetFooterCeComponent {
 
@@ -73,6 +73,6 @@ export class ZevenetFooterCeComponent {
         const lang = localStorage.getItem('lang');
         if (lang !== this.selectedLang)
           localStorage.setItem('lang', this.selectedLang);
-      })
+      });
   }
 }

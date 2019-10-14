@@ -99,7 +99,12 @@ export class NicComponent implements OnInit {
             const object = event.data;
             object.status = this.actionResp.params.action;
             this.interfaces[this.interfaces.findIndex(i => i.name === event.data.name)] = object;
-            this.showMessageTranslated('SYSTEM_MESSAGES.network.nic_is', 'toast', event.data.name, event.action);
+            let actionMsg = '';
+            this.service.translateLang('STATUS.' + object.status, actionMsg)
+              .subscribe((translated) => {
+                actionMsg = translated;
+                this.showMessageTranslated('SYSTEM_MESSAGES.network.nic_is', 'toast', event.data, actionMsg);
+              });
           });
     }
   }

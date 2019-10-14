@@ -405,7 +405,7 @@
             "delete": "La Fattoria <strong>{{param}}</strong> è stato cancellato con successo.",
             "delete_farm_service": "La Fattoria <strong>{{param}}</strong> {{param2}} è stato cancellato con successo.",
             "confirm_delete": "Sei sicuro di voler eliminare il {{param}} nome di campagna?",
-            "stop": "La Fattoria <strong>{{param}}</strong> è stato {{param2}} ed è riuscito.",
+            "stop": "La Fattoria <strong>{{param}}</strong> è stato {{param2}} con successo.",
             "created": "La Fattoria <strong>{{param}}</strong> è stato creato con successo.",
             "restarted": "La Fattoria <strong>{{param}}</strong> è stato riavviato correttamente.",
             "backend_created": "Il back-end è stato creato con successo.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "Il sito <strong>{{param}}</strong> L'interfaccia virtuale è stata aggiornata con successo.",
             "virtual_interface_confirm_deleted": "Sei sicuro di voler eliminare l'interfaccia virtuale {{param}}?",
             "virtual_interface_deleted": "Il sito <strong>{{param}}</strong> L'interfaccia virtuale è stata cancellata con successo.",
+            "virtual_interface_is": "Il sito <strong>{{param}}</strong> L'interfaccia virtuale è {{param2}}",
             "vlan_created": "Il sito <strong>{{param}}</strong> La VLAN è stata creata con successo.",
             "vlan_update": "Il sito <strong>{{param}}</strong> La VLAN è stata aggiornata correttamente.",
             "vlan_confirm_delete": "Sei sicuro di voler eliminare la {{param}} VLAN?",
@@ -510,5 +511,14 @@
             "success": "Successo!",
             "success_msg": "Hai effettuato l'accesso con successo."
         }
+    },
+    "STATUS": {
+        "maintenance" : "mettere in manutenzione",
+        "upped" : "alzato",
+        "stopped": "fermato",
+        "started": "iniziato",
+        "restarted": "rinnovate",
+        "down": "giù",
+        "up": " up"
     }
 }

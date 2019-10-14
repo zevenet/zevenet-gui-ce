@@ -49,12 +49,13 @@ export class VlanComponent implements OnInit {
   }
 
   showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
-    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+    return this.service.interpolateLang(textlang, { param: param.name, param2: param2 })
       .then(data => {
         if (func === 'toast') {
           this.service.showToast('success', '', data);
         } else if (func === 'window') {
-          return window.confirm(data);
+          if (window.confirm(data))
+            this.delete(param);
         }
       });
   }
@@ -66,18 +67,20 @@ export class VlanComponent implements OnInit {
       });
   }
 
+  delete(data) {
+    this.service.delete('interfaces/vlan', data.name)
+    .subscribe(
+      (resp) => { this.actionResp  =  resp; },
+      (error) => { },
+      () => {
+        this.interfaces.splice(this.interfaces.findIndex(i => i.name === data.name), 1);
+        this.showMessageTranslated('SYSTEM_MESSAGES.network.vlan_deleted', 'toast', data.name);
+      });
+  }
+
   onAction(event) {
     if (event.action === 'delete') {
-      if (this.showMessageTranslated('SYSTEM_MESSAGES.network.vlan_confirm_delete', 'window', event.data.name)) {
-        this.service.delete('interfaces/vlan', event.data.name)
-        .subscribe(
-          (data) => { this.actionResp  =  data; },
-          (error) => { },
-          () => {
-            this.interfaces.splice(this.interfaces.findIndex(i => i.name === event.data.name), 1);
-            this.showMessageTranslated('SYSTEM_MESSAGES.network.vlan_deleted', 'toast', event.data.name);
-          });
-      }
+      this.showMessageTranslated('SYSTEM_MESSAGES.network.vlan_confirm_delete', 'window', event.data);
     } else {
       const param = {action: event.action};
       this.service.actionNetwork(event.data.name, 'vlan', param)
@@ -88,7 +91,12 @@ export class VlanComponent implements OnInit {
             const object = event.data;
             object.status = this.actionResp.params.action;
             this.interfaces[this.interfaces.findIndex(i => i.name === event.data.name)] = object;
-            this.showMessageTranslated('SYSTEM_MESSAGES.network.vlan_is', 'toast', event.data.name, event.action);
+            let actionMsg = '';
+            this.service.translateLang('STATUS.' + object.status, actionMsg)
+              .subscribe((translated) => {
+                actionMsg = translated;
+                this.showMessageTranslated('SYSTEM_MESSAGES.network.vlan_is', 'toast', event.data.name, actionMsg);
+              });
           });
     }
   }

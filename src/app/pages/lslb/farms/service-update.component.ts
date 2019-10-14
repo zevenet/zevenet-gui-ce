@@ -89,7 +89,7 @@ export class ServiceUpdateComponent implements  OnInit {
     this.service.refreshLang(selectJson, columns)
       .subscribe((langTranslated) => {
         if (Array.isArray(langTranslated)) {
-          columns = [...langTranslated]
+          columns = [...langTranslated];
         } else {
           columns = langTranslated;
         }
@@ -270,8 +270,17 @@ export class ServiceUpdateComponent implements  OnInit {
             const object = event.data;
             object.status = this.resAction.params.action;
             this.serviceParams.backends[this.serviceParams.backends.findIndex(i => i.id === event.data.id)] = object;
-            const actionMsg = event.action === 'maintenance' ? 'put in maintenance' : event.action + 'ed';
-            this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_maintenance', 'toast', event.data.id, actionMsg);
+            let actionMsg = action[0] === 'up' ? 'upped' : action[0];
+            this.service.translateLang('STATUS.' + actionMsg, actionMsg)
+              .subscribe((translated) => {
+                actionMsg = translated;
+                this.showMessageTranslated(
+                  'SYSTEM_MESSAGES.farm.backend_maintenance',
+                  'toast',
+                  event.data.id,
+                  actionMsg,
+                );
+              });
           });
     }
   }

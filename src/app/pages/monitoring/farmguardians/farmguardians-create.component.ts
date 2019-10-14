@@ -51,7 +51,7 @@ export class FarmguardiansCreateComponent {
 	toggleCopy(status) {
 		this.copy = status;
 		if (this.copy) {
-			this.formGroup.addControl('parent', new FormControl('', Validators.required));
+			this.formGroup.addControl('copy_from', new FormControl('', Validators.required));
 			if (!this.ruleList) {
 				this.service.getList('monitoring/fg')
 			      .subscribe((data) => {
@@ -59,7 +59,7 @@ export class FarmguardiansCreateComponent {
 			      });
 		    }
 		} else {
-			this.formGroup.removeControl('parent');
+			this.formGroup.removeControl('copy_from');
 		}
 	}
 

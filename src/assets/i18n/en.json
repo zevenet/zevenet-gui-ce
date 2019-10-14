@@ -405,7 +405,7 @@
             "delete": "The farm <strong>{{param}}</strong> has been deleted successfully.",
             "delete_farm_service": "The farm <strong>{{param}}</strong> {{param2}} has been deleted successfully.",
             "confirm_delete": "Are you sure you want to delete the {{param}} farmname ?",
-            "stop": "The farm <strong>{{param}}</strong> has been {{param2}}ed successfully.",
+            "stop": "The farm <strong>{{param}}</strong> has been {{param2}} successfully.",
             "created": "The farm <strong>{{param}}</strong> has been created successfully.",
             "restarted": "The farm <strong>{{param}}</strong> has been restarted successfully.",
             "backend_created": "The backend has been created successfully.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "The <strong>{{param}}</strong> Virtual interface has been updated successfully.",
             "virtual_interface_confirm_deleted": "Are you sure you want to delete the {{param}} Virtual interface?",
             "virtual_interface_deleted": "The <strong>{{param}}</strong> Virtual interface has been deleted successfully.",
+            "virtual_interface_is": "The <strong>{{param}}</strong> Virtual Interface is {{param2}}",
             "vlan_created": "The <strong>{{param}}</strong> VLAN has been created successfully.",
             "vlan_update": "The <strong>{{param}}</strong> VLAN has been updated successfully.",
             "vlan_confirm_delete": "Are you sure you want to delete the {{param}} VLAN?",
@@ -510,5 +511,14 @@
             "success": "Success!",
             "success_msg": "You have been successfully logged in."
         }
+    },
+    "STATUS": {
+        "maintenance" : "put in maintenance",
+        "upped" : "upped",
+        "stopped": "stopped",
+        "started": "started",
+        "restarted": "restarted",
+        "down": "down",
+        "up": "up"
     }
 }

@@ -405,7 +405,7 @@
             "delete": "La granja <strong>{{param}}</strong> ha sido eliminado exitosamente",
             "delete_farm_service": "La granja <strong>{{param}}</strong> {{param2}} se ha eliminado correctamente.",
             "confirm_delete": "¿Estás seguro de que deseas eliminar el nombre de la granja {{param}}?",
-            "stop": "La granja <strong>{{param}}</strong> ha sido {{param2}}da correctamente.",
+            "stop": "La granja <strong>{{param}}</strong> ha sido {{param2}} correctamente.",
             "created": "La granja <strong>{{param}}</strong> ha sido creada exitosamente",
             "restarted": "La granja <strong>{{param}}</strong> ha sido reiniciada con éxito.",
             "backend_created": "El backend ha sido creado con éxito.",
@@ -437,11 +437,12 @@
             "virtual_interface_updated": "La interfaz virtual<strong>{{param}}</strong> se ha actualizado con éxito.",
             "virtual_interface_confirm_deleted": "¿Está seguro de que desea eliminar la interfaz virtual {{param}}?",
             "virtual_interface_deleted": "La interfaz virtual <strong>{{param}}</strong> se ha eliminado con éxito.",
+            "virtual_interface_is": "La Interfaz virtual <strong>{{param}}</strong> esta {{param2}}",            
             "vlan_created": "La VLAN <strong>{{param}}</strong> se ha creado con éxito.",
             "vlan_update": "La VLAN <strong>{{param}}</strong> se ha actualizado con éxito.",
             "vlan_confirm_delete": "¿Está seguro de que desea eliminar la VLAN {{param}}?",
             "vlan_deleted": "La VLAN <strong>{{param}}</strong> se ha eliminado con éxito.",
-            "vlan_is": "La VLAN <strong>{{param}}</strong> es {{param2}}"
+            "vlan_is": "La VLAN <strong>{{param}}</strong> esta {{param2}}"
         },
         "system": {
             "backup_created": "La copia de seguridad <strong>{{param}}</strong> ha sido creada exitosamente",
@@ -510,5 +511,14 @@
             "success": "Éxito!",
             "success_msg": "Has ingresado exitosamente."
         }
+    },
+    "STATUS": {
+        "maintenance" : "puesto en mantenimiento",
+        "upped" : "levantado",
+        "stopped": "parada",
+        "started": "iniciada",
+        "restarted": "reiniciada",
+        "down": "deshabilitada",
+        "up": "habilitada"
     }
 }

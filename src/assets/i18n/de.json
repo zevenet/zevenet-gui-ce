@@ -365,8 +365,8 @@
         "timeout": "Timeout",
         "weight": "Gewicht",
         "CN": "Gemeinsamen Namen",
-        "type": "Type",
-        "file": "Datei",
+        "type": "Art",
+        "file": "Reichen Sie das",
         "issuer": "Aussteller",
         "creation": "Erstellen Sie am",
         "expiration": "Verfällt am",
@@ -405,7 +405,7 @@
             "delete": "Der Bauernhof <strong>{{param}}</strong> wurde erfolgreich gelöscht.",
             "delete_farm_service": "Der Bauernhof <strong>{{param}}</strong> {{param2}} wurde erfolgreich gelöscht.",
             "confirm_delete": "Möchten Sie den Farmnamen {{param}} wirklich löschen?",
-            "stop": "Der Bauernhof <strong>{{param}}</strong> wurde {{param2}} erfolgreich bearbeitet.",
+            "stop": "Der Bauernhof <strong>{{param}}</strong> war {{param2}} erfolgreich",
             "created": "Der Bauernhof <strong>{{param}}</strong> wurde erfolgreich erstellt.",
             "restarted": "Der Bauernhof <strong>{{param}}</strong> wurde erfolgreich neu gestartet.",
             "backend_created": "Das Backend wurde erfolgreich erstellt.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "Die <strong>{{param}}</strong> Die virtuelle Schnittstelle wurde erfolgreich aktualisiert.",
             "virtual_interface_confirm_deleted": "Möchten Sie die virtuelle Schnittstelle {{param}} wirklich löschen?",
             "virtual_interface_deleted": "Die <strong>{{param}}</strong> Virtuelle Schnittstelle wurde erfolgreich gelöscht.",
+            "virtual_interface_is": "Die <strong>{{param}}</strong> Virtuelle Schnittstelle ist {{param2}}",
             "vlan_created": "Die <strong>{{param}}</strong> VLAN wurde erfolgreich erstellt.",
             "vlan_update": "Die <strong>{{param}}</strong> VLAN wurde erfolgreich aktualisiert.",
             "vlan_confirm_delete": "Möchten Sie das {{param}} VLAN wirklich löschen?",
@@ -510,5 +511,14 @@
             "success": "Success!",
             "success_msg": "Sie haben sich erfolgreich eingeloggt."
         }
+    },
+    "STATUS": {
+        "maintenance" : "Wartung einsetzen",
+        "upped" : "erhöht",
+        "stopped": "gestoppt",
+        "started": "begonnen",
+        "restarted": "neu gestartet",
+        "down": "nach unten",
+        "up": " up"
     }
 }

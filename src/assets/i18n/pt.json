@@ -405,7 +405,7 @@
             "delete": "A Fazenda <strong>{{param}}</strong> foi eliminado com sucesso.",
             "delete_farm_service": "A Fazenda <strong>{{param}}</strong> {{param2}} foi excluído com sucesso.",
             "confirm_delete": "Tem certeza de que deseja excluir o {{param}} farmname?",
-            "stop": "A Fazenda <strong>{{param}}</strong> foi {{param2}} ed com sucesso.",
+            "stop": "A Fazenda <strong>{{param}}</strong> foi {{param2}} com sucesso.",
             "created": "A Fazenda <strong>{{param}}</strong> foi criado com sucesso.",
             "restarted": "A Fazenda <strong>{{param}}</strong> foi reiniciado com sucesso.",
             "backend_created": "O back-end foi criado com sucesso.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "O <strong>{{param}}</strong> A interface virtual foi atualizada com sucesso.",
             "virtual_interface_confirm_deleted": "Tem certeza de que deseja excluir a interface virtual do {{param}}?",
             "virtual_interface_deleted": "O <strong>{{param}}</strong> A interface virtual foi excluída com sucesso.",
+            "virtual_interface_is": "O <strong>{{param}}</strong> A interface virtual é {{param2}}",
             "vlan_created": "O <strong>{{param}}</strong> A VLAN foi criada com sucesso.",
             "vlan_update": "O <strong>{{param}}</strong> A VLAN foi atualizada com sucesso.",
             "vlan_confirm_delete": "Tem certeza de que deseja excluir a VLAN {{param}}?",
@@ -510,5 +511,14 @@
             "success": "Sucesso!",
             "success_msg": "Você foi logado com sucesso."
         }
+    },
+    "STATUS": {
+        "maintenance" : "colocar em manutenção",
+        "upped" : "levantado",
+        "stopped": "parou",
+        "started": "começado",
+        "restarted": "reiniciado",
+        "down": "baixa",
+        "up": " up"
     }
 }

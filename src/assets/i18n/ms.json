@@ -405,7 +405,7 @@
             "delete": "Ladang <strong>{{param}}</strong> telah dipadam dengan jayanya.",
             "delete_farm_service": "Ladang <strong>{{param}}</strong> {{param2}} telah berjaya dipadam.",
             "confirm_delete": "Adakah anda pasti mahu memadamkan nama ladang {{param}}?",
-            "stop": "Ladang <strong>{{param}}</strong> telah berjaya {{param2}} ed berjaya.",
+            "stop": "Ladang <strong>{{param}}</strong> telah berjaya {{param2}} berjaya.",
             "created": "Ladang <strong>{{param}}</strong> telah berjaya diwujudkan.",
             "restarted": "Ladang <strong>{{param}}</strong> telah berjaya dimulakan semula.",
             "backend_created": "Backend telah berjaya dibuat.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "Platform <strong>{{param}}</strong> Antara muka maya telah berjaya dikemas kini.",
             "virtual_interface_confirm_deleted": "Adakah anda pasti mahu memadamkan {{param}} antara muka Maya?",
             "virtual_interface_deleted": "Platform <strong>{{param}}</strong> Antara muka maya telah berjaya dihapuskan.",
+            "virtual_interface_is": "Platform <strong>{{param}}</strong> Interface Maya adalah {{param2}}",
             "vlan_created": "Platform <strong>{{param}}</strong> VLAN telah berjaya dicipta.",
             "vlan_update": "Platform <strong>{{param}}</strong> VLAN telah berjaya dikemas kini.",
             "vlan_confirm_delete": "Adakah anda pasti mahu memadamkan VLAN {{param}}?",
@@ -510,5 +511,14 @@
             "success": "Kejayaan!",
             "success_msg": "Anda berjaya dilog masuk."
         }
+    },
+    "STATUS": {
+        "maintenance" : "diletakkan dalam penyelenggaraan",
+        "upped" : "naik",
+        "stopped": "berhenti",
+        "started": "bermula",
+        "restarted": "dimulakan semula",
+        "down": "turun",
+        "up": " up"
     }
 }

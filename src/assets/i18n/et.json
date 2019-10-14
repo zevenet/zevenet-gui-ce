@@ -405,7 +405,7 @@
             "delete": "Talu <strong>{{param}}</strong> on edukalt kustutatud.",
             "delete_farm_service": "Talu <strong>{{param}}</strong> {{param2}} on edukalt kustutatud.",
             "confirm_delete": "Kas soovite kindlasti {{param}} farmnimi kustutada?",
-            "stop": "Talu <strong>{{param}}</strong> on {{param2}} edukas.",
+            "stop": "Talu <strong>{{param}}</strong> on edukalt {{param2}}.",
             "created": "Talu <strong>{{param}}</strong> on edukalt loodud.",
             "restarted": "Talu <strong>{{param}}</strong> on edukalt käivitatud.",
             "backend_created": "Taustaprogramm on edukalt loodud.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "The <strong>{{param}}</strong> Virtuaalne liides on edukalt uuendatud.",
             "virtual_interface_confirm_deleted": "Kas soovite kindlasti {{param}} virtuaalse liidese kustutada?",
             "virtual_interface_deleted": "The <strong>{{param}}</strong> Virtuaalne liides on edukalt kustutatud.",
+            "virtual_interface_is": "The <strong>{{param}}</strong> Virtuaalne liides on {{param2}}",
             "vlan_created": "The <strong>{{param}}</strong> VLAN on edukalt loodud.",
             "vlan_update": "The <strong>{{param}}</strong> VLAN on edukalt uuendatud.",
             "vlan_confirm_delete": "Kas soovite kindlasti {{param}} VLAN-i kustutada?",
@@ -510,5 +511,14 @@
             "success": "Edu!",
             "success_msg": "Olete edukalt sisse logitud."
         }
+    },
+    "STATUS": {
+        "maintenance" : "hooldusesse panema",
+        "upped" : "üleval",
+        "stopped": "peatatud",
+        "started": "alustatud",
+        "restarted": "taaskäivitatud",
+        "down": "alla",
+        "up": " up"
     }
 }

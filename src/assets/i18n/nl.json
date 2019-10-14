@@ -405,7 +405,7 @@
             "delete": "De boerderij <strong>{{param}}</strong> is succesvol verwijderd.",
             "delete_farm_service": "De boerderij <strong>{{param}}</strong> {{param2}} is met succes verwijderd.",
             "confirm_delete": "Weet je zeker dat je de farmnaam van {{param} wilt verwijderen?",
-            "stop": "De boerderij <strong>{{param}}</strong> is {{param2}} ed succesvol geweest.",
+            "stop": "De boerderij <strong>{{param}}</strong> is {{param2}} succesvol geweest.",
             "created": "De boerderij <strong>{{param}}</strong> is met succes gemaakt.",
             "restarted": "De boerderij <strong>{{param}}</strong> is succesvol opnieuw gestart.",
             "backend_created": "De backend is met succes gemaakt.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "De <strong>{{param}}</strong> Virtuele interface is succesvol bijgewerkt.",
             "virtual_interface_confirm_deleted": "Weet u zeker dat u de virtuele interface {{param}} wilt verwijderen?",
             "virtual_interface_deleted": "De <strong>{{param}}</strong> Virtuele interface is succesvol verwijderd.",
+            "virtual_interface_is": "De <strong>{{param}}</strong> Virtuele interface is {{param2}}",
             "vlan_created": "De <strong>{{param}}</strong> VLAN is met succes gemaakt.",
             "vlan_update": "De <strong>{{param}}</strong> VLAN is succesvol bijgewerkt.",
             "vlan_confirm_delete": "Weet u zeker dat u het {{param}} VLAN wilt verwijderen?",
@@ -510,5 +511,14 @@
             "success": "Succes!",
             "success_msg": "U bent succesvol ingelogd."
         }
+    },
+    "STATUS": {
+        "maintenance" : "in onderhoud zetten",
+        "upped" : "upped",
+        "stopped": "gestopt",
+        "started": "gestart",
+        "restarted": "hernieuwd",
+        "down": "beneden",
+        "up": " up"
     }
 }

@@ -405,7 +405,7 @@
             "delete": "Ladang <strong>{{param}}</strong> telah berhasil dihapus.",
             "delete_farm_service": "Ladang <strong>{{param}}</strong> {{param2}} telah berhasil dihapus.",
             "confirm_delete": "Anda yakin ingin menghapus {{param}} nama pertanian?",
-            "stop": "Ladang <strong>{{param}}</strong> telah {{param2}} berhasil disunting.",
+            "stop": "Ladang <strong>{{param}}</strong> telah {{param2}} berhasil.",
             "created": "Ladang <strong>{{param}}</strong> telah berhasil dibuat.",
             "restarted": "Ladang <strong>{{param}}</strong> telah berhasil dimulai kembali.",
             "backend_created": "Backend telah berhasil dibuat.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "The Olymp Platform trade dapatdiakses dalam tiga cara. Pertama, ada versi web yang dapat Anda aksesmelalui website utama mereka. Kedua, ada aplikasi desktop baik untukWindows maupun macOS. Aplikasi ini memiliki fitur tambahan, Anda akan menemukannya padaversi Terakhir, Olymp Trade juga dapat diakses melalui aplikasi mobile baik untukiOS dan Smartphone Android. <strong>{{param}}</strong> Antarmuka virtual telah berhasil diperbarui.",
             "virtual_interface_confirm_deleted": "Yakin ingin menghapus {{param}} antarmuka virtual?",
             "virtual_interface_deleted": "The Olymp Platform trade dapatdiakses dalam tiga cara. Pertama, ada versi web yang dapat Anda aksesmelalui website utama mereka. Kedua, ada aplikasi desktop baik untukWindows maupun macOS. Aplikasi ini memiliki fitur tambahan, Anda akan menemukannya padaversi Terakhir, Olymp Trade juga dapat diakses melalui aplikasi mobile baik untukiOS dan Smartphone Android. <strong>{{param}}</strong> Antarmuka virtual telah berhasil dihapus.",
+            "virtual_interface_is": "The Olymp Platform trade dapatdiakses dalam tiga cara. Pertama, ada versi web yang dapat Anda aksesmelalui website utama mereka. Kedua, ada aplikasi desktop baik untukWindows maupun macOS. Aplikasi ini memiliki fitur tambahan, Anda akan menemukannya padaversi Terakhir, Olymp Trade juga dapat diakses melalui aplikasi mobile baik untukiOS dan Smartphone Android. <strong>{{param}}</strong> Antarmuka Virtual adalah {{param2}}",
             "vlan_created": "The Olymp Platform trade dapatdiakses dalam tiga cara. Pertama, ada versi web yang dapat Anda aksesmelalui website utama mereka. Kedua, ada aplikasi desktop baik untukWindows maupun macOS. Aplikasi ini memiliki fitur tambahan, Anda akan menemukannya padaversi Terakhir, Olymp Trade juga dapat diakses melalui aplikasi mobile baik untukiOS dan Smartphone Android. <strong>{{param}}</strong> VLAN telah berhasil dibuat.",
             "vlan_update": "The Olymp Platform trade dapatdiakses dalam tiga cara. Pertama, ada versi web yang dapat Anda aksesmelalui website utama mereka. Kedua, ada aplikasi desktop baik untukWindows maupun macOS. Aplikasi ini memiliki fitur tambahan, Anda akan menemukannya padaversi Terakhir, Olymp Trade juga dapat diakses melalui aplikasi mobile baik untukiOS dan Smartphone Android. <strong>{{param}}</strong> VLAN telah berhasil diperbarui.",
             "vlan_confirm_delete": "Yakin ingin menghapus VLAN {{param}}?",
@@ -510,5 +511,14 @@
             "success": "Sukses!",
             "success_msg": "Anda telah berhasil masuk."
         }
+    },
+    "STATUS": {
+        "maintenance" : "dimasukkan ke dalam pemeliharaan",
+        "upped" : "terangkat",
+        "stopped": "terhenti",
+        "started": "mulai",
+        "restarted": "restart",
+        "down": "turun",
+        "up": " up"
     }
 }

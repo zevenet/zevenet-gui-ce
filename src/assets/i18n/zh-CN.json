@@ -405,7 +405,7 @@
             "delete": "农场 <strong>{{param}}</strong> 已成功删除。",
             "delete_farm_service": "农场 <strong>{{param}}</strong> {{param2}}已成功删除。",
             "confirm_delete": "您确定要删除{{param}}农场名吗？",
-            "stop": "农场 <strong>{{param}}</strong> 已成功{{param2}}编辑。",
+            "stop": "农场 <strong>{{param}}</strong> 已成功{{param2}}。",
             "created": "农场 <strong>{{param}}</strong> 已成功创建。",
             "restarted": "农场 <strong>{{param}}</strong> 已成功重启。",
             "backend_created": "后端已成功创建。",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "在此 <strong>{{param}}</strong> 虚拟接口已成功更新。",
             "virtual_interface_confirm_deleted": "您确定要删除{{param}}虚拟界面吗？",
             "virtual_interface_deleted": "在此 <strong>{{param}}</strong> 虚拟接口已成功删除。",
+            "virtual_interface_is": "在此 <strong>{{param}}</strong> 虚拟接口为{{param2}}",
             "vlan_created": "在此 <strong>{{param}}</strong> 已成功创建VLAN。",
             "vlan_update": "在此 <strong>{{param}}</strong> VLAN已成功更新。",
             "vlan_confirm_delete": "您确定要删除{{param}} VLAN吗？",
@@ -510,5 +511,14 @@
             "success": "成功了！",
             "success_msg": "您已成功登录。"
         }
+    },
+    "STATUS": {
+        "maintenance" : "进行维护",
+        "upped" : "提升",
+        "stopped": "停止",
+        "started": "开始",
+        "restarted": "重新启动",
+        "down": "向下",
+        "up": " up"
     }
 }

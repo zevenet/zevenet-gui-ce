@@ -366,7 +366,7 @@
         "weight": "الوزن",
         "CN": "اسم شائع",
         "type": "النوع",
-        "file": "تقديم",
+        "file": "قم بتقديم",
         "issuer": "المصدر",
         "creation": "خلق على",
         "expiration": "تنتهي في",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "الـ <strong>{{param}}</strong> تم تحديث الواجهة الافتراضية بنجاح.",
             "virtual_interface_confirm_deleted": "هل تريد بالتأكيد حذف الواجهة الظاهرية {{param}}؟",
             "virtual_interface_deleted": "الـ <strong>{{param}}</strong> تم حذف الواجهة الافتراضية بنجاح.",
+            "virtual_interface_is": "الـ <strong>{{param}}</strong> الواجهة الافتراضية هي {{param2}}",
             "vlan_created": "الـ <strong>{{param}}</strong> تم إنشاء شبكة محلية ظاهرية بنجاح.",
             "vlan_update": "الـ <strong>{{param}}</strong> تم تحديث VLAN بنجاح.",
             "vlan_confirm_delete": "هل تريد بالتأكيد حذف شبكة محلية ظاهرية {{param}}؟",
@@ -466,7 +467,7 @@
         "new_service": "خدمة جديدة",
         "create": "خلق",
         "cancel": "إلغاء",
-        "submit": "تسليم",
+        "submit": "تقديم",
         "save": "حفظ",
         "generate": "توليد",
         "update": "تحديث",
@@ -510,5 +511,14 @@
             "success": "النجاح!",
             "success_msg": "قمت بتسجيل الدخول بنجاح."
         }
+    },
+    "STATUS": {
+        "maintenance" : "وضعت في الصيانة",
+        "upped" : "مرفوع",
+        "stopped": "توقف",
+        "started": "بدأت",
+        "restarted": "إعادة تشغيل",
+        "down": "إلى أسفل",
+        "up": " up"
     }
 }

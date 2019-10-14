@@ -405,7 +405,7 @@
             "delete": "Ферма <strong>{{param}}</strong> был успешно удален.",
             "delete_farm_service": "Ферма <strong>{{param}}</strong> {{param2}} был успешно удален.",
             "confirm_delete": "Вы уверены, что хотите удалить имя фермы {{param}}?",
-            "stop": "Ферма <strong>{{param}}</strong> {{param2}} успешно отредактирован.",
+            "stop": "Ферма <strong>{{param}}</strong> успешно прошел {{param2}}.",
             "created": "Ферма <strong>{{param}}</strong> был успешно создан.",
             "restarted": "Ферма <strong>{{param}}</strong> был перезапущен успешно.",
             "backend_created": "Бэкэнд был успешно создан.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "  <strong>{{param}}</strong> Виртуальный интерфейс был успешно обновлен.",
             "virtual_interface_confirm_deleted": "Вы уверены, что хотите удалить виртуальный интерфейс {{param}}?",
             "virtual_interface_deleted": "  <strong>{{param}}</strong> Виртуальный интерфейс был успешно удален.",
+            "virtual_interface_is": "  <strong>{{param}}</strong> Виртуальный интерфейс - {{param2}}",
             "vlan_created": "  <strong>{{param}}</strong> VLAN был успешно создан.",
             "vlan_update": "  <strong>{{param}}</strong> VLAN успешно обновлен.",
             "vlan_confirm_delete": "Вы уверены, что хотите удалить VLAN {{param}}?",
@@ -510,5 +511,14 @@
             "success": "Успех!",
             "success_msg": "Вы успешно вошли в систему."
         }
+    },
+    "STATUS": {
+        "maintenance" : "вводить в эксплуатацию",
+        "upped" : "увеличил",
+        "stopped": "остановившийся",
+        "started": "началась",
+        "restarted": "перезапущен",
+        "down": "вниз",
+        "up": " up"
     }
 }

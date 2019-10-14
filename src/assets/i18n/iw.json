@@ -412,10 +412,10 @@
             "profile_changed": "הפרופיל השתנה ל- {{param}} בהצלחה.",
             "farmguardian_disabled": "החוואי הושבת בהצלחה.",
             "farmguardian_changed": "שומר החלב השתנה ל- {{param}} בהצלחה.",
-            "farmguardian_created": "קטגורית <strong>{{param}}</strong> Farmguardian נוצר בהצלחה.",
-            "farmguardian_update": "קטגורית <strong>{{param}}</strong> farmguardian עודכן בהצלחה",
+            "farmguardian_created": "ה <strong>{{param}}</strong> Farmguardian נוצר בהצלחה.",
+            "farmguardian_update": "ה <strong>{{param}}</strong> farmguardian עודכן בהצלחה",
             "farmguardian_confirm_delete": "האם אתה בטוח שברצונך למחוק את {{param}} farmguardian?",
-            "farmguardian_delete": "קטגורית <strong>{{param}}</strong> Farmguardian נמחק בהצלחה.",
+            "farmguardian_delete": "ה <strong>{{param}}</strong> Farmguardian נמחק בהצלחה.",
             "updated": "החווה עודכנה בהצלחה.",
             "delete_farm_of_farmguardian": "האם אתה בטוח שברצונך למחוק את החווה {{param}} {{param2}} של החוואי?",
             "backend_confirm_delete": "האם אתה בטוח שברצונך למחוק את ה- backend {{param}}?",
@@ -426,22 +426,23 @@
             "service_update": "השירות <strong>{{param}}</strong> עודכן בהצלחה."
         },
         "network": {
-            "gateway_update": "קטגורית <strong>{{param}}</strong> שער עודכן בהצלחה.",
+            "gateway_update": "ה <strong>{{param}}</strong> שער עודכן בהצלחה.",
             "gateway_confirm_unset": "האם אתה בטוח שברצונך לבטל את הגדרת השער הנוכחי?",
             "gateway_confirm_unset_interface": "האם אתה בטוח שברצונך לבטל את הגדרת השער {{param}}?",
-            "gateway_unconfigured": "קטגורית <strong>{{param}}</strong> Gateway לא הוגדר בהצלחה.",
-            "nic_update": "קטגורית <strong>{{param}}</strong> NIC עודכן בהצלחה.",
-            "nic_unconfigured": "קטגורית <strong>{{param}}</strong> NIC כבר unconfigured בהצלחה.",
-            "nic_is": "קטגורית <strong>{{param}}</strong> NIC הוא {{param2}}",
-            "virtual_interface_created": "קטגורית <strong>{{param}}</strong> ממשק וירטואלי נוצר בהצלחה.",
-            "virtual_interface_updated": "קטגורית <strong>{{param}}</strong> ממשק וירטואלי עודכן בהצלחה.",
+            "gateway_unconfigured": "ה <strong>{{param}}</strong> Gateway לא הוגדר בהצלחה.",
+            "nic_update": "ה <strong>{{param}}</strong> NIC עודכן בהצלחה.",
+            "nic_unconfigured": "ה <strong>{{param}}</strong> NIC כבר unconfigured בהצלחה.",
+            "nic_is": "ה <strong>{{param}}</strong> NIC הוא {{param2}}",
+            "virtual_interface_created": "ה <strong>{{param}}</strong> ממשק וירטואלי נוצר בהצלחה.",
+            "virtual_interface_updated": "ה <strong>{{param}}</strong> ממשק וירטואלי עודכן בהצלחה.",
             "virtual_interface_confirm_deleted": "האם אתה בטוח שברצונך למחוק את הממשק {{param}} הוירטואלי?",
-            "virtual_interface_deleted": "קטגורית <strong>{{param}}</strong> ממשק וירטואלי נמחק בהצלחה.",
-            "vlan_created": "קטגורית <strong>{{param}}</strong> VLAN נוצר בהצלחה.",
-            "vlan_update": "קטגורית <strong>{{param}}</strong> VLAN עודכן בהצלחה.",
+            "virtual_interface_deleted": "ה <strong>{{param}}</strong> ממשק וירטואלי נמחק בהצלחה.",
+            "virtual_interface_is": "ה <strong>{{param}}</strong> הממשק הווירטואלי הוא {{param2}}",
+            "vlan_created": "ה <strong>{{param}}</strong> VLAN נוצר בהצלחה.",
+            "vlan_update": "ה <strong>{{param}}</strong> VLAN עודכן בהצלחה.",
             "vlan_confirm_delete": "האם אתה בטוח שברצונך למחוק את {{param}} VLAN?",
-            "vlan_deleted": "קטגורית <strong>{{param}}</strong> VLAN נמחק בהצלחה.",
-            "vlan_is": "קטגורית <strong>{{param}}</strong> VLAN הוא {{param2}}"
+            "vlan_deleted": "ה <strong>{{param}}</strong> VLAN נמחק בהצלחה.",
+            "vlan_is": "ה <strong>{{param}}</strong> VLAN הוא {{param2}}"
         },
         "system": {
             "backup_created": "הגיבוי <strong>{{param}}</strong> נוצרה בהצלחה.",
@@ -451,8 +452,8 @@
             "backup_applied": "הגיבוי <strong>{{param}}</strong> הוחל בהצלחה.",
             "backup_downloaded": "הגיבוי <strong>{{backup}}</strong> הורד בהצלחה.",
             "log_downloaded": "היומן <strong>{{param}}</strong> הורד בהצלחה.",
-            "service_updated": "קטגורית <strong>{{param}}</strong> השירות עודכן בהצלחה.",
-            "support_save_downloaded": "קטגורית <strong> שמור תמיכה </strong> הורד בהצלחה",
+            "service_updated": "ה <strong>{{param}}</strong> השירות עודכן בהצלחה.",
+            "support_save_downloaded": "ה <strong> שמור תמיכה </strong> הורד בהצלחה",
             "user_updated": "המשתמש עודכן בהצלחה."
         },
         "certificate": {
@@ -510,5 +511,14 @@
             "success": "הצלחה!",
             "success_msg": "התחברת בהצלחה."
         }
+    },
+    "STATUS": {
+        "maintenance" : "להכניס תחזוקה",
+        "upped" : "למעלה",
+        "stopped": "נעצר",
+        "started": "החל",
+        "restarted": "הופעל מחדש",
+        "down": "מטה",
+        "up": " up"
     }
 }

@@ -34,7 +34,7 @@ export class ZevenetLoginComponent extends NbLoginComponent {
     super(service, options, cd, router);
 
     if (!this.translate.getDefaultLang()) {
-      const lang = localStorage.getItem('lang')
+      const lang = localStorage.getItem('lang');
       if (lang) {
         this.translate.setDefaultLang(lang);
       } else {
@@ -65,7 +65,7 @@ export class ZevenetLoginComponent extends NbLoginComponent {
       if (result.isSuccess()) {
         this.messages = result.getMessages();
         localStorage.setItem('hostname', result.getResponse().body.host);
-        
+
         this.zevenetAuthService.getLanguage()
         .subscribe((data) => {
           const selectedLang = data.params.language || 'en';

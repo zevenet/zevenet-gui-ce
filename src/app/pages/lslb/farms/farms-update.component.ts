@@ -109,7 +109,7 @@ export class FarmsUpdateComponent implements OnInit, OnDestroy {
   columns: Array<any> = [
     { field: 'id', header: 'ID', width: '5%', editable: false },
     { field: 'ip', header: 'IP', width: '25%', editable: true },
-    { field: 'port', header: 'Port', width: '16%', editable: true },    
+    { field: 'port', header: 'Port', width: '16%', editable: true },
     { field: 'priority', header: 'Priority', width: '16%', editable: true },
     { field: 'weight', header: 'Weight', width: '16%', editable: true },
   ];
@@ -205,8 +205,8 @@ export class FarmsUpdateComponent implements OnInit, OnDestroy {
         persistence: [this.farm.persistence],
         ttl: [this.farm.ttl, Validators.min(1)],
       }).controls, {updateOn: 'blur'});
-      this.getLangTranslated('LSLB.farms.l4xnat.service_settings.persistence', this.persistenceTypesL4);          
-      this.getLangTranslated('LSLB.farms.l4xnat.service_settings.algorithms', this.algorithms);                
+      this.getLangTranslated('LSLB.farms.l4xnat.service_settings.persistence', this.persistenceTypesL4);
+      this.getLangTranslated('LSLB.farms.l4xnat.service_settings.algorithms', this.algorithms);
     }
     this.farmguardian = this.farm.farmguardian;
     this.farmValues = this.globalForm.value;
@@ -241,9 +241,9 @@ export class FarmsUpdateComponent implements OnInit, OnDestroy {
           }
           Object.keys(this.resParams).forEach((key) => {
             if (key === 'certlist') {
-              this.globalForm.controls.certificate.setValue(this.resParams[key][0].file, { emitEvent: false });
-            } else {
-              this.globalForm.controls[key].setValue(this.resParams[key], { emitEvent: false });
+              this.globalForm.controls.certificate.setValue(this.resParams[key][0].file, {emitEvent: false});
+            } else if (this.globalForm.controls.hasOwnProperty(key)) {
+              this.globalForm.controls[key].setValue(this.resParams[key], {emitEvent: false});
             }
           }, this);
           this.valdiatorsByProfile(value);
@@ -411,7 +411,8 @@ export class FarmsUpdateComponent implements OnInit, OnDestroy {
                     this.name = this.resParams.newfarmname;
                     window.history.pushState({}, '', `/pages/lslb/farms/edit/${this.name}`);
                   }
-                  this.globalForm.controls[param].setValue(this.resParams[param], { emitEvent: false });
+                  if (this.globalForm.controls.hasOwnProperty(param))
+                    this.globalForm.controls[param].setValue(this.resParams[param], {emitEvent: false});
                 }
               }, this);
               this.farmValues = this.globalForm.value;
@@ -475,8 +476,17 @@ export class FarmsUpdateComponent implements OnInit, OnDestroy {
             const object = event.data;
             object.status = this.resAction.params.action;
             this.backends[this.backends.findIndex(i => i.id === event.data.id)] = object;
-            const actionMsg = event.action === 'maintenparamance' ? 'put in maintenance' : event.action + 'ed';
-            this.showMessageTranslated('SYSTEM_MESSAGES.farm.backend_maintenance', 'toast', event.data.id, actionMsg);
+            let actionMsg = action[0] === 'up' ? 'upped' : action[0];
+            this.service.translateLang('STATUS.' + actionMsg, actionMsg)
+              .subscribe((translated) => {
+                actionMsg = translated;
+                this.showMessageTranslated(
+                  'SYSTEM_MESSAGES.farm.backend_maintenance',
+                  'toast',
+                  event.data.id,
+                  actionMsg,
+                );
+              });
           });
     }
   }

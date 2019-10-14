@@ -405,7 +405,7 @@
             "delete": "農場 <strong>{{param}}</strong> 削除されました。",
             "delete_farm_service": "農場 <strong>{{param}}</strong> {{param2}}は正常に削除されました。",
             "confirm_delete": "{{param}}ファーム名を削除してもよろしいですか？",
-            "stop": "農場 <strong>{{param}}</strong> {{param2}}は正常に処理されました。",
+            "stop": "農場 <strong>{{param}}</strong> {{param2}}は成功しました。",
             "created": "農場 <strong>{{param}}</strong> 正常に作成されました。",
             "restarted": "農場 <strong>{{param}}</strong> 正常に再起動されました。",
             "backend_created": "バックエンドは正常に作成されました。",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "滞在期間の長さによって発生する <strong>{{param}}</strong> 仮想インターフェースは正常に更新されました。",
             "virtual_interface_confirm_deleted": "{{param}}仮想インターフェースを削除してよろしいですか？",
             "virtual_interface_deleted": "滞在期間の長さによって発生する <strong>{{param}}</strong> 仮想インターフェースは正常に削除されました。",
+            "virtual_interface_is": "滞在期間の長さによって発生する <strong>{{param}}</strong> 仮想インターフェイスは{{param2}}です",
             "vlan_created": "滞在期間の長さによって発生する <strong>{{param}}</strong> VLANは正常に作成されました。",
             "vlan_update": "滞在期間の長さによって発生する <strong>{{param}}</strong> VLANは正常に更新されました。",
             "vlan_confirm_delete": "{{param}} VLANを削除してよろしいですか？",
@@ -510,5 +511,14 @@
             "success": "成功！",
             "success_msg": "あなたは正常にログインしました。"
         }
+    },
+    "STATUS": {
+        "maintenance" : "メンテナンスする",
+        "upped" : "上がった",
+        "stopped": "停止",
+        "started": "開始",
+        "restarted": "再起動した",
+        "down": "ダウン",
+        "up": " up"
     }
 }

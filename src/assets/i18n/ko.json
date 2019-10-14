@@ -405,7 +405,7 @@
             "delete": "농장 <strong>{{param}}</strong> 삭제되었습니다.",
             "delete_farm_service": "농장 <strong>{{param}}</strong> {{param2}}이 (가) 성공적으로 삭제되었습니다.",
             "confirm_delete": "{{param}} 팜 이름을 삭제 하시겠습니까?",
-            "stop": "농장 <strong>{{param}}</strong> {{param2}}이 (가) 성공적으로 처리되었습니다.",
+            "stop": "농장 <strong>{{param}}</strong> {{param2}}되었습니다.",
             "created": "농장 <strong>{{param}}</strong> 이 (가) 성공적으로 생성되었습니다.",
             "restarted": "농장 <strong>{{param}}</strong> 다시 시작되었습니다.",
             "backend_created": "백엔드가 성공적으로 생성되었습니다.",
@@ -437,6 +437,7 @@
             "virtual_interface_updated": "  <strong>{{param}}</strong> 가상 인터페이스가 성공적으로 업데이트되었습니다.",
             "virtual_interface_confirm_deleted": "{{param}} 가상 인터페이스를 삭제 하시겠습니까?",
             "virtual_interface_deleted": "  <strong>{{param}}</strong> 가상 인터페이스가 성공적으로 삭제되었습니다.",
+            "virtual_interface_is": "  <strong>{{param}}</strong> 가상 인터페이스는 {{param2}}입니다.",
             "vlan_created": "  <strong>{{param}}</strong> VLAN이 성공적으로 생성되었습니다.",
             "vlan_update": "  <strong>{{param}}</strong> VLAN이 성공적으로 업데이트되었습니다.",
             "vlan_confirm_delete": "{{param}} VLAN을 삭제 하시겠습니까?",
@@ -510,5 +511,14 @@
             "success": "성공!",
             "success_msg": "귀하는 성공적으로 로그인되었습니다."
         }
+    },
+    "STATUS": {
+        "maintenance" : "정비하다",
+        "upped" : "올랐다",
+        "stopped": "정지",
+        "started": "시작",
+        "restarted": "다시 시작",
+        "down": "아래 (down)",
+        "up": " up"
     }
 }

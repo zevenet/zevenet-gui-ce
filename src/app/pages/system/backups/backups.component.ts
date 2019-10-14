@@ -47,12 +47,13 @@ export class BackupsComponent implements  OnInit {
   }
 
   showMessageTranslated(textlang: string, func: string, param?: any, param2?: any): any {
-    return this.service.interpolateLang(textlang, { param: param, param2: param2 })
+    return this.service.interpolateLang(textlang, { param: param.name, param2: param2 })
       .then(data => {
         if (func === 'toast') {
           this.service.showToast('success', '', data);
         } else if (func === 'window') {
-          return window.confirm(data);
+          if (window.confirm(data))
+            this.delete(param);
         }
       });
   }
@@ -63,18 +64,20 @@ export class BackupsComponent implements  OnInit {
       });
   }
 
+  delete(data) {
+    this.service.delete('system/backup', data.name)
+    .subscribe(
+      (resp) => { this.actionResp  =  resp; },
+      (error) => { },
+      () => {
+        this.backups.splice(this.backups.findIndex(i => i.name === data.name), 1);
+        this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_deleted', 'toast', data);
+      });
+  }
+
   onAction(event) {
     if (event.action === 'delete') {
-      if (this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_confirm_deleted', 'window', event.data.name)) {
-        this.service.delete('system/backup', event.data.name)
-        .subscribe(
-          (data) => { this.actionResp  =  data; },
-          (error) => { },
-          () => {
-            this.backups.splice(this.backups.findIndex(i => i.name === event.data.name), 1);
-            this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_deleted', 'toast', event.data.name);
-          });
-      }
+      this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_confirm_deleted', 'window', event.data);
     } else if (event.action === 'apply') {
       const param = {action: event.action};
       this.service.post('system/backup/' + event.data.name + '/actions', param)
@@ -82,7 +85,7 @@ export class BackupsComponent implements  OnInit {
           (data) => { this.actionResp  =  data; },
           (error) => { },
           () => {
-            this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_applied', 'toast', event.data.name);
+            this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_applied', 'toast', event.data);
           });
     } else {
       this.service.download('system/backup', event.data.name)
@@ -91,7 +94,7 @@ export class BackupsComponent implements  OnInit {
           (error) => { },
           () => {
             this.service.downloadFile(this.actionResp, event.data.name, 'application/tar+gzip');
-            this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_downloaded', 'toast', event.data.name);
+            this.showMessageTranslated('SYSTEM_MESSAGES.system.backup_downloaded', 'toast', event.data);
           });
     }
   }

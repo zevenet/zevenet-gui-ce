@@ -1,5 +1,5 @@
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Injectable, } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import 'rxjs';
 import { AlertService } from './zevenet-alert.service';

@@ -49,12 +49,13 @@ export class FarmsComponent implements  OnInit {
   }
 
   showMessageTranslated(textlang: string, func: string, param: any, param2?: any): any {
-    return this.service.interpolateLang(textlang, {param: param, param2: param2})
+    return this.service.interpolateLang(textlang, {param: param.farmname, param2: param2})
     .then(data =>  {
       if (func === 'toast') {
         this.service.showToast('success', '', data);
       } else if (func === 'window') {
-        return window.confirm(data);
+        if (window.confirm(data))
+          this.delete(param);
       }
     });
   }
@@ -66,18 +67,20 @@ export class FarmsComponent implements  OnInit {
       });
   }
 
+  delete(data) {
+    this.service.delete('farms', data.farmname)
+    .subscribe(
+      (resp) => { this.actionResp  =  resp; },
+      (error) => { },
+      () => {
+        this.farms.splice(this.farms.findIndex(i => i.farmname === data.farmname), 1);
+        this.showMessageTranslated('SYSTEM_MESSAGES.farm.delete', 'toast', data);
+      });
+  }
+
   onAction(event) {
     if (event.action === 'delete') {
-      if (this.showMessageTranslated('SYSTEM_MESSAGES.farm.confirm_delete', 'window', event.data.farmname)) {
-        this.service.delete('farms', event.data.farmname)
-        .subscribe(
-          (data) => { this.actionResp  =  data; },
-          (error) => { },
-          () => {
-            this.farms.splice(this.farms.findIndex(i => i.farmname === event.data.farmname), 1);
-            this.showMessageTranslated('SYSTEM_MESSAGES.farm.delete', 'toast', event.data.farmname);
-          });
-      }
+      this.showMessageTranslated('SYSTEM_MESSAGES.farm.confirm_delete', 'window', event.data);
     } else {
       this.service.actionFarm(event.data.farmname, event.action)
         .subscribe(
@@ -88,8 +91,12 @@ export class FarmsComponent implements  OnInit {
             object.status = this.actionResp.params.status;
 
             this.farms[this.farms.findIndex(i => i.farmname === event.data.farmname)] = object;
-            const actionMsg = event.action === 'stop' ? 'stopp' : event.action;
-            this.showMessageTranslated('SYSTEM_MESSAGES.farm.stop', 'toast', event.data.farmname, actionMsg);
+            let actionMsg = event.action === 'stop' ? 'stopped' : event.action + 'ed';
+            this.service.translateLang('STATUS.' + actionMsg, actionMsg)
+              .subscribe((translated) => {
+                actionMsg = translated;
+                this.showMessageTranslated('SYSTEM_MESSAGES.farm.stop', 'toast', event.data, actionMsg);
+              });
           });
     }
   }
